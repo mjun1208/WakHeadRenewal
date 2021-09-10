@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class Particle : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem _particle;
+    [SerializeField] protected ParticleSystem _particle;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _particle.Play();
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
-        if (_particle.isStopped)
+        if (!_particle.isPlaying)
         {
-
+            Global.PoolingManager.Despawn(this.gameObject);
         }
     }
 }
