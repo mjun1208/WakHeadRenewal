@@ -9,6 +9,7 @@ using UnityEngine;
 public class PoolingManager : IOnEventCallback
 {
     private Dictionary<string, Queue<GameObject>> _pool = new Dictionary<string, Queue<GameObject>>();
+    private Dictionary<string, Queue<GameObject>> _localPool = new Dictionary<string, Queue<GameObject>>();
 
     public PoolingManager()
     {
@@ -89,6 +90,70 @@ public class PoolingManager : IOnEventCallback
         }
 
         var pool = _pool[prefabName];
+
+        pool.Enqueue(targetObject);
+        targetObject.SetActive(false);
+    }
+
+    public GameObject LocalSpawn(string prefabName, Vector3 position, Quaternion rotation, bool isLocal = false, Action<GameObject> action = null)
+    {
+        if (!_localPool.ContainsKey(prefabName))
+        {
+            _localPool.Add(prefabName, new Queue<GameObject>());
+        }
+
+        var pool = _localPool[prefabName];
+
+        GameObject spawnObject = null;
+
+        if (pool.Count > 0)
+        {
+            spawnObject = pool.Dequeue();
+
+            spawnObject.transform.position = position;
+            spawnObject.transform.rotation = rotation;
+        }
+        else
+        {
+            spawnObject = GameObject.Instantiate(Global.ResourceManager.FindPrefab(prefabName), position, rotation);
+            spawnObject.name = prefabName;
+        }
+
+        if (isLocal)
+        {
+            object[] content = new object[] { prefabName, position, rotation };
+            RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.Others };
+            SendOptions sendOptions = new SendOptions { Reliability = true };
+            PhotonNetwork.RaiseEvent(Constant.Local_SPAWN_EVENT_ID, content, raiseEventOptions, sendOptions);
+        }
+
+        spawnObject.SetActive(true);
+
+        action?.Invoke(spawnObject);
+
+        return spawnObject;
+    }
+
+    public void LocalSpawnEvent(string prefabName, Vector3 position, Quaternion rotation)
+    {
+        var targetObject = LocalSpawn(prefabName, position, rotation, true);
+
+        targetObject.transform.position = position;
+        targetObject.transform.rotation = rotation;
+
+        targetObject.SetActive(true);
+    }
+
+    public void LocalDespawn(GameObject targetObject)
+    {
+        var prefabName = targetObject.name;
+
+        if (!_localPool.ContainsKey(prefabName))
+        {
+            _localPool.Add(prefabName, new Queue<GameObject>());
+        }
+
+        var pool = _localPool[prefabName];
 
         pool.Enqueue(targetObject);
         targetObject.SetActive(false);

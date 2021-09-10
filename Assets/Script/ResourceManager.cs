@@ -39,4 +39,16 @@ public class ResourceManager : MonoBehaviour
 
         IsLoaded = true;
     }
+
+    public GameObject FindPrefab(string name)
+    {
+        DefaultPool pool = PhotonNetwork.PrefabPool as DefaultPool;
+
+        if (!pool.ResourceCache.ContainsKey(name))
+        {
+            return null;
+        }
+
+        return pool.ResourceCache[name];
+    }
 }
