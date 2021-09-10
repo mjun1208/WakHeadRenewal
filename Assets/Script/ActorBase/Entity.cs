@@ -63,6 +63,9 @@ public abstract class Entity : MonoBehaviourPunCallbacks
         }
 
         _rigid.MovePosition(this.transform.position + dir * power * Time.deltaTime);
+
+        OnDamage();
+
         yield return new WaitForSeconds(stunTime);
 
         _stun = false;
@@ -83,6 +86,8 @@ public abstract class Entity : MonoBehaviourPunCallbacks
             yield return null;
         }
 
+        OnDamage();
+
         yield return null;
 
         _stun = false;
@@ -96,4 +101,9 @@ public abstract class Entity : MonoBehaviourPunCallbacks
 
         _stun = false;
     } 
+
+    public void OnDamage()
+    {
+        Global.PoolingManager.LocalSpawn("Blood", this.transform.position, this.transform.rotation);
+    }
 }
