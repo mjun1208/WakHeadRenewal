@@ -1,0 +1,608 @@
+fileFormatVersion: 2
+guid: 638289a42163b8b4c8a30d91efd8e653
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1038875588154174883
+    second: martine_skill1_0
+  - first:
+      213: 8433783540229321056
+    second: martine_skill1_1
+  - first:
+      213: 8665004561446410475
+    second: martine_skill1_2
+  - first:
+      213: -3399433420430798056
+    second: martine_skill1_3
+  - first:
+      213: 8431003397955655640
+    second: martine_skill1_4
+  - first:
+      213: -5808838546013680385
+    second: martine_skill1_5
+  - first:
+      213: 1327793134800472313
+    second: martine_skill1_6
+  - first:
+      213: -2341568847402435862
+    second: martine_skill1_7
+  - first:
+      213: -3722115354161088709
+    second: martine_skill1_8
+  - first:
+      213: 2193656377747132774
+    second: martine_skill1_9
+  - first:
+      213: 2081063840908282511
+    second: martine_skill1_10
+  - first:
+      213: 5832372685012130844
+    second: martine_skill1_11
+  - first:
+      213: 8807916608790075463
+    second: martine_skill1_12
+  - first:
+      213: -4677937428540250553
+    second: martine_skill1_13
+  - first:
+      213: -8931000309904293034
+    second: martine_skill1_14
+  - first:
+      213: -5019310300970634978
+    second: martine_skill1_15
+  - first:
+      213: -4555163856722855764
+    second: martine_skill1_16
+  - first:
+      213: -6278156101357696235
+    second: martine_skill1_17
+  - first:
+      213: 1212768434641464809
+    second: martine_skill1_18
+  - first:
+      213: -1132299009212036043
+    second: martine_skill1_19
+  - first:
+      213: -8215908382261745667
+    second: martine_skill1_20
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: martine_skill1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 135
+        height: 41
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.41463414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ad21cdd7d3da6e00800000000000000
+      internalID: 1038875588154174883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martine_skill1_1
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 0
+        width: 135
+        height: 41
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.41463414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 061b7eb1271da0570800000000000000
+      internalID: 8433783540229321056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martine_skill1_2
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 0
+        width: 135
+        height: 41
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.41463414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be8172e4db7404870800000000000000
+      internalID: 8665004561446410475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martine_skill1_3
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 0
+        width: 135
+        height: 41
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.41463414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81391a9a059c2d0d0800000000000000
+      internalID: -3399433420430798056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martine_skill1_4
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 0
+        width: 135
+        height: 41
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.41463414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d7124bcbe0f00570800000000000000
+      internalID: 8431003397955655640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martine_skill1_5
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 0
+        width: 135
+        height: 41
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.41463414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffc02437e1cd26fa0800000000000000
+      internalID: -5808838546013680385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martine_skill1_6
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 0
+        width: 135
+        height: 41
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.41463414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f80cf632d44d6210800000000000000
+      internalID: 1327793134800472313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martine_skill1_7
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 0
+        width: 135
+        height: 41
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.41463414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeaf4791a83118fd0800000000000000
+      internalID: -2341568847402435862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martine_skill1_8
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 0
+        width: 135
+        height: 41
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.41463414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3773365ec3685cc0800000000000000
+      internalID: -3722115354161088709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martine_skill1_9
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 0
+        width: 135
+        height: 41
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.41463414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66153e26ade617e10800000000000000
+      internalID: 2193656377747132774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martine_skill1_10
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 0
+        width: 135
+        height: 41
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.41463414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8a8f30998c61ec10800000000000000
+      internalID: 2081063840908282511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martine_skill1_11
+      rect:
+        serializedVersion: 2
+        x: 1485
+        y: 0
+        width: 135
+        height: 41
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.41463414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1cd6d74e00c0f050800000000000000
+      internalID: 5832372685012130844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martine_skill1_12
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 0
+        width: 135
+        height: 41
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.41463414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74812364d710c3a70800000000000000
+      internalID: 8807916608790075463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martine_skill1_13
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 0
+        width: 135
+        height: 41
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.41463414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 746aa5a81b0a41fb0800000000000000
+      internalID: -4677937428540250553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martine_skill1_14
+      rect:
+        serializedVersion: 2
+        x: 1890
+        y: 0
+        width: 135
+        height: 41
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.41463414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 653404f5986be0480800000000000000
+      internalID: -8931000309904293034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martine_skill1_15
+      rect:
+        serializedVersion: 2
+        x: 2025
+        y: 0
+        width: 135
+        height: 41
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.41463414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e11bf2defd3d75ab0800000000000000
+      internalID: -5019310300970634978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martine_skill1_16
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 0
+        width: 135
+        height: 41
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.41463414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca8f55a4b9ec8c0c0800000000000000
+      internalID: -4555163856722855764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martine_skill1_17
+      rect:
+        serializedVersion: 2
+        x: 2295
+        y: 0
+        width: 135
+        height: 41
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.41463414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51b8f16f9428fd8a0800000000000000
+      internalID: -6278156101357696235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martine_skill1_18
+      rect:
+        serializedVersion: 2
+        x: 2430
+        y: 0
+        width: 135
+        height: 41
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.41463414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ed6c9d377e94d010800000000000000
+      internalID: 1212768434641464809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martine_skill1_19
+      rect:
+        serializedVersion: 2
+        x: 2565
+        y: 0
+        width: 135
+        height: 41
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.41463414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53cc360ec044940f0800000000000000
+      internalID: -1132299009212036043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martine_skill1_20
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 0
+        width: 135
+        height: 41
+      alignment: 9
+      pivot: {x: 0.15555556, y: 0.41463414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df762282bda3bfd80800000000000000
+      internalID: -8215908382261745667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

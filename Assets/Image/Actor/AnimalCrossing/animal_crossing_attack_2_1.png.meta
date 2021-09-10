@@ -1,0 +1,416 @@
+fileFormatVersion: 2
+guid: 7b8bce27104c524429d1f917ba0c5af9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 525046464458272643
+    second: animal_crossing_attack_2_1_0
+  - first:
+      213: 7198904296482374060
+    second: animal_crossing_attack_2_1_1
+  - first:
+      213: -7978601477047220856
+    second: animal_crossing_attack_2_1_2
+  - first:
+      213: 7098057778957714298
+    second: animal_crossing_attack_2_1_3
+  - first:
+      213: 7243480135323194686
+    second: animal_crossing_attack_2_1_4
+  - first:
+      213: 912954244708856629
+    second: animal_crossing_attack_2_1_5
+  - first:
+      213: 1897033819303809799
+    second: animal_crossing_attack_2_1_6
+  - first:
+      213: -7136363751334187871
+    second: animal_crossing_attack_2_1_7
+  - first:
+      213: 2652586295337323639
+    second: animal_crossing_attack_2_1_8
+  - first:
+      213: 7358264388160765798
+    second: animal_crossing_attack_2_1_9
+  - first:
+      213: 239532203788369719
+    second: animal_crossing_attack_2_1_10
+  - first:
+      213: 7754255033343523250
+    second: animal_crossing_attack_2_1_11
+  - first:
+      213: -8045129476642835135
+    second: animal_crossing_attack_2_1_12
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: animal_crossing_attack_2_1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 153
+        height: 91
+      alignment: 9
+      pivot: {x: 0.37254903, y: 0.26373628}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38f2c944af6594700800000000000000
+      internalID: 525046464458272643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animal_crossing_attack_2_1_1
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 0
+        width: 153
+        height: 91
+      alignment: 9
+      pivot: {x: 0.37254903, y: 0.26373628}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca18dd3f055a7e360800000000000000
+      internalID: 7198904296482374060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animal_crossing_attack_2_1_2
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 0
+        width: 153
+        height: 91
+      alignment: 9
+      pivot: {x: 0.37254903, y: 0.26373628}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8858134aa30564190800000000000000
+      internalID: -7978601477047220856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animal_crossing_attack_2_1_3
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 0
+        width: 153
+        height: 91
+      alignment: 9
+      pivot: {x: 0.37254903, y: 0.26373628}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7309fd51fd518260800000000000000
+      internalID: 7098057778957714298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animal_crossing_attack_2_1_4
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 0
+        width: 153
+        height: 91
+      alignment: 9
+      pivot: {x: 0.37254903, y: 0.26373628}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3599833ec2068460800000000000000
+      internalID: 7243480135323194686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animal_crossing_attack_2_1_5
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 0
+        width: 153
+        height: 91
+      alignment: 9
+      pivot: {x: 0.37254903, y: 0.26373628}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5337e0c6c077bac00800000000000000
+      internalID: 912954244708856629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animal_crossing_attack_2_1_6
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 0
+        width: 153
+        height: 91
+      alignment: 9
+      pivot: {x: 0.37254903, y: 0.26373628}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 703918e253e935a10800000000000000
+      internalID: 1897033819303809799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animal_crossing_attack_2_1_7
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 0
+        width: 153
+        height: 91
+      alignment: 9
+      pivot: {x: 0.37254903, y: 0.26373628}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ac60cd6afa86fc90800000000000000
+      internalID: -7136363751334187871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animal_crossing_attack_2_1_8
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 0
+        width: 153
+        height: 91
+      alignment: 9
+      pivot: {x: 0.37254903, y: 0.26373628}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77c86ad7e21efc420800000000000000
+      internalID: 2652586295337323639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animal_crossing_attack_2_1_9
+      rect:
+        serializedVersion: 2
+        x: 1377
+        y: 0
+        width: 153
+        height: 91
+      alignment: 9
+      pivot: {x: 0.37254903, y: 0.26373628}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66fbabba97ecd1660800000000000000
+      internalID: 7358264388160765798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animal_crossing_attack_2_1_10
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 0
+        width: 153
+        height: 91
+      alignment: 9
+      pivot: {x: 0.37254903, y: 0.26373628}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73f721f254df25300800000000000000
+      internalID: 239532203788369719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animal_crossing_attack_2_1_11
+      rect:
+        serializedVersion: 2
+        x: 1683
+        y: 0
+        width: 153
+        height: 91
+      alignment: 9
+      pivot: {x: 0.37254903, y: 0.26373628}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b9b9387ed5ac9b60800000000000000
+      internalID: 7754255033343523250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: animal_crossing_attack_2_1_12
+      rect:
+        serializedVersion: 2
+        x: 1836
+        y: 0
+        width: 153
+        height: 91
+      alignment: 9
+      pivot: {x: 0.37254903, y: 0.26373628}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 145fdacad55f95090800000000000000
+      internalID: -8045129476642835135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

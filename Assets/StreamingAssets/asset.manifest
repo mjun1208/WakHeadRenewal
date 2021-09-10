@@ -1,0 +1,80 @@
+ManifestFileVersion: 0
+CRC: 3431133653
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0aec9cd7b3d129f4f11b240f6f9c7ac8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f8b722d9b7e30081310d84b2ad69dc39
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 50
+  Script: {instanceID: 0}
+- Class: 58
+  Script: {instanceID: 0}
+- Class: 61
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 96
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 35144820bcc25444bb8f0fd767d9423e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8069ffa6ab7df7340ad5ce0c3da47526, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 86051488f7df1a84c9bb8bb6839a18d7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ee23028996172e34f8da466afe05f457, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 199a051c1e3b666419a8a04a3050e872, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: cba62c4cdb069df46bcf5241eff77e31, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c5fc2f5da04b38e4897ecc07d9dfdcb6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fb0330aef6ae24c438e36939178ea1fb, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 715ca9cf04981fd41991727776857d51, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4ce6e1df3bd4d454da47664251cd7f1e, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Prefab/Actor.prefab
+- Assets/Prefab/Orb.prefab
+- Assets/Prefab/Blood.prefab
+- Assets/Prefab/Normal.prefab
+- Assets/Prefab/Vent.prefab
+- Assets/Prefab/Ahri.prefab
+- Assets/Prefab/Martine.prefab
+- Assets/Prefab/Heart.prefab
+- Assets/Prefab/AnimalCrossing.prefab
+Dependencies: []
