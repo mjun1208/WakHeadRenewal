@@ -104,6 +104,6 @@ public abstract class Entity : MonoBehaviourPunCallbacks
 
     public void OnDamage()
     {
-        Global.PoolingManager.LocalSpawn("Blood", this.transform.position, this.transform.rotation);
+        Global.PoolingManager.LocalSpawn("Blood", this.transform.position, this.transform.rotation , true);
     }
 }

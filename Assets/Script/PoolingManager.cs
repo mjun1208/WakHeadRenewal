@@ -119,7 +119,7 @@ public class PoolingManager : IOnEventCallback
             spawnObject.name = prefabName;
         }
 
-        if (isLocal)
+        if (!isLocal)
         {
             object[] content = new object[] { prefabName, position, rotation };
             RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.Others };
@@ -179,6 +179,16 @@ public class PoolingManager : IOnEventCallback
 
             int targetID = (int)data[0];
             DespawnEvent(targetID);
+        }
+        else if (eventCode == Constant.Local_SPAWN_EVENT_ID)
+        {
+            object[] data = (object[])photonEvent.CustomData;
+
+            string targetName = (string)data[0];
+            Vector3 targetPostion = (Vector3)data[1];
+            Quaternion targetRotation = (Quaternion)data[2];
+
+            LocalSpawnEvent(targetName, targetPostion, targetRotation);
         }
     }
 }
