@@ -106,8 +106,11 @@ public abstract class Actor : Entity, IPunObservable
 
         AttackInput();
 
+        if (!_isAttackInput)
+        {
         Skill_1Input();
         Skill_2Input();
+        }
     } 
 
     private void MoveInput()
