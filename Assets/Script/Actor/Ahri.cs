@@ -66,14 +66,18 @@ public class Ahri : Actor
 
         if (_isAttackInput)
         {
-            if (MyOrb == null)
+            if (MyOrb != null)
             {
-                MyOrb = Global.PoolingManager.Spawn("Orb", this.transform.position, Quaternion.identity);
-                MyOrb.SetActive(false);
+                if (!MyOrb.activeSelf)
+                {
+                    MyOrb = null;
+                }
             }
 
-            if (!MyOrb.activeSelf)
+            if (MyOrb == null)
             {
+                MyOrb = Global.PoolingManager.LocalSpawn("Orb", this.transform.position, Quaternion.identity, false);
+
                 base.Attack();
                 MyOrb.SetActive(true);
                 MyOrb.GetComponent<Orb>().SetInfo(this.gameObject, GetAttackDir());

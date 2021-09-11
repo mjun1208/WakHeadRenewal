@@ -54,6 +54,6 @@ public class Orb : MonoBehaviour
         }
 
         _trail.Clear();
-        this.gameObject.SetActive(false);
+        Global.PoolingManager.LocalDespawn(this.gameObject);
     }
 }
