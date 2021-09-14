@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba62c4cdb069df46bcf5241eff77e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onwerObject: {fileID: 2231056166769122086}
+  _ownerObject: {fileID: 2231056166769122086}
 --- !u!1 &2231056166769122086
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,7 +416,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.073745, y: 0.3112057}
+  m_Size: {x: 2.073745, y: 0.1}
   m_EdgeRadius: 0
 --- !u!114 &5633362897846998840
 MonoBehaviour:
@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba62c4cdb069df46bcf5241eff77e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onwerObject: {fileID: 2231056166769122086}
+  _ownerObject: {fileID: 2231056166769122086}
 --- !u!1 &6590504831385682913
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,4 +501,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba62c4cdb069df46bcf5241eff77e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onwerObject: {fileID: 2231056166769122086}
+  _ownerObject: {fileID: 2231056166769122086}
