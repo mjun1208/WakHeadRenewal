@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2467212841
+CRC: 2000704286
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: af6a70039e2e8038b78271308dfd4e10
+    Hash: 013b7a1eec8154a22a5a82276bcc0de3
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 8bce8cc05ad811494f2ac8209b5dd3be
+    Hash: bb9e4dbca41461717942c822d91f4ca0
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -34,8 +34,6 @@ ClassTypes:
 - Class: 96
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 11500000, guid: 35144820bcc25444bb8f0fd767d9423e, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: d5fbc760242446a4b906f71e9ead084f, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
@@ -44,21 +42,23 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 86051488f7df1a84c9bb8bb6839a18d7, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: ee23028996172e34f8da466afe05f457, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 199a051c1e3b666419a8a04a3050e872, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: cba62c4cdb069df46bcf5241eff77e31, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: c5fc2f5da04b38e4897ecc07d9dfdcb6, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: fb0330aef6ae24c438e36939178ea1fb, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 715ca9cf04981fd41991727776857d51, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 4ce6e1df3bd4d454da47664251cd7f1e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f3f8cdc4acac4af4d936fd6904e8655b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3b03f05536d32304b94e42d47cbfae8c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 168e9b5904e38754f9c826b3da072612, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 217d6ce9f63fce24dae6af62ec87d77b, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 198
@@ -70,13 +70,15 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/Prefab/Actor.prefab
-- Assets/Prefab/Orb.prefab
+- Assets/Prefab/Actor/Actor.prefab
+- Assets/Prefab/Actor_Sub/Ahri_Orb.prefab
+- Assets/Prefab/Actor/Dummy.prefab
 - Assets/Prefab/Blood.prefab
-- Assets/Prefab/Normal.prefab
-- Assets/Prefab/Vent.prefab
-- Assets/Prefab/Ahri.prefab
-- Assets/Prefab/Martine.prefab
-- Assets/Prefab/Heart.prefab
-- Assets/Prefab/AnimalCrossing.prefab
+- Assets/Prefab/Actor/Normal.prefab
+- Assets/Prefab/Actor_Sub/Martine_Vent.prefab
+- Assets/Prefab/Actor_Sub/Normal_Bullet.prefab
+- Assets/Prefab/Actor/Ahri.prefab
+- Assets/Prefab/Actor/Martine.prefab
+- Assets/Prefab/Actor_Sub/Ahri_Heart.prefab
+- Assets/Prefab/Actor/AnimalCrossing.prefab
 Dependencies: []
