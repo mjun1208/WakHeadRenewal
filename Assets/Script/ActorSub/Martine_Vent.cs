@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Vent : MonoBehaviour, IPunObservable
+public class Martine_Vent : MonoBehaviour, IPunObservable
 {
     [SerializeField] private Animator _animator;
 

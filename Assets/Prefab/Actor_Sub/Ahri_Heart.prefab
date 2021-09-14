@@ -14,10 +14,9 @@ GameObject:
   - component: {fileID: 6272946077840879540}
   - component: {fileID: 2490838798214619183}
   - component: {fileID: 6062299502524747314}
-  - component: {fileID: -2386915624887693290}
-  - component: {fileID: -3764579272189227859}
-  m_Layer: 0
-  m_Name: Heart
+  - component: {fileID: 6636007803240034150}
+  m_Layer: 12
+  m_Name: Ahri_Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,11 +45,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6272946077840879541}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee23028996172e34f8da466afe05f457, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b03f05536d32304b94e42d47cbfae8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _smoothSync: {fileID: 0}
   _rigid: {fileID: 6062299502524747314}
+  _attackRange: {fileID: 6636007803240034150}
 --- !u!212 &6272946077840879543
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -131,7 +130,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -158,7 +157,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-2386915624887693290
+--- !u!114 &6636007803240034150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,30 +166,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6272946077840879541}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Script: {fileID: 11500000, guid: cba62c4cdb069df46bcf5241eff77e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents:
-  - {fileID: -3764579272189227859}
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
---- !u!114 &-3764579272189227859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6272946077840879541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35144820bcc25444bb8f0fd767d9423e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SmoothingDelay: 5
+  _ownerObject: {fileID: 0}

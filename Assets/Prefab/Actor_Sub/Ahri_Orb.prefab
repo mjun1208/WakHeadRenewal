@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 2506186926558315763}
   - component: {fileID: 1399694860379259894}
   - component: {fileID: 5040459752322318132}
-  m_Layer: 0
-  m_Name: Orb
+  - component: {fileID: -3238042206114740463}
+  m_Layer: 12
+  m_Name: Ahri_Orb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,11 +46,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7596604444200939382}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb0330aef6ae24c438e36939178ea1fb, type: 3}
+  m_Script: {fileID: 11500000, guid: f3f8cdc4acac4af4d936fd6904e8655b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rigid: {fileID: 5040459752322318132}
   _trail: {fileID: 2506186926558315763}
+  _attackRange: {fileID: -3238042206114740463}
 --- !u!212 &7596604444200939380
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -263,3 +265,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-3238042206114740463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7596604444200939382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba62c4cdb069df46bcf5241eff77e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
