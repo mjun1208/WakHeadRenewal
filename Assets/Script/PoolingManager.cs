@@ -95,7 +95,7 @@ public class PoolingManager : IOnEventCallback
         targetObject.SetActive(false);
     }
 
-    public GameObject LocalSpawn(string prefabName, Vector3 position, Quaternion rotation, bool isLocal = false, Action<GameObject> action = null)
+    public GameObject LocalSpawn(string prefabName, Vector3 position, Quaternion rotation, bool isLocal = false)
     {
         if (!_localPool.ContainsKey(prefabName))
         {
@@ -121,15 +121,13 @@ public class PoolingManager : IOnEventCallback
 
         if (!isLocal)
         {
-            object[] content = new object[] { prefabName, position, rotation };
+            object[] content = new object[] { prefabName, position, rotation};
             RaiseEventOptions raiseEventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.Others };
             SendOptions sendOptions = new SendOptions { Reliability = true };
             PhotonNetwork.RaiseEvent(Constant.Local_SPAWN_EVENT_ID, content, raiseEventOptions, sendOptions);
         }
 
         spawnObject.SetActive(true);
-
-        action?.Invoke(spawnObject);
 
         return spawnObject;
     }
