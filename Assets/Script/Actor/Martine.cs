@@ -5,9 +5,9 @@ using UnityEngine;
 public class Martine : Actor
 {
     [SerializeField] private GameObject VentPrefab;
-    private List<Vent> _myVentList = new List<Vent>();
+    private List<Martine_Vent> _myVentList = new List<Martine_Vent>();
 
-    private Vent _currentVent = null;
+    private Martine_Vent _currentVent = null;
     private bool _isOnVent = false;
 
     private List<Collider2D> _colliedVent = new List<Collider2D>();
@@ -60,8 +60,8 @@ public class Martine : Actor
     {
         if (_currentVent == null)
         {
-            var newVent = Global.PoolingManager.Spawn("Vent", this.transform.position, this.transform.rotation);
-            var newVentScript = newVent.GetComponent<Vent>();
+            var newVent = Global.PoolingManager.Spawn("Martine_Vent", this.transform.position, this.transform.rotation);
+            var newVentScript = newVent.GetComponent<Martine_Vent>();
             _myVentList.Add(newVentScript);
         }
         else
@@ -147,7 +147,7 @@ public class Martine : Actor
     {
         if (_currentVent == null && _colliedVent.Count > 0)
         {
-            _currentVent = _colliedVent[0].GetComponent<Vent>();
+            _currentVent = _colliedVent[0].GetComponent<Martine_Vent>();
         }
     }
 

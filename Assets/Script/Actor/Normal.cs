@@ -53,5 +53,15 @@ public class Normal : Actor
         {
             return;
         }
+
+        photonView.RPC("ShootBullet", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void ShootBullet()
+    {
+        var newBullet = Global.PoolingManager.LocalSpawn("Normal_Bullet", this.transform.position, Quaternion.identity, true);
+
+        newBullet.GetComponent<Normal_Bullet>().SetInfo(this.gameObject, GetAttackDir());
     }
 }

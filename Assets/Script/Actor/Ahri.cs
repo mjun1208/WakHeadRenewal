@@ -46,12 +46,7 @@ public class Ahri : Actor
             return;
         }
 
-        var newHeart = Global.PoolingManager.Spawn("Heart", this.transform.position, Quaternion.identity, (heart =>
-        {
-            heart.GetComponent<Heart>().SetInfo(GetAttackDir());
-        }));
-
-        //newHeart.GetComponent<Heart>().SetInfo(GetAttackDir());
+        photonView.RPC("ShootHeart", RpcTarget.All);
     }
 
     protected override void Attack()
@@ -76,11 +71,7 @@ public class Ahri : Actor
 
             if (MyOrb == null)
             {
-                MyOrb = Global.PoolingManager.LocalSpawn("Orb", this.transform.position, Quaternion.identity, false);
-
-                base.Attack();
-                MyOrb.SetActive(true);
-                MyOrb.GetComponent<Orb>().SetInfo(this.gameObject, GetAttackDir());
+                photonView.RPC("ShootOrb", RpcTarget.All);
             }
         }
     }
@@ -88,5 +79,23 @@ public class Ahri : Actor
     private void SpiritRush()
     {
         _rigid.MovePosition(transform.position + GetAttackDir() * _rushSpeed * Time.deltaTime);
+    }
+
+    [PunRPC]
+    public void ShootOrb()
+    {
+        MyOrb = Global.PoolingManager.LocalSpawn("Ahri_Orb", this.transform.position, Quaternion.identity, true);
+
+        base.Attack();
+        MyOrb.SetActive(true);
+        MyOrb.GetComponent<Ahri_Orb>().SetInfo(this.gameObject, GetAttackDir());
+    }
+
+    [PunRPC]
+    public void ShootHeart()
+    {
+        var newHeart = Global.PoolingManager.LocalSpawn("Ahri_Heart", this.transform.position, Quaternion.identity, true);
+
+        newHeart.GetComponent<Ahri_Heart>().SetInfo(this.gameObject, GetAttackDir());
     }
 }
