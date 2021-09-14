@@ -100,7 +100,18 @@ public abstract class Entity : MonoBehaviourPunCallbacks
         yield return new WaitForSeconds(stunTime);
 
         _stun = false;
-    } 
+    }
+
+    public void Damaged()
+    {
+        photonView.RPC("OnDamageRPC", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void OnDamageRPC()
+    {
+        OnDamage();
+    }
 
     public void OnDamage()
     {
