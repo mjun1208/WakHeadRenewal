@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackRange : MonoBehaviour
 {
-    [SerializeField] private GameObject _onwerObject;
+    [SerializeField] private GameObject _ownerObject;
     public List<GameObject> CollidedObjectList { get; private set; } = new List<GameObject>();
 
     private void OnEnable()
@@ -17,9 +17,14 @@ public class AttackRange : MonoBehaviour
         CollidedObjectList.Clear();
     }
 
+    public void SetOwner(GameObject owner)
+    {
+        _ownerObject = owner;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!_onwerObject.Equals(collision.gameObject) && !CollidedObjectList.Contains(collision.gameObject))
+        if (!_ownerObject.Equals(collision.gameObject) && !CollidedObjectList.Contains(collision.gameObject))
         {
             CollidedObjectList.Add(collision.gameObject);
         }
