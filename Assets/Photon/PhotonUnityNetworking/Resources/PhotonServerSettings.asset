@@ -50,6 +50,10 @@ MonoBehaviour:
   - KnockBackRPC
   - StunRPC
   - DespawnRPC
+  - ShootOrb
+  - ShootHeart
+  - ShootBullet
+  - OnDamageRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
