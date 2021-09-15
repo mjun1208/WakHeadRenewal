@@ -81,7 +81,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1637838892813352032}
   - component: {fileID: 1637838892813352060}
-  - component: {fileID: 1637838892813352063}
+  - component: {fileID: 7408099084571008619}
   - component: {fileID: 1637838892813352035}
   - component: {fileID: 1637838892813352062}
   - component: {fileID: 1637838892813352033}
@@ -103,7 +103,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637838892813352037}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5978601, y: -1.17717, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_Children:
   - {fileID: 9073931775802607346}
@@ -131,13 +131,13 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 1637838892813352063}
+  - {fileID: 7408099084571008619}
   - {fileID: 1637838892813352033}
   - {fileID: 131184708059614331}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &1637838892813352063
+--- !u!114 &7408099084571008619
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1637838892813352037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86051488f7df1a84c9bb8bb6839a18d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e96768e5e335dc44b8d299240f29602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rigid: {fileID: 1637838892813352062}
