@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2000704286
+CRC: 2581102292
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 013b7a1eec8154a22a5a82276bcc0de3
+    Hash: 85d3c70021fb52fdd56b1c687c4b75c8
   TypeTreeHash:
     serializedVersion: 2
-    Hash: bb9e4dbca41461717942c822d91f4ca0
+    Hash: 009babb90d426323a80272f35cd5bd0b
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -38,9 +38,17 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: f3f8cdc4acac4af4d936fd6904e8655b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3b03f05536d32304b94e42d47cbfae8c, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 8069ffa6ab7df7340ad5ce0c3da47526, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 86051488f7df1a84c9bb8bb6839a18d7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 168e9b5904e38754f9c826b3da072612, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 217d6ce9f63fce24dae6af62ec87d77b, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 199a051c1e3b666419a8a04a3050e872, type: 3}
 - Class: 114
@@ -52,13 +60,9 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 4ce6e1df3bd4d454da47664251cd7f1e, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: f3f8cdc4acac4af4d936fd6904e8655b, type: 3}
+  Script: {fileID: 11500000, guid: 6e96768e5e335dc44b8d299240f29602, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 3b03f05536d32304b94e42d47cbfae8c, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 168e9b5904e38754f9c826b3da072612, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 217d6ce9f63fce24dae6af62ec87d77b, type: 3}
+  Script: {fileID: 11500000, guid: 76af7810b411c9f47a586c7b4c14d0a5, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 198
@@ -74,11 +78,15 @@ Assets:
 - Assets/Prefab/Actor_Sub/Ahri_Orb.prefab
 - Assets/Prefab/Actor/Dummy.prefab
 - Assets/Prefab/Blood.prefab
+- Assets/Prefab/Actor_Sub/Sans_Gaster.prefab
 - Assets/Prefab/Actor/Normal.prefab
 - Assets/Prefab/Actor_Sub/Martine_Vent.prefab
 - Assets/Prefab/Actor_Sub/Normal_Bullet.prefab
+- Assets/Prefab/Actor_Sub/Sans_Gaster_Blast.prefab
 - Assets/Prefab/Actor/Ahri.prefab
+- Assets/Prefab/Actor_Sub/Sans_Bone.prefab
 - Assets/Prefab/Actor/Martine.prefab
+- Assets/Prefab/Actor/Sans.prefab
 - Assets/Prefab/Actor_Sub/Ahri_Heart.prefab
 - Assets/Prefab/Actor/AnimalCrossing.prefab
 Dependencies: []
