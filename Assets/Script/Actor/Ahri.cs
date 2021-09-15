@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class Ahri : Actor
 {
-    [SerializeField] private GameObject OrbPrefab;
-    [SerializeField] private GameObject HeartPrefab;
-
     private GameObject MyOrb;
 
     private float _rushSpeed = 15f;
