@@ -8,6 +8,8 @@ public class AnimalCrossing_Fish : MonoBehaviour
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private List<Sprite> _fishSprites;
 
+    private int _currentFishIndex = 0;
+
     public void SetActive(bool isActive)
     {
         this.gameObject.SetActive(isActive);
@@ -18,9 +20,23 @@ public class AnimalCrossing_Fish : MonoBehaviour
         }
     }
 
+    public void SelectFish(int index)
+    {
+        _currentFishIndex = index;
+
+        _renderer.sprite = _fishSprites[index];
+    }
+
+    public int GetMyFishIndex()
+    {
+        return _currentFishIndex;
+    }
+
     public void SelectRandomFish()
     {
-        var randomIndex = Random.Range(0, _fishSprites.Count - 1);
+        var randomIndex = Random.Range(0, _fishSprites.Count);
+
+        _currentFishIndex = randomIndex;
 
         _renderer.sprite = _fishSprites[randomIndex];
     }
