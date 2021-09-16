@@ -101,6 +101,8 @@ public abstract class Entity : MonoBehaviourPunCallbacks
             _stun = true;
         }
 
+        OnDamage();
+
         var targetPosition = this.transform.position + dir * power;
 
         float distance = float.MaxValue;
@@ -109,12 +111,10 @@ public abstract class Entity : MonoBehaviourPunCallbacks
         {
             distance = Vector3.Distance(this.transform.position, targetPosition);
 
-            this.transform.position = Vector3.Lerp(this.transform.position, targetPosition, Time.deltaTime * power);
+            this.transform.position = Vector3.Lerp(this.transform.position, targetPosition, Time.deltaTime * 15f);
 
             yield return null;
         }
-
-        OnDamage();
 
         yield return new WaitForSeconds(stunTime);
 
