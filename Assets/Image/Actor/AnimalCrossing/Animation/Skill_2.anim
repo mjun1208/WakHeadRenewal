@@ -67,7 +67,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: FishPivot/AniamlCrossing_Fish
+    path: FishPivot/AnimalCrossing_Fish
     classID: 1
     script: {fileID: 0}
   m_PPtrCurves:
@@ -126,7 +126,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 888693256
+      path: 3593410596
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -273,7 +273,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: FishPivot/AniamlCrossing_Fish
+    path: FishPivot/AnimalCrossing_Fish
     classID: 1
     script: {fileID: 0}
   m_EulerEditorCurves: []

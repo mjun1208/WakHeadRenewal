@@ -449,7 +449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6406161044385746909
 Transform:
   m_ObjectHideFlags: 0
@@ -571,7 +571,7 @@ PrefabInstance:
     - target: {fileID: 5856506858243896917, guid: 06562d13745f8a540b524c4434ff89c0,
         type: 3}
       propertyPath: m_Name
-      value: AniamlCrossing_Fish
+      value: AnimalCrossing_Fish
       objectReference: {fileID: 0}
     - target: {fileID: 5856506858243896917, guid: 06562d13745f8a540b524c4434ff89c0,
         type: 3}
