@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AnimalCrossing : Actor
 {
+    [SerializeField] private AnimalCrossing_Fish myFish;
+
     private bool _isCasting = false;
     private bool _isBite = false;
     private IEnumerator CastingCoroutine = null;
@@ -63,6 +65,9 @@ public class AnimalCrossing : Actor
 
             base.OnSkill_1();
 
+            myFish.SelectRandomFish();
+            myFish.SetActive(false);
+
             if (_isSkill_1)
             {
                 if (_onSkillCoroutine != null)
@@ -109,7 +114,9 @@ public class AnimalCrossing : Actor
             }
 
             _isCasting = false;
-     
+
+            myFish.SetActive(false);
+
             SkillCancle();
             _animator.SetBool("IsSkill_1_1", false);
             _animator.SetBool("IsSkill_1_2", false);
@@ -139,6 +146,8 @@ public class AnimalCrossing : Actor
 
         _isBite = true;
 
+        myFish.SetActive(false);
+
         CastingCoroutine = null;
     }
 
@@ -165,6 +174,8 @@ public class AnimalCrossing : Actor
         _isDoingSkill = false;
    
         _isBite = false;
+
+        myFish.SetActive(false);
 
         _onSkillCoroutine = null;
     }
