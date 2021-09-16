@@ -340,16 +340,16 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: IsWalk
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: IsAttack
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: IsSkill_1
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: IsSkill_2
   - Type: 4
     SynchronizeType: 0
