@@ -12,6 +12,8 @@ public abstract class Entity : MonoBehaviourPunCallbacks
 
     protected bool _stun = false;
 
+    private IEnumerator currentCrownControl = null;
+
     public virtual void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
@@ -20,6 +22,16 @@ public abstract class Entity : MonoBehaviourPunCallbacks
         else
         {
         }
+    }
+    
+    public void OnCrownControl()
+    {
+        if (currentCrownControl != null)
+        {
+            StopCoroutine(currentCrownControl);
+        }
+
+        currentCrownControl = null;
     }
 
     public void KnockBack(Vector3 dir, float power, float stunTime)
@@ -30,7 +42,16 @@ public abstract class Entity : MonoBehaviourPunCallbacks
     [PunRPC]
     public void KnockBackRPC(Vector3 dir, float power, float stunTime)
     {
-        StartCoroutine(OnKnockBack(dir, power, stunTime));
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        OnCrownControl();
+
+        currentCrownControl = OnKnockBack(dir, power, stunTime);
+
+        StartCoroutine(currentCrownControl);
     }
 
     public void Grab(Vector3 targetPostion, float grabSpeed)
@@ -41,7 +62,16 @@ public abstract class Entity : MonoBehaviourPunCallbacks
     [PunRPC]
     public void GrabRPC(Vector3 targetPostion, float grabSpeed)
     {
-        StartCoroutine(OnGrab(targetPostion, grabSpeed));
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        OnCrownControl();
+
+        currentCrownControl = OnGrab(targetPostion, grabSpeed);
+
+        StartCoroutine(currentCrownControl);
     }
 
     public void Stun(float stunTime)
@@ -52,7 +82,16 @@ public abstract class Entity : MonoBehaviourPunCallbacks
     [PunRPC]
     public void StunRPC(float stunTime)
     {
-        StartCoroutine(OnStun(stunTime));
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        OnCrownControl();
+
+        currentCrownControl = OnStun(stunTime);
+
+        StartCoroutine(currentCrownControl);
     }
 
     private IEnumerator OnKnockBack(Vector3 dir, float power, float stunTime)
@@ -62,7 +101,18 @@ public abstract class Entity : MonoBehaviourPunCallbacks
             _stun = true;
         }
 
-        _rigid.MovePosition(this.transform.position + dir * power * Time.deltaTime);
+        var targetPosition = this.transform.position + dir * power;
+
+        float distance = float.MaxValue;
+
+        while (distance > 0.3f)
+        {
+            distance = Vector3.Distance(this.transform.position, targetPosition);
+
+            this.transform.position = Vector3.Lerp(this.transform.position, targetPosition, Time.deltaTime * power);
+
+            yield return null;
+        }
 
         OnDamage();
 
