@@ -7,8 +7,6 @@ public class Martine_Vent : MonoBehaviourPunCallbacks
 {
     [SerializeField] private Animator _animator;
 
-    private bool _isOn = false;
-
     public void OnVent()
     {
         photonView.RPC("ActiveVent", RpcTarget.All);

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Martine : Actor
 {
-    [SerializeField] private GameObject VentPrefab;
     private List<Martine_Vent> _myVentList = new List<Martine_Vent>();
 
     private Martine_Vent _currentVent = null;
