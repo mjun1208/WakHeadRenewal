@@ -1,7 +1,28 @@
 fileFormatVersion: 2
 guid: d62b113e43ea3fd43844cdf1e73c5809
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3567457803651085756
+    second: z attack epect2_0
+  - first:
+      213: 5483116228523464356
+    second: z attack epect2_1
+  - first:
+      213: -8577571991269844778
+    second: z attack epect2_2
+  - first:
+      213: -1796294028467098850
+    second: z attack epect2_3
+  - first:
+      213: 620663250960744773
+    second: z attack epect2_4
+  - first:
+      213: -5385023809361950949
+    second: z attack epect2_5
+  - first:
+      213: -5483037943072363597
+    second: z attack epect2_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -85,7 +106,154 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: z attack epect2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44a8e2e5708dd7ec0800000000000000
+      internalID: -3567457803651085756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: z attack epect2_1
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 5
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a61257b821f71c40800000000000000
+      internalID: 5483116228523464356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: z attack epect2_2
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 5
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d8550948b756f880800000000000000
+      internalID: -8577571991269844778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: z attack epect2_3
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 5
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1b201929184217e0800000000000000
+      internalID: -1796294028467098850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: z attack epect2_4
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 5
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54187a630f90d9800800000000000000
+      internalID: 620663250960744773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: z attack epect2_5
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 5
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b17c5ff506d8445b0800000000000000
+      internalID: -5385023809361950949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: z attack epect2_6
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 5
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bbee298a0658e3b0800000000000000
+      internalID: -5483037943072363597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

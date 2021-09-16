@@ -1,7 +1,25 @@
 fileFormatVersion: 2
 guid: 1b2b6af62b6fd2a4faaedf16b788c9b5
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4229159504079580364
+    second: z attack epect_0
+  - first:
+      213: -7549922124878059837
+    second: z attack epect_1
+  - first:
+      213: 6238358178925538166
+    second: z attack epect_2
+  - first:
+      213: 7644977208931141408
+    second: z attack epect_3
+  - first:
+      213: -926738858862732646
+    second: z attack epect_4
+  - first:
+      213: -6838169148946991951
+    second: z attack epect_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -85,7 +103,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: z attack epect_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4339edc86d10f45c0800000000000000
+      internalID: -4229159504079580364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: z attack epect_1
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 0
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c6e7c024d9493790800000000000000
+      internalID: -7549922124878059837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: z attack epect_2
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 0
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67b628426b9139650800000000000000
+      internalID: 6238358178925538166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: z attack epect_3
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 0
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0274c46444a681a60800000000000000
+      internalID: 7644977208931141408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: z attack epect_4
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 0
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9a9fedfaef8323f0800000000000000
+      internalID: -926738858862732646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: z attack epect_5
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b4baf2a361f911a0800000000000000
+      internalID: -6838169148946991951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
