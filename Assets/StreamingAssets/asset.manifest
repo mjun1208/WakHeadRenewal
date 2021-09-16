@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 816436388
+CRC: 3241248970
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8e4ee474793dd252e2a6f441c0a10b8f
+    Hash: 8b8f5bac6c58c83519e5f94de12f3eb0
   TypeTreeHash:
     serializedVersion: 2
-    Hash: e5ce14916315ae262ffb136b60e8f53d
+    Hash: c226ade5e5fac3f34013515d09a441ac
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -63,6 +63,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 4ce6e1df3bd4d454da47664251cd7f1e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d23209e965094b44da56fd364d048c34, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 198
@@ -72,6 +74,8 @@ ClassTypes:
 - Class: 212
   Script: {instanceID: 0}
 - Class: 213
+  Script: {instanceID: 0}
+- Class: 233
   Script: {instanceID: 0}
 Assets:
 - Assets/Prefab/Actor/Actor.prefab
