@@ -85,7 +85,7 @@ public class Ahri : Actor
 
         base.Attack();
         MyOrb.SetActive(true);
-        MyOrb.GetComponent<Ahri_Orb>().SetInfo(this.gameObject, GetAttackDir());
+        MyOrb.GetComponent<Ahri_Orb>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
     }
 
     [PunRPC]
@@ -93,6 +93,6 @@ public class Ahri : Actor
     {
         var newHeart = Global.PoolingManager.LocalSpawn("Ahri_Heart", this.transform.position, Quaternion.identity, true);
 
-        newHeart.GetComponent<Ahri_Heart>().SetInfo(this.gameObject, GetAttackDir());
+        newHeart.GetComponent<Ahri_Heart>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
     }
 }

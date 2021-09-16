@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 217d6ce9f63fce24dae6af62ec87d77b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider: {fileID: 2490838798214619183}
   _rigid: {fileID: 6062299502524747314}
   _attackRange: {fileID: 2469188885711960835}
 --- !u!114 &2469188885711960835

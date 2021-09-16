@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76af7810b411c9f47a586c7b4c14d0a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider: {fileID: 0}
   _animator: {fileID: 743733898320174759}
   _attackRange: {fileID: 7554575909852492654}
 --- !u!61 &1618023076166188026
@@ -157,4 +158,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba62c4cdb069df46bcf5241eff77e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ownerObject: {fileID: 0}
+  _ownerObject: {fileID: 8434593694294121232}

@@ -20,6 +20,6 @@ public class Sans : Actor
     {
         var newbone = Global.PoolingManager.LocalSpawn("Sans_Bone", this.transform.position, Quaternion.identity, true);
 
-        newbone.GetComponent<Sans_Bone>().SetInfo(this.gameObject, GetAttackDir());
+        newbone.GetComponent<Sans_Bone>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
     }
 }

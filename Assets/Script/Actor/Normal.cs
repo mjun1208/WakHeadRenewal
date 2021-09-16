@@ -27,7 +27,7 @@ public class Normal : Actor
         foreach(var target in targetList)
         {
             var targetEntity = target.GetComponent<Entity>();
-            targetEntity.KnockBack(GetAttackDir(), 5, 0);
+            targetEntity.KnockBack(GetAttackDir(), 0.5f, 0);
         }
     } 
 
@@ -62,6 +62,6 @@ public class Normal : Actor
     {
         var newBullet = Global.PoolingManager.LocalSpawn("Normal_Bullet", this.transform.position, Quaternion.identity, true);
 
-        newBullet.GetComponent<Normal_Bullet>().SetInfo(this.gameObject, GetAttackDir());
+        newBullet.GetComponent<Normal_Bullet>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
     }
 }

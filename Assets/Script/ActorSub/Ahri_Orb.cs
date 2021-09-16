@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,14 +10,17 @@ public class Ahri_Orb : MonoBehaviour
     [SerializeField] private AttackRange _attackRange;
     private GameObject _owner;
     private Vector3 _dir;
+    private PhotonView _ownerPhotonView;
 
     public const float GoSpeed = 10f;
     public const float BackSpeed = 15f;
 
     private List<GameObject> _collidedObjectList = new List<GameObject>();
 
-    public void SetInfo(GameObject owner, Vector3 dir)
+    public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
     {
+        _ownerPhotonView = ownerPhotonView;
+
         _attackRange.SetOwner(owner);
         this.transform.position = owner.transform.position;
 
@@ -47,7 +51,10 @@ public class Ahri_Orb : MonoBehaviour
 
     private void OnDamage(Entity entity)
     {
-        entity.Damaged();
+        if (!_ownerPhotonView.IsMine)
+        {
+            entity.Damaged();
+        }
     }
 
     private IEnumerator Go()

@@ -38,7 +38,7 @@ public class AnimalCrossing : Actor
         foreach (var target in targetList)
         {
             var targetEntity = target.GetComponent<Entity>();
-            targetEntity.KnockBack(GetAttackDir(), 5, 0);
+            targetEntity.KnockBack(GetAttackDir(), 0.5f, 0);
         }
     }
 

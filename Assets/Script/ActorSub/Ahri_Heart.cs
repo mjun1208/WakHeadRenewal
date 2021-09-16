@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,11 +8,14 @@ public class Ahri_Heart : MonoBehaviour
     [SerializeField] private Rigidbody2D _rigid;
     [SerializeField] private AttackRange _attackRange;
     private Vector3 _dir;
+    private PhotonView _ownerPhotonView;
 
     public const float MoveSpeed = 8f;
 
-    public void SetInfo(GameObject owner, Vector3 dir)
+    public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
     {
+        _ownerPhotonView = ownerPhotonView;
+
         _attackRange.SetOwner(owner);
         this.transform.position = owner.transform.position;
 
@@ -33,7 +37,10 @@ public class Ahri_Heart : MonoBehaviour
     {
         StopAllCoroutines();
 
-        entity.Damaged();
+        if (!_ownerPhotonView.IsMine)
+        {
+            entity.Damaged();
+        }
 
         Global.PoolingManager.LocalDespawn(this.gameObject);
     }
