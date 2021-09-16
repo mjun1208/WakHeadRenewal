@@ -56,6 +56,8 @@ public class AnimalCrossing : Actor
         {
             return;
         }
+
+        photonView.RPC("ShootFish", RpcTarget.All, myFish.GetMyFishIndex());
     }
 
     protected override void OnSkill_1()
@@ -192,5 +194,13 @@ public class AnimalCrossing : Actor
     private void SetFish(int index)
     {
         myFish.SelectFish(index);
+    }
+
+    [PunRPC]
+    private void ShootFish(int index)
+    {
+        var newFish = Global.PoolingManager.LocalSpawn("AnimalCrossing_FishBullet", this.transform.position, Quaternion.identity, true);
+
+        newFish.GetComponent<AnimalCrossing_FishBullet>().SetInfo(this.photonView, this.gameObject, GetAttackDir(), index);
     }
 }
