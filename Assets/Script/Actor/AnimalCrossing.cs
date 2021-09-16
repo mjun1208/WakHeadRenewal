@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -66,7 +67,8 @@ public class AnimalCrossing : Actor
             base.OnSkill_1();
 
             myFish.SelectRandomFish();
-            myFish.SetActive(false);
+            photonView.RPC("SetFish", RpcTarget.All, myFish.GetMyFishIndex());
+            photonView.RPC("SetActiveFish", RpcTarget.All, false);
 
             if (_isSkill_1)
             {
@@ -115,7 +117,7 @@ public class AnimalCrossing : Actor
 
             _isCasting = false;
 
-            myFish.SetActive(false);
+            photonView.RPC("SetActiveFish", RpcTarget.All, false);
 
             SkillCancle();
             _animator.SetBool("IsSkill_1_1", false);
@@ -146,7 +148,7 @@ public class AnimalCrossing : Actor
 
         _isBite = true;
 
-        myFish.SetActive(false);
+        photonView.RPC("SetActiveFish", RpcTarget.All, false);
 
         CastingCoroutine = null;
     }
@@ -175,8 +177,20 @@ public class AnimalCrossing : Actor
    
         _isBite = false;
 
-        myFish.SetActive(false);
+        photonView.RPC("SetActiveFish", RpcTarget.All, false);
 
         _onSkillCoroutine = null;
+    }
+
+    [PunRPC]
+    private void SetActiveFish(bool isActive)
+    {
+        myFish.SetActive(isActive);
+    }
+
+    [PunRPC]
+    private void SetFish(int index)
+    {
+        myFish.SelectFish(index);
     }
 }
