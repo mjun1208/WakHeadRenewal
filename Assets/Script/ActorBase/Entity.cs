@@ -165,6 +165,8 @@ public abstract class Entity : MonoBehaviourPunCallbacks
 
     public void OnDamage()
     {
-        Global.PoolingManager.LocalSpawn("Blood", this.transform.position, this.transform.rotation , true);
+        var randomPos = (Vector3)Random.insideUnitCircle * 0.5f;
+
+        Global.PoolingManager.LocalSpawn("HitEffect", this.transform.position + randomPos, this.transform.rotation , true);
     }
 }
