@@ -101,7 +101,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
             _stun = true;
         }
 
-        OnDamage();
+        Damaged(this.transform.position);
 
         var targetPosition = this.transform.position + dir * power;
 
@@ -136,7 +136,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
             yield return null;
         }
 
-        OnDamage();
+        Damaged(this.transform.position);
 
         yield return null;
 
@@ -152,18 +152,18 @@ public abstract class Entity : MonoBehaviourPunCallbacks
         _stun = false;
     }
 
-    public void Damaged()
+    public void Damaged(Vector3 pos)
     {
-        photonView.RPC("OnDamageRPC", RpcTarget.All);
+        photonView.RPC("OnDamageRPC", RpcTarget.All, pos);
     }
 
     [PunRPC]
-    public void OnDamageRPC()
+    public void OnDamageRPC(Vector3 pos)
     {
-        OnDamage();
+        OnDamage(pos);
     }
 
-    public void OnDamage()
+    public void OnDamage(Vector3 pos)
     {
         var randomPos = (Vector3)Random.insideUnitCircle * 0.5f;
 
