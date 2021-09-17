@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3398136209
+CRC: 1495540998
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d78299a16cf37c89588e30abf39c79e1
+    Hash: 548264a983f0747b691291aa9306c059
   TypeTreeHash:
     serializedVersion: 2
-    Hash: ef1edfa8fc43793f822b37005b04bfd4
+    Hash: 4f8c6524d2cd0e72a705a4683c9dc005
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -38,6 +38,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: d5fbc760242446a4b906f71e9ead084f, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: c71e1b904d327ac49afe87a621a585c3, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: f3f8cdc4acac4af4d936fd6904e8655b, type: 3}
@@ -67,6 +69,10 @@ ClassTypes:
   Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 4ce6e1df3bd4d454da47664251cd7f1e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 894eeddcfdfeead4d846b30307d8efb9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9964767bdf3ea054890521d6b0d5d693, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 198
@@ -83,6 +89,7 @@ Assets:
 - Assets/Prefab/Actor/Actor.prefab
 - Assets/Prefab/Actor_Sub/Ahri_Orb.prefab
 - Assets/Prefab/Actor/Dummy.prefab
+- Assets/Prefab/HitEffect.prefab
 - Assets/Prefab/Blood.prefab
 - Assets/Prefab/Actor_Sub/Sans_Gaster.prefab
 - Assets/Prefab/Actor/Normal.prefab
