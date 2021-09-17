@@ -3,15 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimalCrossing_FishBullet : MonoBehaviour
+public class AnimalCrossing_FishBullet : ActorSub
 {
-    [SerializeField] private Rigidbody2D _rigid;
     [SerializeField] private List<GameObject> _fishs;
-    [SerializeField] private AttackRange _attackRange;
 
-    private Vector3 _dir;
     private Vector3 _originalPos;
-    private PhotonView _ownerPhotonView;
 
     public const float MoveSpeed = 5f;
     public const float Offset = 1f;
@@ -19,6 +15,7 @@ public class AnimalCrossing_FishBullet : MonoBehaviour
     public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, int fishIndex)
     {
         _ownerPhotonView = ownerPhotonView;
+        _owner = owner;
 
         foreach (var fish in _fishs)
         {
@@ -38,6 +35,11 @@ public class AnimalCrossing_FishBullet : MonoBehaviour
 
     private void Update()
     {
+        if (_attackRange == null)
+        {
+            return;
+        }
+
         if (_attackRange.CollidedObjectList.Count > 0)
         {
             var targetObject = _attackRange.CollidedObjectList[0];
@@ -45,13 +47,13 @@ public class AnimalCrossing_FishBullet : MonoBehaviour
         }
     }
 
-    private void OnDamage(Entity entity)
+    protected override void OnDamage(Entity entity)
     {
         // StopAllCoroutines();
 
         if (!_ownerPhotonView.IsMine)
         {
-            entity.Damaged();
+            entity.Damaged(this.transform.position);
         }
 
         // Global.PoolingManager.LocalDespawn(this.gameObject);

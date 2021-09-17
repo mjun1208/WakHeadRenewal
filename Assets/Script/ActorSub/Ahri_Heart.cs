@@ -3,23 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ahri_Heart : MonoBehaviour
+public class Ahri_Heart : ActorSub
 {
-    [SerializeField] private Rigidbody2D _rigid;
-    [SerializeField] private AttackRange _attackRange;
-    private Vector3 _dir;
-    private PhotonView _ownerPhotonView;
-
     public const float MoveSpeed = 8f;
 
-    public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
+    public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
     {
-        _ownerPhotonView = ownerPhotonView;
-
-        _attackRange.SetOwner(owner);
-        this.transform.position = owner.transform.position;
-
-        _dir = dir;
+        base.SetInfo(ownerPhotonView, owner, dir);
 
         StartCoroutine(Go());
     }
@@ -31,18 +21,6 @@ public class Ahri_Heart : MonoBehaviour
             var targetObject = _attackRange.CollidedObjectList[0];
             OnDamage(targetObject.GetComponent<Entity>());
         }
-    }
-
-    private void OnDamage(Entity entity)
-    {
-        StopAllCoroutines();
-
-        if (!_ownerPhotonView.IsMine)
-        {
-            entity.Damaged();
-        }
-
-        Global.PoolingManager.LocalDespawn(this.gameObject);
     }
 
     private IEnumerator Go()

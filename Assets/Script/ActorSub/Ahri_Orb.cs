@@ -3,31 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ahri_Orb : MonoBehaviour
+public class Ahri_Orb : ActorSub
 {
-    [SerializeField] private Rigidbody2D _rigid;
     [SerializeField] private TrailRenderer _trail;
-    [SerializeField] private AttackRange _attackRange;
-    private GameObject _owner;
-    private Vector3 _dir;
-    private PhotonView _ownerPhotonView;
 
     public const float GoSpeed = 10f;
     public const float BackSpeed = 15f;
 
     private List<GameObject> _collidedObjectList = new List<GameObject>();
 
-    public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
+    public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
     {
-        _ownerPhotonView = ownerPhotonView;
-
-        _attackRange.SetOwner(owner);
-        this.transform.position = owner.transform.position;
+        base.SetInfo(ownerPhotonView, owner, dir);
 
         _trail.Clear();
-
-        _owner = owner;
-        _dir = dir;
 
         _collidedObjectList.Clear();
 
@@ -49,11 +38,11 @@ public class Ahri_Orb : MonoBehaviour
         }
     }
 
-    private void OnDamage(Entity entity)
+    protected override void OnDamage(Entity entity)
     {
         if (!_ownerPhotonView.IsMine)
         {
-            entity.Damaged();
+            entity.Damaged(this.transform.position);
         }
     }
 

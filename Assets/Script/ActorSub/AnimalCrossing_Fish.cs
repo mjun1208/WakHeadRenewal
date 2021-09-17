@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimalCrossing_Fish : MonoBehaviour
+public class AnimalCrossing_Fish : ActorSub
 {
-    [SerializeField] private Rigidbody2D _rigid;
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private List<Sprite> _fishSprites;
 
