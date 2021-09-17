@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Sans : Actor
 {
+    private List<Sans_Gaster> _myGasterList = new List<Sans_Gaster>();
+
     protected override void Active_Attack()
     {
         if (!photonView.IsMine)
@@ -13,6 +15,32 @@ public class Sans : Actor
         }
 
         photonView.RPC("BoneAttack", RpcTarget.All);
+    }
+
+    protected override void Active_Skill_1()
+    {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        var newGaster = Global.PoolingManager.Spawn("Sans_Gaster", this.transform.position, this.transform.rotation);
+        var newGasterScript = newGaster.GetComponent<Sans_Gaster>();
+        newGasterScript.SetInfo(this.gameObject, this.transform.position, GetAttackDir());
+        _myGasterList.Add(newGasterScript);
+    }
+
+    protected override void Active_Skill_2()
+    {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        foreach(var gaster in _myGasterList)
+        {
+            gaster.OnBlast();
+        }
     }
 
     [PunRPC]
