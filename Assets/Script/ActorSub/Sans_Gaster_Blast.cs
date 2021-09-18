@@ -1,9 +1,27 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Sans_Gaster_Blast : ActorSub
 {
+    private Vector3 _originalScale;
+
+    public void Awake()
+    {
+        _originalScale = this.transform.localScale;
+    }
+
+    public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 pos, Vector3 dir)
+    {
+        base.SetInfo(ownerPhotonView, owner, dir);
+
+        this.transform.position = pos;
+
+        float rotationScale = _originalScale.x * dir.x;
+        this.transform.localScale = new Vector3(rotationScale, _originalScale.y, _originalScale.z);
+    }
+
     private void Update()
     {
         if (_attackRange.CollidedObjectList.Count > 0)
@@ -13,6 +31,11 @@ public class Sans_Gaster_Blast : ActorSub
                 OnDamage(targetObject.GetComponent<Entity>());
             }
         }
+    }
+
+    private void Distory()
+    {
+        Global.PoolingManager.LocalDespawn(this.gameObject);
     }
 
     protected override void OnDamage(Entity entity)
