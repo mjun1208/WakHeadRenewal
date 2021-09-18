@@ -23,7 +23,15 @@ public class Sans_Gaster : MonoBehaviourPunCallbacks
 
     public void SetInfo(GameObject owner, Vector3 pos, Vector3 dir)
     {
-        this.transform.position = pos + new Vector3(GasterXOffset * dir.x, GasterYOffset);
+        this.transform.position = pos;
+
+        photonView.RPC("SetInfo", RpcTarget.All, dir);
+    }
+
+    [PunRPC]
+    private void SetInfo(Vector3 dir)
+    {
+        this.transform.position += new Vector3(GasterXOffset * dir.x, GasterYOffset);
 
         float rotationScale = _originalScale.x * dir.x;
         this.transform.localScale = new Vector3(rotationScale, _originalScale.y, _originalScale.z);
@@ -58,19 +66,7 @@ public class Sans_Gaster : MonoBehaviourPunCallbacks
 
     public void FireBlast()
     {
-        if (!photonView.IsMine)
-        {
-            return;
-        }
-
-        photonView.RPC("FireBlastRPC", RpcTarget.All);
-    }
-
-    [PunRPC]
-    private void FireBlastRPC()
-    {
         var newBlast = Global.PoolingManager.LocalSpawn("Sans_Gaster_Blast", this.transform.position, Quaternion.identity, true);
-
-        newBlast.GetComponent<Sans_Gaster_Blast>().SetInfo(this.photonView, this.gameObject, _blastPivot.transform.position, _dir);
+        newBlast.GetComponent<Sans_Gaster_Blast>().SetInfo(this.photonView, owner, _blastPivot.transform.position, _dir);
     }
 }
