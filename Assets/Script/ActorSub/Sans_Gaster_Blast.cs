@@ -35,6 +35,10 @@ public class Sans_Gaster_Blast : ActorSub
 
     private void Distory()
     {
+        Global.PoolingManager.LocalDespawn(_owner);
+
+        Global.PoolingManager.LocalSpawn("DeathEffect", this.transform.position, this.transform.rotation, true);
+
         Global.PoolingManager.LocalDespawn(this.gameObject);
     }
 
