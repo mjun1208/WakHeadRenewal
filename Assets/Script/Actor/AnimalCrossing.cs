@@ -68,9 +68,7 @@ public class AnimalCrossing : Actor
 
             base.OnSkill_1();
 
-            myFish.SelectRandomFish();
-            photonView.RPC("SetFish", RpcTarget.All, myFish.GetMyFishIndex());
-            photonView.RPC("SetActiveFish", RpcTarget.All, false);
+            _isCasting = _isSkill_1;
 
             if (_isSkill_1)
             {
@@ -79,8 +77,6 @@ public class AnimalCrossing : Actor
                     StopCoroutine(_onSkillCoroutine);
                     _onSkillCoroutine = null;
                 }
-
-                _isCasting = _isSkill_1;
 
                 CastingCoroutine = Casting();
                 StartCoroutine(CastingCoroutine);
@@ -96,7 +92,6 @@ public class AnimalCrossing : Actor
 
                 _animator.SetBool("IsSkill_1_2", true);
                 _animator.SetBool("IsSkill_1_1", false);
-
 
                 if (_onSkillCoroutine == null)
                 {
@@ -158,6 +153,9 @@ public class AnimalCrossing : Actor
     private IEnumerator Fishing()
     {
         _isDoingSkill = true;
+
+        myFish.SelectRandomFish();
+        photonView.RPC("SetFish", RpcTarget.All, myFish.GetMyFishIndex());
 
         while (!_animator.GetCurrentAnimatorStateInfo(0).IsName("Skill_1_2"))
         {
