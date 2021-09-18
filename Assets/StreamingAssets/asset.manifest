@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1495540998
+CRC: 2160983219
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 548264a983f0747b691291aa9306c059
+    Hash: 4335c019879dbb91891408a82f7a8be0
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 4f8c6524d2cd0e72a705a4683c9dc005
+    Hash: ae48f5393fcdd68c3d121527c6838668
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -56,9 +56,13 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 217d6ce9f63fce24dae6af62ec87d77b, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 9964767bdf3ea054890521d6b0d5d693, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 199a051c1e3b666419a8a04a3050e872, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: cba62c4cdb069df46bcf5241eff77e31, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 894eeddcfdfeead4d846b30307d8efb9, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: c5fc2f5da04b38e4897ecc07d9dfdcb6, type: 3}
 - Class: 114
@@ -69,10 +73,6 @@ ClassTypes:
   Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 4ce6e1df3bd4d454da47664251cd7f1e, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 894eeddcfdfeead4d846b30307d8efb9, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 9964767bdf3ea054890521d6b0d5d693, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 198
@@ -88,12 +88,14 @@ ClassTypes:
 Assets:
 - Assets/Prefab/Actor/Actor.prefab
 - Assets/Prefab/Actor_Sub/Ahri_Orb.prefab
+- Assets/Prefab/Effect/DeathEffect.prefab
 - Assets/Prefab/Actor/Dummy.prefab
-- Assets/Prefab/HitEffect.prefab
-- Assets/Prefab/Blood.prefab
+- Assets/Prefab/Effect/HitEffect.prefab
+- Assets/Prefab/Effect/Blood.prefab
 - Assets/Prefab/Actor_Sub/Sans_Gaster.prefab
 - Assets/Prefab/Actor/Normal.prefab
 - Assets/Prefab/Actor_Sub/Martine_Vent.prefab
+- Assets/Prefab/Actor_Sub/Sans_Charge_Blast.prefab
 - Assets/Prefab/Actor_Sub/Normal_Bullet.prefab
 - Assets/Prefab/Actor_Sub/AnimalCrossing_FishBullet.prefab
 - Assets/Prefab/Actor_Sub/Sans_Gaster_Blast.prefab
