@@ -26,7 +26,10 @@ public class AttackRange : MonoBehaviour
     {
         if (!_ownerObject.Equals(collision.gameObject) && !CollidedObjectList.Contains(collision.gameObject))
         {
-            CollidedObjectList.Add(collision.gameObject);
+            if (collision.GetComponent<Entity>() != null)
+            {
+                CollidedObjectList.Add(collision.gameObject);
+            }
         }
     }
 
