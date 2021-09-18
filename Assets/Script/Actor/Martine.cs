@@ -11,6 +11,8 @@ public class Martine : Actor
 
     private List<Collider2D> _colliedVent = new List<Collider2D>();
 
+    private IEnumerator _selectNextVent = null;
+
     protected override void Start()
     {
         base.Start();
@@ -94,6 +96,16 @@ public class Martine : Actor
 
             _currentVent.OnVent();
 
+            _animator.SetBool("IsSkill_2", true);
+
+            if (_onSkillCoroutine != null)
+            {
+                StopCoroutine(_onSkillCoroutine);
+                _onSkillCoroutine = null;
+            }
+
+            _isDoingSkill = true;
+
             StartCoroutine(Venting());
         }
     }
@@ -120,15 +132,6 @@ public class Martine : Actor
     {
         int currentVentIndex = GetCurrentVentIndex();
 
-        if (currentVentIndex + 1 == _myVentList.Count)
-        {
-            currentVentIndex = -1;
-        }
-
-        var nextVent = _myVentList[currentVentIndex + 1];
-
-        bool up = false;
-
         while (!_animator.GetCurrentAnimatorStateInfo(0).IsName("Skill_2"))
         {
             yield return null;
@@ -138,16 +141,122 @@ public class Martine : Actor
 
         while (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.95f)
         {
-            if (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f && !up)
-            {
-                nextVent.OnVent();
-                up = true;
-            }
-
             yield return null;
         }
 
+        _renderer.enabled = false;
+
+        _selectNextVent = SelectNextVent();
+        StartCoroutine(_selectNextVent);
         // 벤트 올라옴
+    }
+
+    private IEnumerator SelectNextVent()
+    {
+        bool isInputUp = true;
+
+        int currentIndex = GetCurrentVentIndex();
+
+        while (isInputUp)
+        {
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                currentIndex = GetRightVent(currentIndex);
+
+                this.transform.position = _myVentList[currentIndex].transform.position + new Vector3(0, 0.2f, 0);
+                _smoothSync.teleport();
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                currentIndex = GetLeftVent(currentIndex);
+
+                this.transform.position = _myVentList[currentIndex].transform.position + new Vector3(0, 0.2f, 0);
+                _smoothSync.teleport();
+            }
+
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                isInputUp = false;
+            }
+            yield return null;
+        }
+
+        _myVentList[currentIndex].OnVent();
+
+        yield return new WaitForSeconds(0.15f);
+
+        _renderer.enabled = true;
+
+        UpVent(currentIndex);
+
+        _selectNextVent = null;
+    }
+
+    private int GetRightVent(int currentIndex)
+    {
+        if (_myVentList.Count < 1)
+        {
+            return GetCurrentVentIndex();
+        }
+
+        Vector2 minDistance = new Vector2(float.MaxValue, float.MaxValue);
+
+        int nextIndex = currentIndex;
+        int ventIndex = 0;
+
+        foreach (var vent in _myVentList)
+        {
+            Vector2 distance = vent.transform.position;
+
+            if (_myVentList[currentIndex].transform.position.x < distance.x)
+            {
+                if (minDistance.x > distance.x)
+                {
+                    minDistance = distance;
+                    nextIndex = ventIndex;
+                }
+            }
+
+            ventIndex++;
+        }
+
+        return nextIndex;
+    }
+
+    private int GetLeftVent(int currentIndex)
+    {
+        if (_myVentList.Count < 1)
+        {
+            return GetCurrentVentIndex();
+        }
+
+        Vector2 maxDistance = new Vector2(-float.MaxValue, -float.MaxValue);
+
+        int nextIndex = currentIndex;
+        int ventIndex = 0;
+
+        foreach (var vent in _myVentList)
+        {
+            Vector2 distance = vent.transform.position;
+
+            if (_myVentList[currentIndex].transform.position.x > distance.x)
+            {
+                if (maxDistance.x < distance.x)
+                {
+                    maxDistance = distance;
+                    nextIndex = ventIndex;
+                }
+            }
+
+            ventIndex++;
+        }
+
+        return nextIndex;
+    }
+
+    private void UpVent(int ventIndex)
+    {
+        var nextVent = _myVentList[ventIndex];
 
         this.transform.position = nextVent.transform.position + new Vector3(0, 0.2f, 0);
         _smoothSync.teleport();
