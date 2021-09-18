@@ -114,12 +114,12 @@ TextureImporter:
       name: sans_skill2_weapon2_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 10
         y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 38
+        height: 12
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -135,12 +135,12 @@ TextureImporter:
       name: sans_skill2_weapon2_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 58
         y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 38
+        height: 12
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -156,12 +156,12 @@ TextureImporter:
       name: sans_skill2_weapon2_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 106
         y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 38
+        height: 12
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -177,12 +177,12 @@ TextureImporter:
       name: sans_skill2_weapon2_3
       rect:
         serializedVersion: 2
-        x: 144
+        x: 154
         y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 38
+        height: 12
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -198,12 +198,12 @@ TextureImporter:
       name: sans_skill2_weapon2_4
       rect:
         serializedVersion: 2
-        x: 192
+        x: 202
         y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 38
+        height: 12
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -219,12 +219,12 @@ TextureImporter:
       name: sans_skill2_weapon2_5
       rect:
         serializedVersion: 2
-        x: 240
+        x: 250
         y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 38
+        height: 12
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -240,12 +240,12 @@ TextureImporter:
       name: sans_skill2_weapon2_6
       rect:
         serializedVersion: 2
-        x: 288
+        x: 298
         y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 38
+        height: 12
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -261,12 +261,12 @@ TextureImporter:
       name: sans_skill2_weapon2_7
       rect:
         serializedVersion: 2
-        x: 336
+        x: 346
         y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 38
+        height: 12
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
