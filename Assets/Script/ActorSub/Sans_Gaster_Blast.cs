@@ -6,14 +6,17 @@ using UnityEngine;
 public class Sans_Gaster_Blast : ActorSub
 {
     private Vector3 _originalScale;
+    private GameObject _gaster;
 
     public void Awake()
     {
         _originalScale = this.transform.localScale;
     }
 
-    public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 pos, Vector3 dir)
+    public void SetInfo(PhotonView ownerPhotonView, GameObject gaster, GameObject owner, Vector3 pos, Vector3 dir)
     {
+        _gaster = gaster;
+
         base.SetInfo(ownerPhotonView, owner, dir);
 
         this.transform.position = pos;
@@ -35,7 +38,7 @@ public class Sans_Gaster_Blast : ActorSub
 
     private void Distory()
     {
-        Global.PoolingManager.LocalDespawn(_owner);
+        Global.PoolingManager.LocalDespawn(_gaster);
 
         Global.PoolingManager.LocalSpawn("DeathEffect", this.transform.position, this.transform.rotation, true);
 

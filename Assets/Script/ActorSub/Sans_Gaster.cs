@@ -8,9 +8,11 @@ public class Sans_Gaster : MonoBehaviourPunCallbacks
     [SerializeField] private Animator _animator;
     [SerializeField] private GameObject _blastPivot;
 
-    private GameObject owner;
+    private int _ownerID;
+    private GameObject _owner;
     private Vector3 _originalScale;
     private Vector3 _dir;
+    private bool _isFire = false;
 
     public const float GasterXOffset = 2f;
     public const float GasterYOffset = 0.2f;
@@ -21,16 +23,24 @@ public class Sans_Gaster : MonoBehaviourPunCallbacks
         _originalScale = this.transform.localScale;
     }
 
-    public void SetInfo(GameObject owner, Vector3 pos, Vector3 dir)
+    public void SetInfo(int ownerID, GameObject owner, Vector3 pos, Vector3 dir)
     {
+        _ownerID = ownerID;
+
+        _owner = owner;
+
         this.transform.position = pos;
 
-        photonView.RPC("SetInfo", RpcTarget.All, dir);
+        photonView.RPC("SetInfo", RpcTarget.All, _ownerID, dir);
     }
 
     [PunRPC]
-    private void SetInfo(Vector3 dir)
+    private void SetInfo(int ownerID, Vector3 dir)
     {
+        _ownerID = ownerID;
+
+        _owner = PhotonView.Find(ownerID).gameObject;
+
         this.transform.position += new Vector3(GasterXOffset * dir.x, GasterYOffset);
 
         float rotationScale = _originalScale.x * dir.x;
@@ -41,6 +51,13 @@ public class Sans_Gaster : MonoBehaviourPunCallbacks
 
     public void OnBlast()
     {
+        if (_isFire)
+        {
+            return;
+        }
+
+        _isFire = true;
+
         photonView.RPC("ActiveBlast", RpcTarget.All);
     }
 
@@ -67,6 +84,6 @@ public class Sans_Gaster : MonoBehaviourPunCallbacks
     public void FireBlast()
     {
         var newBlast = Global.PoolingManager.LocalSpawn("Sans_Gaster_Blast", this.transform.position, Quaternion.identity, true);
-        newBlast.GetComponent<Sans_Gaster_Blast>().SetInfo(this.photonView, owner, _blastPivot.transform.position, _dir);
+        newBlast.GetComponent<Sans_Gaster_Blast>().SetInfo(this.photonView, this.gameObject, _owner, _blastPivot.transform.position, _dir);
     }
 }

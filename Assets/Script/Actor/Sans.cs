@@ -26,7 +26,7 @@ public class Sans : Actor
 
         var newGaster = Global.PoolingManager.Spawn("Sans_Gaster", this.transform.position, this.transform.rotation);
         var newGasterScript = newGaster.GetComponent<Sans_Gaster>();
-        newGasterScript.SetInfo(this.gameObject, this.transform.position, GetAttackDir());
+        newGasterScript.SetInfo(photonView.ViewID, this.gameObject, this.transform.position, GetAttackDir());
         _myGasterList.Add(newGasterScript);
     }
 
