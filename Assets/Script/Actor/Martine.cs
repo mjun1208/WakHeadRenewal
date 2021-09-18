@@ -45,6 +45,30 @@ public class Martine : Actor
         {
             return;
         }
+
+        var targetList = _skill_1Range.CollidedObjectList;
+
+        foreach (var target in targetList)
+        {
+            var targetEntity = target.GetComponent<Entity>();
+            targetEntity.KnockBack(GetAttackDir(), 1f, 0);
+        }
+    }
+
+    private void Active_Skill_1_2()
+    {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        var targetList = _skill_1Range.CollidedObjectList;
+
+        foreach (var target in targetList)
+        {
+            var targetEntity = target.GetComponent<Entity>();
+            targetEntity.KnockBack(-GetAttackDir(), 1f, 0);
+        }
     }
 
     protected override void Active_Skill_2()
