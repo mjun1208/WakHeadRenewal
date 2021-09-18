@@ -205,13 +205,10 @@ MonoBehaviour:
   _grab: 0
   _animator: {fileID: 2231056166769122081}
   _smoothSync: {fileID: 2231056166769122082}
+  _renderer: {fileID: 2231056166769122080}
   _attackRange: {fileID: 3611312696929271206}
   _skill_1Range: {fileID: 185848103391845328}
   _skill_2Range: {fileID: 2617874965602732681}
-  OrbPrefab: {fileID: 7596604444200939382, guid: a6a85161dec715d4f9f807ffb4e5c805,
-    type: 3}
-  HeartPrefab: {fileID: 6272946077840879541, guid: 4d476aafeabb7aa41a5f161d56a08a9a,
-    type: 3}
 --- !u!95 &2231056166769122081
 Animator:
   serializedVersion: 3

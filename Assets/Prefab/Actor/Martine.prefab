@@ -205,11 +205,10 @@ MonoBehaviour:
   _grab: 0
   _animator: {fileID: 2231056166769122081}
   _smoothSync: {fileID: 2231056166769122082}
+  _renderer: {fileID: 2231056166769122080}
   _attackRange: {fileID: 4678803042610845422}
   _skill_1Range: {fileID: 8768315868052885975}
   _skill_2Range: {fileID: 1326802555962496175}
-  VentPrefab: {fileID: 4388638325304234281, guid: 9dcff3b50130caa489252e81da429981,
-    type: 3}
 --- !u!95 &2231056166769122081
 Animator:
   serializedVersion: 3

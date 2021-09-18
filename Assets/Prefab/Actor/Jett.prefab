@@ -225,6 +225,7 @@ MonoBehaviour:
   _grab: 0
   _animator: {fileID: 3549152987968806831}
   _smoothSync: {fileID: 3549152987968806828}
+  _renderer: {fileID: 3549152987968806830}
   _attackRange: {fileID: 2578892939789859831}
   _skill_1Range: {fileID: 1480387700987663635}
   _skill_2Range: {fileID: 4998757218159365628}
