@@ -87,15 +87,19 @@ public abstract class Actor : Entity, IPunObservable
 
             Attack();
 
-            if (_isSkill_1Input)
+            if (!_isAttackInput)
             {
-                OnSkill_1();
-                return;
-            }
-            if (_isSkill_2Input)
-            {
-                OnSkill_2();
-                return;
+                if (_isSkill_1Input)
+                {
+                    OnSkill_1();
+                    return;
+                }
+
+                if (_isSkill_2Input)
+                {
+                    OnSkill_2();
+                    return;
+                }
             }
         }
     }
@@ -108,8 +112,8 @@ public abstract class Actor : Entity, IPunObservable
 
         if (!_isAttackInput)
         {
-        Skill_1Input();
-        Skill_2Input();
+            Skill_1Input();
+            Skill_2Input();
         }
     } 
 
