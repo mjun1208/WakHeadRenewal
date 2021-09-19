@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class Jett : Actor
 {
+    [SerializeField] private GameObject _ghostPivot;
     [SerializeField] private GameObject _operatorTrajectoryPivot;
+
     private int _shurikenCount = 0;
 
     protected override void Update()
@@ -28,6 +30,26 @@ public class Jett : Actor
         {
             return;
         }
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(_ghostPivot.transform.position, GetAttackDir(), 5f);
+        Debug.DrawRay(_ghostPivot.transform.position, GetAttackDir() * 5f, Color.red, 3f);
+
+        foreach (var hit in hits)
+        {
+            if (hit.transform.gameObject == this.gameObject)
+            {
+                continue;
+            }
+
+            var entity = hit.transform.GetComponent<Entity>();
+            if (entity != null)
+            {
+                entity.KnockBack(GetAttackDir(), 0.5f, 0);
+                break;
+            }
+        }
+
+        // photonView.RPC("ShootGhost", RpcTarget.All, _isMove);
     }
 
     protected override void Active_Skill_1()
@@ -35,6 +57,24 @@ public class Jett : Actor
         if (!photonView.IsMine)
         {
             return;
+        }
+
+        int layerMask = (1 << LayerMask.NameToLayer("Enemy")) + (1 << LayerMask.NameToLayer("Summoned"));
+        RaycastHit2D[] hits = Physics2D.RaycastAll(_ghostPivot.transform.position, GetAttackDir(), 20f, layerMask);
+        Debug.DrawRay(_ghostPivot.transform.position, GetAttackDir() * 20f, Color.red, 3f);
+
+        foreach (var hit in hits)
+        {
+            if (hit.transform.gameObject == this.gameObject)
+            {
+                continue;
+            }
+
+            var entity = hit.transform.GetComponent<Entity>();
+            if (entity != null)
+            {
+                entity.KnockBack(GetAttackDir(), 1f, 0);
+            }
         }
 
         photonView.RPC("ShootOperator", RpcTarget.All);
