@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,6 +36,8 @@ public class Jett : Actor
         {
             return;
         }
+
+        photonView.RPC("ShootOperator", RpcTarget.All);
     }
 
     protected override void Active_Skill_2()
@@ -67,5 +70,12 @@ public class Jett : Actor
             _animator.SetBool("IsAttack_2_0", _isAttackInput && _shurikenCount % 2 == 0);
             _animator.SetBool("IsAttack_2_1", _isAttackInput && _shurikenCount % 2 == 1);
         }
+    }
+
+    [PunRPC]
+    public void ShootOperator()
+    {
+        var newOperatorTrajectory = Global.PoolingManager.LocalSpawn("OperatorTrajectory", this.transform.position, Quaternion.identity, true);
+        newOperatorTrajectory.GetComponent<SpriteRenderer>().flipX = GetAttackDir().x < 0;
     }
 }
