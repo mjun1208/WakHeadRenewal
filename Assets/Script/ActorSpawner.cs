@@ -16,13 +16,10 @@ public class ActorSpawner : MonoBehaviourPunCallbacks
             return;
         }
 
-        Spawn(0);
-        Spawn(1);
-        Spawn(2);
-        Spawn(3);
-        Spawn(4);
-        Spawn(5);
-        Spawn(6);
+        for (int i = 0; i < Actors.Count; i++)
+        {
+            Spawn(i);
+        }
     }
 
 
