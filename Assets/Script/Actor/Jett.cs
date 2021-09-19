@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class Jett : Actor
 {
-    private enum AttackState
-    {
-        Ghost,
-        Operator,
-    }
-
-    private AttackState _attackState = AttackState.Ghost;
     private int _shurikenCount = 0;
 
 
@@ -64,7 +57,7 @@ public class Jett : Actor
         base.Attack();
         if (_shurikenCount == 0)
         {
-            _animator.SetBool("Is" + _attackState.ToString(), _isAttackInput);
+            _animator.SetBool("IsAttack", _isAttackInput);
 
             _animator.SetBool("IsAttack_2_0", false);
             _animator.SetBool("IsAttack_2_1", false);
@@ -73,25 +66,6 @@ public class Jett : Actor
         {
             _animator.SetBool("IsAttack_2_0", _isAttackInput && _shurikenCount % 2 == 0);
             _animator.SetBool("IsAttack_2_1", _isAttackInput && _shurikenCount % 2 == 1);
-        }
-    }
-
-    protected override void OnSkill_1()
-    {
-        if (_isSkill_1Input)
-        {
-            _animator.SetBool("Is" + _attackState.ToString(), false);
-
-            if (_attackState == AttackState.Ghost)
-            {
-                _attackState = AttackState.Operator;
-            }
-            else
-            {
-                _attackState = AttackState.Ghost;
-            }
-
-            _isDoingSkill = false;
         }
     }
 }
