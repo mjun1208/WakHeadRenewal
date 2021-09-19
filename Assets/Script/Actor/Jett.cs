@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Jett : Actor
 {
+    [SerializeField] private GameObject _operatorTrajectoryPivot;
     private int _shurikenCount = 0;
-
 
     protected override void Update()
     {
@@ -75,7 +75,7 @@ public class Jett : Actor
     [PunRPC]
     public void ShootOperator()
     {
-        var newOperatorTrajectory = Global.PoolingManager.LocalSpawn("OperatorTrajectory", this.transform.position, Quaternion.identity, true);
+        var newOperatorTrajectory = Global.PoolingManager.LocalSpawn("OperatorTrajectory", _operatorTrajectoryPivot.transform.position, Quaternion.identity, true);
         newOperatorTrajectory.GetComponent<SpriteRenderer>().flipX = GetAttackDir().x < 0;
     }
 }
