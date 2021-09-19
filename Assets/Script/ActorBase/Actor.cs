@@ -262,12 +262,11 @@ public abstract class Actor : Entity, IPunObservable
 
         yield return null;
 
-        while (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.95f)
+        while (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.9f)
         {
             yield return null;
         }
 
-        yield return new WaitForSeconds(0.1f);
         // end
 
         _isDoingSkill = false;
