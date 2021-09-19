@@ -10,6 +10,13 @@ public class Jett : Actor
 
     private int _shurikenCount = 0;
 
+    protected override void Start()
+    {
+        base.Start();
+
+        _attackMoveSpeed = 2f;
+    }
+
     protected override void Update()
     {
         if (_animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
