@@ -26,6 +26,9 @@ TextureImporter:
   - first:
       213: -7530713698750861213
     second: wakruto_7
+  - first:
+      213: 5761934490060103273
+    second: wakruto_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -55,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -85,7 +88,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -97,7 +100,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -116,10 +119,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 30.75
+        width: 31
         height: 55
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -135,12 +138,12 @@ TextureImporter:
       name: wakruto_1
       rect:
         serializedVersion: 2
-        x: 30
+        x: 31
         y: 0
-        width: 30.75
+        width: 31
         height: 55
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -156,12 +159,12 @@ TextureImporter:
       name: wakruto_2
       rect:
         serializedVersion: 2
-        x: 60
+        x: 62
         y: 0
-        width: 30.75
+        width: 31
         height: 55
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -177,12 +180,12 @@ TextureImporter:
       name: wakruto_3
       rect:
         serializedVersion: 2
-        x: 90
+        x: 93
         y: 0
-        width: 30.75
+        width: 31
         height: 55
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -198,12 +201,12 @@ TextureImporter:
       name: wakruto_4
       rect:
         serializedVersion: 2
-        x: 120
+        x: 124
         y: 0
-        width: 30.75
+        width: 31
         height: 55
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -219,12 +222,12 @@ TextureImporter:
       name: wakruto_5
       rect:
         serializedVersion: 2
-        x: 150
+        x: 155
         y: 0
-        width: 30.75
+        width: 31
         height: 55
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -240,12 +243,12 @@ TextureImporter:
       name: wakruto_6
       rect:
         serializedVersion: 2
-        x: 180
+        x: 186
         y: 0
-        width: 30.75
+        width: 31
         height: 55
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -261,12 +264,12 @@ TextureImporter:
       name: wakruto_7
       rect:
         serializedVersion: 2
-        x: 210
+        x: 217
         y: 0
-        width: 30.75
+        width: 31
         height: 55
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -274,6 +277,27 @@ TextureImporter:
       bones: []
       spriteID: 36079c85ac78d7790800000000000000
       internalID: -7530713698750861213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wakruto_8
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 0
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96e9a1304e086ff40800000000000000
+      internalID: 5761934490060103273
       vertices: []
       indices: 
       edges: []
