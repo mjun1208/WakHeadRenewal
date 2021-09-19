@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2160983219
+CRC: 927562889
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4335c019879dbb91891408a82f7a8be0
+    Hash: 7e6ebf05c807c41678e17206ea1fa556
   TypeTreeHash:
     serializedVersion: 2
     Hash: ae48f5393fcdd68c3d121527c6838668
@@ -97,12 +97,15 @@ Assets:
 - Assets/Prefab/Actor_Sub/Martine_Vent.prefab
 - Assets/Prefab/Actor_Sub/Sans_Charge_Blast.prefab
 - Assets/Prefab/Actor_Sub/Normal_Bullet.prefab
+- Assets/Prefab/Effect/OperatorTrajectory.prefab
 - Assets/Prefab/Actor_Sub/AnimalCrossing_FishBullet.prefab
 - Assets/Prefab/Actor_Sub/Sans_Gaster_Blast.prefab
 - Assets/Prefab/Actor/Ahri.prefab
+- Assets/Prefab/Effect/OperatorEffect.prefab
 - Assets/Prefab/Actor_Sub/Sans_Bone.prefab
 - Assets/Prefab/Actor/Martine.prefab
 - Assets/Prefab/Actor/Sans.prefab
+- Assets/Prefab/Effect/GhostEffect.prefab
 - Assets/Prefab/Actor_Sub/Ahri_Heart.prefab
 - Assets/Prefab/Actor/AnimalCrossing.prefab
 Dependencies: []
