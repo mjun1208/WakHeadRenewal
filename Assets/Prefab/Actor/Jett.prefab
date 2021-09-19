@@ -268,7 +268,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 4723107735738678597, guid: 0fa4d92520d46ee44b459d0241761ddf,
+  m_Sprite: {fileID: -2044348428971924130, guid: c290d5d8c2a4ae347af3cfd5c68e7651,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -290,7 +290,7 @@ Animator:
   m_GameObject: {fileID: 3549152987968806824}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3029d99203d2b1649a8d88782f917d9e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -387,7 +387,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.48, y: 0.48}
+    oldSize: {x: 0.29, y: 0.54}
     newSize: {x: 0.48, y: 0.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -410,7 +410,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
-  m_SynchronizeParameters: []
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 0
+    Name: IsWalk
+  - Type: 4
+    SynchronizeType: 0
+    Name: IsAttack
+  - Type: 4
+    SynchronizeType: 0
+    Name: IsSkill_1
+  - Type: 4
+    SynchronizeType: 0
+    Name: IsSkill_2
+  - Type: 4
+    SynchronizeType: 0
+    Name: IsSkill_1_1
+  - Type: 4
+    SynchronizeType: 0
+    Name: IsSkill_1_2
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
