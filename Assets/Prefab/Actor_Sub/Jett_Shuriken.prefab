@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4940520504604284284}
   - component: {fileID: 4316313160832286636}
   - component: {fileID: 3755827562695655822}
-  - component: {fileID: 8002478146253405227}
   m_Layer: 0
   m_Name: Jett_Shuriken
   m_TagString: Untagged
@@ -31,8 +30,9 @@ Transform:
   m_GameObject: {fileID: 3642863312752660670}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 6}
-  m_Children: []
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_Children:
+  - {fileID: 2221243841510360383}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigid: {fileID: 4940520504604284284}
   _attackRange: {fileID: 3755827562695655822}
-  _trail: {fileID: 8002478146253405227}
+  _trail: {fileID: 8605407439786227231}
 --- !u!212 &6453103283768316075
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -161,14 +161,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ownerObject: {fileID: 0}
---- !u!96 &8002478146253405227
+--- !u!1 &6067685064202854834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2221243841510360383}
+  - component: {fileID: 8605407439786227231}
+  m_Layer: 0
+  m_Name: Trail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2221243841510360383
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6067685064202854834}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0301, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6958169235601237595}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!96 &8605407439786227231
 TrailRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3642863312752660670}
+  m_GameObject: {fileID: 6067685064202854834}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -209,8 +240,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.5220127
+        time: 0.0060424805
+        value: 0.111063
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -220,11 +251,11 @@ TrailRenderer:
       - serializedVersion: 3
         time: 1
         value: 0
-        inSlope: -1.2281305
-        outSlope: -1.2281305
+        inSlope: -0.23133913
+        outSlope: -0.23133913
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.12464588
+        inWeight: 0.14893618
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
