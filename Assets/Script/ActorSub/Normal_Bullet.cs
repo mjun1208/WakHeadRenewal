@@ -25,6 +25,11 @@ public class Normal_Bullet : ActorSub
 
     protected override void OnDamage(Entity entity)
     {
+        if (entity.photonView.IsMine)
+        {
+            return;
+        }
+
         StopAllCoroutines();
 
         if (_ownerPhotonView.IsMine)

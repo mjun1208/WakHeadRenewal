@@ -51,6 +51,11 @@ public class AnimalCrossing_FishBullet : ActorSub
 
     protected override void OnDamage(Entity entity)
     {
+        if (entity.photonView.IsMine)
+        {
+            return;
+        }
+
         // StopAllCoroutines();
 
         if (_ownerPhotonView.IsMine)

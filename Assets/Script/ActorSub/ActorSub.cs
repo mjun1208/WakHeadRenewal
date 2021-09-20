@@ -29,6 +29,11 @@ public class ActorSub : MonoBehaviour
 
     protected virtual void OnDamage(Entity entity)
     {
+        if (entity.photonView.IsMine)
+        {
+            return;
+        }
+
         StopAllCoroutines();
 
         if (_ownerPhotonView.IsMine)

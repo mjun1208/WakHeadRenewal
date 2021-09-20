@@ -47,6 +47,11 @@ public class Sans_Gaster_Blast : ActorSub
 
     protected override void OnDamage(Entity entity)
     {
+        if (entity.photonView.IsMine)
+        {
+            return;
+        }
+
         if (_ownerPhotonView.IsMine)
         {
             entity.Damaged(this.transform.position);
