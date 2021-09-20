@@ -11,6 +11,8 @@ public class Normal_Bullet : ActorSub
     {
         base.SetInfo(ownerPhotonView, owner, dir);
 
+        _moveSpeed = Constant.NORMAL_BULLET_MOVE_SPEED;
+
         StartCoroutine(Go());
     }
 
@@ -30,21 +32,6 @@ public class Normal_Bullet : ActorSub
         if (!_ownerPhotonView.IsMine)
         {
             entity.KnockBack(_dir, 3f, 0f);
-        }
-
-        Global.PoolingManager.LocalDespawn(this.gameObject);
-    }
-
-    private IEnumerator Go()
-    {
-        float goTime = 0;
-
-        while (goTime < 1f)
-        {
-            goTime += Time.deltaTime;
-            _rigid.MovePosition(this.transform.position + _dir * MoveSpeed * Time.deltaTime);
-
-            yield return null;
         }
 
         Global.PoolingManager.LocalDespawn(this.gameObject);

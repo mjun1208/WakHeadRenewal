@@ -7,7 +7,6 @@ public class Ahri_Orb : ActorSub
 {
     [SerializeField] private TrailRenderer _trail;
 
-    public const float GoSpeed = 10f;
     public const float BackSpeed = 15f;
 
     private List<GameObject> _collidedObjectList = new List<GameObject>();
@@ -19,6 +18,8 @@ public class Ahri_Orb : ActorSub
         _trail.Clear();
 
         _collidedObjectList.Clear();
+
+        _moveSpeed = Constant.AHRI_ORB_MOVE_SPEED;
 
         StartCoroutine(Go());
     }
@@ -46,14 +47,14 @@ public class Ahri_Orb : ActorSub
         }
     }
 
-    private IEnumerator Go()
+    protected override IEnumerator Go()
     {
         float goTime = 0;
 
         while (goTime < 0.5f)
         {
             goTime += Time.deltaTime;
-            _rigid.MovePosition(this.transform.position + _dir * GoSpeed * Time.deltaTime);
+            _rigid.MovePosition(this.transform.position + _dir * _moveSpeed * Time.deltaTime);
 
             yield return null;
         }

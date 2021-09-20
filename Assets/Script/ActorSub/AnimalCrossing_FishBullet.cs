@@ -9,7 +9,6 @@ public class AnimalCrossing_FishBullet : ActorSub
 
     private Vector3 _originalPos;
 
-    public const float MoveSpeed = 5f;
     public const float Offset = 1f;
 
     public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, int fishIndex)
@@ -29,6 +28,9 @@ public class AnimalCrossing_FishBullet : ActorSub
 
         this.transform.position = owner.transform.position;
         _originalPos = owner.transform.position;
+
+        _moveSpeed = Constant.ANIMALCROSSING_FISHBULLET_MOVE_SPEED;
+        _lifeTime = Constant.ANIMALCROSSING_FISHBULLET_LIFETIME;
 
         StartCoroutine(Go());
     }
@@ -59,13 +61,13 @@ public class AnimalCrossing_FishBullet : ActorSub
         // Global.PoolingManager.LocalDespawn(this.gameObject);
     }
 
-    private IEnumerator Go()
+    protected override IEnumerator Go()
     {
         float goTime = 0;
         float angValue = 0;
         float distance = 0;
 
-        while (goTime < 5f)
+        while (goTime < _lifeTime)
         {
             float x = Mathf.Cos(angValue * Mathf.Deg2Rad * 100f);
             float y = Mathf.Sin(angValue * Mathf.Deg2Rad * 100f);
@@ -77,7 +79,7 @@ public class AnimalCrossing_FishBullet : ActorSub
             this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 90));
 
             goTime += Time.deltaTime;
-            angValue += MoveSpeed * Time.deltaTime;
+            angValue += _moveSpeed * Time.deltaTime;
             distance += Time.deltaTime;
 
             _rigid.MovePosition(_originalPos + _dir * (Offset + distance));

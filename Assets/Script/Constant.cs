@@ -8,4 +8,13 @@ public static class Constant
     public const int DESPAWN_EVENT_ID = 1;
     public const int Local_SPAWN_EVENT_ID = 2;
     public const int Local_DESPAWN_EVENT_ID = 3;
+
+    public const float ACTOR_SUB_DEFAULT_LIFETIME = 1f;
+    public const float ACTOR_SUB_DEFAULT_MOVE_SPEED = 10f;
+    public const float AHRI_HEART_MOVE_SPEED = 8f;
+    public const float AHRI_ORB_MOVE_SPEED = 10f;
+    public const float ANIMALCROSSING_FISHBULLET_MOVE_SPEED = 5f;
+    public const float ANIMALCROSSING_FISHBULLET_LIFETIME = 5f;
+    public const float JETT_SHURIKEN_MOVE_SPEED = 20f;
+    public const float NORMAL_BULLET_MOVE_SPEED = 15f;
 }

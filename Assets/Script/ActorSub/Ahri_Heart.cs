@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class Ahri_Heart : ActorSub
 {
-    public const float MoveSpeed = 8f;
-
     public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
     {
         base.SetInfo(ownerPhotonView, owner, dir);
+
+        _moveSpeed = Constant.AHRI_HEART_MOVE_SPEED;
 
         StartCoroutine(Go());
     }
@@ -21,20 +21,5 @@ public class Ahri_Heart : ActorSub
             var targetObject = _attackRange.CollidedObjectList[0];
             OnDamage(targetObject.GetComponent<Entity>());
         }
-    }
-
-    private IEnumerator Go()
-    {
-        float goTime = 0;
-
-        while (goTime < 1f)
-        {
-            goTime += Time.deltaTime;
-            _rigid.MovePosition(this.transform.position + _dir * MoveSpeed * Time.deltaTime);
-
-            yield return null;
-        }
-
-        Global.PoolingManager.LocalDespawn(this.gameObject);
     }
 }
