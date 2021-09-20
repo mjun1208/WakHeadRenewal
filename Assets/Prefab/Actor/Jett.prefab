@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6491603249090061631
 Transform:
   m_ObjectHideFlags: 0
@@ -71,6 +71,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ownerObject: {fileID: 3549152987968806824}
+--- !u!1 &1926148762549829077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2101961605394373746}
+  m_Layer: 0
+  m_Name: Skill_2_1Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2101961605394373746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926148762549829077}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.16, y: -0.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3549152987968806829}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3154716337412823574
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8883946811148821054
 Transform:
   m_ObjectHideFlags: 0
@@ -152,7 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3549152987968806829}
   - component: {fileID: 3549152987968806833}
-  - component: {fileID: 3549152987968806834}
+  - component: {fileID: 6076235179544667383}
   - component: {fileID: 3549152987968806830}
   - component: {fileID: 3549152987968806831}
   - component: {fileID: 3549152987968806835}
@@ -174,12 +204,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3549152987968806824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.2672231, y: -1.1853287, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_Children:
   - {fileID: 6491603249090061631}
   - {fileID: 8883946811148821054}
   - {fileID: 2026693075129245635}
+  - {fileID: 6352762980689894275}
+  - {fileID: 8362966575981139667}
+  - {fileID: 8697289499001105498}
+  - {fileID: 2101961605394373746}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -202,13 +236,13 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 3549152987968806834}
+  - {fileID: 6076235179544667383}
   - {fileID: 3549152987968806828}
   - {fileID: 2749964141174960054}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &3549152987968806834
+--- !u!114 &6076235179544667383
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,7 +251,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3549152987968806824}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86051488f7df1a84c9bb8bb6839a18d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b3486641cd10744ba029c1551f3ffdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rigid: {fileID: 3549152987968806835}
@@ -229,6 +263,10 @@ MonoBehaviour:
   _attackRange: {fileID: 2578892939789859831}
   _skill_1Range: {fileID: 1480387700987663635}
   _skill_2Range: {fileID: 4998757218159365628}
+  _ghostPivot: {fileID: 6470358408132265447}
+  _operatorTrajectoryPivot: {fileID: 4481499202161905717}
+  _skill2_0Pivot: {fileID: 8874636246292013432}
+  _skill2_1Pivot: {fileID: 1926148762549829077}
 --- !u!212 &3549152987968806830
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -412,16 +450,16 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: IsWalk
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: IsAttack
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: IsSkill_1
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: IsSkill_2
   - Type: 4
     SynchronizeType: 0
@@ -429,9 +467,45 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 0
     Name: IsSkill_1_2
+  - Type: 4
+    SynchronizeType: 2
+    Name: IsAttack_2_0
+  - Type: 4
+    SynchronizeType: 2
+    Name: IsAttack_2_1
   m_SynchronizeLayers:
-  - SynchronizeType: 0
+  - SynchronizeType: 2
     LayerIndex: 0
+--- !u!1 &4481499202161905717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8362966575981139667}
+  m_Layer: 0
+  m_Name: OperatorTrajectoryPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8362966575981139667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4481499202161905717}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.4354, y: -0.04015, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3549152987968806829}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4958496580034289624
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,3 +577,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ownerObject: {fileID: 3549152987968806824}
+--- !u!1 &6470358408132265447
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6352762980689894275}
+  m_Layer: 0
+  m_Name: GhostPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6352762980689894275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6470358408132265447}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.20712, y: -0.0299, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3549152987968806829}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8874636246292013432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8697289499001105498}
+  m_Layer: 0
+  m_Name: Skill_2_0Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8697289499001105498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8874636246292013432}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1465, y: -0.1118, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3549152987968806829}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
