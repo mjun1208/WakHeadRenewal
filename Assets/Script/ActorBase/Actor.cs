@@ -51,6 +51,11 @@ public abstract class Actor : Entity, IPunObservable
         }
     }
 
+    protected void Awake()
+    {
+        _originalScale = this.transform.localScale;
+    }
+
     protected virtual void Start()
     {
         if (!photonView.IsMine)
@@ -61,7 +66,6 @@ public abstract class Actor : Entity, IPunObservable
         this.gameObject.layer = 8; // Player;
 
         CameraManager.instance.SetTarget(this.transform);
-        _originalScale = this.transform.localScale;
     }
 
     protected virtual void Update()
