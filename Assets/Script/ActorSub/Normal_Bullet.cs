@@ -27,7 +27,7 @@ public class Normal_Bullet : ActorSub
     {
         StopAllCoroutines();
 
-        if (!_ownerPhotonView.IsMine)
+        if (_ownerPhotonView.IsMine)
         {
             entity.KnockBack(_dir, 3f, 0f);
         }

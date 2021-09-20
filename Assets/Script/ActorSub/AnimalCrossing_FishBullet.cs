@@ -53,7 +53,7 @@ public class AnimalCrossing_FishBullet : ActorSub
     {
         // StopAllCoroutines();
 
-        if (!_ownerPhotonView.IsMine)
+        if (_ownerPhotonView.IsMine)
         {
             entity.Damaged(this.transform.position);
         }

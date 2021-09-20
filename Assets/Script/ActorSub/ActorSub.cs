@@ -31,7 +31,7 @@ public class ActorSub : MonoBehaviour
     {
         StopAllCoroutines();
 
-        if (!_ownerPhotonView.IsMine)
+        if (_ownerPhotonView.IsMine)
         {
             entity.Damaged(this.transform.position);
         }

@@ -32,7 +32,7 @@ public class Sans_Bone : ActorSub
 
     private void OnDamage()
     {
-        if (!_ownerPhotonView.IsMine)
+        if (_ownerPhotonView.IsMine)
         {
             foreach (var targetObject in _attackRange.CollidedObjectList)
             {
