@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Normal_Bullet : ActorSub
 {
-    public const float MoveSpeed = 15f;
-
     public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
     {
         base.SetInfo(ownerPhotonView, owner, dir);
