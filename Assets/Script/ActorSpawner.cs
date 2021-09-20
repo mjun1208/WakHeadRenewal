@@ -36,7 +36,16 @@ public class ActorSpawner : MonoBehaviourPunCallbacks
             }
 
             _currentActor = newobj;
+
+            Global.instance.SetMyActorName(o.name);
+            photonView.RPC("SetEnemyActorName", RpcTarget.OthersBuffered, o.name);
             // PhotonNetwork.Destroy(this.gameObject);
         }
+    }
+
+    [PunRPC]
+    private void SetEnemyActorName(string name)
+    {
+        Global.instance.SetEnemyActorName(name);
     }
 }

@@ -24,6 +24,9 @@ public class Global : MonoBehaviour
     private static ResourceManager _resourceManager;
     private static PoolingManager _poolingManager;
 
+    public string MyActorName { get; private set; }
+    public string EnemyActorName { get; private set; }
+
     private void Awake()
     {
         if (_instance == null)
@@ -39,5 +42,15 @@ public class Global : MonoBehaviour
         _resourceManager = new ResourceManager();
         _poolingManager = new PoolingManager();
         _resourceManager.Load();
+    }
+
+    public void SetMyActorName(string name)
+    {
+        MyActorName = name;
+    }
+
+    public void SetEnemyActorName(string name)
+    {
+        EnemyActorName = name;
     }
 }
