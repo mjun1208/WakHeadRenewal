@@ -7,6 +7,8 @@ public class Jett : Actor
 {
     [SerializeField] private GameObject _ghostPivot;
     [SerializeField] private GameObject _operatorTrajectoryPivot;
+    [SerializeField] private GameObject _skill2_0Pivot;
+    [SerializeField] private GameObject _skill2_1Pivot;
 
     private int _shurikenCount = 0;
 
@@ -55,8 +57,6 @@ public class Jett : Actor
                 break;
             }
         }
-
-        // photonView.RPC("ShootGhost", RpcTarget.All, _isMove);
     }
 
     protected override void Active_Skill_1()
@@ -99,6 +99,7 @@ public class Jett : Actor
 
     private void ThrowShuriken()
     {
+        photonView.RPC("ThrowShurikenRPC", RpcTarget.All);
         _shurikenCount--;
     }
 
@@ -117,6 +118,16 @@ public class Jett : Actor
             _animator.SetBool("IsAttack_2_0", _isAttackInput && _shurikenCount % 2 == 0);
             _animator.SetBool("IsAttack_2_1", _isAttackInput && _shurikenCount % 2 == 1);
         }
+    }
+
+    [PunRPC]
+    public void ThrowShurikenRPC()
+    {
+        var throwPosition = _shurikenCount % 2 == 0 ? _skill2_0Pivot : _skill2_1Pivot;
+
+        var newShuriken = Global.PoolingManager.LocalSpawn("Jett_Shuriken", throwPosition.transform.position, Quaternion.identity, true);
+
+        newShuriken.GetComponent<Jett_Shuriken>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
     }
 
     [PunRPC]
