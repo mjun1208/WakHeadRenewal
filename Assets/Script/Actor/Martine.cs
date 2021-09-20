@@ -81,7 +81,7 @@ public class Martine : Actor
         }
     }
 
-    protected override void OnSkill_2()
+    public override void OnSkill_2()
     {
         if (_currentVent == null)
         {

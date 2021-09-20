@@ -197,24 +197,21 @@ public abstract class Actor : Entity, IPunObservable
         return _isSkill_1Input;
     }
 
-    protected virtual void OnSkill_1()
+    public virtual void OnSkill_1()
     {
-        if (_isSkill_1Input)
+        _isSkill_1 = true;
+
+        if (_onSkillCoroutine == null)
         {
-            _isSkill_1 = true;
+            _isDoingSkill = true;
+            _onSkillCoroutine = OnSkill("Skill_1");
+            StartCoroutine(_onSkillCoroutine);
 
-            if (_onSkillCoroutine == null)
-            {
-                _isDoingSkill = true;
-                _onSkillCoroutine = OnSkill("Skill_1");
-                StartCoroutine(_onSkillCoroutine);
-
-                _animator.SetBool("IsSkill_1", true);
-            }
-            else
-            {
-                _isSkill_1 = false;
-            }
+            _animator.SetBool("IsSkill_1", true);
+        }
+        else
+        {
+            _isSkill_1 = false;
         }
     }
 
@@ -230,24 +227,21 @@ public abstract class Actor : Entity, IPunObservable
         return _isSkill_2Input;
     }
 
-    protected virtual void OnSkill_2()
+    public virtual void OnSkill_2()
     {
-        if (_isSkill_2Input)
+        _isSkill_2 = true;
+
+        if (_onSkillCoroutine == null)
         {
-            _isSkill_2 = true;
+            _isDoingSkill = true;
+            _onSkillCoroutine = OnSkill("Skill_2");
+            StartCoroutine(_onSkillCoroutine);
 
-            if (_onSkillCoroutine == null)
-            {
-                _isDoingSkill = true;
-                _onSkillCoroutine = OnSkill("Skill_2");
-                StartCoroutine(_onSkillCoroutine);
-
-                _animator.SetBool("IsSkill_2", true);
-            }
-            else
-            {
-                _isSkill_2 = false;
-            }
+            _animator.SetBool("IsSkill_2", true);
+        }
+        else
+        {
+            _isSkill_2 = false;
         }
     }
 

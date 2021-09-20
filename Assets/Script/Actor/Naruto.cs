@@ -14,7 +14,7 @@ public class Naruto : Actor
 
     private RasenganState _rasenganState;
 
-    protected override void OnSkill_2()
+    public override void OnSkill_2()
     {
         switch (_rasenganState)
         {

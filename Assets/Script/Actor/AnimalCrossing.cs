@@ -60,7 +60,7 @@ public class AnimalCrossing : Actor
         photonView.RPC("ShootFish", RpcTarget.All, myFish.GetMyFishIndex());
     }
 
-    protected override void OnSkill_1()
+    public override void OnSkill_1()
     {
         if (!_isCasting)
         {
