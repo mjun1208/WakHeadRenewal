@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 927562889
+CRC: 2620050705
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7e6ebf05c807c41678e17206ea1fa556
+    Hash: 5a24c389ba4fc76ff2289f5b1b3a0644
   TypeTreeHash:
     serializedVersion: 2
-    Hash: ae48f5393fcdd68c3d121527c6838668
+    Hash: 7265b8969b188bd865ef7727d795bc5e
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -42,6 +42,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 9b3486641cd10744ba029c1551f3ffdf, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: f3f8cdc4acac4af4d936fd6904e8655b, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 3b03f05536d32304b94e42d47cbfae8c, type: 3}
@@ -73,6 +75,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 4ce6e1df3bd4d454da47664251cd7f1e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d50b5999f92cf3a41a27eed599499f6b, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 198
@@ -89,6 +93,7 @@ Assets:
 - Assets/Prefab/Actor/Actor.prefab
 - Assets/Prefab/Actor_Sub/Ahri_Orb.prefab
 - Assets/Prefab/Effect/DeathEffect.prefab
+- Assets/Prefab/Actor/Jett.prefab
 - Assets/Prefab/Actor/Dummy.prefab
 - Assets/Prefab/Effect/HitEffect.prefab
 - Assets/Prefab/Effect/Blood.prefab
@@ -106,6 +111,7 @@ Assets:
 - Assets/Prefab/Actor/Martine.prefab
 - Assets/Prefab/Actor/Sans.prefab
 - Assets/Prefab/Effect/GhostEffect.prefab
+- Assets/Prefab/Actor_Sub/Jett_Shuriken.prefab
 - Assets/Prefab/Actor_Sub/Ahri_Heart.prefab
 - Assets/Prefab/Actor/AnimalCrossing.prefab
 Dependencies: []
