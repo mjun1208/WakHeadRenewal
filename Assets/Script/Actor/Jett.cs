@@ -99,6 +99,11 @@ public class Jett : Actor
 
     private void ThrowShuriken()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
         photonView.RPC("ThrowShurikenRPC", RpcTarget.All);
         _shurikenCount--;
     }
