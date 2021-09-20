@@ -98,13 +98,13 @@ public class Martine : Actor
 
             _animator.SetBool("IsSkill_2", true);
 
-            if (_onSkillCoroutine != null)
+            if (OnSkillCoroutine != null)
             {
-                StopCoroutine(_onSkillCoroutine);
-                _onSkillCoroutine = null;
+                StopCoroutine(OnSkillCoroutine);
+                OnSkillCoroutine = null;
             }
 
-            _isDoingSkill = true;
+            IsDoingSkill = true;
 
             StartCoroutine(Venting());
         }
@@ -264,15 +264,15 @@ public class Martine : Actor
         _animator.SetBool("IsSkill_2", false);
         _animator.SetBool("IsSkill_2_Reverse", true);
 
-        if (_onSkillCoroutine != null)
+        if (OnSkillCoroutine != null)
         {
-            StopCoroutine(_onSkillCoroutine);
-            _onSkillCoroutine = null;
+            StopCoroutine(OnSkillCoroutine);
+            OnSkillCoroutine = null;
         }
 
-        _isDoingSkill = true;
-        _onSkillCoroutine = OnSkill("Skill_2_Reverse");
-        StartCoroutine(_onSkillCoroutine);
+        IsDoingSkill = true;
+        OnSkillCoroutine = OnSkill("Skill_2_Reverse");
+        StartCoroutine(OnSkillCoroutine);
     }
 
     private void SelectVent()

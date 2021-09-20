@@ -22,7 +22,7 @@ public class Naruto : Actor
                 {
                     base.OnSkill_1();
 
-                    if (_isSkill_1)
+                    if (isSkill_1)
                     {
                     }
                     break;
@@ -31,7 +31,7 @@ public class Naruto : Actor
                 {
                     base.OnSkill_1();
 
-                    if (_isSkill_1)
+                    if (isSkill_1)
                     {
                     }
                     break;
@@ -40,7 +40,7 @@ public class Naruto : Actor
                 {
                     base.OnSkill_1();
 
-                    if (_isSkill_1)
+                    if (isSkill_1)
                     {
                     }
                     break;

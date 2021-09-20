@@ -68,14 +68,14 @@ public class AnimalCrossing : Actor
 
             base.OnSkill_1();
 
-            _isCasting = _isSkill_1;
+            _isCasting = isSkill_1;
 
-            if (_isSkill_1)
+            if (isSkill_1)
             {
-                if (_onSkillCoroutine != null)
+                if (OnSkillCoroutine != null)
                 {
-                    StopCoroutine(_onSkillCoroutine);
-                    _onSkillCoroutine = null;
+                    StopCoroutine(OnSkillCoroutine);
+                    OnSkillCoroutine = null;
                 }
 
                 CastingCoroutine = Casting();
@@ -93,10 +93,10 @@ public class AnimalCrossing : Actor
                 _animator.SetBool("IsSkill_1_2", true);
                 _animator.SetBool("IsSkill_1_1", false);
 
-                if (_onSkillCoroutine == null)
+                if (OnSkillCoroutine == null)
                 {
-                    _onSkillCoroutine = Fishing();
-                    StartCoroutine(_onSkillCoroutine);
+                    OnSkillCoroutine = Fishing();
+                    StartCoroutine(OnSkillCoroutine);
                 }
             }
         }
@@ -104,7 +104,7 @@ public class AnimalCrossing : Actor
 
     private void Skill_1Cancle()
     {
-        if (!_isDoingSkill && _isCasting)
+        if (!IsDoingSkill && _isCasting)
         {
             if (CastingCoroutine != null)
             {
@@ -136,7 +136,7 @@ public class AnimalCrossing : Actor
             yield return null;
         }
 
-        _isDoingSkill = false;
+        IsDoingSkill = false;
 
         yield return new WaitForSeconds(Random.Range(0.1f, 3f));
 
@@ -152,7 +152,7 @@ public class AnimalCrossing : Actor
 
     private IEnumerator Fishing()
     {
-        _isDoingSkill = true;
+        IsDoingSkill = true;
 
         myFish.SelectRandomFish();
         photonView.RPC("SetFish", RpcTarget.All, myFish.GetMyFishIndex());
@@ -173,13 +173,13 @@ public class AnimalCrossing : Actor
 
         _animator.SetBool("IsSkill_1_2", false);
 
-        _isDoingSkill = false;
+        IsDoingSkill = false;
    
         _isBite = false;
 
         photonView.RPC("SetActiveFish", RpcTarget.All, false);
 
-        _onSkillCoroutine = null;
+        OnSkillCoroutine = null;
     }
 
     [PunRPC]

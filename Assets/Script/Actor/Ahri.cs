@@ -30,7 +30,7 @@ public class Ahri : Actor
     {
         base.Update();
 
-        if (_isDoingSkill && _isSkill_2)
+        if (IsDoingSkill && isSkill_2)
         {
             SpiritRush();
         }

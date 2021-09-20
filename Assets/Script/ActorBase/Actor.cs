@@ -27,14 +27,14 @@ public abstract class Actor : Entity, IPunObservable
     protected bool _isSkill_1Input = false;
     protected bool _isSkill_2Input = false;
 
-    protected bool _isSkill_1 = false;
-    protected bool _isSkill_2 = false;
+    public bool isSkill_1 { get; protected set; } = false;
+    public bool isSkill_2 { get; protected set; } = false;
 
     protected Vector3 _originalScale = Vector3.zero;
 
-    protected bool _isDoingSkill = false;
+    public bool IsDoingSkill { get; protected set; } = false;
 
-    protected IEnumerator _onSkillCoroutine = null;
+    public IEnumerator OnSkillCoroutine { get; protected set; } = null;
 
     public override void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -82,7 +82,7 @@ public abstract class Actor : Entity, IPunObservable
 
         KeyInput();
 
-        if (!_isDoingSkill)
+        if (!IsDoingSkill)
         {
             Move();
 
@@ -199,19 +199,19 @@ public abstract class Actor : Entity, IPunObservable
 
     public virtual void OnSkill_1()
     {
-        _isSkill_1 = true;
+        isSkill_1 = true;
 
-        if (_onSkillCoroutine == null)
+        if (OnSkillCoroutine == null)
         {
-            _isDoingSkill = true;
-            _onSkillCoroutine = OnSkill("Skill_1");
-            StartCoroutine(_onSkillCoroutine);
+            IsDoingSkill = true;
+            OnSkillCoroutine = OnSkill("Skill_1");
+            StartCoroutine(OnSkillCoroutine);
 
             _animator.SetBool("IsSkill_1", true);
         }
         else
         {
-            _isSkill_1 = false;
+            isSkill_1 = false;
         }
     }
 
@@ -229,25 +229,25 @@ public abstract class Actor : Entity, IPunObservable
 
     public virtual void OnSkill_2()
     {
-        _isSkill_2 = true;
+        isSkill_2 = true;
 
-        if (_onSkillCoroutine == null)
+        if (OnSkillCoroutine == null)
         {
-            _isDoingSkill = true;
-            _onSkillCoroutine = OnSkill("Skill_2");
-            StartCoroutine(_onSkillCoroutine);
+            IsDoingSkill = true;
+            OnSkillCoroutine = OnSkill("Skill_2");
+            StartCoroutine(OnSkillCoroutine);
 
             _animator.SetBool("IsSkill_2", true);
         }
         else
         {
-            _isSkill_2 = false;
+            isSkill_2 = false;
         }
     }
 
     protected IEnumerator OnSkill(string name)
     {
-        _isDoingSkill = true;
+        IsDoingSkill = true;
 
         while (!_animator.GetCurrentAnimatorStateInfo(0).IsName(name))
         {
@@ -263,28 +263,28 @@ public abstract class Actor : Entity, IPunObservable
 
         // end
 
-        _isDoingSkill = false;
-        _isSkill_1 = false;
-        _isSkill_2 = false;
+        IsDoingSkill = false;
+        isSkill_1 = false;
+        isSkill_2 = false;
 
         _animator.SetBool("Is" + name, false);
 
-        _onSkillCoroutine = null;
+        OnSkillCoroutine = null;
     }
 
     protected void SkillCancle()
     {
-        _isDoingSkill = false;
-        _isSkill_1 = false;
-        _isSkill_2 = false;
+        IsDoingSkill = false;
+        isSkill_1 = false;
+        isSkill_2 = false;
 
         _animator.SetBool("IsSkill_1", false);
         _animator.SetBool("IsSkill_2", false);
 
-        if (_onSkillCoroutine != null)
+        if (OnSkillCoroutine != null)
         {
-            StopCoroutine(_onSkillCoroutine);
-            _onSkillCoroutine = null;
+            StopCoroutine(OnSkillCoroutine);
+            OnSkillCoroutine = null;
         }
     }
 
