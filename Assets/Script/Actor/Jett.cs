@@ -104,7 +104,7 @@ public class Jett : Actor
             return;
         }
 
-        photonView.RPC("ThrowShurikenRPC", RpcTarget.All);
+        photonView.RPC("ThrowShurikenRPC", RpcTarget.All, _shurikenCount % 2 == 0);
         _shurikenCount--;
     }
 
@@ -126,9 +126,9 @@ public class Jett : Actor
     }
 
     [PunRPC]
-    public void ThrowShurikenRPC()
+    public void ThrowShurikenRPC(bool isPivot0)
     {
-        var throwPosition = _shurikenCount % 2 == 0 ? _skill2_0Pivot : _skill2_1Pivot;
+        var throwPosition = isPivot0 ? _skill2_0Pivot : _skill2_1Pivot;
 
         var newShuriken = Global.PoolingManager.LocalSpawn("Jett_Shuriken", throwPosition.transform.position, Quaternion.identity, true);
 
