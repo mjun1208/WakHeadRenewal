@@ -132,7 +132,7 @@ public class Jett : Actor
 
         var newShuriken = Global.PoolingManager.LocalSpawn("Jett_Shuriken", throwPosition.transform.position, Quaternion.identity, true);
 
-        newShuriken.GetComponent<Jett_Shuriken>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
+        newShuriken.GetComponent<Jett_Shuriken>().SetInfo(this.photonView, this.gameObject, throwPosition.transform.position, GetAttackDir());
     }
 
     [PunRPC]

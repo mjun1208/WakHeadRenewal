@@ -7,9 +7,11 @@ public class Jett_Shuriken : ActorSub
 {
     [SerializeField] private TrailRenderer _trail;
 
-    public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
+    public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 pos, Vector3 dir)
     {
         base.SetInfo(ownerPhotonView, owner, dir);
+
+        this.transform.position = pos;  
 
         _trail.Clear();
 
