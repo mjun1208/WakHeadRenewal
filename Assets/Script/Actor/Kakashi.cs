@@ -48,7 +48,7 @@ public class Kakashi : Actor
 
         photonView.RPC("Sharingan", RpcTarget.All);
 
-        if (string.IsNullOrEmpty(Global.instance.EnemyActorName))
+        if (string.IsNullOrEmpty(Global.instance.EnemyActorName) || Global.instance.EnemyActorName == Global.instance.MyActorName)
         {
             return;
         }
@@ -58,10 +58,10 @@ public class Kakashi : Actor
         _copyActor = PhotonNetwork.Instantiate(Global.instance.EnemyActorName, this.transform.position, Quaternion.identity);
         _copyActorScprit = _copyActor.GetComponent<Actor>();
 
-        photonView.RPC("ActorCopy", RpcTarget.All, _copyActor.GetPhotonView().ViewID, true);
-
         _copyActor.transform.position = this.transform.position;
         _copyActor.transform.localScale = this.transform.localScale;
+
+        photonView.RPC("ActorCopy", RpcTarget.All, _copyActor.GetPhotonView().ViewID, true);
 
         OnSkillCoroutine = DoCopyActor();
         StartCoroutine(OnSkillCoroutine);
@@ -71,7 +71,7 @@ public class Kakashi : Actor
     {
         float lifetime = 0f;
 
-        while (lifetime < 5f)
+        while (lifetime < 5f && !_isAttackInput)
         {
             lifetime += Time.deltaTime;
             yield return null;
@@ -110,6 +110,8 @@ public class Kakashi : Actor
         _copyActor.SetActive(isCopy);
         _copyActor.GetComponent<SpriteRenderer>().material = _copyMaterial;
         this._renderer.enabled = !isCopy;
+
+        var newSmoke = Global.PoolingManager.LocalSpawn("Naruto_Smoke", _copyActor.transform.position, Quaternion.identity, true);
     }
 
     [PunRPC]
