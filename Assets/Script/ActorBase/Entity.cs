@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,21 @@ public abstract class Entity : MonoBehaviourPunCallbacks
     public bool _knockBack = false;
     public bool _grab = false;
 
-    protected bool _stun = false;
+    public Action<bool> StunAction;
+
+    public bool IsStun {
+        get
+        {
+            return _isStun;
+        }
+        protected set
+        {
+            StunAction?.Invoke(value);
+            _isStun = value;
+        }
+    }
+
+    protected bool _isStun = false;
 
     private IEnumerator currentCrownControl = null;
 
@@ -98,7 +113,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
     {
         if (stunTime > 0)
         {
-            _stun = true;
+            IsStun = true;
         }
 
         Damaged(this.transform.position);
@@ -118,12 +133,12 @@ public abstract class Entity : MonoBehaviourPunCallbacks
 
         yield return new WaitForSeconds(stunTime);
 
-        _stun = false;
+        IsStun = false;
     }
 
     private IEnumerator OnGrab(Vector3 targetPostion, float grabSpeed)
     {
-        _stun = true;
+        IsStun = true;
 
         float distance = float.MaxValue;
 
@@ -140,16 +155,16 @@ public abstract class Entity : MonoBehaviourPunCallbacks
 
         yield return null;
 
-        _stun = false;
+        IsStun = false;
     }
 
     private IEnumerator OnStun(float stunTime)
     {
-        _stun = true;
+        IsStun = true;
 
         yield return new WaitForSeconds(stunTime);
 
-        _stun = false;
+        IsStun = false;
     }
 
     public void Damaged(Vector3 pos)
@@ -165,7 +180,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
 
     public void OnDamage(Vector3 pos)
     {
-        var randomPos = (Vector3)Random.insideUnitCircle * 0.5f;
+        var randomPos = (Vector3)UnityEngine.Random.insideUnitCircle * 0.5f;
 
         Global.PoolingManager.LocalSpawn("HitEffect", this.transform.position + randomPos, this.transform.rotation , true);
     }
