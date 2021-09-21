@@ -54,6 +54,7 @@ public abstract class Actor : Entity, IPunObservable
     protected void Awake()
     {
         _originalScale = this.transform.localScale;
+        StunAction += ForceStop;
     }
 
     protected virtual void Start()
@@ -106,6 +107,15 @@ public abstract class Actor : Entity, IPunObservable
                     return;
                 }
             }
+        }
+    }
+
+    protected void ForceStop(bool isStun)
+    {
+        if (isStun)
+        {
+            _animator.Rebind();
+            OnSkillCoroutine = null;
         }
     }
 
