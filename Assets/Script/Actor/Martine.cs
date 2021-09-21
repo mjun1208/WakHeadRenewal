@@ -25,6 +25,13 @@ public class Martine : Actor
         SelectVent();
     }
 
+    protected override void ForceStop(bool isStun)
+    {
+        base.ForceStop(isStun);
+        StopCoroutine(_selectNextVent);
+        _renderer.enabled = true;
+    }
+
     protected override void Active_Attack()
     {
         if (!photonView.IsMine)

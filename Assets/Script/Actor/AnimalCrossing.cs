@@ -9,7 +9,7 @@ public class AnimalCrossing : Actor
 
     private bool _isCasting = false;
     private bool _isBite = false;
-    private IEnumerator CastingCoroutine = null;
+    private IEnumerator _castingCoroutine = null;
 
     protected override void Start()
     {
@@ -24,6 +24,12 @@ public class AnimalCrossing : Actor
         {
             Skill_1Cancle();
         }
+    }
+
+    protected override void ForceStop(bool isStun)
+    {
+        base.ForceStop(isStun);
+        StopCoroutine(_castingCoroutine);
     }
 
     protected override void Active_Attack()
@@ -78,8 +84,8 @@ public class AnimalCrossing : Actor
                     OnSkillCoroutine = null;
                 }
 
-                CastingCoroutine = Casting();
-                StartCoroutine(CastingCoroutine);
+                _castingCoroutine = Casting();
+                StartCoroutine(_castingCoroutine);
             }
         }
         else
@@ -106,10 +112,10 @@ public class AnimalCrossing : Actor
     {
         if (!IsDoingSkill && _isCasting)
         {
-            if (CastingCoroutine != null)
+            if (_castingCoroutine != null)
             {
-                StopCoroutine(CastingCoroutine);
-                CastingCoroutine = null;
+                StopCoroutine(_castingCoroutine);
+                _castingCoroutine = null;
             }
 
             _isCasting = false;
@@ -147,7 +153,7 @@ public class AnimalCrossing : Actor
 
         photonView.RPC("SetActiveFish", RpcTarget.All, false);
 
-        CastingCoroutine = null;
+        _castingCoroutine = null;
     }
 
     private IEnumerator Fishing()

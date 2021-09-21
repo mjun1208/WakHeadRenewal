@@ -110,7 +110,7 @@ public abstract class Actor : Entity, IPunObservable
         }
     }
 
-    protected void ForceStop(bool isStun)
+    protected virtual void ForceStop(bool isStun)
     {
         if (isStun)
         {
