@@ -15,6 +15,16 @@ public class Kakashi : Actor
         base.Start();
     }
 
+    protected override void Active_Attack()
+    {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        photonView.RPC("ThrowShuriken", RpcTarget.All);
+    }
+
     protected override void Active_Skill_1()
     {
         if (!photonView.IsMine)
@@ -114,6 +124,13 @@ public class Kakashi : Actor
         this._renderer.enabled = !isCopy;
 
         var newSmoke = Global.PoolingManager.LocalSpawn("Naruto_Smoke", _copyActor.transform.position, Quaternion.identity, true);
+    }
+
+    [PunRPC]
+    public void ThrowShuriken()
+    {
+        var newShuriken = Global.PoolingManager.LocalSpawn("Kakashi_Shuriken", this.transform.position, Quaternion.identity, true);
+        newShuriken.GetComponent<Kakashi_Shuriken>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
     }
 
     [PunRPC]
