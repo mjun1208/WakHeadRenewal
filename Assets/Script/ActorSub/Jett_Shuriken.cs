@@ -6,6 +6,12 @@ using UnityEngine;
 public class Jett_Shuriken : ActorSub
 {
     [SerializeField] private TrailRenderer _trail;
+    private Vector3 _originalScale;
+
+    private void Awake()
+    {
+        _originalScale = this.transform.localScale;
+    }
 
     public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 pos, Vector3 dir)
     {
@@ -16,6 +22,9 @@ public class Jett_Shuriken : ActorSub
         _trail.Clear();
 
         _moveSpeed = Constant.JETT_SHURIKEN_MOVE_SPEED;
+
+        float rotationScale = _originalScale.x * dir.x;
+        this.transform.localScale = new Vector3(rotationScale, _originalScale.y, _originalScale.z);
 
         StartCoroutine(Go());
     }
