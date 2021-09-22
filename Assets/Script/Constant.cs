@@ -17,4 +17,5 @@ public static class Constant
     public const float ANIMALCROSSING_FISHBULLET_LIFETIME = 5f;
     public const float JETT_SHURIKEN_MOVE_SPEED = 20f;
     public const float NORMAL_BULLET_MOVE_SPEED = 15f;
+    public const float KAKASHI_SHURIKEN_MOVE_SPEED = 15f;
 }
