@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2620050705
+CRC: 2620078414
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5a24c389ba4fc76ff2289f5b1b3a0644
+    Hash: 28fff69ca2836fed67d3c396c8d54f26
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 7265b8969b188bd865ef7727d795bc5e
+    Hash: 9c3531c6da8b9a6020cd46d1d4fd6f18
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -34,6 +34,10 @@ ClassTypes:
 - Class: 96
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 76af7810b411c9f47a586c7b4c14d0a5, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: d5fbc760242446a4b906f71e9ead084f, type: 3}
@@ -41,6 +45,10 @@ ClassTypes:
   Script: {fileID: 11500000, guid: c71e1b904d327ac49afe87a621a585c3, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 021494020e876ca4ba820599469b1d76, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 9b3486641cd10744ba029c1551f3ffdf, type: 3}
 - Class: 114
@@ -53,6 +61,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 86051488f7df1a84c9bb8bb6839a18d7, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 168e9b5904e38754f9c826b3da072612, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d50b5999f92cf3a41a27eed599499f6b, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: d23209e965094b44da56fd364d048c34, type: 3}
 - Class: 114
@@ -68,6 +78,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: c5fc2f5da04b38e4897ecc07d9dfdcb6, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: f016532eefabdbc46bd3d5b7019fa0f6, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 6e96768e5e335dc44b8d299240f29602, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 5e10fb8e205fc8a458e811356906898d, type: 3}
@@ -76,7 +88,7 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 4ce6e1df3bd4d454da47664251cd7f1e, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: d50b5999f92cf3a41a27eed599499f6b, type: 3}
+  Script: {fileID: 11500000, guid: b057bea05aff6fd4389c3b8e69355ff3, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 198
@@ -87,6 +99,12 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 223
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
 - Class: 233
   Script: {instanceID: 0}
 Assets:
@@ -94,8 +112,10 @@ Assets:
 - Assets/Prefab/Actor_Sub/Ahri_Orb.prefab
 - Assets/Prefab/Effect/DeathEffect.prefab
 - Assets/Prefab/Actor/Jett.prefab
+- Assets/Prefab/Actor_Sub/Naruto_Smoke.prefab
 - Assets/Prefab/Actor/Dummy.prefab
 - Assets/Prefab/Effect/HitEffect.prefab
+- Assets/Prefab/Actor_Sub/Kakashi_Shuriken.prefab
 - Assets/Prefab/Effect/Blood.prefab
 - Assets/Prefab/Actor_Sub/Sans_Gaster.prefab
 - Assets/Prefab/Actor/Normal.prefab
@@ -103,15 +123,19 @@ Assets:
 - Assets/Prefab/Actor_Sub/Sans_Charge_Blast.prefab
 - Assets/Prefab/Actor_Sub/Normal_Bullet.prefab
 - Assets/Prefab/Effect/OperatorTrajectory.prefab
+- Assets/Prefab/Effect/Kakashi_EyeCanvas.prefab
 - Assets/Prefab/Actor_Sub/AnimalCrossing_FishBullet.prefab
 - Assets/Prefab/Actor_Sub/Sans_Gaster_Blast.prefab
 - Assets/Prefab/Actor/Ahri.prefab
 - Assets/Prefab/Effect/OperatorEffect.prefab
 - Assets/Prefab/Actor_Sub/Sans_Bone.prefab
+- Assets/Prefab/Actor/Kakashi.prefab
+- Assets/Prefab/Actor_Sub/Kakashi_Bomb.prefab
 - Assets/Prefab/Actor/Martine.prefab
 - Assets/Prefab/Actor/Sans.prefab
 - Assets/Prefab/Effect/GhostEffect.prefab
 - Assets/Prefab/Actor_Sub/Jett_Shuriken.prefab
+- Assets/Resources/Naruto.prefab
 - Assets/Prefab/Actor_Sub/Ahri_Heart.prefab
 - Assets/Prefab/Actor/AnimalCrossing.prefab
 Dependencies: []
