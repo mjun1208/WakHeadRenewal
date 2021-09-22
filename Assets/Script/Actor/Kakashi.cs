@@ -92,6 +92,8 @@ public class Kakashi : Actor
 
         this.transform.position = _copyActor.transform.position;
         this.transform.localScale = _copyActor.transform.localScale;
+
+        _smoothSync.teleport();
     }
 
     private void DestroyCopiedActor()
