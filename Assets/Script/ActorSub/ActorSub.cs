@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class ActorSub : MonoBehaviour
     protected float _moveSpeed = Constant.ACTOR_SUB_DEFAULT_MOVE_SPEED;
     protected float _lifeTime = Constant.ACTOR_SUB_DEFAULT_LIFETIME;
 
+    public Action DestoryAction = null;
+
     public virtual void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
     {
         _ownerPhotonView = ownerPhotonView;
@@ -25,6 +28,8 @@ public class ActorSub : MonoBehaviour
         _owner = owner;
 
         _dir = dir;
+
+        DestoryAction += OnDestory;
     }
 
     protected virtual void OnDamage(Entity entity)
@@ -41,6 +46,8 @@ public class ActorSub : MonoBehaviour
             entity.Damaged(this.transform.position);
         }
 
+        DestoryAction?.Invoke();
+
         Global.PoolingManager.LocalDespawn(this.gameObject);
     }
 
@@ -56,6 +63,13 @@ public class ActorSub : MonoBehaviour
             yield return null;
         }
 
+        DestoryAction?.Invoke();
+
         Global.PoolingManager.LocalDespawn(this.gameObject);
+    }
+
+    protected virtual void OnDestory()
+    {
+        DestoryAction -= OnDestory;
     }
 }
