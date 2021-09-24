@@ -51,11 +51,6 @@ public class AnimalCrossing_FishBullet : ActorSub
 
     protected override void OnDamage(Entity entity)
     {
-        if (entity.photonView.IsMine)
-        {
-            return;
-        }
-
         // StopAllCoroutines();
 
         if (_ownerPhotonView.IsMine)
@@ -92,6 +87,6 @@ public class AnimalCrossing_FishBullet : ActorSub
             yield return null;
         }
 
-        Global.PoolingManager.LocalDespawn(this.gameObject);
+        Destroy();
     }
 }

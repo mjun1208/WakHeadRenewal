@@ -34,11 +34,6 @@ public class ActorSub : MonoBehaviour
 
     protected virtual void OnDamage(Entity entity)
     {
-        if (entity.photonView.IsMine)
-        {
-            return;
-        }
-
         StopAllCoroutines();
 
         if (_ownerPhotonView.IsMine)
@@ -46,9 +41,7 @@ public class ActorSub : MonoBehaviour
             entity.Damaged(this.transform.position);
         }
 
-        DestoryAction?.Invoke();
-
-        Global.PoolingManager.LocalDespawn(this.gameObject);
+        Destroy();
     }
 
     protected virtual IEnumerator Go()
@@ -63,6 +56,11 @@ public class ActorSub : MonoBehaviour
             yield return null;
         }
 
+        Destroy();
+    }
+
+    protected virtual void Destroy()
+    {
         DestoryAction?.Invoke();
 
         Global.PoolingManager.LocalDespawn(this.gameObject);

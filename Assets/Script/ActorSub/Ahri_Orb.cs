@@ -41,11 +41,6 @@ public class Ahri_Orb : ActorSub
 
     protected override void OnDamage(Entity entity)
     {
-        if (entity.photonView.IsMine)
-        {
-            return;
-        }
-
         if (_ownerPhotonView.IsMine)
         {
             entity.Damaged(this.transform.position);
@@ -84,6 +79,7 @@ public class Ahri_Orb : ActorSub
         }
 
         _trail.Clear();
-        Global.PoolingManager.LocalDespawn(this.gameObject);
+
+        Destroy();
     }
 }

@@ -40,11 +40,6 @@ public class Jett_Shuriken : ActorSub
 
     protected override void OnDamage(Entity entity)
     {
-        if (entity.photonView.IsMine)
-        {
-            return;
-        }
-
         StopAllCoroutines();
 
         if (_ownerPhotonView.IsMine)
@@ -52,6 +47,6 @@ public class Jett_Shuriken : ActorSub
             entity.KnockBack(_dir, 0.5f, 0f);
         }
 
-        Global.PoolingManager.LocalDespawn(this.gameObject);
+        Destroy();
     }
 }
