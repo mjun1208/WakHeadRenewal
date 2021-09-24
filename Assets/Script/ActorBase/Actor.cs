@@ -115,6 +115,11 @@ public abstract class Actor : Entity, IPunObservable
         if (isStun)
         {
             _animator.Rebind();
+            if (OnSkillCoroutine != null)
+            {
+                StopCoroutine(OnSkillCoroutine);
+            }
+
             OnSkillCoroutine = null;
         }
     }

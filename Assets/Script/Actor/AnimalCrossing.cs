@@ -29,7 +29,13 @@ public class AnimalCrossing : Actor
     protected override void ForceStop(bool isStun)
     {
         base.ForceStop(isStun);
-        StopCoroutine(_castingCoroutine);
+
+        if (_castingCoroutine != null)
+        {
+            StopCoroutine(_castingCoroutine);
+        }
+
+        _castingCoroutine = null;
     }
 
     protected override void Active_Attack()
