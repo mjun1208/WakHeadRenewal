@@ -12,9 +12,10 @@ public class Kakashi_Shuriken : ActorSub
         _originalScale = this.transform.localScale;
     }
 
-    public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
+    public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 position, Vector3 dir)
     {
         base.SetInfo(ownerPhotonView, owner, dir);
+        this.transform.position = position;
 
         _moveSpeed = Constant.KAKASHI_SHURIKEN_MOVE_SPEED;
 
@@ -35,7 +36,14 @@ public class Kakashi_Shuriken : ActorSub
 
     protected override void OnDestory()
     {
-        var newEye = Global.PoolingManager.LocalSpawn("Kakashi_Bomb", this.transform.position, Quaternion.identity, true);
         base.OnDestory();
+
+        if (_ownerPhotonView == null || !_ownerPhotonView.IsMine)
+        {
+            return;
+        }
+
+        var newBomb = Global.PoolingManager.LocalSpawn("Kakashi_Bomb", this.transform.position, Quaternion.identity, false);
+        newBomb.GetComponent<Kakashi_Bomb>().SetInfo(_ownerPhotonView, _owner, this.transform.position, _dir);
     }
 }

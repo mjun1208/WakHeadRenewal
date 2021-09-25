@@ -10,6 +10,8 @@ public class Kakashi : Actor
     private GameObject _copyActor = null;
     private Actor _copyActorScprit = null;
 
+    private Vector3 _shurikenPosition;
+
     protected override void Start()
     {
         base.Start();
@@ -22,7 +24,9 @@ public class Kakashi : Actor
             return;
         }
 
-        photonView.RPC("ThrowShuriken", RpcTarget.All);
+        _shurikenPosition = this.transform.position;
+
+        photonView.RPC("ThrowShuriken", RpcTarget.All, _shurikenPosition);
     }
 
     protected override void Active_Skill_1()
@@ -127,10 +131,10 @@ public class Kakashi : Actor
     }
 
     [PunRPC]
-    public void ThrowShuriken()
+    public void ThrowShuriken(Vector3 shurikenPosition)
     {
         var newShuriken = Global.PoolingManager.LocalSpawn("Kakashi_Shuriken", this.transform.position, Quaternion.identity, true);
-        newShuriken.GetComponent<Kakashi_Shuriken>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
+        newShuriken.GetComponent<Kakashi_Shuriken>().SetInfo(this.photonView, this.gameObject, shurikenPosition, GetAttackDir());
     }
 
     [PunRPC]
