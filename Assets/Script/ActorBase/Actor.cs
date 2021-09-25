@@ -43,10 +43,12 @@ public abstract class Actor : Entity, IPunObservable
         if (stream.IsWriting)
         {
             stream.SendNext(this.transform.localScale.x);
+            stream.SendNext(IsStun);
         }
         else
         {
             var scale_x = (float)stream.ReceiveNext();
+            IsStun = (bool)stream.ReceiveNext();
             this.transform.localScale = new Vector3(scale_x, this.transform.localScale.y, this.transform.localScale.z);
         }
     }
