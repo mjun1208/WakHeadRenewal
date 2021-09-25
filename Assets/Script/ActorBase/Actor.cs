@@ -291,18 +291,18 @@ public abstract class Actor : Entity, IPunObservable
 
     protected void SkillCancle()
     {
+        if (OnSkillCoroutine != null)
+        {
+            StopCoroutine(OnSkillCoroutine);
+            OnSkillCoroutine = null;
+        }
+
         IsDoingSkill = false;
         isSkill_1 = false;
         isSkill_2 = false;
 
         _animator.SetBool("IsSkill_1", false);
         _animator.SetBool("IsSkill_2", false);
-
-        if (OnSkillCoroutine != null)
-        {
-            StopCoroutine(OnSkillCoroutine);
-            OnSkillCoroutine = null;
-        }
     }
 
     protected virtual void Active_Attack()
