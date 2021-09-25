@@ -10,6 +10,7 @@ public class AnimalCrossing : Actor
     private bool _isCasting = false;
     private bool _isBite = false;
     private IEnumerator _castingCoroutine = null;
+    private bool _isCastingComplete = false;
 
     protected override void Start()
     {
@@ -20,9 +21,14 @@ public class AnimalCrossing : Actor
     {
         base.Update();
 
-        if (_isMoveInput)
+        if (_isMoveInput || _isSkill_2Input || _isAttackInput)
         {
             Skill_1Cancle();
+        }
+
+        if (_isSkill_1Input && _isCasting && _isBite)
+        {
+            OnSkill_1();
         }
     }
 
@@ -77,29 +83,21 @@ public class AnimalCrossing : Actor
         if (!_isCasting)
         {
             // 캐스팅
+            IsDoingSkill = true;
+            isSkill_1 = true;
+            _isCasting = true;
 
-            base.OnSkill_1();
+            _animator.SetBool("IsSkill_1", true);
 
-            _isCasting = isSkill_1;
-
-            if (isSkill_1)
-            {
-                if (OnSkillCoroutine != null)
-                {
-                    StopCoroutine(OnSkillCoroutine);
-                    OnSkillCoroutine = null;
-                }
-
-                _castingCoroutine = Casting();
-                StartCoroutine(_castingCoroutine);
-            }
+            _castingCoroutine = Casting();
+            StartCoroutine(_castingCoroutine);
         }
         else
         {
             if (_isBite)
             {
                 _isCasting = false;
-
+                _isCastingComplete = false;
                 // 물고기가 물었을 때
 
                 _animator.SetBool("IsSkill_1_2", true);
@@ -116,19 +114,24 @@ public class AnimalCrossing : Actor
 
     private void Skill_1Cancle()
     {
-        if (!IsDoingSkill && _isCasting)
+        if (IsDoingSkill && _isCastingComplete)
         {
+            _isCasting = false;
+            _isBite = false;
+
             if (_castingCoroutine != null)
             {
                 StopCoroutine(_castingCoroutine);
                 _castingCoroutine = null;
             }
-
-            _isCasting = false;
+            
+            _isCastingComplete = false;
 
             photonView.RPC("SetActiveFish", RpcTarget.All, false);
+            photonView.RPC("ResetAnimation", RpcTarget.All);
 
             SkillCancle();
+
             _animator.SetBool("IsSkill_1_1", false);
             _animator.SetBool("IsSkill_1_2", false);
         }
@@ -148,7 +151,7 @@ public class AnimalCrossing : Actor
             yield return null;
         }
 
-        IsDoingSkill = false;
+        _isCastingComplete = true;
 
         yield return new WaitForSeconds(Random.Range(0.1f, 3f));
 
@@ -204,6 +207,12 @@ public class AnimalCrossing : Actor
     private void SetFish(int index)
     {
         myFish.SelectFish(index);
+    }
+
+    [PunRPC]
+    private void ResetAnimation()
+    {
+        _animator.Rebind();
     }
 
     [PunRPC]
