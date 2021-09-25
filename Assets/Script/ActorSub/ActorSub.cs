@@ -11,7 +11,7 @@ public class ActorSub : MonoBehaviour
 
     protected GameObject _owner;
     protected Vector3 _dir;
-    protected PhotonView _ownerPhotonView;
+    protected PhotonView _ownerPhotonView = null;
 
     protected float _moveSpeed = Constant.ACTOR_SUB_DEFAULT_MOVE_SPEED;
     protected float _lifeTime = Constant.ACTOR_SUB_DEFAULT_LIFETIME;
@@ -34,6 +34,11 @@ public class ActorSub : MonoBehaviour
 
     protected virtual void OnDamage(Entity entity)
     {
+        if (_ownerPhotonView.Owner == entity.photonView.Owner)
+        {
+            return;
+        }
+
         StopAllCoroutines();
 
         if (_ownerPhotonView.IsMine)
