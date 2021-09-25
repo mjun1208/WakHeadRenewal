@@ -116,12 +116,7 @@ public abstract class Actor : Entity, IPunObservable
         {
             _animator.Rebind();
 
-            if (OnSkillCoroutine != null)
-            {
-                StopCoroutine(OnSkillCoroutine);
-            }
-
-            OnSkillCoroutine = null;
+            SkillCancle();
         }
     }
 
