@@ -16,7 +16,7 @@ public class ActorSub : MonoBehaviour
     protected float _moveSpeed = Constant.ACTOR_SUB_DEFAULT_MOVE_SPEED;
     protected float _lifeTime = Constant.ACTOR_SUB_DEFAULT_LIFETIME;
 
-    public Action DestoryAction = null;
+    public Action<ActorSub> DestoryAction = null;
 
     public virtual void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
     {
@@ -66,12 +66,12 @@ public class ActorSub : MonoBehaviour
 
     protected virtual void Destroy()
     {
-        DestoryAction?.Invoke();
+        DestoryAction?.Invoke(this);
 
         Global.PoolingManager.LocalDespawn(this.gameObject);
     }
 
-    protected virtual void OnDestory()
+    protected virtual void OnDestory(ActorSub actorSub)
     {
         DestoryAction -= OnDestory;
     }
