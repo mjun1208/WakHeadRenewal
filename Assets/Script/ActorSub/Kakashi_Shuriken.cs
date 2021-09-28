@@ -34,9 +34,14 @@ public class Kakashi_Shuriken : ActorSub
         }
     }
 
-    protected override void OnDestory()
+    protected override void Destroy()
     {
-        base.OnDestory();
+        DestoryAction?.Invoke(this);
+    }
+
+    protected override void OnDestory(ActorSub actorSub)
+    {
+        base.OnDestory(actorSub);
 
         if (_ownerPhotonView == null || !_ownerPhotonView.IsMine)
         {
