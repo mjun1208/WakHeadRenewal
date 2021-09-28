@@ -12,6 +12,8 @@ public class Kakashi : Actor
 
     private Vector3 _shurikenPosition;
 
+    private List<Kakashi_Shuriken> _shurikenList = new List<Kakashi_Shuriken>();
+
     protected override void Start()
     {
         base.Start();
@@ -134,7 +136,51 @@ public class Kakashi : Actor
     public void ThrowShuriken(Vector3 shurikenPosition)
     {
         var newShuriken = Global.PoolingManager.LocalSpawn("Kakashi_Shuriken", this.transform.position, Quaternion.identity, true);
-        newShuriken.GetComponent<Kakashi_Shuriken>().SetInfo(this.photonView, this.gameObject, shurikenPosition, GetAttackDir());
+        var shurikenScript = newShuriken.GetComponent<Kakashi_Shuriken>();
+        shurikenScript.SetInfo(this.photonView, this.gameObject, shurikenPosition, GetAttackDir());
+
+        _shurikenList.Add(shurikenScript);
+        shurikenScript.DestoryAction += DespawnShuriken;
+    }
+
+    public void DespawnShuriken(ActorSub shuriken)
+    {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        shuriken.DestoryAction -= DespawnShuriken;
+
+        photonView.RPC("DespawnShurikenRPC", RpcTarget.All, GetShurikenIndex(shuriken as Kakashi_Shuriken));
+    }
+
+    private int GetShurikenIndex(Kakashi_Shuriken targetShuriken)
+    {
+        int index = 0;
+
+        foreach (var shuriken in _shurikenList)
+        {
+            if (shuriken == targetShuriken)
+            {
+                return index;
+            }
+
+            index++;
+        }
+
+        return -1;
+    }
+
+    [PunRPC]
+    public void DespawnShurikenRPC(int count)
+    {
+        Debug.Log(count);
+        var targetShuriken = _shurikenList[count];
+
+        _shurikenList.Remove(targetShuriken);
+
+        Global.PoolingManager.LocalDespawn(targetShuriken.gameObject);
     }
 
     [PunRPC]
