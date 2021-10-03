@@ -5,5 +5,6 @@ using UnityEngine;
 
 public class Tower : MonoBehaviourPunCallbacks
 {
+    [SerializeField] private Team _team;
     private int _hp;
 }
