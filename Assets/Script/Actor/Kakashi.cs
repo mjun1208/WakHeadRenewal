@@ -11,6 +11,7 @@ public class Kakashi : Actor
     private Actor _copyActorScprit = null;
 
     private Vector3 _shurikenPosition;
+    private Vector3 _shurikenDir;
 
     private List<Kakashi_Shuriken> _shurikenList = new List<Kakashi_Shuriken>();
 
@@ -27,8 +28,9 @@ public class Kakashi : Actor
         }
 
         _shurikenPosition = this.transform.position;
+        _shurikenDir = GetAttackDir();
 
-        photonView.RPC("ThrowShuriken", RpcTarget.All, _shurikenPosition);
+        photonView.RPC("ThrowShuriken", RpcTarget.All, _shurikenPosition, _shurikenDir);
     }
 
     protected override void Active_Skill_1()
@@ -133,11 +135,11 @@ public class Kakashi : Actor
     }
 
     [PunRPC]
-    public void ThrowShuriken(Vector3 shurikenPosition)
+    public void ThrowShuriken(Vector3 shurikenPosition, Vector3 shurikenDir)
     {
         var newShuriken = Global.PoolingManager.LocalSpawn("Kakashi_Shuriken", this.transform.position, Quaternion.identity, true);
         var shurikenScript = newShuriken.GetComponent<Kakashi_Shuriken>();
-        shurikenScript.SetInfo(this.photonView, this.gameObject, shurikenPosition, GetAttackDir());
+        shurikenScript.SetInfo(this.photonView, this.gameObject, shurikenPosition, shurikenDir);
 
         _shurikenList.Add(shurikenScript);
         shurikenScript.DestoryAction += DespawnShuriken;

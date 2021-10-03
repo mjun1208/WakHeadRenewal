@@ -33,46 +33,37 @@ MonoBehaviour:
   RunInBackground: 1
   StartInOfflineMode: 0
   RpcList:
+  - ActiveBlast
+  - ActiveCharging
+  - ActiveVent
+  - ActorCopy
+  - BoneAttack
   - ClickRpc
+  - DespawnShurikenRPC
   - DestroyRpc
   - DestroySpaceship
   - Fire
+  - GrabRPC
+  - KnockBackRPC
+  - OnDamageRPC
+  - ResetAnimation
   - RespawnSpaceship
   - RpcClearBuffer
   - RpcNonServerOwnedTeleportFromServer
   - RpcTeleport
-  - Ang
-  - Grab
-  - KnockBack
-  - Stun
-  - AngKnockBack
-  - GrabRPC
-  - KnockBackRPC
-  - StunRPC
-  - DespawnRPC
-  - ShootOrb
-  - ShootHeart
-  - ShootBullet
-  - OnDamageRPC
-  - OnActive
-  - ActiveVent
-  - BoneAttack
   - SetActiveFish
-  - SetFish
-  - ShootFish
-  - ActiveBlast
-  - FireBlastRPC
-  - ActiveCharging
-  - SetInfo
-  - ShootOperator
-  - ShootGhost
-  - ThrowShurikenRPC
   - SetEnemyActorName
+  - SetFish
+  - SetInfo
   - Sharingan
-  - ActorCopy
+  - ShootBullet
+  - ShootFish
+  - ShootHeart
+  - ShootOperator
+  - ShootOrb
+  - StunRPC
   - ThrowShuriken
-  - ResetAnimation
-  - DespawnShurikenRPC
+  - ThrowShurikenRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
