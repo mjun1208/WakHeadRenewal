@@ -27,6 +27,9 @@ public class Global : MonoBehaviour
     public string MyActorName { get; private set; }
     public string EnemyActorName { get; private set; }
 
+    public Tower RedTower { get; private set; }
+    public Tower BlueTower { get; private set; }
+
     private void Awake()
     {
         if (_instance == null)
@@ -52,5 +55,15 @@ public class Global : MonoBehaviour
     public void SetEnemyActorName(string name)
     {
         EnemyActorName = name;
+    }
+
+    public void SetRedTower(Tower tower)
+    {
+        RedTower = tower;
+    }
+
+    public void SetBlueTower(Tower tower)
+    {
+        BlueTower = tower;
     }
 }
