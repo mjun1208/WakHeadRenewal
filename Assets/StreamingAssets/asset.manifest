@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1244845153
+CRC: 986222573
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7b9651bea00292aa47fb623fde2a5541
+    Hash: ecfc14ef36b630ddd02f3993085d243c
   TypeTreeHash:
     serializedVersion: 2
-    Hash: bd5ecdf793a32a0931ea1ace64918f86
+    Hash: 815962ebae70d207827481d5d2d84288
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -45,6 +45,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: c71e1b904d327ac49afe87a621a585c3, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: b057bea05aff6fd4389c3b8e69355ff3, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c39af3d05d213294092681fdf3bed02f, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
 - Class: 114
@@ -108,7 +110,10 @@ ClassTypes:
 - Class: 233
   Script: {instanceID: 0}
 Assets:
+- Assets/Prefab/Chimpanzee/Panzee_Blue.prefab
 - Assets/Prefab/Actor/Actor.prefab
+- Assets/Prefab/Chimpanzee/Panzee_Red.prefab
+- Assets/Prefab/Chimpanzee/Panzee_Blue_TShirt.prefab
 - Assets/Prefab/Actor_Sub/Ahri_Orb.prefab
 - Assets/Prefab/Effect/DeathEffect.prefab
 - Assets/Prefab/Actor/Jett.prefab
@@ -135,6 +140,7 @@ Assets:
 - Assets/Prefab/Actor/Sans.prefab
 - Assets/Prefab/Effect/GhostEffect.prefab
 - Assets/Prefab/Actor_Sub/Jett_Shuriken.prefab
+- Assets/Prefab/Chimpanzee/Panzee_Red_TShirt.prefab
 - Assets/Resources/Naruto.prefab
 - Assets/Prefab/Actor_Sub/Ahri_Heart.prefab
 - Assets/Prefab/Actor/AnimalCrossing.prefab
