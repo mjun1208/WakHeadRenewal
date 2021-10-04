@@ -13,7 +13,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
 
     public Action<bool> StunAction;
 
-    private Team _team;
+    protected Team _team;
 
     public bool IsStun {
         get
