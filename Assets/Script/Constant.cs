@@ -18,4 +18,9 @@ public static class Constant
     public const float JETT_SHURIKEN_MOVE_SPEED = 20f;
     public const float NORMAL_BULLET_MOVE_SPEED = 15f;
     public const float KAKASHI_SHURIKEN_MOVE_SPEED = 15f;
+
+    public const string PANZEE_BLUE = "Panzee_Blue";
+    public const string PANZEE_RED = "Panzee_Red";
+    public const string PANZEE_BLUE_TSHIRT = "Panzee_Blue_TShirt";
+    public const string PANZEE_RED_TSHIRT = "Panzee_Red_TShirt";
 }
