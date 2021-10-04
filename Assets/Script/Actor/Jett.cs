@@ -66,7 +66,7 @@ public class Jett : Actor
             return;
         }
 
-        int layerMask = (1 << LayerMask.NameToLayer("Enemy")) + (1 << LayerMask.NameToLayer("Summoned"));
+        int layerMask = (1 << LayerMask.NameToLayer("Enemy")) + (1 << LayerMask.NameToLayer("Summoned")) + (1 << LayerMask.NameToLayer("Minion"));
         RaycastHit2D[] hits = Physics2D.RaycastAll(_ghostPivot.transform.position, GetAttackDir(), 20f, layerMask);
         Debug.DrawRay(_ghostPivot.transform.position, GetAttackDir() * 20f, Color.red, 3f);
 
