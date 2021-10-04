@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3722512498568099690}
   - component: {fileID: 3722512498568099689}
   - component: {fileID: 876668946267660319}
+  - component: {fileID: 471946754911494919}
   m_Layer: 15
   m_Name: BlueTower
   m_TagString: Tower
@@ -187,3 +188,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cd6a3f77618b2e48ac0c5ecce304b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _team: 0
+--- !u!114 &471946754911494919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3722512498568099688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88eb9e909d8f81048be4d1575ddc3a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _team: 0

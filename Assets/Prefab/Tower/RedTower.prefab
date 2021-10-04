@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5315976703370598531}
   - component: {fileID: 5315976703370598530}
   - component: {fileID: -4820869580390648083}
+  - component: {fileID: 1705599793232871118}
   m_Layer: 15
   m_Name: RedTower
   m_TagString: Tower
@@ -185,6 +186,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cd6a3f77618b2e48ac0c5ecce304b83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _team: 1
+--- !u!114 &1705599793232871118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5315976703370598533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88eb9e909d8f81048be4d1575ddc3a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _team: 1
