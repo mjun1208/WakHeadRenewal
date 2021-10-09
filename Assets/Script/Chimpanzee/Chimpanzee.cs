@@ -11,6 +11,9 @@ public class Chimpanzee : Entity, IPunObservable
         Attack
     }
 
+    [SerializeField] protected Animator _animator;
+    [SerializeField] protected AttackRange _attackRange;
+
     private ChimpanzeeState _state = ChimpanzeeState.Move;
     private Entity _targetEntity;
     private Tower _targetTower;
@@ -75,10 +78,25 @@ public class Chimpanzee : Entity, IPunObservable
             case ChimpanzeeState.Move:
                 {
                     Move();
+
+                    if (_attackRange.CollidedObjectList.Count > 0)
+                    {
+                        _state = ChimpanzeeState.Attack;
+
+                        _animator.SetBool("isAttack", true);
+                    }
                     break;
                 }
             case ChimpanzeeState.Attack:
                 {
+                    Attack();
+
+                    if (_attackRange.CollidedObjectList.Count == 0)
+                    {
+                        _state = ChimpanzeeState.Move;
+
+                        _animator.SetBool("isAttack", false);
+                    }
                     break;
                 }
         }
@@ -91,8 +109,20 @@ public class Chimpanzee : Entity, IPunObservable
             Vector3 dir = _targetTower.transform.position - this.transform.position;
             dir = dir.normalized;
 
-            float rotationScale = _originalScale.x * dir.x;
-            this.transform.localScale = new Vector3(rotationScale, _originalScale.y, _originalScale.z);
+            if (dir.x != 0)
+            {
+                float rotation = 0;
+                if (dir.x > 0)
+                {
+                    rotation = 1;
+                }
+                else
+                {
+                    rotation = -1;
+                }
+                float rotationScale = _originalScale.x * rotation;
+                this.transform.localScale = new Vector3(rotationScale, _originalScale.y, _originalScale.z);
+            }
 
             _rigid.MovePosition(transform.position + dir * moveSpeed * Time.deltaTime);
         }
