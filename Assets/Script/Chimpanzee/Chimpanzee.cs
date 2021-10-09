@@ -100,6 +100,13 @@ public class Chimpanzee : Entity, IPunObservable
 
     private void Attack()
     {
-
+        // var targetList = _attackRange.CollidedObjectList;
+        // 
+        // foreach (var target in targetList)
+        // {
+        //     //var targetEntity = target.GetComponent<Entity>();
+        //     //targetEntity.Damaged(targetEntity.transform.position);
+        //     // targetEntity.KnockBack(GetAttackDir(), 0.5f, 0);
+        // }
     }
 }
