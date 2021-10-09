@@ -119,10 +119,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 49
+        width: 50
         height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.37, y: 0.5092593}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -138,12 +138,12 @@ TextureImporter:
       name: wakruto attack_1
       rect:
         serializedVersion: 2
-        x: 49
+        x: 50
         y: 0
-        width: 49
+        width: 50
         height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.37, y: 0.5092593}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -159,12 +159,12 @@ TextureImporter:
       name: wakruto attack_2
       rect:
         serializedVersion: 2
-        x: 98
+        x: 100
         y: 0
-        width: 49
+        width: 50
         height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.37, y: 0.5092593}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -180,12 +180,12 @@ TextureImporter:
       name: wakruto attack_3
       rect:
         serializedVersion: 2
-        x: 147
+        x: 150
         y: 0
-        width: 49
+        width: 50
         height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.37, y: 0.5092593}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -201,12 +201,12 @@ TextureImporter:
       name: wakruto attack_4
       rect:
         serializedVersion: 2
-        x: 196
+        x: 200
         y: 0
-        width: 49
+        width: 50
         height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.37, y: 0.5092593}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -222,12 +222,12 @@ TextureImporter:
       name: wakruto attack_5
       rect:
         serializedVersion: 2
-        x: 245
+        x: 250
         y: 0
-        width: 49
+        width: 50
         height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.37, y: 0.5092593}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -243,12 +243,12 @@ TextureImporter:
       name: wakruto attack_6
       rect:
         serializedVersion: 2
-        x: 294
+        x: 300
         y: 0
-        width: 49
+        width: 50
         height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.37, y: 0.5092593}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -264,12 +264,12 @@ TextureImporter:
       name: wakruto attack_7
       rect:
         serializedVersion: 2
-        x: 343
+        x: 350
         y: 0
-        width: 49
+        width: 50
         height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.37, y: 0.5092593}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -285,12 +285,12 @@ TextureImporter:
       name: wakruto attack_8
       rect:
         serializedVersion: 2
-        x: 392
+        x: 400
         y: 0
-        width: 49
+        width: 50
         height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.37, y: 0.5092593}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

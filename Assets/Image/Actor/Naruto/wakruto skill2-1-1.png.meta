@@ -119,10 +119,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 90
-        height: 69
+        width: 91
+        height: 49
       alignment: 9
-      pivot: {x: 0.81111115, y: 0.35507247}
+      pivot: {x: 0.75274724, y: 0.56122446}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -138,12 +138,12 @@ TextureImporter:
       name: wakruto skill2-1-1_1
       rect:
         serializedVersion: 2
-        x: 90
+        x: 91
         y: 0
-        width: 90
-        height: 69
+        width: 91
+        height: 49
       alignment: 9
-      pivot: {x: 0.8111111, y: 0.35507247}
+      pivot: {x: 0.75274724, y: 0.56122446}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -159,12 +159,12 @@ TextureImporter:
       name: wakruto skill2-1-1_2
       rect:
         serializedVersion: 2
-        x: 180
+        x: 182
         y: 0
-        width: 90
-        height: 69
+        width: 91
+        height: 49
       alignment: 9
-      pivot: {x: 0.8111111, y: 0.35507247}
+      pivot: {x: 0.75274724, y: 0.56122446}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -180,12 +180,12 @@ TextureImporter:
       name: wakruto skill2-1-1_3
       rect:
         serializedVersion: 2
-        x: 270
+        x: 273
         y: 0
-        width: 90
-        height: 69
+        width: 91
+        height: 49
       alignment: 9
-      pivot: {x: 0.8111111, y: 0.35507247}
+      pivot: {x: 0.75274724, y: 0.56122446}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -201,12 +201,12 @@ TextureImporter:
       name: wakruto skill2-1-1_4
       rect:
         serializedVersion: 2
-        x: 360
+        x: 364
         y: 0
-        width: 90
-        height: 69
+        width: 91
+        height: 49
       alignment: 9
-      pivot: {x: 0.8111111, y: 0.35507247}
+      pivot: {x: 0.75274724, y: 0.56122446}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -222,12 +222,12 @@ TextureImporter:
       name: wakruto skill2-1-1_5
       rect:
         serializedVersion: 2
-        x: 450
+        x: 455
         y: 0
-        width: 90
-        height: 69
+        width: 91
+        height: 49
       alignment: 9
-      pivot: {x: 0.8111111, y: 0.35507247}
+      pivot: {x: 0.75274724, y: 0.56122446}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -243,12 +243,12 @@ TextureImporter:
       name: wakruto skill2-1-1_6
       rect:
         serializedVersion: 2
-        x: 540
+        x: 546
         y: 0
-        width: 90
-        height: 69
+        width: 91
+        height: 49
       alignment: 9
-      pivot: {x: 0.8111111, y: 0.35507247}
+      pivot: {x: 0.75274724, y: 0.56122446}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -264,12 +264,12 @@ TextureImporter:
       name: wakruto skill2-1-1_7
       rect:
         serializedVersion: 2
-        x: 630
+        x: 637
         y: 0
-        width: 90
-        height: 69
+        width: 91
+        height: 49
       alignment: 9
-      pivot: {x: 0.8111111, y: 0.35507247}
+      pivot: {x: 0.75274724, y: 0.56122446}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -285,12 +285,12 @@ TextureImporter:
       name: wakruto skill2-1-1_8
       rect:
         serializedVersion: 2
-        x: 720
+        x: 728
         y: 0
-        width: 90
-        height: 69
+        width: 91
+        height: 49
       alignment: 9
-      pivot: {x: 0.8111111, y: 0.35507247}
+      pivot: {x: 0.75274724, y: 0.56122446}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
