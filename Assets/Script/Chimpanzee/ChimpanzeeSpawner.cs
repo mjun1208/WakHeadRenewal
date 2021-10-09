@@ -7,6 +7,8 @@ public class ChimpanzeeSpawner : MonoBehaviourPunCallbacks
 {
     [SerializeField] private Team _team;
 
+    private List<GameObject> _chimpanzeeList = new List<GameObject>();
+
     private void Start()
     {
         StartCoroutine(Vow());
@@ -49,5 +51,7 @@ public class ChimpanzeeSpawner : MonoBehaviourPunCallbacks
 
         var newPanzee = PhotonNetwork.Instantiate(spawnName, this.transform.position + randomPos, Quaternion.identity);
         newPanzee.GetComponent<Entity>().SetTeam(_team);
+
+        _chimpanzeeList.Add(newPanzee);
     }
 }
