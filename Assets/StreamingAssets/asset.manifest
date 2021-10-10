@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 691845042
+CRC: 3969818582
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 39d77c6573914526f3c6966fe14feac0
+    Hash: 2fd9dd8ee595a5d76ab8295f9c8c48ea
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 6eb22ce2468c3f694c37adf0bdf26fbb
+    Hash: e7bf4893be5a247dce8c74d3c284a65d
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -91,6 +91,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 4ce6e1df3bd4d454da47664251cd7f1e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b82c8c9ac42c24d4aafa3ce546834951, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 198
@@ -134,9 +136,11 @@ Assets:
 - Assets/Prefab/Actor/Ahri.prefab
 - Assets/Prefab/Effect/OperatorEffect.prefab
 - Assets/Prefab/Actor_Sub/Sans_Bone.prefab
+- Assets/Resources/VR.prefab
 - Assets/Prefab/Actor/Kakashi.prefab
 - Assets/Prefab/Actor_Sub/Kakashi_Bomb.prefab
 - Assets/Prefab/Actor/Martine.prefab
+- Assets/Resources/Minecraft.prefab
 - Assets/Prefab/Actor/Sans.prefab
 - Assets/Prefab/Effect/GhostEffect.prefab
 - Assets/Prefab/Actor_Sub/Jett_Shuriken.prefab
