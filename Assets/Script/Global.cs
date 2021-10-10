@@ -17,10 +17,12 @@ public class Global : MonoBehaviour
         }
     }
 
+    public static GameDataManager GameDataManager => _gameDataManager;
     public static ResourceManager ResourceManager => _resourceManager;
     public static PoolingManager PoolingManager => _poolingManager;
 
     private static Global _instance;
+    private static GameDataManager _gameDataManager;
     private static ResourceManager _resourceManager;
     private static PoolingManager _poolingManager;
 
@@ -42,8 +44,11 @@ public class Global : MonoBehaviour
             Destroy(this.gameObject);
         }
 
+        _gameDataManager = new GameDataManager();
         _resourceManager = new ResourceManager();
         _poolingManager = new PoolingManager();
+
+        _gameDataManager.Load();
         _resourceManager.Load();
     }
 
