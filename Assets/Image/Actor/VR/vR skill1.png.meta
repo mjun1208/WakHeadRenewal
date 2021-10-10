@@ -1,0 +1,608 @@
+fileFormatVersion: 2
+guid: 9ae02c256cec83f4eb1cb55b49fdbbb8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4521273810423310988
+    second: vR skill1_0
+  - first:
+      213: 787719429302170153
+    second: vR skill1_1
+  - first:
+      213: 2286329379865761128
+    second: vR skill1_2
+  - first:
+      213: -5352693739585639711
+    second: vR skill1_3
+  - first:
+      213: -4166376695436502816
+    second: vR skill1_4
+  - first:
+      213: -5941004009265157463
+    second: vR skill1_5
+  - first:
+      213: 3213804876169680856
+    second: vR skill1_6
+  - first:
+      213: -4640547973508396899
+    second: vR skill1_7
+  - first:
+      213: -5218795296362663764
+    second: vR skill1_8
+  - first:
+      213: 7013815676548654996
+    second: vR skill1_9
+  - first:
+      213: -5936333768043758469
+    second: vR skill1_10
+  - first:
+      213: 2750896892372803378
+    second: vR skill1_11
+  - first:
+      213: 126766917841974958
+    second: vR skill1_12
+  - first:
+      213: 4935786281930949390
+    second: vR skill1_13
+  - first:
+      213: 1704477642868212607
+    second: vR skill1_14
+  - first:
+      213: -8831895262060585050
+    second: vR skill1_15
+  - first:
+      213: 8757239262709694768
+    second: vR skill1_16
+  - first:
+      213: -3320052763260397470
+    second: vR skill1_17
+  - first:
+      213: 7220610878896419673
+    second: vR skill1_18
+  - first:
+      213: 7875500757041619562
+    second: vR skill1_19
+  - first:
+      213: -4182732220658875927
+    second: vR skill1_20
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: vR skill1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43442622, y: 0.4909091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47511759c653141c0800000000000000
+      internalID: -4521273810423310988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vR skill1_1
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 0
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43442622, y: 0.4909091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 922ba3eb5aa8eea00800000000000000
+      internalID: 787719429302170153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vR skill1_2
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 0
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43442622, y: 0.4909091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 865107e157caabf10800000000000000
+      internalID: 2286329379865761128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vR skill1_3
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 0
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43442622, y: 0.4909091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ea6a84576967b5b0800000000000000
+      internalID: -5352693739585639711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vR skill1_4
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 0
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43442622, y: 0.4909091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e89a0c487e0e26c0800000000000000
+      internalID: -4166376695436502816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vR skill1_5
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 0
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43442622, y: 0.4909091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aa249294505d8da0800000000000000
+      internalID: -5941004009265157463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vR skill1_6
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 0
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43442622, y: 0.4909091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d71385e18ab99c20800000000000000
+      internalID: 3213804876169680856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vR skill1_7
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 0
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43442622, y: 0.4909091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d988fdb6436799fb0800000000000000
+      internalID: -4640547973508396899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vR skill1_8
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 0
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43442622, y: 0.4909091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca0f2dc045d1397b0800000000000000
+      internalID: -5218795296362663764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vR skill1_9
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 0
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43442622, y: 0.4909091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 497afb07234165160800000000000000
+      internalID: 7013815676548654996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vR skill1_10
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 0
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43442622, y: 0.4909091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7c7897d3e7ed9da0800000000000000
+      internalID: -5936333768043758469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vR skill1_11
+      rect:
+        serializedVersion: 2
+        x: 1342
+        y: 0
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43442622, y: 0.4909091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23f5b9316262d2620800000000000000
+      internalID: 2750896892372803378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vR skill1_12
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 0
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43442622, y: 0.4909091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea6fd3317dd52c100800000000000000
+      internalID: 126766917841974958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vR skill1_13
+      rect:
+        serializedVersion: 2
+        x: 1586
+        y: 0
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43442622, y: 0.4909091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e038db5f87f6f7440800000000000000
+      internalID: 4935786281930949390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vR skill1_14
+      rect:
+        serializedVersion: 2
+        x: 1708
+        y: 0
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43442622, y: 0.4909091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7341cea26587a710800000000000000
+      internalID: 1704477642868212607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vR skill1_15
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 0
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43442622, y: 0.4909091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6af5c637d0ece6580800000000000000
+      internalID: -8831895262060585050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vR skill1_16
+      rect:
+        serializedVersion: 2
+        x: 1952
+        y: 0
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43442622, y: 0.4909091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0314aea26b6f78970800000000000000
+      internalID: 8757239262709694768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vR skill1_17
+      rect:
+        serializedVersion: 2
+        x: 2074
+        y: 0
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43442622, y: 0.4909091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2685f4a2a9dcce1d0800000000000000
+      internalID: -3320052763260397470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vR skill1_18
+      rect:
+        serializedVersion: 2
+        x: 2196
+        y: 0
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43442622, y: 0.4909091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95331f18653c43460800000000000000
+      internalID: 7220610878896419673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vR skill1_19
+      rect:
+        serializedVersion: 2
+        x: 2318
+        y: 0
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43442622, y: 0.4909091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6229cb56366b4d60800000000000000
+      internalID: 7875500757041619562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vR skill1_20
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 0
+        width: 122
+        height: 55
+      alignment: 9
+      pivot: {x: 0.43442622, y: 0.4909091}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e10c05d433f3f5c0800000000000000
+      internalID: -4182732220658875927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
