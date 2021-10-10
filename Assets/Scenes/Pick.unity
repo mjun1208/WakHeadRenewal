@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 137176671}
   - component: {fileID: 137176670}
   m_Layer: 5
-  m_Name: BlueCharacterDrawnby
+  m_Name: BlueCharacterArtist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Artist. \uC591\uBC30\uCD94\uC0CC\uB4DC\uC704\uCE58"
+  m_Text: 
 --- !u!222 &137176671
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -268,7 +268,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uBAA8\uC2DC\uAE7D\uC774"
+  m_Text: "\uB79C\uB364"
 --- !u!222 &345018296
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -523,7 +523,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uBAA8\uC2DC\uAE7D\uC774"
+  m_Text: "\uB79C\uB364"
 --- !u!222 &464821404
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1286,6 +1286,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blueActor: {fileID: 6274725033454024547}
   _redActor: {fileID: 1465424281}
+  _blueActorName: {fileID: 464821403}
+  _redActorName: {fileID: 345018295}
+  _blueActorArtist: {fileID: 137176670}
+  _redActorArtist: {fileID: 1051853732}
 --- !u!4 &832666933
 Transform:
   m_ObjectHideFlags: 0
@@ -1659,7 +1663,7 @@ GameObject:
   - component: {fileID: 1051853733}
   - component: {fileID: 1051853732}
   m_Layer: 5
-  m_Name: RedCharacterDrawnby
+  m_Name: RedCharacterArtist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1716,7 +1720,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Artist. \uC591\uBC30\uCD94\uC0CC\uB4DC\uC704\uCE58"
+  m_Text: 
 --- !u!222 &1051853733
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1976,7 +1980,7 @@ Animator:
   m_GameObject: {fileID: 1465424280}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 936ebfd1134d8454ab07d1917686c6eb, type: 2}
+  m_Controller: {fileID: 9100000, guid: f360edad5087e6e47bb73d9114bd8c89, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2024,8 +2028,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4723107735738678597, guid: 0fa4d92520d46ee44b459d0241761ddf,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: fd8ca0bb7aaa7a240ad250c2c93fdb56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2859,7 +2862,7 @@ Animator:
   m_GameObject: {fileID: 2231056167014203033}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 936ebfd1134d8454ab07d1917686c6eb, type: 2}
+  m_Controller: {fileID: 9100000, guid: f360edad5087e6e47bb73d9114bd8c89, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2907,8 +2910,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4723107735738678597, guid: 0fa4d92520d46ee44b459d0241761ddf,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: fd8ca0bb7aaa7a240ad250c2c93fdb56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
