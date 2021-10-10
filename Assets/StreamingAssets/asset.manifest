@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2474210261
+CRC: 691845042
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 3b7fb88d69fba6f8660c73eba69734ef
+    Hash: 39d77c6573914526f3c6966fe14feac0
   TypeTreeHash:
     serializedVersion: 2
     Hash: 6eb22ce2468c3f694c37adf0bdf26fbb
@@ -141,7 +141,6 @@ Assets:
 - Assets/Prefab/Effect/GhostEffect.prefab
 - Assets/Prefab/Actor_Sub/Jett_Shuriken.prefab
 - Assets/Prefab/Chimpanzee/Panzee_Red_TShirt.prefab
-- Assets/Resources/Naruto.prefab
 - Assets/Prefab/Actor_Sub/Ahri_Heart.prefab
 - Assets/Prefab/Actor/AnimalCrossing.prefab
 Dependencies: []
