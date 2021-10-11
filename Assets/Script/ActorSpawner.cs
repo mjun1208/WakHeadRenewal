@@ -9,6 +9,12 @@ public class ActorSpawner : MonoBehaviourPunCallbacks
 
     private GameObject _currentActor = null;
 
+    private void Start()
+    {
+        Global.instance.FadeOut();
+        Spawn(Global.instance.MyActorID);
+    }
+
     void Update()
     {
         if (!photonView.IsMine)
@@ -16,31 +22,28 @@ public class ActorSpawner : MonoBehaviourPunCallbacks
             return;
         }
 
-        for (int i = 0; i < Actors.Count; i++)
-        {
-            Spawn(i);
-        }
+        // for (int i = 0; i < Actors.Count; i++)
+        // {
+        //     Spawn(i);
+        // }
     }
 
 
     void Spawn(int number)
     {
-        if (Input.GetKeyDown(number.ToString()))
+        var o = Actors[number];
+        var newobj = PhotonNetwork.Instantiate(o.name, Vector3.zero, Quaternion.identity);
+
+        if (_currentActor != null)
         {
-            var o = Actors[number];
-            var newobj = PhotonNetwork.Instantiate(o.name, Vector3.zero, Quaternion.identity);
-
-            if (_currentActor != null)
-            {
-                PhotonNetwork.Destroy(_currentActor);
-            }
-
-            _currentActor = newobj;
-
-            Global.instance.SetMyActorName(o.name);
-            photonView.RPC("SetEnemyActorName", RpcTarget.OthersBuffered, o.name);
-            // PhotonNetwork.Destroy(this.gameObject);
+            PhotonNetwork.Destroy(_currentActor);
         }
+
+        _currentActor = newobj;
+
+        Global.instance.SetMyActorName(o.name);
+        photonView.RPC("SetEnemyActorName", RpcTarget.OthersBuffered, o.name);
+        // PhotonNetwork.Destroy(this.gameObject);
     }
 
     [PunRPC]
