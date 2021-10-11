@@ -11,6 +11,11 @@ public class ActorSpawner : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
         Global.instance.FadeOut();
         Spawn(Global.instance.MyActorID);
     }
