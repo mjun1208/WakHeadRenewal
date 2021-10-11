@@ -31,6 +31,9 @@ public class Global : MonoBehaviour
     public string MyActorName { get; private set; }
     public string EnemyActorName { get; private set; }
 
+    public int MyActorID { get; private set; }
+    public int EnemyActorID { get; private set; }
+
     public Tower RedTower { get; private set; }
     public Tower BlueTower { get; private set; }
 
@@ -42,18 +45,18 @@ public class Global : MonoBehaviour
         {
             _instance = this;
             DontDestroyOnLoad(this.gameObject);
+
+            _gameDataManager = new GameDataManager();
+            _resourceManager = new ResourceManager();
+            _poolingManager = new PoolingManager();
+
+            _gameDataManager.Load();
+            _resourceManager.Load();
         }
         else
         {
             Destroy(this.gameObject);
         }
-
-        _gameDataManager = new GameDataManager();
-        _resourceManager = new ResourceManager();
-        _poolingManager = new PoolingManager();
-
-        _gameDataManager.Load();
-        _resourceManager.Load();
     }
 
     public void FadeIn(TweenCallback callback = null)
@@ -78,6 +81,16 @@ public class Global : MonoBehaviour
     public void SetEnemyActorName(string name)
     {
         EnemyActorName = name;
+    }
+
+    public void SetMyActorID(int id)
+    {
+        MyActorID = id;
+    }
+
+    public void SetEnemyActorID(int id)
+    {
+        EnemyActorID = id;
     }
 
     public void SetRedTower(Tower tower)
