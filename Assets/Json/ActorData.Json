@@ -15,7 +15,7 @@
     {
       "ID": 2,
       "Name": "Martine",
-      "Artist": "사각형 원숭이",
+      "Artist": "코디잉",
       "KorName": "마틴"
     },
     {
@@ -33,31 +33,31 @@
     {
       "ID": 5,
       "Name": "Jett",
-      "Artist": "은콩",
+      "Artist": "코디잉",
       "KorName": "제투"
     },
     {
       "ID": 6,
       "Name": "Naruto",
-      "Artist": "사각형 원숭이",
+      "Artist": "코디잉",
       "KorName": "왁루토"
     },
     {
       "ID": 6,
       "Name": "Kakashi",
-      "Artist": "사각형 원숭이",
+      "Artist": "코디잉",
       "KorName": "왁카시"
     },
     {
       "ID": 7,
       "Name": "Minecraft",
-      "Artist": "사각형 원숭이",
+      "Artist": "코디잉",
       "KorName": "마크두"
     },
     {
       "ID": 7,
       "Name": "VR",
-      "Artist": "사각형 원숭이",
+      "Artist": "코디잉",
       "KorName": "VR두"
     }
   ]
