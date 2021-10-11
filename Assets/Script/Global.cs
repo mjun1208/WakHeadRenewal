@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class Global : MonoBehaviour
 {
@@ -32,6 +34,8 @@ public class Global : MonoBehaviour
     public Tower RedTower { get; private set; }
     public Tower BlueTower { get; private set; }
 
+    [SerializeField] private Image _fadeUI;
+
     private void Awake()
     {
         if (_instance == null)
@@ -50,6 +54,20 @@ public class Global : MonoBehaviour
 
         _gameDataManager.Load();
         _resourceManager.Load();
+    }
+
+    public void FadeIn(TweenCallback callback = null)
+    {
+        _fadeUI.DOKill();
+        _fadeUI.enabled = true;
+        _fadeUI.DOFade(1f, 0.5f).SetEase(Ease.Linear).OnComplete(callback);
+    }
+
+    public void FadeOut(TweenCallback callback = null)
+    {
+        callback += () => { _fadeUI.enabled = false; };
+        _fadeUI.DOKill();
+        _fadeUI.DOFade(0f, 0.5f).SetEase(Ease.Linear).OnComplete(callback);
     }
 
     public void SetMyActorName(string name)
