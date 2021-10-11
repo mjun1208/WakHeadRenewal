@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class PickManager : MonoBehaviour
 {
@@ -19,12 +21,21 @@ public class PickManager : MonoBehaviour
 
     private const string ARTIST = "Artist. ";
 
+    private int _currentActorID = 0;
+
+    public void Start()
+    {
+        Global.instance.FadeOut();
+    }
+
     public void Blue_Select(int index)
     {
         _blueActor.Select(index);
 
         _blueActorName.text = Global.GameDataManager.ActorGameData.ActorGameDataList[index].KorName;
         _blueActorArtist.text = ARTIST + Global.GameDataManager.ActorGameData.ActorGameDataList[index].Artist;
+
+        _currentActorID = index;
     }
 
     public void Red_Select(int index)
@@ -38,6 +49,12 @@ public class PickManager : MonoBehaviour
     public void Confirmed()
     {
         _blueActor.Confirmed();
-        _pickUI.transform.DOLocalMoveY(-750, 1f).SetEase(Ease.InOutBack);
+
+        Global.instance.SetMyActorID(_currentActorID);
+
+        _pickUI.transform.DOLocalMoveY(-750, 1f).SetEase(Ease.InOutBack).OnComplete(()=>
+        {
+            Global.instance.FadeIn(() => SceneManager.LoadSceneAsync("Ingame") /*() => PhotonNetwork.LoadLevel("Ingame") */);
+        });
     }
 }
