@@ -361,6 +361,9 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 0
     Name: IsCharging
+  - Type: 4
+    SynchronizeType: 0
+    Name: IsCharged
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
@@ -409,7 +412,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.38757685, y: -0.096005306}
+  m_Offset: {x: 0.18950714, y: -0.06535165}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -420,7 +423,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.67998236, y: 0.2817383}
+  m_Size: {x: 0.28384295, y: 0.34304562}
   m_EdgeRadius: 0
 --- !u!114 &899949592466800505
 MonoBehaviour:
