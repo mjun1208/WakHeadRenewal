@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6124135300968949424
 Transform:
   m_ObjectHideFlags: 0
@@ -81,7 +81,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2231056166769122083}
   - component: {fileID: 2231056166769122111}
-  - component: {fileID: 2231056166769122108}
+  - component: {fileID: 5405576888735077812}
   - component: {fileID: 2231056166769122080}
   - component: {fileID: 2231056166769122081}
   - component: {fileID: 2231056166769122109}
@@ -131,13 +131,13 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 2231056166769122108}
+  - {fileID: 5405576888735077812}
   - {fileID: 2231056166769122082}
   - {fileID: 693140671910505272}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &2231056166769122108
+--- !u!114 &5405576888735077812
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2231056166769122086}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86051488f7df1a84c9bb8bb6839a18d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 4eccf731e8ba0f747b9a33f9ba54c6f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rigid: {fileID: 2231056166769122109}
@@ -315,7 +315,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.43243244, y: 0.5}
     oldSize: {x: 0.37, y: 0.51}
     newSize: {x: 0.48, y: 0.48}
     adaptiveTilingThreshold: 0.5
