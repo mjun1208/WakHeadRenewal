@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1756137470
+CRC: 161196184
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 789a4c64d114afbb394cf950d76746cc
+    Hash: 56a0036d0a70a2a95b6e1938fc8604d8
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 8a4bd0f5107e05997ebc35830dd6d3bb
+    Hash: f9b26a2fc53ecd5f0602771bee466b74
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -95,6 +95,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 4ce6e1df3bd4d454da47664251cd7f1e, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 4715328ca41cd1145a4f0cbfb61da4c7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 12625a965a9c6af46a34e99decc655bc, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 198
@@ -118,6 +120,7 @@ Assets:
 - Assets/Prefab/Actor/Actor.prefab
 - Assets/Prefab/Chimpanzee/Panzee_Red.prefab
 - Assets/Prefab/Chimpanzee/Panzee_Blue_TShirt.prefab
+- Assets/Prefab/Actor_Sub/Naruto_Rasengan.prefab
 - Assets/Prefab/Actor_Sub/Ahri_Orb.prefab
 - Assets/Prefab/Effect/DeathEffect.prefab
 - Assets/Prefab/Actor/Jett.prefab
