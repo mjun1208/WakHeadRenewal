@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Naruto : Actor
 {
+    private List<Naruto_Dummy> _dummieList = new List<Naruto_Dummy>();
     private bool _isSkill_2KeyDown = false;
     
     private enum RasenganState
@@ -16,6 +17,12 @@ public class Naruto : Actor
 
     private RasenganState _rasenganState;
 
+    protected override void Attack()
+    {
+        base.Attack();
+        SetDummyAnimation("IsAttack", _isAttackInput);
+    }
+    
     protected override bool Skill_2Input()
     {        
         if (Input.GetKey(KeyCode.C))
@@ -34,6 +41,8 @@ public class Naruto : Actor
     {
         var newSmoke = Global.PoolingManager.LocalSpawn("Naruto_Smoke", this.transform.position, Quaternion.identity, true);
         var newDummy = Global.PoolingManager.LocalSpawn("Naruto_Dummy", this.transform.position, Quaternion.identity, true);
+        
+        _dummieList.Add(newDummy.GetComponent<Naruto_Dummy>());
     }
 
     public override void OnSkill_2()
@@ -59,6 +68,7 @@ public class Naruto : Actor
                         StartCoroutine(OnSkillCoroutine);
 
                         _animator.SetBool("IsSkill_2", true);
+                        SetDummyAnimation("IsSkill_2", true);
                     }
                     
                     if (isSkill_2)
@@ -78,6 +88,7 @@ public class Naruto : Actor
                         StartCoroutine(OnSkillCoroutine);
 
                         _animator.SetBool("IsSkill_2", true);
+                        SetDummyAnimation("IsSkill_2", true);
                     }
 
                     if (isSkill_2)
@@ -94,6 +105,7 @@ public class Naruto : Actor
         IsDoingSkill = true;
 
         _animator.SetBool("IsCharging", true);
+        SetDummyAnimation("IsCharging", true);
 
         while (!_animator.GetCurrentAnimatorStateInfo(0).IsName("Skill_2_1"))
         {
@@ -101,6 +113,7 @@ public class Naruto : Actor
         }
         
         _animator.SetBool("IsSkill_2", false);
+        SetDummyAnimation("IsSkill_2", false);
 
         yield return null;
 
@@ -115,6 +128,9 @@ public class Naruto : Actor
         
         _animator.SetBool("IsCharging", false);
         _animator.SetBool("IsCharged", true);
+        
+        SetDummyAnimation("IsCharging", false);
+        SetDummyAnimation("IsCharged", true);
 
         OnSkillCoroutine = null;
     }
@@ -141,7 +157,18 @@ public class Naruto : Actor
 
         _animator.SetBool("IsSkill_2", false);
         _animator.SetBool("IsCharged", false);
+        
+        SetDummyAnimation("IsSkill_2", false);
+        SetDummyAnimation("IsCharged", false);
 
         OnSkillCoroutine = null;
+    }
+
+    private void SetDummyAnimation(string name, bool isTrue)
+    {
+        foreach (var dummy in _dummieList)
+        {
+            dummy.SetAnimationParameter(name, isTrue);
+        }
     }
 }
