@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3919587860
+CRC: 1756137470
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2fd9dd8ee595a5d76ab8295f9c8c48ea
+    Hash: 789a4c64d114afbb394cf950d76746cc
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 3c9dd73ded28b8a7899810a6ba8090f5
+    Hash: 8a4bd0f5107e05997ebc35830dd6d3bb
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -34,11 +34,9 @@ ClassTypes:
 - Class: 96
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  Script: {fileID: 11500000, guid: 76af7810b411c9f47a586c7b4c14d0a5, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 76af7810b411c9f47a586c7b4c14d0a5, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: d5fbc760242446a4b906f71e9ead084f, type: 3}
 - Class: 114
@@ -78,6 +76,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 199a051c1e3b666419a8a04a3050e872, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: cba62c4cdb069df46bcf5241eff77e31, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 894eeddcfdfeead4d846b30307d8efb9, type: 3}
@@ -93,6 +93,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 4ce6e1df3bd4d454da47664251cd7f1e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4715328ca41cd1145a4f0cbfb61da4c7, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 198
@@ -142,6 +144,7 @@ Assets:
 - Assets/Prefab/Actor/Martine.prefab
 - Assets/Resources/Minecraft.prefab
 - Assets/Prefab/Actor/Sans.prefab
+- Assets/Prefab/Actor_Sub/Naruto_Dummy.prefab
 - Assets/Prefab/Effect/GhostEffect.prefab
 - Assets/Prefab/Actor_Sub/Jett_Shuriken.prefab
 - Assets/Prefab/Chimpanzee/Panzee_Red_TShirt.prefab
