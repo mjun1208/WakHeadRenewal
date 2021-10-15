@@ -18,8 +18,7 @@ public class Naruto_Dummy : ActorSub
         _animator.SetBool(name, isTrue);
     }
 
-    public void ShootRasengan()
+    public void Rasengan()
     {
-        
     }
 }

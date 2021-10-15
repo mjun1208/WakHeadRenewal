@@ -163,6 +163,29 @@ public class Naruto : Actor
 
         OnSkillCoroutine = null;
     }
+    
+    public void Rasengan()
+    {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        photonView.RPC("RasenganRPC", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RasenganRPC()
+    {
+        var newRasengan = Global.PoolingManager.LocalSpawn("Naruto_Rasengan", this.transform.position, Quaternion.identity, true);
+        newRasengan.GetComponent<Naruto_Rasengan>().SetInfo(this.photonView, this.gameObject, this.transform.position, GetAttackDir());
+        
+        foreach (var dummy in _dummieList)
+        {
+            var newDummyRasengan = Global.PoolingManager.LocalSpawn("Naruto_Rasengan", dummy.transform.position, Quaternion.identity, true);
+            newDummyRasengan.GetComponent<Naruto_Rasengan>().SetInfo(this.photonView, this.gameObject, dummy.transform.position, GetAttackDir());
+        }
+    }
 
     private void SetDummyAnimation(string name, bool isTrue)
     {
