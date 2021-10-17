@@ -1341,6 +1341,7 @@ GameObject:
   - component: {fileID: 2137956635075547938}
   - component: {fileID: 689731552509695903}
   - component: {fileID: 1733089320111713437}
+  - component: {fileID: 3814053227819902114}
   m_Layer: 12
   m_Name: Lava
   m_TagString: Untagged
@@ -1479,6 +1480,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3814053227819902114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137956635075547941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &2144131095391728596
 GameObject:
   m_ObjectHideFlags: 0
