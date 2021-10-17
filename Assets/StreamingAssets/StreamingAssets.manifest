@@ -1,13 +1,13 @@
 ManifestFileVersion: 0
-CRC: 715844963
+CRC: 2054270067
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: asset
+      Name: skillicon
       Dependencies: {}
     Info_1:
-      Name: gamedata
+      Name: asset
       Dependencies: {}
     Info_2:
-      Name: skillicon
+      Name: gamedata
       Dependencies: {}
