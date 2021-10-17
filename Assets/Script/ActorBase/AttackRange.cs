@@ -22,7 +22,7 @@ public class AttackRange : MonoBehaviour
         _ownerObject = owner;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (_ownerObject == null && !CollidedObjectList.Contains(collision.gameObject))
         {
@@ -43,7 +43,7 @@ public class AttackRange : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected virtual void OnTriggerExit2D(Collider2D collision)
     {
         if (CollidedObjectList.Contains(collision.gameObject))
         {
