@@ -23,10 +23,7 @@ public class Kakashi_Bomb : ActorSub
         {
             var targetEntity = targetObject.GetComponent<Entity>();
 
-            if (!targetEntity.photonView.IsMine)
-            {
-                targetEntity.Damaged(this.transform.position);
-            }
+            targetEntity.Damaged(this.transform.position);
         }
     }
 }
