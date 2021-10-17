@@ -341,28 +341,28 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: IsWalk
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: IsAttack
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: IsSkill_1
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: IsSkill_2
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: IsSkill_1_1
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: IsSkill_1_2
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: IsCharging
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: IsCharged
   m_SynchronizeLayers:
   - SynchronizeType: 0
