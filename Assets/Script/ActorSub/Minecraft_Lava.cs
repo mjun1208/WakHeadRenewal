@@ -18,6 +18,7 @@ public class Minecraft_Lava : ActorSub
             lava.SetActive(false);
         }
 
+        StartCoroutine(Fire());
         StartCoroutine(Diffuse());
     }
 
@@ -37,6 +38,14 @@ public class Minecraft_Lava : ActorSub
         if (_ownerPhotonView.IsMine)
         {
             entity.Damaged(this.transform.position);
+        }
+    }
+
+    private IEnumerator Fire()
+    {
+        while (true) {
+            yield return new WaitForSeconds(0.1f);
+            ActiveDamage();
         }
     }
 
