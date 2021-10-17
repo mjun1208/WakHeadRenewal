@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class ChildAttackRange : AttackRange
 {
-    [SerializeField] private GameObject _myParent;
+    [SerializeField] private AttackRange _myParentAttackRange;
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        if (_myParent != null)
+        if (_myParentAttackRange != null)
         {
-            _myParent.SendMessage("OnTriggerEnter2D", collision);
+            _myParentAttackRange.SendMessage("OnTriggerEnter2D", collision);
         }
     }
 
     protected override void OnTriggerExit2D(Collider2D collision)
     {
-        if (_myParent != null)
+        if (_myParentAttackRange != null)
         {
-            _myParent.SendMessage("OnTriggerExit2D", collision);
+            _myParentAttackRange.SendMessage("OnTriggerExit2D", collision);
         }
     }
 }
