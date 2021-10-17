@@ -24,13 +24,15 @@ public class AttackRange : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if (_ownerObject == null && !CollidedObjectList.Contains(collision.gameObject))
+        if (_ownerObject == null)
         {
-            if (collision.GetComponent<Entity>() != null)
+            if (!CollidedObjectList.Contains(collision.gameObject))
             {
-                CollidedObjectList.Add(collision.gameObject);
+                if (collision.GetComponent<Entity>() != null)
+                {
+                    CollidedObjectList.Add(collision.gameObject);
+                }
             }
-
             return;
         }
 
