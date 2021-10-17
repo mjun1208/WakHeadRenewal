@@ -22,10 +22,13 @@ public class ActorSub : MonoBehaviour
     {
         _ownerPhotonView = ownerPhotonView;
 
-        _attackRange.SetOwner(owner);
-        this.transform.position = owner.transform.position;
+        if (owner != null)
+        {
+            _attackRange.SetOwner(owner);
+            this.transform.position = owner.transform.position;
 
-        _owner = owner;
+            _owner = owner;
+        }
 
         _dir = dir;
 
