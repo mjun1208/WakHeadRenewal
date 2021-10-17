@@ -42,10 +42,14 @@ MonoBehaviour:
   - DespawnShurikenRPC
   - DestroyRpc
   - DestroySpaceship
+  - DisInvisibilityRPC
   - Fire
   - GrabRPC
+  - InvisibilityRPC
   - KnockBackRPC
+  - LavaElemant
   - OnDamageRPC
+  - RasenganRPC
   - ResetAnimation
   - RespawnSpaceship
   - RpcClearBuffer
@@ -64,8 +68,6 @@ MonoBehaviour:
   - StunRPC
   - ThrowShuriken
   - ThrowShurikenRPC
-  - RasenganRPC
-  - LavaElemant
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
