@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4629844624719720473}
   - component: {fileID: 5986240814997080412}
   - component: {fileID: 8757391547605934615}
+  - component: {fileID: 936607743618211304}
   m_Layer: 12
   m_Name: Lava_3
   m_TagString: Untagged
@@ -151,6 +152,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &936607743618211304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107305254270672697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &123987529933082080
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +179,7 @@ GameObject:
   - component: {fileID: 1697305985377739978}
   - component: {fileID: 5508696149424770677}
   - component: {fileID: 3953680048148153408}
+  - component: {fileID: 1586707851008387835}
   m_Layer: 12
   m_Name: Lava_2
   m_TagString: Untagged
@@ -302,6 +318,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1586707851008387835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123987529933082080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &149295955394320820
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,6 +345,7 @@ GameObject:
   - component: {fileID: 5639144119100902259}
   - component: {fileID: 3543102685944220745}
   - component: {fileID: 2263901991664587702}
+  - component: {fileID: 2187603274283636076}
   m_Layer: 12
   m_Name: Lava_2
   m_TagString: Untagged
@@ -453,6 +484,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2187603274283636076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149295955394320820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &254138526089598485
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,6 +511,7 @@ GameObject:
   - component: {fileID: 8741803137399860879}
   - component: {fileID: 1487967714467342793}
   - component: {fileID: 8391116348875529795}
+  - component: {fileID: 2065141313202904985}
   m_Layer: 12
   m_Name: Lava_3
   m_TagString: Untagged
@@ -604,6 +650,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2065141313202904985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254138526089598485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &459654398592334079
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,6 +677,7 @@ GameObject:
   - component: {fileID: 3014283952049569071}
   - component: {fileID: 7331552362864949166}
   - component: {fileID: 5686399121331244548}
+  - component: {fileID: 8435226308798279255}
   m_Layer: 12
   m_Name: Lava_2
   m_TagString: Untagged
@@ -755,6 +816,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8435226308798279255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459654398592334079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &481316034576123794
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,6 +843,7 @@ GameObject:
   - component: {fileID: 5362645282638370310}
   - component: {fileID: 5561676448389894508}
   - component: {fileID: 906070661196463739}
+  - component: {fileID: 2591420679880504094}
   m_Layer: 12
   m_Name: Lava_2
   m_TagString: Untagged
@@ -906,6 +982,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2591420679880504094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481316034576123794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &605308987530732910
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,6 +1009,7 @@ GameObject:
   - component: {fileID: 8496409315727792539}
   - component: {fileID: 1368700179437139976}
   - component: {fileID: 8407156552548143296}
+  - component: {fileID: 3002022033951666834}
   m_Layer: 12
   m_Name: Lava_3
   m_TagString: Untagged
@@ -1057,6 +1148,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3002022033951666834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605308987530732910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &1053128987763695982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,6 +1175,7 @@ GameObject:
   - component: {fileID: 318386994661268414}
   - component: {fileID: 1700673805036128370}
   - component: {fileID: 2029458780545364298}
+  - component: {fileID: 8471342365844074499}
   m_Layer: 12
   m_Name: Lava_1
   m_TagString: Untagged
@@ -1208,6 +1314,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8471342365844074499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053128987763695982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &2137956635075547941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,6 +1492,7 @@ GameObject:
   - component: {fileID: 3905124903363080064}
   - component: {fileID: 6648394404963193527}
   - component: {fileID: 6745596567230846372}
+  - component: {fileID: 3947794021831027307}
   m_Layer: 12
   m_Name: Lava_3
   m_TagString: Untagged
@@ -1510,6 +1631,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3947794021831027307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144131095391728596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &2611345117558835060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1523,6 +1658,7 @@ GameObject:
   - component: {fileID: 3200745670378857050}
   - component: {fileID: 231781256617201501}
   - component: {fileID: 5856017536355228737}
+  - component: {fileID: 6697494367277762100}
   m_Layer: 12
   m_Name: Lava_3
   m_TagString: Untagged
@@ -1661,6 +1797,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6697494367277762100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2611345117558835060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &2617724430989875656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1674,6 +1824,7 @@ GameObject:
   - component: {fileID: 8457788892048416208}
   - component: {fileID: 525916044754662280}
   - component: {fileID: 1877506521751057007}
+  - component: {fileID: 2527671556460249427}
   m_Layer: 12
   m_Name: Lava_3
   m_TagString: Untagged
@@ -1812,6 +1963,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2527671556460249427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2617724430989875656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &2780241587569948775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,6 +1990,7 @@ GameObject:
   - component: {fileID: 1715014489629199994}
   - component: {fileID: 2424063256973275057}
   - component: {fileID: 7147273201407950512}
+  - component: {fileID: 3983882731160748576}
   m_Layer: 12
   m_Name: Lava_3
   m_TagString: Untagged
@@ -1963,6 +2129,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3983882731160748576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2780241587569948775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &3026263863189275857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1976,6 +2156,7 @@ GameObject:
   - component: {fileID: 1156096941969362622}
   - component: {fileID: 4184937027820357464}
   - component: {fileID: 880785840869494801}
+  - component: {fileID: 5778520738366593537}
   m_Layer: 12
   m_Name: Lava_3
   m_TagString: Untagged
@@ -2114,6 +2295,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5778520738366593537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3026263863189275857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &3556123904735933569
 GameObject:
   m_ObjectHideFlags: 0
@@ -2129,7 +2324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7907120272272569018
 Transform:
   m_ObjectHideFlags: 0
@@ -2169,6 +2364,7 @@ GameObject:
   - component: {fileID: 1923107559018459096}
   - component: {fileID: 3423008076547731734}
   - component: {fileID: 1882712152085393978}
+  - component: {fileID: 3958495568999826453}
   m_Layer: 12
   m_Name: Lava_3
   m_TagString: Untagged
@@ -2307,6 +2503,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3958495568999826453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4360408273999477157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &4682282391798938810
 GameObject:
   m_ObjectHideFlags: 0
@@ -2320,6 +2530,7 @@ GameObject:
   - component: {fileID: 9157859768927157656}
   - component: {fileID: 8840307742417788869}
   - component: {fileID: 2969371004387313417}
+  - component: {fileID: 7627050103135063950}
   m_Layer: 12
   m_Name: Lava_2
   m_TagString: Untagged
@@ -2458,6 +2669,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7627050103135063950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4682282391798938810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &5822130778421718085
 GameObject:
   m_ObjectHideFlags: 0
@@ -2561,6 +2786,7 @@ GameObject:
   - component: {fileID: 1059466760519130348}
   - component: {fileID: 7451867266692674379}
   - component: {fileID: 3550602733100539740}
+  - component: {fileID: 8513175756875750544}
   m_Layer: 12
   m_Name: Lava_1
   m_TagString: Untagged
@@ -2699,6 +2925,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8513175756875750544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6107450493746953189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &6122134341949636030
 GameObject:
   m_ObjectHideFlags: 0
@@ -2714,7 +2954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &562920835542298577
 Transform:
   m_ObjectHideFlags: 0
@@ -2750,6 +2990,7 @@ GameObject:
   - component: {fileID: 355188099848754394}
   - component: {fileID: 8427954548918680240}
   - component: {fileID: 3545804730781498971}
+  - component: {fileID: 1846154948709079199}
   m_Layer: 12
   m_Name: Lava_2
   m_TagString: Untagged
@@ -2888,6 +3129,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1846154948709079199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6174650435459768402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &6925334789558542392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2901,6 +3156,7 @@ GameObject:
   - component: {fileID: 7866496663023820875}
   - component: {fileID: 7034093243525315265}
   - component: {fileID: 2962070630164106445}
+  - component: {fileID: 5698989232815593131}
   m_Layer: 12
   m_Name: Lava_3
   m_TagString: Untagged
@@ -3039,6 +3295,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5698989232815593131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6925334789558542392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &7064644528561852592
 GameObject:
   m_ObjectHideFlags: 0
@@ -3052,6 +3322,7 @@ GameObject:
   - component: {fileID: 5937264484309824824}
   - component: {fileID: 4101272802729354646}
   - component: {fileID: 8516465705504348739}
+  - component: {fileID: 4686434787064822164}
   m_Layer: 12
   m_Name: Lava_3
   m_TagString: Untagged
@@ -3190,6 +3461,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4686434787064822164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7064644528561852592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &7164336504801623859
 GameObject:
   m_ObjectHideFlags: 0
@@ -3205,7 +3490,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6062201373692533035
 Transform:
   m_ObjectHideFlags: 0
@@ -3237,6 +3522,7 @@ GameObject:
   - component: {fileID: 7035243745807092422}
   - component: {fileID: 3153466962327501542}
   - component: {fileID: 4077698418448603818}
+  - component: {fileID: 1178496463646850132}
   m_Layer: 12
   m_Name: Lava_2
   m_TagString: Untagged
@@ -3375,6 +3661,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1178496463646850132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189908574666195690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &7834735003194593790
 GameObject:
   m_ObjectHideFlags: 0
@@ -3388,6 +3688,7 @@ GameObject:
   - component: {fileID: 539239107637938979}
   - component: {fileID: 3579435775923148954}
   - component: {fileID: 6166596752285681145}
+  - component: {fileID: 2053679988171136848}
   m_Layer: 12
   m_Name: Lava_1
   m_TagString: Untagged
@@ -3526,6 +3827,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2053679988171136848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7834735003194593790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &7937468211508923027
 GameObject:
   m_ObjectHideFlags: 0
@@ -3539,6 +3854,7 @@ GameObject:
   - component: {fileID: 2983903201231048915}
   - component: {fileID: 8414334661338252097}
   - component: {fileID: 4658149619885222022}
+  - component: {fileID: 2165931577171189125}
   m_Layer: 12
   m_Name: Lava_1
   m_TagString: Untagged
@@ -3677,6 +3993,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2165931577171189125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7937468211508923027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &8852597907583909243
 GameObject:
   m_ObjectHideFlags: 0
@@ -3690,6 +4020,7 @@ GameObject:
   - component: {fileID: 9067888323243960746}
   - component: {fileID: 513583759101975835}
   - component: {fileID: 3035692357837488804}
+  - component: {fileID: 6838815512900802459}
   m_Layer: 12
   m_Name: Lava_2
   m_TagString: Untagged
@@ -3828,6 +4159,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6838815512900802459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8852597907583909243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
 --- !u!1 &9022833194540124628
 GameObject:
   m_ObjectHideFlags: 0
@@ -3841,6 +4186,7 @@ GameObject:
   - component: {fileID: 1471989377322092650}
   - component: {fileID: 1708542165679936997}
   - component: {fileID: 4521269216183361915}
+  - component: {fileID: 7779012831400711193}
   m_Layer: 12
   m_Name: Lava_3
   m_TagString: Untagged
@@ -3979,3 +4325,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7779012831400711193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9022833194540124628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerObject: {fileID: 0}
+  _myParent: {fileID: 5822130778421718085}
