@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1669429770
+CRC: 101290150
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2a8bc101ddbfac75f88cbefa84fba217
+    Hash: 5b11f9e10a625ad7bfea631fe4d93685
   TypeTreeHash:
     serializedVersion: 2
-    Hash: e7a26cd8372b600a8f3e05ba15c6ea7d
+    Hash: 6b77acc8d45269458b3ca4615108c06d
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -47,6 +47,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: b057bea05aff6fd4389c3b8e69355ff3, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: c39af3d05d213294092681fdf3bed02f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4eccf731e8ba0f747b9a33f9ba54c6f2, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 638d7a31d80dbf24ea6767dc9538d2f6, type: 3}
 - Class: 114
@@ -100,7 +102,9 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 4ce6e1df3bd4d454da47664251cd7f1e, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 4eccf731e8ba0f747b9a33f9ba54c6f2, type: 3}
+  Script: {fileID: 11500000, guid: ef463f158c3895041bcc1e5bebe76d78, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 198
@@ -135,6 +139,7 @@ Assets:
 - Assets/Prefab/Effect/Blood.prefab
 - Assets/Prefab/Actor_Sub/Sans_Gaster.prefab
 - Assets/Prefab/Actor_Sub/Minecraft_Lava.prefab
+- Assets/Prefab/Effect/Minecraft_LavaBasket.prefab
 - Assets/Prefab/Actor/Normal.prefab
 - Assets/Prefab/Actor_Sub/Martine_Vent.prefab
 - Assets/Prefab/Actor_Sub/Sans_Charge_Blast.prefab
