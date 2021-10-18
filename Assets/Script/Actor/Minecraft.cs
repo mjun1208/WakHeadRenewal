@@ -7,6 +7,22 @@ public class Minecraft : Actor
 {
     [SerializeField] private GameObject _lavaPivot;
 
+    protected override void Active_Attack()
+    {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        var targetList = _attackRange.CollidedObjectList;
+
+        foreach (var target in targetList)
+        {
+            var targetEntity = target.GetComponent<Entity>();
+            targetEntity.KnockBack(GetAttackDir(), 1.5f, 0);
+        }
+    }
+
     protected override void Active_Skill_1()
     {
         if (!photonView.IsMine)
