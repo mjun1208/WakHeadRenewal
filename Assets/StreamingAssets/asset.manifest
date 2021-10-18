@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2408567964
+CRC: 962102122
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 54c6feaa42cdfafff103c5e1995b98d6
+    Hash: c6e3b72bffdf6808d635f313d66c14ea
   TypeTreeHash:
     serializedVersion: 2
-    Hash: d51edf42ee48e5ebc901b2bee88d800d
+    Hash: 2c51913e6f64dd7762dba4a2b2639f60
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -34,9 +34,9 @@ ClassTypes:
 - Class: 96
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 11500000, guid: 76af7810b411c9f47a586c7b4c14d0a5, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 76af7810b411c9f47a586c7b4c14d0a5, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: d5fbc760242446a4b906f71e9ead084f, type: 3}
 - Class: 114
@@ -104,6 +104,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 5551c22f62fabdb4aa5ab8452dafd9f8, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 4ce6e1df3bd4d454da47664251cd7f1e, type: 3}
 - Class: 115
   Script: {instanceID: 0}
@@ -153,6 +155,7 @@ Assets:
 - Assets/Prefab/Actor_Sub/Sans_Bone.prefab
 - Assets/Resources/VR.prefab
 - Assets/Prefab/Actor/Kakashi.prefab
+- Assets/Prefab/Actor_Sub/Minecraft_Slave.prefab
 - Assets/Prefab/Actor_Sub/Kakashi_Bomb.prefab
 - Assets/Prefab/Actor/Martine.prefab
 - Assets/Resources/Minecraft.prefab
