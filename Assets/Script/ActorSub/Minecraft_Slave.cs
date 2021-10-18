@@ -22,6 +22,17 @@ public class Minecraft_Slave : ActorSub
         this.transform.localScale = new Vector3(rotationScale, _originalScale.y, _originalScale.z);
 
         StartCoroutine(Go());
+        StartCoroutine(Spine());
+    }
+
+    private IEnumerator Spine()
+    {
+        while (true)
+        {
+            ActiveDamage();
+
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
     public void ActiveDamage()
@@ -42,7 +53,7 @@ public class Minecraft_Slave : ActorSub
 
         if (_ownerPhotonView.IsMine)
         {
-            entity.KnockBack(randomDir, 3f, 0f);
+            entity.KnockBack(randomDir, 1f, 0f);
         }
     }
 }
