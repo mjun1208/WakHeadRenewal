@@ -37,11 +37,6 @@ public class Minecraft_Slave : ActorSub
 
     protected override void OnDamage(Entity entity)
     {
-        if (_ownerPhotonView.Owner == entity.photonView.Owner)
-        {
-            return;
-        }
-
         var randomPos = (Vector3)UnityEngine.Random.insideUnitCircle * 0.5f;
         var randomDir = randomPos.normalized;
 
