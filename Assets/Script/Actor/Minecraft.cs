@@ -13,6 +13,8 @@ public class Minecraft : Actor
         {
             return;
         }
+
+        photonView.RPC("SummonSlave", RpcTarget.All);
     }
 
     protected override void Active_Skill_2()
@@ -23,6 +25,14 @@ public class Minecraft : Actor
         }
 
         photonView.RPC("LavaElemant", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void SummonSlave()
+    {
+        var newSlave = Global.PoolingManager.LocalSpawn("Minecraft_Slave", _lavaPivot.transform.position, Quaternion.identity, true);
+
+        newSlave.GetComponent<Minecraft_Slave>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
     }
 
     [PunRPC]
