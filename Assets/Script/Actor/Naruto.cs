@@ -69,9 +69,14 @@ public class Naruto : Actor
 
         return base.Skill_2Input();
     }
-    
+
     public override void OnSkill_1()
     {
+        if (_rasenganState == RasenganState.Shoot)
+        {
+            return;
+        }
+
         var newSmoke = Global.PoolingManager.LocalSpawn("Naruto_Smoke", this.transform.position, Quaternion.identity, true);
         var newDummy = Global.PoolingManager.LocalSpawn("Naruto_Dummy", this.transform.position, Quaternion.identity, true);
 
