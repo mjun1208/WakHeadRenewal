@@ -34,6 +34,22 @@ public class Naruto : Actor
         }
     }
 
+    protected override void Active_Attack()
+    {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        var targetList = _attackRange.CollidedObjectList;
+
+        foreach (var target in targetList)
+        {
+            var targetEntity = target.GetComponent<Entity>();
+            targetEntity.KnockBack(GetAttackDir(), 1.5f, 0);
+        }
+    }
+
     protected override void Attack()
     {
         base.Attack();
@@ -59,6 +75,7 @@ public class Naruto : Actor
         var newSmoke = Global.PoolingManager.LocalSpawn("Naruto_Smoke", this.transform.position, Quaternion.identity, true);
         var newDummy = Global.PoolingManager.LocalSpawn("Naruto_Dummy", this.transform.position, Quaternion.identity, true);
 
+        newDummy.GetComponent<Naruto_Dummy>().SetInfo(this.photonView, this.gameObject, this.transform.position);
         newDummy.GetComponent<Naruto_Dummy>().SetDir(GetAttackDir());
 
         _dummieList.Add(newDummy.GetComponent<Naruto_Dummy>());

@@ -14,6 +14,22 @@ public class Naruto_Dummy : ActorSub
         _originalScale = this.transform.localScale;
     }
 
+    private void Active_Attack()
+    {
+        if (!_ownerPhotonView.IsMine)
+        {
+            return;
+        }
+
+        var targetList = _attackRange.CollidedObjectList;
+
+        foreach (var target in targetList)
+        {
+            var targetEntity = target.GetComponent<Entity>();
+            targetEntity.KnockBack(_dir, 1.5f, 0);
+        }
+    }
+
     public void SetDir(Vector3 dir)
     {
         float rotationScale = _originalScale.x * dir.x;
