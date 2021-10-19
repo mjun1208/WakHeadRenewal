@@ -9,6 +9,13 @@ public class Naruto_Dummy : ActorSub
     [SerializeField] private Animator _animator;
     private Vector3 _originalScale;
 
+    public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
+    {
+        base.SetInfo(ownerPhotonView, owner, dir);
+
+        _animator.Rebind();
+    }
+
     private void Awake()
     {
         _originalScale = this.transform.localScale;
@@ -32,6 +39,7 @@ public class Naruto_Dummy : ActorSub
 
     public void SetDir(Vector3 dir)
     {
+        _dir = dir;
         float rotationScale = _originalScale.x * dir.x;
         this.transform.localScale = new Vector3(rotationScale, _originalScale.y, _originalScale.z);
     }
@@ -44,6 +52,10 @@ public class Naruto_Dummy : ActorSub
     public void SetAnimationParameter(string name, bool isTrue)
     {
         _animator.SetBool(name, isTrue);
+    }
+
+    public void Charging()
+    {
     }
 
     public void Rasengan()
