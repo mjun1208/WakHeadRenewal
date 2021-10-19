@@ -95,7 +95,8 @@ public class Naruto : Actor
                     _rasenganState = RasenganState.Charging;
                     
                     OnSkill_2();
-                    
+                    SetDummyAnimation("IsSkill_2", true);
+
                     break;
                 }
             case RasenganState.Charging:
