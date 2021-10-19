@@ -7,7 +7,9 @@ public class Naruto : Actor
 {
     private List<Naruto_Dummy> _dummieList = new List<Naruto_Dummy>();
     private bool _isSkill_2KeyDown = false;
-    
+
+    private int _chargingGauge = 0;
+
     private enum RasenganState
     {
         Ready,
@@ -59,8 +61,10 @@ public class Naruto : Actor
                 }
             case RasenganState.Charging:
                 {
+                    _chargingGauge = 0;
+
                     isSkill_2 = true;
-                    
+
                     if (OnSkillCoroutine == null)
                     {
                         IsDoingSkill = true;
@@ -99,7 +103,12 @@ public class Naruto : Actor
                 }
         }
     }
-    
+
+    public void Charging()
+    {
+        _chargingGauge += 1;
+    }
+
     private IEnumerator ChargingRasengan()
     {
         IsDoingSkill = true;
@@ -117,7 +126,7 @@ public class Naruto : Actor
 
         yield return null;
 
-        while (_isSkill_2KeyDown)
+        while (_isSkill_2KeyDown && _chargingGauge < 3)
         {
             yield return null;
         }
@@ -178,12 +187,12 @@ public class Naruto : Actor
     public void RasenganRPC()
     {
         var newRasengan = Global.PoolingManager.LocalSpawn("Naruto_Rasengan", this.transform.position, Quaternion.identity, true);
-        newRasengan.GetComponent<Naruto_Rasengan>().SetInfo(this.photonView, this.gameObject, this.transform.position, GetAttackDir());
+        newRasengan.GetComponent<Naruto_Rasengan>().SetInfo(this.photonView, this.gameObject, this.transform.position, GetAttackDir(), _chargingGauge);
         
         foreach (var dummy in _dummieList)
         {
             var newDummyRasengan = Global.PoolingManager.LocalSpawn("Naruto_Rasengan", dummy.transform.position, Quaternion.identity, true);
-            newDummyRasengan.GetComponent<Naruto_Rasengan>().SetInfo(this.photonView, this.gameObject, dummy.transform.position, GetAttackDir());
+            newDummyRasengan.GetComponent<Naruto_Rasengan>().SetInfo(this.photonView, this.gameObject, dummy.transform.position, GetAttackDir(), _chargingGauge);
         }
     }
 
