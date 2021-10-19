@@ -19,6 +19,21 @@ public class Naruto : Actor
 
     private RasenganState _rasenganState;
 
+    protected override void Update()
+    {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        base.Update();
+
+        foreach (var dummy in _dummieList)
+        {
+            dummy.SetDir(GetAttackDir());
+        }
+    }
+
     protected override void Attack()
     {
         base.Attack();
@@ -43,7 +58,9 @@ public class Naruto : Actor
     {
         var newSmoke = Global.PoolingManager.LocalSpawn("Naruto_Smoke", this.transform.position, Quaternion.identity, true);
         var newDummy = Global.PoolingManager.LocalSpawn("Naruto_Dummy", this.transform.position, Quaternion.identity, true);
-        
+
+        newDummy.GetComponent<Naruto_Dummy>().SetDir(GetAttackDir());
+
         _dummieList.Add(newDummy.GetComponent<Naruto_Dummy>());
     }
 
