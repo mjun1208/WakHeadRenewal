@@ -187,6 +187,9 @@ public class Naruto : Actor
             yield return null;
         }
 
+        SetDummyAnimation("IsSkill_2", false);
+        SetDummyAnimation("IsCharged", false);
+
         yield return null;
 
         while (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.95f)
