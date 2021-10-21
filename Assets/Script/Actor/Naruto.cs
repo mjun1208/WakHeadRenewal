@@ -19,19 +19,33 @@ public class Naruto : Actor
 
     private RasenganState _rasenganState;
 
+    public override void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        base.OnPhotonSerializeView(stream, info);
+
+        if (stream.IsWriting)
+        {
+            stream.SendNext(_chargingGauge);
+        }
+        else
+        {
+            _chargingGauge = (int)stream.ReceiveNext();
+        }
+    }
+
     protected override void Update()
     {
+        foreach (var dummy in _dummieList)
+        {
+            dummy.SetDir(GetAttackDir());
+        }
+
         if (!photonView.IsMine)
         {
             return;
         }
 
         base.Update();
-
-        foreach (var dummy in _dummieList)
-        {
-            dummy.SetDir(GetAttackDir());
-        }
     }
 
     protected override void Active_Attack()
