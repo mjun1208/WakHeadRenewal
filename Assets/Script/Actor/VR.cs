@@ -6,6 +6,8 @@ using DG.Tweening;
 
 public class VR : Actor
 {
+    [SerializeField] private GameObject _light;
+
     protected override void ForceStop(bool isStun)
     {
         base.ForceStop(isStun);
@@ -13,6 +15,30 @@ public class VR : Actor
         if (isStun)
         {
             photonView.RPC("DisInvisibilityRPC", RpcTarget.All);
+        }
+    }
+
+    protected override void Active_Attack()
+    {
+        _light.gameObject.SetActive(true);
+
+        _light.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        _light.GetComponent<SpriteRenderer>().DOColor(new Color(1, 1, 1, 0), 0.3f).SetEase(Ease.Flash).OnComplete(() =>
+        {
+            _light.gameObject.SetActive(false);
+        });
+
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        var targetList = _attackRange.CollidedObjectList;
+
+        foreach (var target in targetList)
+        {
+            var targetEntity = target.GetComponent<Entity>();
+            targetEntity.Damaged(target.transform.position);
         }
     }
 
