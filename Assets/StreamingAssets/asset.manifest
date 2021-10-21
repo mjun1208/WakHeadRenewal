@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1270402978
+CRC: 584281649
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c95bd295d4ad8db3063d008976ed2d11
+    Hash: 8aa3fc588a2ac196c8cc970388b623d8
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 2c51913e6f64dd7762dba4a2b2639f60
+    Hash: d3f3b363b518359a45e21ec65976dd91
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -153,12 +153,12 @@ Assets:
 - Assets/Prefab/Actor/Ahri.prefab
 - Assets/Prefab/Effect/OperatorEffect.prefab
 - Assets/Prefab/Actor_Sub/Sans_Bone.prefab
-- Assets/Resources/VR.prefab
+- Assets/Prefab/Actor/VR.prefab
 - Assets/Prefab/Actor/Kakashi.prefab
 - Assets/Prefab/Actor_Sub/Minecraft_Slave.prefab
 - Assets/Prefab/Actor_Sub/Kakashi_Bomb.prefab
 - Assets/Prefab/Actor/Martine.prefab
-- Assets/Resources/Minecraft.prefab
+- Assets/Prefab/Actor/Minecraft.prefab
 - Assets/Prefab/Actor/Sans.prefab
 - Assets/Prefab/Actor_Sub/Naruto_Dummy.prefab
 - Assets/Prefab/Effect/GhostEffect.prefab
