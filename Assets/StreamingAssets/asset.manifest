@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 584281649
+CRC: 3375129884
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8aa3fc588a2ac196c8cc970388b623d8
+    Hash: 010d3f22edd463c2ac9c3d7cfd74b7e4
   TypeTreeHash:
     serializedVersion: 2
-    Hash: d3f3b363b518359a45e21ec65976dd91
+    Hash: cf1a0b0a146288615dca73b92491e523
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -45,6 +45,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: b057bea05aff6fd4389c3b8e69355ff3, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: c39af3d05d213294092681fdf3bed02f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b7eac001f2b0c0b43b7fb6985b95f2b3, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 4eccf731e8ba0f747b9a33f9ba54c6f2, type: 3}
 - Class: 114
@@ -164,6 +166,7 @@ Assets:
 - Assets/Prefab/Effect/GhostEffect.prefab
 - Assets/Prefab/Actor_Sub/Jett_Shuriken.prefab
 - Assets/Prefab/Chimpanzee/Panzee_Red_TShirt.prefab
+- Assets/Prefab/Actor/Naruto.prefab
 - Assets/Prefab/Actor_Sub/Ahri_Heart.prefab
 - Assets/Prefab/Actor/AnimalCrossing.prefab
 Dependencies: []
