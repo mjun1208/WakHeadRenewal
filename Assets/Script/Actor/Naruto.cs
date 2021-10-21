@@ -77,13 +77,7 @@ public class Naruto : Actor
             return;
         }
 
-        var newSmoke = Global.PoolingManager.LocalSpawn("Naruto_Smoke", this.transform.position, Quaternion.identity, true);
-        var newDummy = Global.PoolingManager.LocalSpawn("Naruto_Dummy", this.transform.position, Quaternion.identity, true);
-
-        newDummy.GetComponent<Naruto_Dummy>().SetInfo(this.photonView, this.gameObject, this.transform.position);
-        newDummy.GetComponent<Naruto_Dummy>().SetDir(GetAttackDir());
-
-        _dummieList.Add(newDummy.GetComponent<Naruto_Dummy>());
+        photonView.RPC("SummonDummyRPC", RpcTarget.All);
     }
 
     public override void OnSkill_2()
@@ -236,7 +230,30 @@ public class Naruto : Actor
         }
     }
 
+    [PunRPC]
+    public void SummonDummyRPC()
+    {
+        var newSmoke = Global.PoolingManager.LocalSpawn("Naruto_Smoke", this.transform.position, Quaternion.identity, true);
+        var newDummy = Global.PoolingManager.LocalSpawn("Naruto_Dummy", this.transform.position, Quaternion.identity, true);
+
+        newDummy.GetComponent<Naruto_Dummy>().SetInfo(this.photonView, this.gameObject, this.transform.position);
+        newDummy.GetComponent<Naruto_Dummy>().SetDir(GetAttackDir());
+
+        _dummieList.Add(newDummy.GetComponent<Naruto_Dummy>());
+    }
+
     private void SetDummyAnimation(string name, bool isTrue)
+    {
+        // foreach (var dummy in _dummieList)
+        // {
+        //     dummy.SetAnimationParameter(name, isTrue);
+        // }
+
+        photonView.RPC("SetDummyAnimationRPC", RpcTarget.All, name, isTrue);
+    }
+
+    [PunRPC]
+    public void SetDummyAnimationRPC(string name, bool isTrue)
     {
         foreach (var dummy in _dummieList)
         {
