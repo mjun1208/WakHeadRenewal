@@ -8,8 +8,8 @@ public abstract class Entity : MonoBehaviourPunCallbacks
 {
     [SerializeField] protected Rigidbody2D _rigid;
 
-    public bool _knockBack = false;
-    public bool _grab = false;
+    private bool _knockBack = false;
+    private bool _grab = false;
 
     public Action<bool> StunAction;
 
