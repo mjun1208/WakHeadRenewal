@@ -15,6 +15,9 @@ public abstract class Entity : MonoBehaviourPunCallbacks
 
     protected Team _team;
 
+    private int _maxHP;
+    private int _currentHP;
+
     public bool IsStun {
         get
         {
@@ -24,6 +27,30 @@ public abstract class Entity : MonoBehaviourPunCallbacks
         {
             StunAction?.Invoke(value);
             _isStun = value;
+        }
+    }
+
+    public int MaxHP
+    {
+        get
+        {
+            return _maxHP;
+        }
+        protected set
+        {
+            _maxHP = value;
+        }
+    }
+
+    public int HP
+    {
+        get
+        {
+            return _currentHP;
+        }
+        protected set
+        {
+            _currentHP = value;
         }
     }
 

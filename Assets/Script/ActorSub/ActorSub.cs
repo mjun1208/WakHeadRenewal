@@ -18,6 +18,33 @@ public class ActorSub : MonoBehaviour
 
     public Action<ActorSub> DestoryAction = null;
 
+    private int _maxHP;
+    private int _currentHP;
+
+    public int MaxHP
+    {
+        get
+        {
+            return _maxHP;
+        }
+        protected set
+        {
+            _maxHP = value;
+        }
+    }
+
+    public int HP
+    {
+        get
+        {
+            return _currentHP;
+        }
+        protected set
+        {
+            _currentHP = value;
+        }
+    }
+
     public virtual void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
     {
         _ownerPhotonView = ownerPhotonView;

@@ -66,6 +66,9 @@ public abstract class Actor : Entity, IPunObservable
             this.gameObject.layer = 9; // Enemy;
             return;
         }
+
+        MaxHP = 100;
+        HP = MaxHP;
         this.gameObject.layer = 8; // Player;
 
         CameraManager.instance.SetTarget(this.transform);
