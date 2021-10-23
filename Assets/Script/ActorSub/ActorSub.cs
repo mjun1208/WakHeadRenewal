@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActorSub : MonoBehaviour
+public class ActorSub : MonoBehaviourPunCallbacks
 {
     [SerializeField] protected Rigidbody2D _rigid;
     [SerializeField] protected AttackRange _attackRange;

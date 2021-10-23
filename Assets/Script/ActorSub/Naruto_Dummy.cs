@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-public class Naruto_Dummy : ActorSub
+public class Naruto_Dummy : Summoned
 {
     [SerializeField] private Animator _animator;
     private Vector3 _originalScale;

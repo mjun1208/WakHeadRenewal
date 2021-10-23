@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Martine_Vent : MonoBehaviourPunCallbacks
+public class Martine_Vent : Summoned
 {
     [SerializeField] private Animator _animator;
 

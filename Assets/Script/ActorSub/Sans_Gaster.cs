@@ -3,15 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sans_Gaster : MonoBehaviourPunCallbacks
+public class Sans_Gaster : Summoned
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private GameObject _blastPivot;
 
     private int _ownerID;
-    private GameObject _owner;
     private Vector3 _originalScale;
-    private Vector3 _dir;
     private bool _isFire = false;
 
     public const float GasterXOffset = 2f;
