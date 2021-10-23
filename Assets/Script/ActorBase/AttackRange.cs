@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -66,6 +67,25 @@ public class AttackRange : MonoBehaviour
         if (CollidedSummonedObjectList.Contains(collision.gameObject))
         {
             CollidedSummonedObjectList.Remove(collision.gameObject);
+        }
+    }
+
+    public void Attack(Action<Entity> entityAction, Action<Summoned> summonedAction, bool singleTarget = false)
+    {
+        if (CollidedObjectList.Count > 0)
+        {
+            foreach (var targetObject in CollidedObjectList)
+            {
+                entityAction?.Invoke(targetObject.GetComponent<Entity>());
+            }
+        }
+
+        if (CollidedSummonedObjectList.Count > 0)
+        {
+            foreach (var targetObject in CollidedSummonedObjectList)
+            {
+                summonedAction?.Invoke(targetObject.GetComponent<Summoned>());
+            }
         }
     }
 }
