@@ -44,13 +44,10 @@ public class Martine : Actor
             return;
         }
 
-        var targetList = _attackRange.CollidedObjectList;
-
-        foreach (var target in targetList)
+        _attackRange.Attack(targetEntity =>
         {
-            var targetEntity = target.GetComponent<Entity>();
             targetEntity.KnockBack(GetAttackDir(), 0.5f, 0);
-        }
+        });
     }
 
     protected override void Active_Skill_1()
@@ -60,13 +57,10 @@ public class Martine : Actor
             return;
         }
 
-        var targetList = _skill_1Range.CollidedObjectList;
-
-        foreach (var target in targetList)
+        _skill_1Range.Attack(targetEntity =>
         {
-            var targetEntity = target.GetComponent<Entity>();
             targetEntity.KnockBack(GetAttackDir(), 1f, 0);
-        }
+        });
     }
 
     private void Active_Skill_1_2()
@@ -76,13 +70,10 @@ public class Martine : Actor
             return;
         }
 
-        var targetList = _skill_1Range.CollidedObjectList;
-
-        foreach (var target in targetList)
+        _skill_1Range.Attack(targetEntity =>
         {
-            var targetEntity = target.GetComponent<Entity>();
             targetEntity.KnockBack(-GetAttackDir(), 1f, 0);
-        }
+        });
     }
 
     protected override void Active_Skill_2()

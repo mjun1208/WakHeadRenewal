@@ -14,13 +14,11 @@ public class Minecraft : Actor
             return;
         }
 
-        var targetList = _attackRange.CollidedObjectList;
 
-        foreach (var target in targetList)
+        _attackRange.Attack(targetEntity =>
         {
-            var targetEntity = target.GetComponent<Entity>();
             targetEntity.KnockBack(GetAttackDir(), 1.5f, 0);
-        }
+        });
     }
 
     protected override void Active_Skill_1()

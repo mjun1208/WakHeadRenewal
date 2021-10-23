@@ -40,13 +40,10 @@ public class Kakashi : Actor
             return;
         }
 
-        var targetList = _skill_1Range.CollidedObjectList;
-
-        foreach (var target in targetList)
+        _skill_1Range.Attack(targetEntity =>
         {
-            var targetEntity = target.GetComponent<Entity>();
             targetEntity.KnockBack(GetAttackDir(), 1f, 0);
-        }
+        });
     }
 
     protected override void Active_Skill_2()

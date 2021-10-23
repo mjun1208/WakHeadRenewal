@@ -33,13 +33,10 @@ public class VR : Actor
             return;
         }
 
-        var targetList = _attackRange.CollidedObjectList;
-
-        foreach (var target in targetList)
+        _attackRange.Attack(targetEntity =>
         {
-            var targetEntity = target.GetComponent<Entity>();
-            targetEntity.Damaged(target.transform.position);
-        }
+            targetEntity.Damaged(targetEntity.transform.position);
+        });
     }
 
     protected override void Active_Skill_1()
@@ -49,13 +46,10 @@ public class VR : Actor
             return;
         }
 
-        var targetList = _skill_1Range.CollidedObjectList;
-
-        foreach (var target in targetList)
+        _skill_1Range.Attack(targetEntity =>
         {
-            var targetEntity = target.GetComponent<Entity>();
-            targetEntity.Damaged(target.transform.position);
-        }
+            targetEntity.Damaged(targetEntity.transform.position);
+        });
     }
 
     protected override void Attack()

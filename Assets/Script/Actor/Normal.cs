@@ -22,13 +22,10 @@ public class Normal : Actor
             return;
         }
 
-        var targetList = _attackRange.CollidedObjectList;
-
-        foreach(var target in targetList)
+        _attackRange.Attack(targetEntity => 
         {
-            var targetEntity = target.GetComponent<Entity>();
             targetEntity.KnockBack(GetAttackDir(), 0.5f, 0);
-        }
+        });
     } 
 
     protected override void Active_Skill_1()
@@ -38,13 +35,10 @@ public class Normal : Actor
             return;
         }
 
-        var targetList = _skill_1Range.CollidedObjectList;
-
-        foreach (var target in targetList)
+        _skill_1Range.Attack(targetEntity =>
         {
-            var targetEntity = target.GetComponent<Entity>();
             targetEntity.Grab(this.transform.position, 10f);
-        }
+        });
     }
 
     protected override void Active_Skill_2()
