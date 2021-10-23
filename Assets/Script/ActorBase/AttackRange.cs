@@ -6,6 +6,7 @@ public class AttackRange : MonoBehaviour
 {
     [SerializeField] private GameObject _ownerObject;
     public List<GameObject> CollidedObjectList { get; private set; } = new List<GameObject>();
+    public List<GameObject> CollidedSummonedObjectList { get; private set; } = new List<GameObject>();
 
     private void OnEnable()
     {
@@ -26,21 +27,31 @@ public class AttackRange : MonoBehaviour
     {
         if (_ownerObject == null)
         {
-            if (!CollidedObjectList.Contains(collision.gameObject))
-            {
-                if (collision.GetComponent<Entity>() != null)
-                {
-                    CollidedObjectList.Add(collision.gameObject);
-                }
-            }
+            AddCollidedObject(collision.gameObject);
             return;
         }
 
-        if (!_ownerObject.Equals(collision.gameObject) && !CollidedObjectList.Contains(collision.gameObject))
+        if (!_ownerObject.Equals(collision.gameObject))
         {
-            if (collision.GetComponent<Entity>() != null)
+            AddCollidedObject(collision.gameObject);
+        }
+    }
+
+    private void AddCollidedObject(GameObject gameObject)
+    {
+        if (!CollidedObjectList.Contains(gameObject))
+        {
+            if (gameObject.GetComponent<Entity>() != null)
             {
-                CollidedObjectList.Add(collision.gameObject);
+                CollidedObjectList.Add(gameObject);
+            }
+        }
+
+        if (!CollidedSummonedObjectList.Contains(gameObject))
+        {
+            if (gameObject.GetComponent<Summoned>() != null)
+            {
+                CollidedSummonedObjectList.Add(gameObject);
             }
         }
     }
@@ -50,6 +61,11 @@ public class AttackRange : MonoBehaviour
         if (CollidedObjectList.Contains(collision.gameObject))
         {
             CollidedObjectList.Remove(collision.gameObject);
+        }
+
+        if (CollidedSummonedObjectList.Contains(collision.gameObject))
+        {
+            CollidedSummonedObjectList.Remove(collision.gameObject);
         }
     }
 }
