@@ -86,7 +86,6 @@ public class AttackRange : MonoBehaviour
                 }
             }
         }
-        // AttackSummoned();
     }
 
     public void AttackEntity(Action<Entity> entityAction, bool singleTarget = false)
