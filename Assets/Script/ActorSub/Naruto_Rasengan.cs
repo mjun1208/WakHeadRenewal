@@ -36,13 +36,10 @@ public class Naruto_Rasengan : ActorSub
 
     public void ActiveDamage()
     {
-        if (_attackRange.CollidedObjectList.Count > 0)
+        _attackRange.Attack(targetEntity =>
         {
-            foreach (var targetObject in _attackRange.CollidedObjectList)
-            {
-                OnDamage(targetObject.GetComponent<Entity>());
-            }
-        }
+            OnDamage(targetEntity);
+        });
     }
 
     protected override void OnDamage(Entity entity)

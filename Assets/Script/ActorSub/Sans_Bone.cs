@@ -34,12 +34,10 @@ public class Sans_Bone : ActorSub
     {
         if (_ownerPhotonView.IsMine)
         {
-            foreach (var targetObject in _attackRange.CollidedObjectList)
+            _attackRange.Attack(targetEntity =>
             {
-                var targetEntity = targetObject.GetComponent<Entity>();
-
                 targetEntity.Damaged(this.transform.position);
-            }
+            });
         }
     }
 }

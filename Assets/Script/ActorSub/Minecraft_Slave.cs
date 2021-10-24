@@ -37,13 +37,10 @@ public class Minecraft_Slave : ActorSub
 
     public void ActiveDamage()
     {
-        if (_attackRange.CollidedObjectList.Count > 0)
+        _attackRange.Attack(targetEntity =>
         {
-            foreach (var targetObject in _attackRange.CollidedObjectList)
-            {
-                OnDamage(targetObject.GetComponent<Entity>());
-            }
-        }
+            OnDamage(targetEntity);
+        });
     }
 
     protected override void OnDamage(Entity entity)
@@ -53,7 +50,7 @@ public class Minecraft_Slave : ActorSub
 
         if (_ownerPhotonView.IsMine)
         {
-            entity.KnockBack(randomDir, 1f, 0f);
+            entity?.KnockBack(randomDir, 1f, 0f);
         }
     }
 }

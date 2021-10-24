@@ -26,17 +26,22 @@ public class Ahri_Orb : ActorSub
 
     private void Update()
     {
-        if (_attackRange.CollidedObjectList.Count > 0)
+        _attackRange.AttackEntity(targetEntity =>
         {
-            foreach (var targetObject in _attackRange.CollidedObjectList)
+            if (!_collidedObjectList.Contains(targetEntity.gameObject))
             {
-                if (!_collidedObjectList.Contains(targetObject))
-                {
-                    OnDamage(targetObject.GetComponent<Entity>());
-                    _collidedObjectList.Add(targetObject);
-                }
+                OnDamage(targetEntity);
+                _collidedObjectList.Add(targetEntity.gameObject);
             }
-        }
+        });
+        _attackRange.AttackSummoned(targetSummoned =>
+        {
+            if (!_collidedObjectList.Contains(targetSummoned.gameObject))
+            {
+                targetSummoned.Damaged(targetSummoned.transform.position);
+                _collidedObjectList.Add(targetSummoned.gameObject);
+            }
+        }, this);
     }
 
     protected override void OnDamage(Entity entity)

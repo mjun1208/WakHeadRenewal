@@ -42,11 +42,10 @@ public class AnimalCrossing_FishBullet : ActorSub
             return;
         }
 
-        if (_attackRange.CollidedObjectList.Count > 0)
+        _attackRange.Attack(targetEntity =>
         {
-            var targetObject = _attackRange.CollidedObjectList[0];
-            OnDamage(targetObject.GetComponent<Entity>());
-        }
+            OnDamage(targetEntity);
+        });
     }
 
     protected override void OnDamage(Entity entity)

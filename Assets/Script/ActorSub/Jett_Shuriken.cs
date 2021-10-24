@@ -31,11 +31,16 @@ public class Jett_Shuriken : ActorSub
 
     private void Update()
     {
-        if (_attackRange.CollidedObjectList.Count > 0)
+        _attackRange.AttackEntity(targetEntity =>
         {
-            var targetObject = _attackRange.CollidedObjectList[0];
-            OnDamage(targetObject.GetComponent<Entity>());
-        }
+            OnDamage(targetEntity);
+        }, true);
+
+        _attackRange.AttackSummoned(targetSummoned =>
+        {
+            targetSummoned.Damaged(targetSummoned.transform.position);
+            OnDamage(null);
+        }, true);
     }
 
     protected override void OnDamage(Entity entity)
