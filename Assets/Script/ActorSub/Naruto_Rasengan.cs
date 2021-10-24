@@ -49,7 +49,7 @@ public class Naruto_Rasengan : ActorSub
     {
         if (_ownerPhotonView.IsMine)
         {
-            entity.Damaged(this.transform.position);
+            entity?.Damaged(this.transform.position);
         }
     }
 }

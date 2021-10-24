@@ -29,7 +29,7 @@ public class Normal_Bullet : ActorSub
 
         if (_ownerPhotonView.IsMine)
         {
-            entity.KnockBack(_dir, 3f, 0f);
+            entity?.KnockBack(_dir, 3f, 0f);
         }
 
         Destroy();

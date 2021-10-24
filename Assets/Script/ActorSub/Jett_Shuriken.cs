@@ -44,7 +44,7 @@ public class Jett_Shuriken : ActorSub
 
         if (_ownerPhotonView.IsMine)
         {
-            entity.KnockBack(_dir, 0.5f, 0f);
+            entity?.KnockBack(_dir, 0.5f, 0f);
         }
 
         Destroy();

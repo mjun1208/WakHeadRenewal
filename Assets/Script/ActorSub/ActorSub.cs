@@ -41,7 +41,7 @@ public class ActorSub : MonoBehaviourPunCallbacks
 
         if (_ownerPhotonView.IsMine)
         {
-            entity.Damaged(this.transform.position);
+            entity?.Damaged(this.transform.position);
         }
 
         Destroy();

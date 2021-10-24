@@ -49,7 +49,7 @@ public class Sans_Gaster_Blast : ActorSub
     {
         if (_ownerPhotonView.IsMine)
         {
-            entity.Damaged(this.transform.position);
+            entity?.Damaged(this.transform.position);
         }
     }
 }

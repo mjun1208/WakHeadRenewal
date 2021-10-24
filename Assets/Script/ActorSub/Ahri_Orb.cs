@@ -43,7 +43,7 @@ public class Ahri_Orb : ActorSub
     {
         if (_ownerPhotonView.IsMine)
         {
-            entity.Damaged(this.transform.position);
+            entity?.Damaged(this.transform.position);
         }
     }
 

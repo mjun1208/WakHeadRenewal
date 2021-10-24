@@ -37,7 +37,7 @@ public class Minecraft_Lava : ActorSub
     {
         if (_ownerPhotonView.IsMine)
         {
-            entity.Damaged(this.transform.position);
+            entity?.Damaged(this.transform.position);
         }
     }
 

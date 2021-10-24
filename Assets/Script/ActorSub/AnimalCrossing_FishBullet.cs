@@ -55,7 +55,7 @@ public class AnimalCrossing_FishBullet : ActorSub
 
         if (_ownerPhotonView.IsMine)
         {
-            entity.Damaged(this.transform.position);
+            entity?.Damaged(this.transform.position);
         }
 
         // Global.PoolingManager.LocalDespawn(this.gameObject);
