@@ -72,6 +72,25 @@ public class AttackRange : MonoBehaviour
 
     public void Attack(Action<Entity> entityAction, bool singleTarget = false)
     {
+        AttackEntity(entityAction, singleTarget);
+
+        if (CollidedSummonedObjectList.Count > 0)
+        {
+            foreach (var targetObject in CollidedSummonedObjectList)
+            {
+                targetObject.GetComponent<Summoned>().Damaged(targetObject.transform.position);
+
+                if (singleTarget)
+                {
+                    return;
+                }
+            }
+        }
+        // AttackSummoned();
+    }
+
+    public void AttackEntity(Action<Entity> entityAction, bool singleTarget = false)
+    {
         if (CollidedObjectList.Count > 0)
         {
             foreach (var targetObject in CollidedObjectList)
@@ -84,12 +103,15 @@ public class AttackRange : MonoBehaviour
                 }
             }
         }
+    }
 
+    public void AttackSummoned(Action<Summoned> summonedAction = null, bool singleTarget = false)
+    {
         if (CollidedSummonedObjectList.Count > 0)
         {
             foreach (var targetObject in CollidedSummonedObjectList)
             {
-                targetObject.GetComponent<Summoned>().Damaged(targetObject.transform.position);
+                summonedAction?.Invoke(targetObject.GetComponent<Summoned>());
 
                 if (singleTarget)
                 {
