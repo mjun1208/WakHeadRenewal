@@ -56,6 +56,13 @@ public class Jett : Actor
                 entity.KnockBack(GetAttackDir(), 0.5f, 0);
                 break;
             }
+
+            var summoned = hit.transform.GetComponent<Summoned>();
+            if (summoned != null)
+            {
+                summoned.Damaged(summoned.transform.position);
+                break;
+            }
         }
     }
 
@@ -81,6 +88,12 @@ public class Jett : Actor
             if (entity != null)
             {
                 entity.KnockBack(GetAttackDir(), 1f, 0);
+            }
+
+            var summoned = hit.transform.GetComponent<Summoned>();
+            if (summoned != null)
+            {
+                summoned.Damaged(summoned.transform.position);
             }
         }
 
