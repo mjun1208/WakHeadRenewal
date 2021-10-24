@@ -50,14 +50,10 @@ public class AnimalCrossing_FishBullet : ActorSub
 
     protected override void OnDamage(Entity entity)
     {
-        // StopAllCoroutines();
-
         if (_ownerPhotonView.IsMine)
         {
             entity?.Damaged(this.transform.position);
         }
-
-        // Global.PoolingManager.LocalDespawn(this.gameObject);
     }
 
     protected override IEnumerator Go()
