@@ -62,7 +62,7 @@ public class ActorSub : MonoBehaviourPunCallbacks
         Destroy();
     }
 
-    protected virtual void Destroy()
+    public virtual void Destroy()
     {
         DestoryAction?.Invoke(this);
 

@@ -34,7 +34,7 @@ public class Kakashi_Shuriken : ActorSub
         }
     }
 
-    protected override void Destroy()
+    public override void Destroy()
     {
         DestoryAction?.Invoke(this);
     }

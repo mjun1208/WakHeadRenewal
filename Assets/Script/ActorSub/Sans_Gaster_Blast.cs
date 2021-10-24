@@ -36,7 +36,7 @@ public class Sans_Gaster_Blast : ActorSub
         }
     }
 
-    protected override void Destroy()
+    public override void Destroy()
     {
         Global.PoolingManager.LocalDespawn(_gaster);
 
