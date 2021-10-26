@@ -29,9 +29,13 @@ public class CameraManager : MonoBehaviour
 
     private void MoveToTarget()
     {
-        Vector3 targetPos = TargetTransform.position;
-        targetPos.z = this.transform.position.z;
+        if (Mathf.Abs(TargetTransform.position.x) < 10)
+        {
+            Vector3 targetPos = TargetTransform.position;
+            targetPos.z = this.transform.position.z;
+            targetPos.y = this.transform.position.y;
 
-        this.transform.position = Vector3.Lerp(this.transform.position, targetPos, 10f * Time.deltaTime);
+            this.transform.position = Vector3.Lerp(this.transform.position, targetPos, 10f * Time.deltaTime);
+        }
     }
 }
