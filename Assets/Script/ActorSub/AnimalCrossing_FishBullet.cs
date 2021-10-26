@@ -59,13 +59,13 @@ public class AnimalCrossing_FishBullet : ActorSub
     protected override IEnumerator Go()
     {
         float goTime = 0;
-        float angValue = 0;
+        float moveAngle = 0;
         float distance = 0;
 
         while (goTime < _lifeTime)
         {
-            float x = Mathf.Cos(angValue * Mathf.Deg2Rad * 100f);
-            float y = Mathf.Sin(angValue * Mathf.Deg2Rad * 100f);
+            float x = Mathf.Cos(moveAngle * Mathf.Deg2Rad * 100f);
+            float y = Mathf.Sin(moveAngle * Mathf.Deg2Rad * 100f);
 
             float angle = Mathf.Atan2(-y, -x) * Mathf.Rad2Deg;
 
@@ -74,7 +74,7 @@ public class AnimalCrossing_FishBullet : ActorSub
             this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 90));
 
             goTime += Time.deltaTime;
-            angValue += _moveSpeed * Time.deltaTime;
+            moveAngle += _moveSpeed * Time.deltaTime;
             distance += Time.deltaTime;
 
             _rigid.MovePosition(_originalPos + _dir * (Offset + distance));

@@ -23,7 +23,7 @@ public class AnimalCrossing : Actor
 
         if (_isMoveInput || _isSkill_2Input || _isAttackInput)
         {
-            Skill_1Cancle();
+            Skill_1Cancel();
         }
 
         if (_isSkill_1Input && _isCasting && _isBite)
@@ -109,7 +109,7 @@ public class AnimalCrossing : Actor
         }
     }
 
-    private void Skill_1Cancle()
+    private void Skill_1Cancel()
     {
         if (IsDoingSkill && _isCastingComplete)
         {
@@ -127,7 +127,7 @@ public class AnimalCrossing : Actor
             photonView.RPC("SetActiveFish", RpcTarget.All, false);
             photonView.RPC("ResetAnimation", RpcTarget.All);
 
-            SkillCancle();
+            SkillCancel();
 
             _animator.SetBool("IsSkill_1_1", false);
             _animator.SetBool("IsSkill_1_2", false);

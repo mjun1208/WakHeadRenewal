@@ -121,7 +121,7 @@ public abstract class Actor : Entity, IPunObservable
         {
             _animator.Rebind();
 
-            SkillCancle();
+            SkillCancel();
         }
     }
 
@@ -292,7 +292,7 @@ public abstract class Actor : Entity, IPunObservable
         OnSkillCoroutine = null;
     }
 
-    protected void SkillCancle()
+    protected void SkillCancel()
     {
         if (OnSkillCoroutine != null)
         {
