@@ -20,7 +20,7 @@ public class Chimpanzee : Entity, IPunObservable
 
     private Vector3 _originalScale = Vector3.zero;
 
-    private const float moveSpeed = 3f;
+    private const float moveSpeed = 1.5f;
 
     public override void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
