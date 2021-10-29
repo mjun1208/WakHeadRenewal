@@ -104,7 +104,7 @@ Transform:
   m_GameObject: {fileID: 2231056166769122086}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 8476228421450113457}
   - {fileID: 6124135300968949424}
@@ -151,8 +151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigid: {fileID: 2231056166769122109}
-  _knockBack: 0
-  _grab: 0
   _animator: {fileID: 2231056166769122081}
   _smoothSync: {fileID: 2231056166769122082}
   _renderer: {fileID: 2231056166769122080}

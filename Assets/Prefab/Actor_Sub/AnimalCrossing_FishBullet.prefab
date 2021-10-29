@@ -747,7 +747,7 @@ Transform:
   m_GameObject: {fileID: 5856506858243896917}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 808369933194467573}
   - {fileID: 9203919169192952589}
@@ -770,13 +770,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigid: {fileID: 1940124076433243507}
+  _attackRange: {fileID: 0}
   _fishs:
   - {fileID: 4445297866887082780}
   - {fileID: 2206268760689898452}
   - {fileID: 4138827785363331670}
   - {fileID: 75455106116465602}
   - {fileID: 1358112550613795407}
-  _attackRange: {fileID: 0}
 --- !u!50 &1940124076433243507
 Rigidbody2D:
   serializedVersion: 4
