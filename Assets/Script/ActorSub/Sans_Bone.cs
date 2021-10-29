@@ -8,7 +8,7 @@ public class Sans_Bone : ActorSub
     [SerializeField] private Animator _animator;
 
 
-    public const float X_OFFSET = 3f;
+    public const float X_OFFSET = 2f;
 
     public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
     {

@@ -12,7 +12,7 @@ public class Sans_Gaster : Summoned
     private Vector3 _originalScale;
     private bool _isFire = false;
 
-    public const float GasterXOffset = 2f;
+    public const float GasterXOffset = 1f;
     public const float GasterYOffset = 0.2f;
     public const float ChargeOffset = 0.2f;
 
