@@ -40,8 +40,8 @@ public class Jett : Actor
             return;
         }
 
-        RaycastHit2D[] hits = Physics2D.RaycastAll(_ghostPivot.transform.position, GetAttackDir(), 5f);
-        Debug.DrawRay(_ghostPivot.transform.position, GetAttackDir() * 5f, Color.red, 3f);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(_ghostPivot.transform.position, GetAttackDir(), 3f);
+        Debug.DrawRay(_ghostPivot.transform.position, GetAttackDir() * 3f, Color.red, 3f);
 
         foreach (var hit in hits)
         {
@@ -74,8 +74,8 @@ public class Jett : Actor
         }
 
         int layerMask = (1 << LayerMask.NameToLayer("Enemy")) + (1 << LayerMask.NameToLayer("Summoned")) + (1 << LayerMask.NameToLayer("Minion"));
-        RaycastHit2D[] hits = Physics2D.RaycastAll(_operatorTrajectoryPivot.transform.position, GetAttackDir(), 20f, layerMask);
-        Debug.DrawRay(_operatorTrajectoryPivot.transform.position, GetAttackDir() * 20f, Color.red, 3f);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(_operatorTrajectoryPivot.transform.position, GetAttackDir(), 10f, layerMask);
+        Debug.DrawRay(_operatorTrajectoryPivot.transform.position, GetAttackDir() * 10f, Color.red, 3f);
 
         foreach (var hit in hits)
         {
