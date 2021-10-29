@@ -9,19 +9,28 @@ public class AttackRange : MonoBehaviour
     public List<GameObject> CollidedObjectList { get; private set; } = new List<GameObject>();
     public List<GameObject> CollidedSummonedObjectList { get; private set; } = new List<GameObject>();
 
+    public Team MyTeam { get; private set; } = Team.None;    
+
     private void OnEnable()
     {
         CollidedObjectList.Clear();
+        MyTeam = Team.None;
     }
 
     private void OnDisable()
     {
         CollidedObjectList.Clear();
+        MyTeam = Team.None;
     }
 
     public void SetOwner(GameObject owner)
     {
         _ownerObject = owner;
+    }
+
+    public void SetTeam(Team team)
+    {
+        MyTeam = team;
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)

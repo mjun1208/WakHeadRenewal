@@ -13,7 +13,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
 
     public Action<bool> StunAction;
 
-    protected Team _team;
+    public Team MyTeam { get; protected set; } = Team.None;
 
     private int _maxHP;
     private int _currentHP;
@@ -70,7 +70,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
 
     public void SetTeam(Team team)
     {
-        _team = team;
+        MyTeam = team;
     }
     
     public void OnCrownControl()

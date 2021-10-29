@@ -50,7 +50,7 @@ public class ChimpanzeeSpawner : MonoBehaviourPunCallbacks
         var randomPos = (Vector3)Random.insideUnitCircle * 3f;
 
         var newPanzee = PhotonNetwork.Instantiate(spawnName, this.transform.position + randomPos, Quaternion.identity);
-        newPanzee.GetComponent<Entity>().SetTeam(_team);
+        newPanzee.GetComponent<Chimpanzee>().Init(_team);
 
         _chimpanzeeList.Add(newPanzee);
     }

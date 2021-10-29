@@ -42,9 +42,11 @@ public class Chimpanzee : Entity, IPunObservable
         _originalScale = this.transform.localScale;
     }
 
-    public void Start()
+    public void Init(Team team)
     {
-        switch (_team)
+        SetTeam(team);
+
+        switch (MyTeam)
         {
             case Team.BLUE:
                 {
@@ -59,6 +61,8 @@ public class Chimpanzee : Entity, IPunObservable
                     break;
                 }
         }
+
+        _attackRange.SetTeam(MyTeam);
     }
 
     public void SetTarget(Entity entity)

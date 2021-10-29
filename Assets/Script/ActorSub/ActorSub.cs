@@ -18,6 +18,8 @@ public class ActorSub : MonoBehaviourPunCallbacks
 
     public Action<ActorSub> DestoryAction = null;
 
+    public Team MyTeam { get; protected set; } = Team.None;
+
     public virtual void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
     {
         _ownerPhotonView = ownerPhotonView;
