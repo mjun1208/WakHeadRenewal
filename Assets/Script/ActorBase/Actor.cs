@@ -14,8 +14,8 @@ public abstract class Actor : Entity, IPunObservable
     [SerializeField] protected AttackRange _skill_1Range;
     [SerializeField] protected AttackRange _skill_2Range;
 
-    protected float _attackMoveSpeed = 5f;
-    protected float _moveSpeed = 10f;
+    protected float _attackMoveSpeed = 4f;
+    protected float _moveSpeed = 8f;
 
     protected bool _isMove = false;
     protected bool _isMoveInput = false;
