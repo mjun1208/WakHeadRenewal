@@ -37,13 +37,13 @@ public class ActorSub : MonoBehaviourPunCallbacks
         DestoryAction += OnDestory;
     }
 
-    protected virtual void OnDamage(Entity entity)
+    protected virtual void OnDamage(Entity entity, int damage)
     {
         StopAllCoroutines();
 
         if (_ownerPhotonView.IsMine)
         {
-            entity?.Damaged(this.transform.position);
+            entity?.Damaged(this.transform.position, damage);
         }
 
         Destroy();

@@ -42,7 +42,7 @@ public class Kakashi : Actor
 
         _skill_1Range.Attack(targetEntity =>
         {
-            targetEntity.KnockBack(GetAttackDir(), 1f, 0);
+            targetEntity.KnockBack(10 ,GetAttackDir(), 1f, 0);
         });
     }
 

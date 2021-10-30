@@ -30,7 +30,7 @@ public class Ahri_Orb : ActorSub
         {
             if (!_collidedObjectList.Contains(targetEntity.gameObject))
             {
-                OnDamage(targetEntity);
+                OnDamage(targetEntity, 3);
                 _collidedObjectList.Add(targetEntity.gameObject);
             }
         });
@@ -44,11 +44,11 @@ public class Ahri_Orb : ActorSub
         }, this);
     }
 
-    protected override void OnDamage(Entity entity)
+    protected override void OnDamage(Entity entity, int damage)
     {
         if (_ownerPhotonView.IsMine)
         {
-            entity?.Damaged(this.transform.position);
+            entity?.Damaged(this.transform.position, damage);
         }
     }
 

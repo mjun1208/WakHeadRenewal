@@ -89,13 +89,13 @@ public abstract class Entity : MonoBehaviourPunCallbacks
         currentCrownControl = null;
     }
 
-    public void KnockBack(Vector3 dir, float power, float stunTime)
+    public void KnockBack(int damage, Vector3 dir, float power, float stunTime)
     {
-        photonView.RPC("KnockBackRPC", RpcTarget.All, dir, power, stunTime);
+        photonView.RPC("KnockBackRPC", RpcTarget.All, damage, dir, power, stunTime);
     }
 
     [PunRPC]
-    public void KnockBackRPC(Vector3 dir, float power, float stunTime)
+    public void KnockBackRPC(int damage, Vector3 dir, float power, float stunTime)
     {
         if (!photonView.IsMine)
         {
@@ -104,18 +104,18 @@ public abstract class Entity : MonoBehaviourPunCallbacks
 
         CrownControlAction?.Invoke();
 
-        currentCrownControl = OnKnockBack(dir, power, stunTime);
+        currentCrownControl = OnKnockBack(damage, dir, power, stunTime);
 
         StartCoroutine(currentCrownControl);
     }
 
-    public void Grab(Vector3 targetPostion, float grabSpeed)
+    public void Grab(int damage, Vector3 targetPostion, float grabSpeed)
     {
-        photonView.RPC("GrabRPC", RpcTarget.All, targetPostion, grabSpeed);
+        photonView.RPC("GrabRPC", RpcTarget.All, damage, targetPostion, grabSpeed);
     }
 
     [PunRPC]
-    public void GrabRPC(Vector3 targetPostion, float grabSpeed)
+    public void GrabRPC(int damage, Vector3 targetPostion, float grabSpeed)
     {
         if (!photonView.IsMine)
         {
@@ -124,7 +124,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
 
         CrownControlAction?.Invoke();
 
-        currentCrownControl = OnGrab(targetPostion, grabSpeed);
+        currentCrownControl = OnGrab(damage, targetPostion, grabSpeed);
 
         StartCoroutine(currentCrownControl);
     }
@@ -149,14 +149,14 @@ public abstract class Entity : MonoBehaviourPunCallbacks
         StartCoroutine(currentCrownControl);
     }
 
-    private IEnumerator OnKnockBack(Vector3 dir, float power, float stunTime)
+    private IEnumerator OnKnockBack(int damage, Vector3 dir, float power, float stunTime)
     {
         if (stunTime > 0)
         {
             IsStun = true;
         }
 
-        Damaged(this.transform.position);
+        Damaged(this.transform.position, damage);
 
         var targetPosition = this.transform.position + dir * power;
 
@@ -176,7 +176,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
         IsStun = false;
     }
 
-    private IEnumerator OnGrab(Vector3 targetPostion, float grabSpeed)
+    private IEnumerator OnGrab(int damage, Vector3 targetPostion, float grabSpeed)
     {
         IsStun = true;
 
@@ -191,7 +191,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
             yield return null;
         }
 
-        Damaged(this.transform.position);
+        Damaged(this.transform.position, damage);
 
         yield return null;
 
@@ -207,21 +207,23 @@ public abstract class Entity : MonoBehaviourPunCallbacks
         IsStun = false;
     }
 
-    public void Damaged(Vector3 pos)
+    public void Damaged(Vector3 pos, int damage)
     {
-        photonView.RPC("OnDamageRPC", RpcTarget.All, pos);
+        photonView.RPC("OnDamageRPC", RpcTarget.All, pos, damage);
     }
 
     [PunRPC]
-    public void OnDamageRPC(Vector3 pos)
+    public void OnDamageRPC(Vector3 pos, int damage)
     {
-        OnDamage(pos);
+        OnDamage(pos, damage);
     }
 
-    public void OnDamage(Vector3 pos)
+    public void OnDamage(Vector3 pos, int damage)
     {
         var randomPos = (Vector3)UnityEngine.Random.insideUnitCircle * 0.5f;
 
         Global.PoolingManager.LocalSpawn("HitEffect", this.transform.position + randomPos, this.transform.rotation , true);
+
+        _currentHP -= damage;
     }
 }

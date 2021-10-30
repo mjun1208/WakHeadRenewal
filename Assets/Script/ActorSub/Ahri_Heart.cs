@@ -18,12 +18,12 @@ public class Ahri_Heart : ActorSub
     {
         _attackRange.AttackEntity(targetEntity =>
         {
-            OnDamage(targetEntity);
+            OnDamage(targetEntity, 10);
         }, true);
         _attackRange.AttackSummoned(targetSummoned =>
         {
             targetSummoned.Damaged(targetSummoned.transform.position);
-            OnDamage(null);
+            OnDamage(null, 10);
         }, true);
     }
 }

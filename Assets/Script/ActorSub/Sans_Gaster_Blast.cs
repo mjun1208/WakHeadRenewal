@@ -29,7 +29,7 @@ public class Sans_Gaster_Blast : ActorSub
     {
         _attackRange.Attack(targetEntity =>
         {
-            OnDamage(targetEntity);
+            OnDamage(targetEntity, 1);
         });
     }
 
@@ -42,11 +42,11 @@ public class Sans_Gaster_Blast : ActorSub
         Global.PoolingManager.LocalDespawn(this.gameObject);
     }
 
-    protected override void OnDamage(Entity entity)
+    protected override void OnDamage(Entity entity, int damage)
     {
         if (_ownerPhotonView.IsMine)
         {
-            entity?.Damaged(this.transform.position);
+            entity?.Damaged(this.transform.position, damage);
         }
     }
 }

@@ -46,7 +46,7 @@ public class Martine : Actor
 
         _attackRange.Attack(targetEntity =>
         {
-            targetEntity.KnockBack(GetAttackDir(), 0.5f, 0);
+            targetEntity.KnockBack(5, GetAttackDir(), 0.5f, 0);
         });
     }
 
@@ -59,7 +59,7 @@ public class Martine : Actor
 
         _skill_1Range.Attack(targetEntity =>
         {
-            targetEntity.KnockBack(GetAttackDir(), 1f, 0);
+            targetEntity.KnockBack(15, GetAttackDir(), 1f, 0);
         });
     }
 
@@ -72,7 +72,7 @@ public class Martine : Actor
 
         _skill_1Range.Attack(targetEntity =>
         {
-            targetEntity.KnockBack(-GetAttackDir(), 1f, 0);
+            targetEntity.KnockBack(15, GetAttackDir(), 1f, 0);
         });
     }
 

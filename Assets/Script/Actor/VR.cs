@@ -35,7 +35,7 @@ public class VR : Actor
 
         _attackRange.Attack(targetEntity =>
         {
-            targetEntity.Damaged(targetEntity.transform.position);
+            targetEntity.Damaged(targetEntity.transform.position, 5);
         });
     }
 
@@ -48,7 +48,7 @@ public class VR : Actor
 
         _skill_1Range.Attack(targetEntity =>
         {
-            targetEntity.Damaged(targetEntity.transform.position);
+            targetEntity.Damaged(targetEntity.transform.position, 5);
         });
     }
 

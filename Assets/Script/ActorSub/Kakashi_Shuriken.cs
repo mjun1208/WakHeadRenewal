@@ -29,12 +29,12 @@ public class Kakashi_Shuriken : ActorSub
     {
         _attackRange.AttackEntity(targetEntiy =>
         {
-            OnDamage(targetEntiy);
+            OnDamage(targetEntiy, 3);
         }, true);
         _attackRange.AttackSummoned(targetSummoned =>
         {
             targetSummoned.Damaged(targetSummoned.transform.position);
-            OnDamage(null);
+            OnDamage(null, 3);
         }, true);
     }
 

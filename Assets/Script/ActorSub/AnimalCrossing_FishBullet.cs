@@ -44,15 +44,15 @@ public class AnimalCrossing_FishBullet : ActorSub
 
         _attackRange.Attack(targetEntity =>
         {
-            OnDamage(targetEntity);
+            OnDamage(targetEntity, 2);
         });
     }
 
-    protected override void OnDamage(Entity entity)
+    protected override void OnDamage(Entity entity, int damage)
     {
         if (_ownerPhotonView.IsMine)
         {
-            entity?.Damaged(this.transform.position);
+            entity?.Damaged(this.transform.position, damage);
         }
     }
 

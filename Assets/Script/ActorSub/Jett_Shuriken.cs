@@ -33,23 +33,23 @@ public class Jett_Shuriken : ActorSub
     {
         _attackRange.AttackEntity(targetEntity =>
         {
-            OnDamage(targetEntity);
+            OnDamage(targetEntity, 10);
         }, true);
 
         _attackRange.AttackSummoned(targetSummoned =>
         {
             targetSummoned.Damaged(targetSummoned.transform.position);
-            OnDamage(null);
+            OnDamage(null, 10);
         }, true);
     }
 
-    protected override void OnDamage(Entity entity)
+    protected override void OnDamage(Entity entity, int damage)
     {
         StopAllCoroutines();
 
         if (_ownerPhotonView.IsMine)
         {
-            entity?.KnockBack(_dir, 0.5f, 0f);
+            entity?.KnockBack(damage, _dir, 0.5f, 0f);
         }
 
         Destroy();

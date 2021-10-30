@@ -24,7 +24,7 @@ public class Normal : Actor
 
         _attackRange.Attack(targetEntity => 
         {
-            targetEntity.KnockBack(GetAttackDir(), 0.5f, 0);
+            targetEntity.KnockBack(4, GetAttackDir(), 0.5f, 0);
         });
     } 
 
@@ -37,7 +37,7 @@ public class Normal : Actor
 
         _skill_1Range.Attack(targetEntity =>
         {
-            targetEntity.Grab(this.transform.position, 10f);
+            targetEntity.Grab(10, this.transform.position, 10f);
         });
     }
 

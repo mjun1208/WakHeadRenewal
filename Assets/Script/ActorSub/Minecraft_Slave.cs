@@ -39,18 +39,18 @@ public class Minecraft_Slave : ActorSub
     {
         _attackRange.Attack(targetEntity =>
         {
-            OnDamage(targetEntity);
+            OnDamage(targetEntity, 10);
         });
     }
 
-    protected override void OnDamage(Entity entity)
+    protected override void OnDamage(Entity entity, int damage)
     {
         var randomPos = (Vector3)UnityEngine.Random.insideUnitCircle * 0.5f;
         var randomDir = randomPos.normalized;
 
         if (_ownerPhotonView.IsMine)
         {
-            entity?.KnockBack(randomDir, 1f, 0f);
+            entity?.KnockBack(damage, randomDir, 1f, 0f);
         }
     }
 }

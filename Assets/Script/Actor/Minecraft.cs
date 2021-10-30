@@ -17,7 +17,7 @@ public class Minecraft : Actor
 
         _attackRange.Attack(targetEntity =>
         {
-            targetEntity.KnockBack(GetAttackDir(), 1.5f, 0);
+            targetEntity.KnockBack(5, GetAttackDir(), 1.5f, 0);
         });
     }
 

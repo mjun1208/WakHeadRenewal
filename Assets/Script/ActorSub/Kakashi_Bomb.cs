@@ -21,7 +21,7 @@ public class Kakashi_Bomb : ActorSub
 
         _attackRange.Attack(targetEntity =>
         {
-            targetEntity.Damaged(this.transform.position);
+            targetEntity.Damaged(this.transform.position, 5);
         });
     }
 }

@@ -33,7 +33,7 @@ public class Naruto_Dummy : Summoned
         foreach (var target in targetList)
         {
             var targetEntity = target.GetComponent<Entity>();
-            targetEntity.KnockBack(_dir, 1.5f, 0);
+            targetEntity.KnockBack(3, _dir, 1.5f, 0);
         }
     }
 
