@@ -53,8 +53,10 @@ public abstract class Actor : Entity, IPunObservable
         }
     }
 
-    protected void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         _originalScale = this.transform.localScale;
         StunAction += ForceStop;
     }

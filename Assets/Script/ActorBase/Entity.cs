@@ -12,6 +12,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
     private bool _grab = false;
 
     public Action<bool> StunAction;
+    public Action CrownControlAction;
 
     public Team MyTeam { get; protected set; } = Team.None;
 
@@ -68,6 +69,11 @@ public abstract class Entity : MonoBehaviourPunCallbacks
         }
     }
 
+    protected virtual void Awake()
+    {
+        CrownControlAction += OnCrownControl;
+    }
+
     public void SetTeam(Team team)
     {
         MyTeam = team;
@@ -96,7 +102,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
             return;
         }
 
-        OnCrownControl();
+        CrownControlAction?.Invoke();
 
         currentCrownControl = OnKnockBack(dir, power, stunTime);
 
@@ -116,7 +122,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
             return;
         }
 
-        OnCrownControl();
+        CrownControlAction?.Invoke();
 
         currentCrownControl = OnGrab(targetPostion, grabSpeed);
 
@@ -136,7 +142,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
             return;
         }
 
-        OnCrownControl();
+        CrownControlAction?.Invoke();
 
         currentCrownControl = OnStun(stunTime);
 

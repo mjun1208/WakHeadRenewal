@@ -37,8 +37,10 @@ public class Chimpanzee : Entity, IPunObservable
         }
     }
 
-    public void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         _originalScale = this.transform.localScale;
     }
 
