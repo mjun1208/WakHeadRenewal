@@ -14,13 +14,15 @@ public class Chimpanzee : Entity, IPunObservable
     [SerializeField] protected Animator _animator;
     [SerializeField] protected AttackRange _attackRange;
 
+    private const float moveSpeed = 1.5f;
+
     private ChimpanzeeState _state = ChimpanzeeState.Move;
     private Entity _targetEntity;
     private Tower _targetTower;
 
     private Vector3 _originalScale = Vector3.zero;
 
-    private const float moveSpeed = 1.5f;
+    private  float _attackDelay = 0;
 
     public override void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -42,6 +44,16 @@ public class Chimpanzee : Entity, IPunObservable
         base.Awake();
 
         _originalScale = this.transform.localScale;
+
+        CrownControlAction += () => {
+            _state = ChimpanzeeState.Move;
+
+            _animator.SetBool("isAttack", false);
+
+            _rigid.isKinematic = false;
+
+            _attackDelay = 0.5f;
+        };
     }
 
     public void Init(Team team)
@@ -79,17 +91,31 @@ public class Chimpanzee : Entity, IPunObservable
             return;
         }
 
+        if (_attackDelay > 0)
+        {
+            _attackDelay -= Time.deltaTime;
+        }
+        else
+        {
+            _attackDelay = 0f;
+        }
+
         switch (_state)
         {
             case ChimpanzeeState.Move:
                 {
-                    Move();
-
-                    if (_attackRange.CollidedObjectList.Count > 0)
+                    if (_attackDelay <= 0)
                     {
-                        _state = ChimpanzeeState.Attack;
+                        Move();
 
-                        _animator.SetBool("isAttack", true);
+                        if (_attackRange.CollidedObjectList.Count > 0)
+                        {
+                            _state = ChimpanzeeState.Attack;
+
+                            _animator.SetBool("isAttack", true);
+
+                            _rigid.isKinematic = true;
+                        }
                     }
                     break;
                 }
@@ -102,6 +128,8 @@ public class Chimpanzee : Entity, IPunObservable
                         _state = ChimpanzeeState.Move;
 
                         _animator.SetBool("isAttack", false);
+
+                        _rigid.isKinematic = false;
                     }
                     break;
                 }
