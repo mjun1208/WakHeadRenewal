@@ -37,6 +37,9 @@ public class Global : MonoBehaviour
     public Tower RedTower { get; private set; }
     public Tower BlueTower { get; private set; }
 
+    public Actor MyActor { get; private set; }
+    public Actor EnemyActor { get; private set; }
+
     [SerializeField] private Image _fadeUI;
 
     private void Awake()
@@ -101,5 +104,15 @@ public class Global : MonoBehaviour
     public void SetBlueTower(Tower tower)
     {
         BlueTower = tower;
+    }
+
+    public void SetMyActor(Actor actor)
+    {
+        MyActor = actor;
+    }
+
+    public void SetEnemyActor(Actor actor)
+    {
+        EnemyActor = actor;
     }
 }

@@ -66,8 +66,11 @@ public abstract class Actor : Entity, IPunObservable
         if (!photonView.IsMine)
         {
             this.gameObject.layer = 9; // Enemy;
+            Global.instance.SetEnemyActor(this);
             return;
         }
+
+        Global.instance.SetMyActor(this);
 
         MaxHP = 100;
         HP = MaxHP;
