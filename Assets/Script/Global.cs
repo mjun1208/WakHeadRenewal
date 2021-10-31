@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System;
+using Photon.Pun;
 
 public class Global : MonoBehaviour
 {
@@ -39,6 +41,12 @@ public class Global : MonoBehaviour
 
     public Actor MyActor { get; private set; }
     public Actor EnemyActor { get; private set; }
+
+    public Team MyTeam { get; private set; }
+    public Team EnemyTeam { get; private set; }
+
+    public Action<Actor> BlueActorSetAction;
+    public Action<Actor> RedActorSetAction;
 
     [SerializeField] private Image _fadeUI;
 
@@ -108,11 +116,31 @@ public class Global : MonoBehaviour
 
     public void SetMyActor(Actor actor)
     {
+        if (MyActor != null)
+        {
+            return;
+        }
+
         MyActor = actor;
+        MyTeam = PhotonNetwork.IsMasterClient ? Team.BLUE : Team.RED;
+        MyActor.SetTeam(MyTeam);
+
+        Action<Actor> actorSetAction = PhotonNetwork.IsMasterClient ? BlueActorSetAction : RedActorSetAction;
+        actorSetAction.Invoke(MyActor);
     }
 
     public void SetEnemyActor(Actor actor)
     {
+        if (EnemyActor != null)
+        {
+            return;
+        }
+
         EnemyActor = actor;
+        EnemyTeam = PhotonNetwork.IsMasterClient ? Team.RED : Team.BLUE;
+        EnemyActor.SetTeam(EnemyTeam);
+
+        Action<Actor> actorSetAction = PhotonNetwork.IsMasterClient ? RedActorSetAction : BlueActorSetAction;
+        actorSetAction.Invoke(EnemyActor);
     }
 }
