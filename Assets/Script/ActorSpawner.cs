@@ -7,7 +7,7 @@ public class ActorSpawner : MonoBehaviourPunCallbacks
 {
     [SerializeField] List<GameObject> Actors;
 
-    private GameObject _currentActor = null;
+    private Actor _currentActor = null;
 
     private void Start()
     {
@@ -44,12 +44,14 @@ public class ActorSpawner : MonoBehaviourPunCallbacks
 
         if (_currentActor != null)
         {
-            PhotonNetwork.Destroy(_currentActor);
+            PhotonNetwork.Destroy(_currentActor.gameObject);
         }
 
-        _currentActor = newobj;
+        _currentActor = newobj.GetComponent<Actor>();
+        _currentActor.DeadAction += Respawn;
 
         Global.instance.SetMyActorName(o.name);
+
         photonView.RPC("SetEnemyActorName", RpcTarget.OthersBuffered, o.name);
         // PhotonNetwork.Destroy(this.gameObject);
     }
@@ -59,4 +61,14 @@ public class ActorSpawner : MonoBehaviourPunCallbacks
     {
         Global.instance.SetEnemyActorName(name);
     }
+
+    private void Respawn()
+    {
+        StartCoroutine(RespawnTimer());
+    }
+
+    private IEnumerator RespawnTimer()
+    {
+        yield return new WaitForSeconds(3f);
+    } 
 }
