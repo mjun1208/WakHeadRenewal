@@ -126,7 +126,7 @@ public class Global : MonoBehaviour
         MyActor.SetTeam(MyTeam);
 
         Action<Actor> actorSetAction = PhotonNetwork.IsMasterClient ? BlueActorSetAction : RedActorSetAction;
-        actorSetAction.Invoke(MyActor);
+        actorSetAction?.Invoke(MyActor);
     }
 
     public void SetEnemyActor(Actor actor)
@@ -141,6 +141,6 @@ public class Global : MonoBehaviour
         EnemyActor.SetTeam(EnemyTeam);
 
         Action<Actor> actorSetAction = PhotonNetwork.IsMasterClient ? RedActorSetAction : BlueActorSetAction;
-        actorSetAction.Invoke(EnemyActor);
+        actorSetAction?.Invoke(EnemyActor);
     }
 }
