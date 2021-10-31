@@ -9909,6 +9909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4037abdf3d09e2a4091727bead9787f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _team: 1
   _hpGaugeImage: {fileID: 342426581}
 --- !u!1 &353086949
 GameObject:
@@ -28724,6 +28725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4037abdf3d09e2a4091727bead9787f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _team: 2
   _hpGaugeImage: {fileID: 973531874}
 --- !u!1 &975181021
 GameObject:
@@ -50936,7 +50938,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1662474734}
-  - component: {fileID: 1662474736}
   - component: {fileID: 1662474735}
   m_Layer: 0
   m_Name: PhotonManager
@@ -50968,34 +50969,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1662474733}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c1b84a427010e0469ce0df07ab64dbc, type: 3}
+  m_Script: {fileID: 11500000, guid: 53242d1f0f27def4699f2a05d8a7c5d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AutoConnect: 1
-  Version: 1
-  MaxPlayers: 4
-  playerTTL: -1
---- !u!114 &1662474736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1662474733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed3b5dcba7bf9114cb13fc59e0a71f55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Sequence: 0
-  SpawnPoints:
-  - {fileID: 0}
-  UseRandomOffset: 1
-  RandomOffset: 2
-  ClampY: 1
-  PrefabsToInstantiate:
-  - {fileID: 7617116932758200176, guid: 7cad27287a5ef0040bdc41c2be0045fc, type: 3}
-  AutoSpawnObjects: 1
 --- !u!1 &1667665533
 GameObject:
   m_ObjectHideFlags: 0
