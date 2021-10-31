@@ -70,5 +70,7 @@ public class ActorSpawner : MonoBehaviourPunCallbacks
     private IEnumerator RespawnTimer()
     {
         yield return new WaitForSeconds(3f);
+
+        _currentActor.Respawn();
     } 
 }

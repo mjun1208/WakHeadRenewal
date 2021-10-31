@@ -59,6 +59,7 @@ public abstract class Actor : Entity, IPunObservable
 
         _originalScale = this.transform.localScale;
         StunAction += ForceStop;
+        DeadAction += Dead;
 
         MaxHP = 100;
         HP = MaxHP;
@@ -99,7 +100,7 @@ public abstract class Actor : Entity, IPunObservable
 
     protected virtual void Update()
     {
-        if (!photonView.IsMine)
+        if (!photonView.IsMine || IsDead)
         {
             return;
         }
@@ -362,5 +363,34 @@ public abstract class Actor : Entity, IPunObservable
         Vector3 attackDir = new Vector3(dir, 0, 0);
 
         return attackDir;
+    }
+
+    protected void Dead()
+    {
+        var deathEffect = Global.PoolingManager.LocalSpawn("DeathEffect", this.transform.position, this.transform.rotation, true);
+        _renderer.enabled = false;
+
+        StopAllCoroutines();
+
+        IsDoingSkill = false;
+        IsSkill_1 = false;
+        IsSkill_2 = false;
+
+        OnSkillCoroutine = null;
+    }
+
+    public void Respawn()
+    {
+        IsDead = false;
+        HP = MaxHP;
+
+        photonView.RPC("RespawnRPC", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RespawnRPC()
+    {
+        _animator.Rebind();
+        _renderer.enabled = true;
     }
 }
