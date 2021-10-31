@@ -36,7 +36,7 @@ public class Sans_Bone : ActorSub
         {
             _attackRange.Attack(targetEntity =>
             {
-                targetEntity.Damaged(this.transform.position, 5);
+                targetEntity.Damaged(this.transform.position, 10);
             });
         }
     }

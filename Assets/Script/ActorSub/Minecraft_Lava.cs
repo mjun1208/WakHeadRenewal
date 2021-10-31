@@ -26,7 +26,7 @@ public class Minecraft_Lava : ActorSub
     {
         _attackRange.Attack(targetEntity =>
         {
-            OnDamage(targetEntity, 1);
+            OnDamage(targetEntity, 3);
         });
     }
 
