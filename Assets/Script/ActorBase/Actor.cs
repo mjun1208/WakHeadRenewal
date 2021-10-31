@@ -27,8 +27,8 @@ public abstract class Actor : Entity, IPunObservable
     protected bool _isSkill_1Input = false;
     protected bool _isSkill_2Input = false;
 
-    public bool isSkill_1 { get; protected set; } = false;
-    public bool isSkill_2 { get; protected set; } = false;
+    public bool IsSkill_1 { get; protected set; } = false;
+    public bool IsSkill_2 { get; protected set; } = false;
 
     protected Vector3 _originalScale = Vector3.zero;
 
@@ -224,7 +224,7 @@ public abstract class Actor : Entity, IPunObservable
 
     public virtual void OnSkill_1()
     {
-        isSkill_1 = true;
+        IsSkill_1 = true;
 
         if (OnSkillCoroutine == null)
         {
@@ -236,7 +236,7 @@ public abstract class Actor : Entity, IPunObservable
         }
         else
         {
-            isSkill_1 = false;
+            IsSkill_1 = false;
         }
     }
 
@@ -254,7 +254,7 @@ public abstract class Actor : Entity, IPunObservable
 
     public virtual void OnSkill_2()
     {
-        isSkill_2 = true;
+        IsSkill_2 = true;
 
         if (OnSkillCoroutine == null)
         {
@@ -266,7 +266,7 @@ public abstract class Actor : Entity, IPunObservable
         }
         else
         {
-            isSkill_2 = false;
+            IsSkill_2 = false;
         }
     }
 
@@ -289,8 +289,8 @@ public abstract class Actor : Entity, IPunObservable
         // end
 
         IsDoingSkill = false;
-        isSkill_1 = false;
-        isSkill_2 = false;
+        IsSkill_1 = false;
+        IsSkill_2 = false;
 
         _animator.SetBool("Is" + name, false);
 
@@ -306,8 +306,8 @@ public abstract class Actor : Entity, IPunObservable
         }
 
         IsDoingSkill = false;
-        isSkill_1 = false;
-        isSkill_2 = false;
+        IsSkill_1 = false;
+        IsSkill_2 = false;
 
         _animator.SetBool("IsSkill_1", false);
         _animator.SetBool("IsSkill_2", false);

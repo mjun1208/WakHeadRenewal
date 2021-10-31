@@ -81,7 +81,7 @@ public class AnimalCrossing : Actor
         {
             // 캐스팅
             IsDoingSkill = true;
-            isSkill_1 = true;
+            IsSkill_1 = true;
             _isCasting = true;
 
             _animator.SetBool("IsSkill_1", true);

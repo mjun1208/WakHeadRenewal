@@ -71,7 +71,7 @@ public class VR : Actor
 
     public override void OnSkill_2()
     {
-        isSkill_2 = true;
+        IsSkill_2 = true;
         IsDoingSkill = true;
 
         photonView.RPC("InvisibilityRPC", RpcTarget.All);
@@ -86,7 +86,7 @@ public class VR : Actor
 
         _renderer.DOColor(new Color(1, 1, 1, targetAlpha), 0.8f).SetEase(Ease.InOutBack).OnComplete(() =>
         {
-            isSkill_2 = false;
+            IsSkill_2 = false;
             IsDoingSkill = false;
         });
     }

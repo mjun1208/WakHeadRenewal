@@ -108,7 +108,7 @@ public class Naruto : Actor
                 {
                     _chargingGauge = 0;
 
-                    isSkill_2 = true;
+                    IsSkill_2 = true;
 
                     if (OnSkillCoroutine == null)
                     {
@@ -120,7 +120,7 @@ public class Naruto : Actor
                         SetDummyAnimation("IsSkill_2", true);
                     }
                     
-                    if (isSkill_2)
+                    if (IsSkill_2)
                     {
                         _rasenganState = RasenganState.Shoot;
                     }
@@ -128,7 +128,7 @@ public class Naruto : Actor
                 }
             case RasenganState.Shoot:
                 {
-                    isSkill_2 = true;
+                    IsSkill_2 = true;
 
                     if (OnSkillCoroutine == null)
                     {
@@ -140,7 +140,7 @@ public class Naruto : Actor
                         SetDummyAnimation("IsSkill_2", true);
                     }
 
-                    if (isSkill_2)
+                    if (IsSkill_2)
                     {
                         _rasenganState = RasenganState.Ready;
                     }
@@ -177,8 +177,8 @@ public class Naruto : Actor
         }
 
         IsDoingSkill = false;
-        isSkill_1 = false;
-        isSkill_2 = false;
+        IsSkill_1 = false;
+        IsSkill_2 = false;
         
         _animator.SetBool("IsCharging", false);
         _animator.SetBool("IsCharged", true);
@@ -209,8 +209,8 @@ public class Naruto : Actor
         }
 
         IsDoingSkill = false;
-        isSkill_1 = false;
-        isSkill_2 = false;
+        IsSkill_1 = false;
+        IsSkill_2 = false;
 
         _animator.SetBool("IsSkill_2", false);
         _animator.SetBool("IsCharged", false);
