@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3909040742
+CRC: 2861815444
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 208e5f3574ef4c23f152d27432afc39b
+    Hash: c09024f325fc02e8dbcd66406485433c
   TypeTreeHash:
     serializedVersion: 2
-    Hash: cc8bf19c75d1409c360a8048a750165f
+    Hash: 8de9dd662a54392cbfc2fdefc822b92a
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -111,6 +111,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 5551c22f62fabdb4aa5ab8452dafd9f8, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 4ce6e1df3bd4d454da47664251cd7f1e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8635c5c1e0b64714faae8f04285c813d, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 198
@@ -168,6 +170,7 @@ Assets:
 - Assets/Prefab/Actor_Sub/Naruto_Dummy.prefab
 - Assets/Prefab/Effect/GhostEffect.prefab
 - Assets/Prefab/Actor_Sub/Jett_Shuriken.prefab
+- Assets/Prefab/PickSync.prefab
 - Assets/Prefab/Chimpanzee/Panzee_Red_TShirt.prefab
 - Assets/Prefab/Actor/Naruto.prefab
 - Assets/Prefab/Actor_Sub/Ahri_Heart.prefab
