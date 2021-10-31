@@ -56,7 +56,25 @@ public abstract class Entity : MonoBehaviourPunCallbacks
         }
     }
 
+    public bool IsDead
+    {
+        get
+        {
+            return _isDead;
+        }
+        protected set
+        {
+            if (value)
+            {
+                DeadAction?.Invoke();
+            }
+            _isDead = value;
+        }
+    }
+
+
     protected bool _isStun = false;
+    protected bool _isDead = false;
 
     private IEnumerator currentCrownControl = null;
 
@@ -66,11 +84,19 @@ public abstract class Entity : MonoBehaviourPunCallbacks
         {
             stream.SendNext(_maxHP);
             stream.SendNext(_currentHP);
+            stream.SendNext(_isDead);
         }
         else
         {
             _maxHP = (int)stream.ReceiveNext();
             _currentHP = (int)stream.ReceiveNext();
+
+            bool isDead = (bool)stream.ReceiveNext();
+
+            if (IsDead != isDead)
+            {
+                IsDead = isDead;
+            }
         }
     }
 
@@ -235,7 +261,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
 
             if (_currentHP <= 0)
             {
-                DeadAction?.Invoke();
+                IsDead = true;
             }
         }
     }
