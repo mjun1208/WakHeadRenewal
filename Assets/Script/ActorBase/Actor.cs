@@ -84,17 +84,11 @@ public abstract class Actor : Entity, IPunObservable
     {
         if (photonView.IsMine)
         {
-            if (Global.instance.MyActor == null)
-            {
-                Global.instance.SetMyActor(this);
-            }
+            Global.instance.SetMyActor(this);
         }
         else
         {
-            if (Global.instance.EnemyActor == null)
-            {
-                Global.instance.SetEnemyActor(this);
-            }
+            Global.instance.SetEnemyActor(this);
         }
     }
 
