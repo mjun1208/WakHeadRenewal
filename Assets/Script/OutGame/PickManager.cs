@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class PickManager : MonoBehaviour
 {
+    public static PickManager Instance;
+
     [SerializeField] private GameObject _pickUI;
 
     [SerializeField] private SimpleActor _blueActor;
@@ -21,11 +23,62 @@ public class PickManager : MonoBehaviour
 
     private const string ARTIST = "Artist. ";
 
-    private int _currentActorID = 0;
+    public Team MyTeam { get; private set; } = PhotonNetwork.IsMasterClient ? Team.BLUE : Team.RED;
 
-    public void Start()
+    public int CurrentMyActorID = 0;
+    public int CurrentEnemyActorID = 0;
+
+    public bool IsMyReady = false;
+    public bool IsEnemyReady = false;
+
+    void Awake()
+    {
+        Instance = this;
+    }
+
+    private void Start()
     {
         Global.instance.FadeOut();
+
+        PhotonNetwork.Instantiate("PickSync", Vector3.zero, Quaternion.identity);
+    }
+
+    public void ActorSelect(int index)
+    {
+        switch (MyTeam)
+        {
+            case Team.BLUE:
+                {
+                    Blue_Select(index);
+                    break;
+                }
+            case Team.RED:
+                {
+                    Red_Select(index);
+                    break;
+                }
+        }
+
+        CurrentMyActorID = index;
+    }
+
+    public void EnemyActorSelect(int index)
+    {
+        switch (MyTeam)
+        {
+            case Team.BLUE:
+                {
+                    Red_Select(index);
+                    break;
+                }
+            case Team.RED:
+                {
+                    Blue_Select(index);
+                    break;
+                }
+        }
+
+        CurrentEnemyActorID = index;
     }
 
     public void Blue_Select(int index)
@@ -34,27 +87,64 @@ public class PickManager : MonoBehaviour
 
         _blueActorName.text = Global.GameDataManager.ActorGameData.ActorGameDataList[index].KorName;
         _blueActorArtist.text = ARTIST + Global.GameDataManager.ActorGameData.ActorGameDataList[index].Artist;
-
-        _currentActorID = index;
     }
 
     public void Red_Select(int index)
     {
         _redActor.Select(index);
 
-        _redActorName.text = Global.GameDataManager.ActorGameData.ActorGameDataList[0].KorName;
-        _redActorArtist.text = ARTIST + Global.GameDataManager.ActorGameData.ActorGameDataList[0].Artist;
+        _redActorName.text = Global.GameDataManager.ActorGameData.ActorGameDataList[index].KorName;
+        _redActorArtist.text = ARTIST + Global.GameDataManager.ActorGameData.ActorGameDataList[index].Artist;
     }
 
-    public void Confirmed()
+    public void Ready()
     {
-        _blueActor.Confirmed();
+        switch (MyTeam)
+        {
+            case Team.BLUE:
+                {
+                    _blueActor.Confirmed();
+                    break;
+                }
+            case Team.RED:
+                {
+                    _redActor.Confirmed();
+                    break;
+                }
+        }
 
-        Global.instance.SetMyActorID(_currentActorID);
+        IsMyReady = true;
+
+        Global.instance.SetMyActorID(CurrentMyActorID);
+    }
+
+    public void EnemyReady()
+    {
+        switch (MyTeam)
+        {
+            case Team.BLUE:
+                {
+                    _redActor.Confirmed();
+                    break;
+                }
+            case Team.RED:
+                {
+                    _blueActor.Confirmed();
+                    break;
+                }
+        }
+    }
+
+    public void StartGame()
+    {
+        if (!IsMyReady || !IsEnemyReady)
+        {
+            return;
+        }
 
         _pickUI.transform.DOLocalMoveY(-750, 1f).SetEase(Ease.InOutBack).OnComplete(()=>
         {
-            Global.instance.FadeIn(() => SceneManager.LoadSceneAsync("Ingame") /*() => PhotonNetwork.LoadLevel("Ingame") */);
+            Global.instance.FadeIn(() => PhotonNetwork.LoadLevel("Ingame"));
         });
     }
 }
