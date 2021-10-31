@@ -54,6 +54,11 @@ public class Chimpanzee : Entity, IPunObservable
 
             _attackDelay = 0.5f;
         };
+
+        MaxHP = 50;
+        HP = MaxHP;
+
+        DeadAction += Dead;
     }
 
     public void Init(Team team)
@@ -164,13 +169,20 @@ public class Chimpanzee : Entity, IPunObservable
 
     private void Attack()
     {
-        // var targetList = _attackRange.CollidedObjectList;
-        // 
-        // foreach (var target in targetList)
-        // {
-        //     //var targetEntity = target.GetComponent<Entity>();
-        //     //targetEntity.Damaged(targetEntity.transform.position);
-        //     // targetEntity.KnockBack(GetAttackDir(), 0.5f, 0);
-        // }
+        _attackRange.Attack(targetEntity =>
+        {
+            targetEntity.Damaged(targetEntity.transform.position, 2);
+            //targetEntity.KnockBack(GetAttackDir(), 0.5f, 0);
+        });
+    }
+
+    private void Dead()
+    {
+        PhotonNetwork.Destroy(this.gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        var deathEffect = Global.PoolingManager.LocalSpawn("DeathEffect", this.transform.position, this.transform.rotation, true);
     }
 }
