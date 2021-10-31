@@ -32,9 +32,9 @@ public class AnimalCrossing : Actor
         }
     }
 
-    protected override void ForceStop(bool isStun)
+    protected override void ForceStop()
     {
-        base.ForceStop(isStun);
+        base.ForceStop();
 
         if (_castingCoroutine != null)
         {
@@ -42,6 +42,10 @@ public class AnimalCrossing : Actor
         }
 
         _castingCoroutine = null;
+
+        _isCasting = false;
+        _isBite = false;
+        _isCastingComplete = false;
     }
 
     protected override void Active_Attack()

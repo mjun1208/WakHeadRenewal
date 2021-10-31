@@ -11,7 +11,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
     private bool _knockBack = false;
     private bool _grab = false;
 
-    public Action<bool> StunAction;
+    public Action StunAction;
     public Action CrownControlAction;
     public Action DeadAction;
 
@@ -27,7 +27,10 @@ public abstract class Entity : MonoBehaviourPunCallbacks
         }
         protected set
         {
-            StunAction?.Invoke(value);
+            if (value && _isStun != value)
+            {
+                StunAction?.Invoke();
+            }
             _isStun = value;
         }
     }

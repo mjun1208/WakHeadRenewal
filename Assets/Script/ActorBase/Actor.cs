@@ -139,14 +139,10 @@ public abstract class Actor : Entity, IPunObservable
         }
     }
 
-    protected virtual void ForceStop(bool isStun)
+    protected virtual void ForceStop()
     {
-        if (isStun)
-        {
-            _animator.Rebind();
-
-            SkillCancel();
-        }
+        _animator.Rebind();
+        SkillCancel();
     }
 
     protected virtual void KeyInput()

@@ -25,9 +25,9 @@ public class Martine : Actor
         SelectVent();
     }
 
-    protected override void ForceStop(bool isStun)
+    protected override void ForceStop()
     {
-        base.ForceStop(isStun);
+        base.ForceStop();
         if (_selectNextVent != null)
         {
             StopCoroutine(_selectNextVent);

@@ -8,14 +8,11 @@ public class VR : Actor
 {
     [SerializeField] private GameObject _light;
 
-    protected override void ForceStop(bool isStun)
+    protected override void ForceStop()
     {
-        base.ForceStop(isStun);
+        base.ForceStop();
 
-        if (isStun)
-        {
-            photonView.RPC("DisInvisibilityRPC", RpcTarget.All);
-        }
+        photonView.RPC("DisInvisibilityRPC", RpcTarget.All);
     }
 
     protected override void Active_Attack()
