@@ -52,7 +52,8 @@ public class AttackRange : MonoBehaviour
         if (!CollidedObjectList.Contains(gameObject))
         {
             if (gameObject.GetComponent<Entity>() != null &&
-                (gameObject.GetComponent<Entity>().MyTeam == Team.None || gameObject.GetComponent<Entity>().MyTeam != MyTeam))
+                (gameObject.GetComponent<Entity>().MyTeam == Team.None || gameObject.GetComponent<Entity>().MyTeam != MyTeam) &&
+                !gameObject.GetComponent<Entity>().IsDead)
             {
                 CollidedObjectList.Add(gameObject);
             }
