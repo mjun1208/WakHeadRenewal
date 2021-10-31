@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3271996869
+CRC: 3909040742
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c34580f998c0e41789aabb6bd4526253
+    Hash: 208e5f3574ef4c23f152d27432afc39b
   TypeTreeHash:
     serializedVersion: 2
-    Hash: cfc3543407929d8438bb3d29eb5f9311
+    Hash: cc8bf19c75d1409c360a8048a750165f
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -98,6 +98,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: c5fc2f5da04b38e4897ecc07d9dfdcb6, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: f1b3d20e310a1ca47811d3dccd8cd57b, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: f016532eefabdbc46bd3d5b7019fa0f6, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 6e96768e5e335dc44b8d299240f29602, type: 3}
@@ -152,6 +154,7 @@ Assets:
 - Assets/Prefab/Effect/Kakashi_EyeCanvas.prefab
 - Assets/Prefab/Actor_Sub/AnimalCrossing_FishBullet.prefab
 - Assets/Prefab/Actor_Sub/Sans_Gaster_Blast.prefab
+- Assets/Prefab/ActorSpawner.prefab
 - Assets/Prefab/Actor/Ahri.prefab
 - Assets/Prefab/Effect/OperatorEffect.prefab
 - Assets/Prefab/Actor_Sub/Sans_Bone.prefab
