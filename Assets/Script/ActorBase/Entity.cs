@@ -63,9 +63,13 @@ public abstract class Entity : MonoBehaviourPunCallbacks
     {
         if (stream.IsWriting)
         {
+            stream.SendNext(_maxHP);
+            stream.SendNext(_currentHP);
         }
         else
         {
+            _maxHP = (int)stream.ReceiveNext();
+            _currentHP = (int)stream.ReceiveNext();
         }
     }
 
@@ -224,6 +228,9 @@ public abstract class Entity : MonoBehaviourPunCallbacks
 
         Global.PoolingManager.LocalSpawn("HitEffect", this.transform.position + randomPos, this.transform.rotation , true);
 
-        _currentHP -= damage;
+        if (photonView.IsMine)
+        {
+            _currentHP -= damage;
+        }
     }
 }
