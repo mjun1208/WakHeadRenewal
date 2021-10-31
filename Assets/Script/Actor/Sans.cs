@@ -50,4 +50,17 @@ public class Sans : Actor
 
         newbone.GetComponent<Sans_Bone>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
     }
+
+    protected override void Dead()
+    {
+        base.Dead();
+
+        for (int i  = 0; i < _myGasterList.Count; i++)
+        {
+            Global.PoolingManager.LocalSpawn("DeathEffect", _myGasterList[i].transform.position, _myGasterList[i].transform.transform.rotation, true);
+            PhotonNetwork.Destroy(_myGasterList[i].gameObject);
+        }
+
+        _myGasterList.Clear();
+    }
 }

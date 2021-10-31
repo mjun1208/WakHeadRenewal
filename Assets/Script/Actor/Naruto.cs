@@ -274,4 +274,12 @@ public class Naruto : Actor
             dummy.SetAnimationParameter(name, isTrue);
         }
     }
+
+    protected override void Dead()
+    {
+        base.Dead();
+        _rasenganState = RasenganState.Ready;
+        _isSkill_2KeyDown = false;
+        _chargingGauge = 0;
+    }
 }
