@@ -361,18 +361,12 @@ public abstract class Actor : Entity, IPunObservable
         return attackDir;
     }
 
-    protected void Dead()
+    protected virtual void Dead()
     {
         var deathEffect = Global.PoolingManager.LocalSpawn("DeathEffect", this.transform.position, this.transform.rotation, true);
         _renderer.enabled = false;
 
-        StopAllCoroutines();
-
-        IsDoingSkill = false;
-        IsSkill_1 = false;
-        IsSkill_2 = false;
-
-        OnSkillCoroutine = null;
+        ForceStop();
     }
 
     public void Respawn()
