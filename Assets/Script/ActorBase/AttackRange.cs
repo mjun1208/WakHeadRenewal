@@ -104,8 +104,15 @@ public class AttackRange : MonoBehaviour
     {
         if (CollidedObjectList.Count > 0)
         {
-            foreach (var targetObject in CollidedObjectList)
+            for (int i = 0; i < CollidedObjectList.Count; i++)
             {
+                var targetObject = CollidedObjectList[i];
+
+                if (targetObject.GetComponent<Entity>().IsDead)
+                {
+                    CollidedObjectList.Remove(targetObject);
+                }
+
                 entityAction?.Invoke(targetObject.GetComponent<Entity>());
 
                 if (singleTarget)
