@@ -5,15 +5,40 @@ using UnityEngine.UI;
 
 public class ActorHpGauge : MonoBehaviour
 {
+    [SerializeField] private Team _team;
     [SerializeField] private Image _hpGaugeImage;
+
+    private Actor _targetActor;
+
+    private void Start()
+    {
+        switch (_team)
+        {
+            case Team.BLUE:
+                {
+                    Global.instance.BlueActorSetAction += SetActor;
+                    break;
+                }
+            case Team.RED:
+                {
+                    Global.instance.RedActorSetAction += SetActor;
+                    break;
+                }
+        }
+    }
+
+    private void SetActor(Actor actor)
+    {
+        _targetActor = actor;
+    }
 
     private void Update()
     {
-        if (Global.instance.MyActor != null) {
+        if (_targetActor != null) {
 
-            if (Global.instance.MyActor.HP > 0)
+            if (_targetActor.HP > 0)
             {
-                _hpGaugeImage.fillAmount = ((float)Global.instance.MyActor.HP / (float)Global.instance.MyActor.MaxHP);
+                _hpGaugeImage.fillAmount = ((float)_targetActor.HP / (float)_targetActor.MaxHP);
             }
             else
             {
