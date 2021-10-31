@@ -59,24 +59,42 @@ public abstract class Actor : Entity, IPunObservable
 
         _originalScale = this.transform.localScale;
         StunAction += ForceStop;
+
+        MaxHP = 100;
+        HP = MaxHP;
     }
 
     protected virtual void Start()
     {
+        SetActor();
+
         if (!photonView.IsMine)
         {
             this.gameObject.layer = 9; // Enemy;
-            Global.instance.SetEnemyActor(this);
             return;
         }
 
-        Global.instance.SetMyActor(this);
-
-        MaxHP = 100;
-        HP = MaxHP;
         this.gameObject.layer = 8; // Player;
 
         CameraManager.instance.SetTarget(this.transform);
+    }
+
+    public void SetActor()
+    {
+        if (photonView.IsMine)
+        {
+            if (Global.instance.MyActor == null)
+            {
+                Global.instance.SetMyActor(this);
+            }
+        }
+        else
+        {
+            if (Global.instance.EnemyActor == null)
+            {
+                Global.instance.SetEnemyActor(this);
+            }
+        }
     }
 
     protected virtual void Update()
