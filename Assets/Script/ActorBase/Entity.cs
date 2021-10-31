@@ -13,6 +13,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
 
     public Action<bool> StunAction;
     public Action CrownControlAction;
+    public Action DeadAction;
 
     public Team MyTeam { get; protected set; } = Team.None;
 
@@ -231,6 +232,11 @@ public abstract class Entity : MonoBehaviourPunCallbacks
         if (photonView.IsMine)
         {
             _currentHP -= damage;
+
+            if (_currentHP <= 0)
+            {
+                DeadAction?.Invoke();
+            }
         }
     }
 }
