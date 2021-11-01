@@ -26,16 +26,7 @@ public class ActorSpawner : MonoBehaviourPunCallbacks
         {
             return;
         }
-
-        for (int i = 0; i < 9; i++)
-        {
-            if (Input.GetKeyDown(i.ToString()))
-            {
-                Spawn(i);
-            }
-        }
     }
-
 
     void Spawn(int number)
     {
