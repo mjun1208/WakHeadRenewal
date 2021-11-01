@@ -28,13 +28,10 @@ public class Naruto_Dummy : Summoned
             return;
         }
 
-        var targetList = _attackRange.CollidedObjectList;
-
-        foreach (var target in targetList)
+        _attackRange.Attack(targetEntity =>
         {
-            var targetEntity = target.GetComponent<Entity>();
-            targetEntity.KnockBack(3, _dir, 1.5f, 0);
-        }
+            targetEntity.KnockBack(3, _dir, 1.5f, 0); 
+        });
     }
 
     public void SetDir(Vector3 dir)
