@@ -14,8 +14,13 @@ public class PickSync : MonoBehaviourPunCallbacks, IPunObservable
         }
         else
         {
-            PickManager.Instance.EnemyActorSelect((int)stream.ReceiveNext());
-        
+            int enemyActorID = (int)stream.ReceiveNext();
+
+            if (enemyActorID != -1)
+            {
+                PickManager.Instance.EnemyActorSelect(enemyActorID);
+            }
+
             bool isReady = (bool)stream.ReceiveNext();
             if (isReady != PickManager.Instance.IsEnemyReady)
             {
@@ -23,5 +28,16 @@ public class PickSync : MonoBehaviourPunCallbacks, IPunObservable
             }
             PickManager.Instance.IsEnemyReady = isReady;
         }
+    }
+
+    public void StartGame()
+    {
+        photonView.RPC("StartGameRPC", RpcTarget.Others);
+    }
+
+    [PunRPC]
+    public void StartGameRPC()
+    {
+        PickManager.Instance.StartGameClient();
     }
 }

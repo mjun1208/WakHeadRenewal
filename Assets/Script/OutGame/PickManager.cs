@@ -25,11 +25,13 @@ public class PickManager : MonoBehaviour
 
     public Team MyTeam { get; private set; } = PhotonNetwork.IsMasterClient ? Team.BLUE : Team.RED;
 
-    public int CurrentMyActorID = 0;
-    public int CurrentEnemyActorID = 0;
+    public int CurrentMyActorID { get; set; } = -1;
+    public int CurrentEnemyActorID { get; set; } = -1;
 
-    public bool IsMyReady = false;
-    public bool IsEnemyReady = false;
+    public bool IsMyReady { get; set; } = false;
+    public bool IsEnemyReady { get; set; } = false;
+
+    private PickSync _myPickSync;
 
     void Awake()
     {
@@ -40,7 +42,8 @@ public class PickManager : MonoBehaviour
     {
         Global.instance.FadeOut();
 
-        PhotonNetwork.Instantiate("PickSync", Vector3.zero, Quaternion.identity);
+        var pickSync = PhotonNetwork.Instantiate("PickSync", Vector3.zero, Quaternion.identity);
+        _myPickSync = pickSync.GetComponent<PickSync>();
     }
 
     public void ActorSelect(int index)
@@ -142,9 +145,19 @@ public class PickManager : MonoBehaviour
             return;
         }
 
+        _myPickSync.StartGame();
+
         _pickUI.transform.DOLocalMoveY(-750, 1f).SetEase(Ease.InOutBack).OnComplete(()=>
         {
             Global.instance.FadeIn(() => PhotonNetwork.LoadLevel("Ingame"));
+        });
+    }
+
+    public void StartGameClient()
+    {
+        _pickUI.transform.DOLocalMoveY(-750, 1f).SetEase(Ease.InOutBack).OnComplete(() =>
+        {
+            Global.instance.FadeIn();
         });
     }
 }
