@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -131,6 +132,12 @@ public class Martine : Actor
         return currentVentIndex;
     }
 
+    [PunRPC]
+    private void Hide(bool isTrue)
+    {
+        _renderer.enabled = !isTrue;
+    }
+
     private IEnumerator Venting()
     {
         int currentVentIndex = GetCurrentVentIndex();
@@ -147,7 +154,7 @@ public class Martine : Actor
             yield return null;
         }
 
-        _renderer.enabled = false;
+        photonView.RPC("Hide", RpcTarget.All, true);
 
         _selectNextVent = SelectNextVent();
         StartCoroutine(_selectNextVent);
@@ -188,7 +195,7 @@ public class Martine : Actor
 
         yield return new WaitForSeconds(0.15f);
 
-        _renderer.enabled = true;
+        photonView.RPC("Hide", RpcTarget.All, false);
 
         UpVent(currentIndex);
 
