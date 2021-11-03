@@ -6,12 +6,21 @@ using UnityEngine;
 
 public class Naruto_Dummy : Summoned
 {
+    public bool IsDead { get; private set; } = false;
+
     [SerializeField] private Animator _animator;
+
     private Vector3 _originalScale;
+
+    private float _lifeTime = 0f;
 
     public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
     {
         base.SetInfo(ownerPhotonView, owner, dir);
+
+        IsDead = false;
+
+        _lifeTime = 0f;
 
         _animator.Rebind();
     }
@@ -19,6 +28,16 @@ public class Naruto_Dummy : Summoned
     private void Awake()
     {
         _originalScale = this.transform.localScale;
+    }
+
+    private void Update()
+    {
+        _lifeTime += Time.deltaTime;
+
+        if (_lifeTime > 10f)
+        {
+            IsDead = true;
+        }
     }
 
     private void Active_Attack()
