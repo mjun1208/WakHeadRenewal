@@ -34,8 +34,10 @@ public class Naruto_Dummy : Summoned, IPunObservable
         _animator.Rebind();
     }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         _originalScale = this.transform.localScale;
     }
 

@@ -1,14 +1,33 @@
 ﻿using Photon.Pun;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Summoned : ActorSub
 {
+    public Action DeadAction;
+
     private int _maxHP;
     private int _currentHP;
 
-    public bool IsDead { get; protected set; } = false;
+    private bool _isDead = false;
+
+    public bool IsDead
+    {
+        get
+        {
+            return _isDead;
+        }
+        protected set
+        {
+            if (value)
+            {
+                DeadAction?.Invoke();
+            }
+            _isDead = value;
+        }
+    }
 
     public int MaxHP
     {
@@ -32,6 +51,16 @@ public class Summoned : ActorSub
         {
             _currentHP = value;
         }
+    }
+
+    protected virtual void Awake()
+    {
+        DeadAction += Dead;
+    }
+
+    protected virtual void Dead()
+    {
+
     }
 
     public void Damaged(Vector3 pos)

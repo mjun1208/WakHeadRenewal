@@ -16,7 +16,7 @@ public class Sans_Gaster : Summoned
     public const float GasterYOffset = 0.2f;
     public const float ChargeOffset = 0.2f;
 
-    private void Awake()
+    protected override void Awake()
     {
         _originalScale = this.transform.localScale;
     }
