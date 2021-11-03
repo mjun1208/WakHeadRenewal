@@ -12,8 +12,6 @@ public class Naruto_Dummy : Summoned, IPunObservable
 
     private Vector3 _originalScale;
 
-    private float _lifeTime = 0f;
-
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
