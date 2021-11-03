@@ -55,5 +55,15 @@ public class Summoned : ActorSub
         var randomPos = (Vector3)UnityEngine.Random.insideUnitCircle * 0.5f;
 
         Global.PoolingManager.LocalSpawn("HitEffect", this.transform.position + randomPos, this.transform.rotation, true);
+
+        if (photonView.IsMine)
+        {
+            _currentHP--;
+
+            if (_currentHP <= 0)
+            {
+                IsDead = true;
+            }
+        }
     }
 }
