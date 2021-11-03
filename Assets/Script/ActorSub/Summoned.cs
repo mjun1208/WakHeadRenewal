@@ -34,6 +34,17 @@ public class Summoned : ActorSub
 
     public void Damaged(Vector3 pos)
     {
+        if (photonView == null)
+        {
+            return;
+        }
+
+        photonView.RPC("OnDamageRPC", RpcTarget.All, pos);
+    }
+
+    [PunRPC]
+    public void OnDamageRPC(Vector3 pos)
+    {
         OnDamage(pos);
     }
 
