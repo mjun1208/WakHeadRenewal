@@ -66,7 +66,6 @@ public class Sans_Gaster : Summoned
         _animator.Play("Fire");
     }
 
-
     public void OnCharging()
     {
         photonView.RPC("ActiveCharging", RpcTarget.All);
@@ -77,7 +76,6 @@ public class Sans_Gaster : Summoned
     {
         var newCharging = Global.PoolingManager.LocalSpawn("Sans_Charge_Blast", _blastPivot.transform.position + _dir * ChargeOffset, Quaternion.identity, true);
     }
-
 
     public void FireBlast()
     {
