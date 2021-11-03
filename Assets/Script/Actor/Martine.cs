@@ -21,9 +21,28 @@ public class Martine : Actor
 
     protected override void Update()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
         base.Update();
 
         SelectVent();
+
+        for (int i = 0; i < _myVentList.Count; i++)
+        {
+            if (_myVentList[i].IsDead)
+            {
+                var vent = _myVentList[i];
+
+                photonView.RPC("SpawnDeadEffect", RpcTarget.All, vent.transform.position);
+
+                _myVentList.Remove(vent);
+
+                PhotonNetwork.Destroy(vent.gameObject);
+            }
+        }
     }
 
     protected override void ForceStop()
@@ -315,5 +334,11 @@ public class Martine : Actor
 
             _colliedVent.Remove(collision);
         }
+    }
+
+    [PunRPC]
+    public void SpawnDeadEffect(Vector3 pos)
+    {
+        Global.PoolingManager.LocalSpawn("DeathEffect", pos, Quaternion.identity, true);
     }
 }

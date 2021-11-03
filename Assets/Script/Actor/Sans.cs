@@ -7,6 +7,30 @@ public class Sans : Actor
 {
     private List<Sans_Gaster> _myGasterList = new List<Sans_Gaster>();
 
+    protected override void Update()
+    {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        base.Update();
+
+        for (int i = 0; i < _myGasterList.Count; i++)
+        {
+            if (_myGasterList[i].IsDead)
+            {
+                var gaster = _myGasterList[i];
+
+                photonView.RPC("SpawnDeadEffect", RpcTarget.All, gaster.transform.position);
+
+                _myGasterList.Remove(gaster);
+
+                PhotonNetwork.Destroy(gaster.gameObject);
+            }
+        }
+    }
+
     protected override void Active_Attack()
     {
         if (!photonView.IsMine)
@@ -62,5 +86,12 @@ public class Sans : Actor
         }
 
         _myGasterList.Clear();
+    }
+
+
+    [PunRPC]
+    public void SpawnDeadEffect(Vector3 pos)
+    {
+        Global.PoolingManager.LocalSpawn("DeathEffect", pos, Quaternion.identity, true);
     }
 }
