@@ -8,6 +8,8 @@ public class Summoned : ActorSub
     private int _maxHP;
     private int _currentHP;
 
+    public bool IsDead { get; protected set; } = false;
+
     public int MaxHP
     {
         get

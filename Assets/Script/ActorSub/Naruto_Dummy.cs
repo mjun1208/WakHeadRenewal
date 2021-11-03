@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class Naruto_Dummy : Summoned, IPunObservable
 {
-    public bool IsDead { get; private set; } = false;
-
     [SerializeField] private Animator _animator;
 
     private Vector3 _originalScale;
