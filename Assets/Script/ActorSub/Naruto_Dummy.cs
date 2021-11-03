@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-public class Naruto_Dummy : Summoned
+public class Naruto_Dummy : Summoned, IPunObservable
 {
     public bool IsDead { get; private set; } = false;
 
@@ -13,6 +13,19 @@ public class Naruto_Dummy : Summoned
     private Vector3 _originalScale;
 
     private float _lifeTime = 0f;
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(_dir.x);
+        }
+        else
+        {
+            float rotationScale = _originalScale.x * (float)stream.ReceiveNext();
+            this.transform.localScale = new Vector3(rotationScale, _originalScale.y, _originalScale.z);
+        }
+    }
 
     public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
     {
@@ -42,7 +55,7 @@ public class Naruto_Dummy : Summoned
 
     private void Active_Attack()
     {
-        if (!_ownerPhotonView.IsMine)
+        if (!photonView.IsMine)
         {
             return;
         }
