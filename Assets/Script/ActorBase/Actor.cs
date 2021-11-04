@@ -360,6 +360,7 @@ public abstract class Actor : Entity, IPunObservable
     {
         var deathEffect = Global.PoolingManager.LocalSpawn("DeathEffect", this.transform.position, this.transform.rotation, true);
         _renderer.enabled = false;
+        _collider2D.enabled = false;
 
         ForceStop();
     }
@@ -377,5 +378,6 @@ public abstract class Actor : Entity, IPunObservable
     {
         _animator.Rebind();
         _renderer.enabled = true;
+        _collider2D.enabled = true;
     }
 }
