@@ -187,37 +187,51 @@ public class Martine : Actor
 
         int currentIndex = GetCurrentVentIndex();
 
+        Vector3 lastVentPos = _currentVent.transform.position + new Vector3(0, 0.2f, 0);
+
         while (isInputUp)
         {
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 currentIndex = GetRightVent(currentIndex);
 
-                this.transform.position = _myVentList[currentIndex].transform.position + new Vector3(0, 0.2f, 0);
+                _currentVent = _myVentList[currentIndex];
+
+                lastVentPos = _currentVent.transform.position + new Vector3(0, 0.2f, 0);
+
+                this.transform.position = lastVentPos;
                 _smoothSync.teleport();
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 currentIndex = GetLeftVent(currentIndex);
 
-                this.transform.position = _myVentList[currentIndex].transform.position + new Vector3(0, 0.2f, 0);
+                _currentVent = _myVentList[currentIndex];
+
+                lastVentPos = _currentVent.transform.position + new Vector3(0, 0.2f, 0);
+
+                this.transform.position = lastVentPos;
                 _smoothSync.teleport();
             }
 
-            if (Input.GetKeyDown(KeyCode.C))
+            if (Input.GetKeyDown(KeyCode.C) || _currentVent == null)
             {
                 isInputUp = false;
             }
             yield return null;
         }
 
-        _myVentList[currentIndex].OnVent();
+        // 벤트 올라옴
+        if (_currentVent == null)
+        {
+            _currentVent.OnVent();
+        }
 
         yield return new WaitForSeconds(0.15f);
 
         photonView.RPC("Hide", RpcTarget.All, false);
 
-        UpVent(currentIndex);
+        UpVent(lastVentPos);
 
         _selectNextVent = null;
     }
@@ -284,11 +298,18 @@ public class Martine : Actor
         return nextIndex;
     }
 
-    private void UpVent(int ventIndex)
+    private void UpVent(Vector3 lastVentPos)
     {
-        var nextVent = _myVentList[ventIndex];
+        // var nextVent = _myVentList[ventIndex];
 
-        this.transform.position = nextVent.transform.position + new Vector3(0, 0.2f, 0);
+        if (_currentVent != null)
+        {
+            this.transform.position = _currentVent.transform.position + new Vector3(0, 0.2f, 0);
+        }
+        else
+        {
+            this.transform.position = lastVentPos;
+        }
         _smoothSync.teleport();
 
         _animator.SetBool("IsSkill_2", false);
