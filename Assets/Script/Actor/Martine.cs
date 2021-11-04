@@ -344,4 +344,12 @@ public class Martine : Actor
     {
         Global.PoolingManager.LocalSpawn("DeathEffect", pos, Quaternion.identity, true);
     }
+
+    protected override void Dead()
+    {
+        base.Dead();
+
+        _currentVent = null;
+        _colliedVent.Clear();
+    }
 }
