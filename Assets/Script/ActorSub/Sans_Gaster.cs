@@ -30,6 +30,9 @@ public class Sans_Gaster : Summoned
         this.transform.position = pos;
 
         photonView.RPC("SetInfo", RpcTarget.All, _ownerID, dir);
+
+        MaxHP = 5;
+        HP = MaxHP;
     }
 
     [PunRPC]

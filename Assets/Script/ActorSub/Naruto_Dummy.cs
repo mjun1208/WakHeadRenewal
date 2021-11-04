@@ -32,6 +32,9 @@ public class Naruto_Dummy : Summoned, IPunObservable
         _lifeTime = 0f;
 
         _animator.Rebind();
+
+        MaxHP = 5;
+        HP = MaxHP;
     }
 
     protected override void Awake()

@@ -7,6 +7,12 @@ public class Martine_Vent : Summoned
 {
     [SerializeField] private Animator _animator;
 
+    public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
+    {
+        MaxHP = 5;
+        HP = MaxHP;
+    }
+
     public void OnVent()
     {
         photonView.RPC("ActiveVent", RpcTarget.All);
