@@ -126,7 +126,8 @@ public class Kakashi : Actor
 
         _copyActor.SetActive(isCopy);
         _copyActor.GetComponent<SpriteRenderer>().material = _copyMaterial;
-        this._renderer.enabled = !isCopy;
+        _renderer.enabled = !isCopy;
+        _collider2D.enabled = !isCopy;
 
         var newSmoke = Global.PoolingManager.LocalSpawn("Naruto_Smoke", _copyActor.transform.position, Quaternion.identity, true);
     }

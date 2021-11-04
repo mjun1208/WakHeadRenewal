@@ -9,6 +9,7 @@ public abstract class Actor : Entity, IPunObservable
     [SerializeField] protected Animator _animator;
     [SerializeField] protected SmoothSyncPUN2 _smoothSync;
     [SerializeField] protected SpriteRenderer _renderer;
+    [SerializeField] protected Collider2D _collider2D;
 
     [SerializeField] protected AttackRange _attackRange;
     [SerializeField] protected AttackRange _skill_1Range;

@@ -162,6 +162,7 @@ public class Martine : Actor
     private void Hide(bool isTrue)
     {
         _renderer.enabled = !isTrue;
+        _collider2D.enabled = !isTrue;
     }
 
     private IEnumerator Venting()
