@@ -8,7 +8,10 @@ public class Martine : Actor
     private List<Martine_Vent> _myVentList = new List<Martine_Vent>();
 
     private Martine_Vent _currentVent = null;
+    private Martine_Vent _ventingVent = null;
+
     private bool _isOnVent = false;
+    private bool _isVenting = true;
 
     private List<Collider2D> _colliedVent = new List<Collider2D>();
 
@@ -112,6 +115,11 @@ public class Martine : Actor
 
     public override void OnSkill_2()
     {
+        if (_ventingVent != null)
+        {
+            return;
+        }
+
         if (_currentVent == null)
         {
             var newVent = Global.PoolingManager.Spawn("Martine_Vent", this.transform.position, this.transform.rotation);
@@ -147,7 +155,7 @@ public class Martine : Actor
 
         foreach (var vent in _myVentList)
         {
-            if (vent == _currentVent)
+            if (vent == _ventingVent)
             {
                 currentVentIndex = ventIndex;
             }
@@ -167,6 +175,9 @@ public class Martine : Actor
 
     private IEnumerator Venting()
     {
+        _isVenting = true;
+
+        _ventingVent = _currentVent;
         int currentVentIndex = GetCurrentVentIndex();
 
         while (!_animator.GetCurrentAnimatorStateInfo(0).IsName("Skill_2"))
@@ -195,7 +206,7 @@ public class Martine : Actor
 
         int currentIndex = GetCurrentVentIndex();
 
-        Vector3 lastVentPos = _currentVent.transform.position + new Vector3(0, 0.2f, 0);
+        Vector3 lastVentPos = _ventingVent.transform.position + new Vector3(0, 0.2f, 0);
 
         while (isInputUp)
         {
@@ -203,9 +214,9 @@ public class Martine : Actor
             {
                 currentIndex = GetRightVent(currentIndex);
 
-                _currentVent = _myVentList[currentIndex];
+                _ventingVent = _myVentList[currentIndex];
 
-                lastVentPos = _currentVent.transform.position + new Vector3(0, 0.2f, 0);
+                lastVentPos = _ventingVent.transform.position + new Vector3(0, 0.2f, 0);
 
                 this.transform.position = lastVentPos;
                 _smoothSync.teleport();
@@ -214,15 +225,15 @@ public class Martine : Actor
             {
                 currentIndex = GetLeftVent(currentIndex);
 
-                _currentVent = _myVentList[currentIndex];
+                _ventingVent = _myVentList[currentIndex];
 
-                lastVentPos = _currentVent.transform.position + new Vector3(0, 0.2f, 0);
+                lastVentPos = _ventingVent.transform.position + new Vector3(0, 0.2f, 0);
 
                 this.transform.position = lastVentPos;
                 _smoothSync.teleport();
             }
 
-            if (Input.GetKeyDown(KeyCode.C) || _currentVent == null)
+            if (Input.GetKeyDown(KeyCode.C) || _ventingVent == null)
             {
                 isInputUp = false;
             }
@@ -230,14 +241,20 @@ public class Martine : Actor
         }
 
         // 벤트 올라옴
-        if (_currentVent == null)
+        if (_ventingVent != null)
         {
-            _currentVent.OnVent();
+            _ventingVent.OnVent();
         }
 
         yield return new WaitForSeconds(0.15f);
 
         photonView.RPC("Hide", RpcTarget.All, false);
+
+        if (_ventingVent != null)
+        {
+            _currentVent = _ventingVent;
+            _ventingVent = null;
+        }
 
         UpVent(lastVentPos);
 
@@ -309,15 +326,8 @@ public class Martine : Actor
     private void UpVent(Vector3 lastVentPos)
     {
         // var nextVent = _myVentList[ventIndex];
+        this.transform.position = lastVentPos;
 
-        if (_currentVent != null)
-        {
-            this.transform.position = _currentVent.transform.position + new Vector3(0, 0.2f, 0);
-        }
-        else
-        {
-            this.transform.position = lastVentPos;
-        }
         _smoothSync.teleport();
 
         _animator.SetBool("IsSkill_2", false);
@@ -332,6 +342,8 @@ public class Martine : Actor
         IsDoingSkill = true;
         OnSkillCoroutine = OnSkill("Skill_2_Reverse");
         StartCoroutine(OnSkillCoroutine);
+
+        _isVenting = false;
     }
 
     private void SelectVent()
