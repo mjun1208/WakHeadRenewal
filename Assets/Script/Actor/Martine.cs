@@ -137,6 +137,8 @@ public class Martine : Actor
 
             _currentVent.OnVent();
 
+            _colliedVent.Clear();
+
             _animator.SetBool("IsSkill_2", true);
 
             if (OnSkillCoroutine != null)
