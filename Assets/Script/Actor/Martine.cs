@@ -116,6 +116,7 @@ public class Martine : Actor
         {
             var newVent = Global.PoolingManager.Spawn("Martine_Vent", this.transform.position, this.transform.rotation);
             var newVentScript = newVent.GetComponent<Martine_Vent>();
+            newVentScript.SetInfo(this.photonView, this.gameObject, GetAttackDir());
             _myVentList.Add(newVentScript);
         }
         else
