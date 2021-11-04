@@ -11,7 +11,7 @@ public class Martine : Actor
     private Martine_Vent _ventingVent = null;
 
     private bool _isOnVent = false;
-    private bool _isVenting = true;
+    private bool _isVenting = false;
 
     private List<Collider2D> _colliedVent = new List<Collider2D>();
 
@@ -31,7 +31,10 @@ public class Martine : Actor
 
         base.Update();
 
-        SelectVent();
+        if (!_isVenting)
+        {
+            SelectVent();
+        }
 
         for (int i = 0; i < _myVentList.Count; i++)
         {
