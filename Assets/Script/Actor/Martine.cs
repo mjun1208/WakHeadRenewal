@@ -406,7 +406,12 @@ public class Martine : Actor
     {
         base.Dead();
 
-        _currentVent = null;
+        if (_currentVent != null)
+        {
+            _currentVent.Select(false);
+            _currentVent = null;
+        }
+
         _colliedVent.Clear();
     }
 }
