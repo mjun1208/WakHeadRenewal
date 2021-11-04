@@ -29,13 +29,15 @@ public class CameraManager : MonoBehaviour
 
     private void MoveToTarget()
     {
-        if (Mathf.Abs(TargetTransform.position.x) < 10)
-        {
-            Vector3 targetPos = TargetTransform.position;
-            targetPos.z = this.transform.position.z;
-            targetPos.y = this.transform.position.y;
+        Vector3 targetPos = TargetTransform.position;
+        targetPos.z = this.transform.position.z;
+        targetPos.y = this.transform.position.y;
 
-            this.transform.position = Vector3.Lerp(this.transform.position, targetPos, 10f * Time.deltaTime);
+        if (Mathf.Abs(targetPos.x) > 10)
+        {
+            targetPos.x = targetPos.x > 0f ? 10f : -10f;
         }
+
+        this.transform.position = Vector3.Lerp(this.transform.position, targetPos, 10f * Time.deltaTime);
     }
 }
