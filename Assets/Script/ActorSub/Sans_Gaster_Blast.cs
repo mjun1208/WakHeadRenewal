@@ -35,7 +35,10 @@ public class Sans_Gaster_Blast : ActorSub
 
     public override void Destroy()
     {
-        Global.PoolingManager.LocalDespawn(_gaster);
+        if (_gaster != null)
+        {
+            Global.PoolingManager.LocalDespawn(_gaster);
+        }
 
         Global.PoolingManager.LocalSpawn("DeathEffect", this.transform.position, this.transform.rotation, true);
 
