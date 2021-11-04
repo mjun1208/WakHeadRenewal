@@ -217,7 +217,7 @@ public class Martine : Actor
         {
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                currentIndex = GetRightVent(currentIndex);
+                currentIndex = GetRightVent(GetCurrentVentIndex());
 
                 _ventingVent = _myVentList[currentIndex];
 
@@ -228,7 +228,7 @@ public class Martine : Actor
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                currentIndex = GetLeftVent(currentIndex);
+                currentIndex = GetLeftVent(GetCurrentVentIndex());
 
                 _ventingVent = _myVentList[currentIndex];
 
