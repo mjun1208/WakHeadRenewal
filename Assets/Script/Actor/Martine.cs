@@ -361,7 +361,7 @@ public class Martine : Actor
 
     private void SelectVent()
     {
-        if (_currentVent == null && _colliedVent.Count > 0)
+        if (_currentVent == null && _ventingVent == null && _colliedVent.Count > 0)
         {
             _currentVent = _colliedVent[0].GetComponent<Martine_Vent>();
             _currentVent.Select(true);
