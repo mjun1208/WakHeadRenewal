@@ -12,6 +12,8 @@ public class Martine_Vent : Summoned
     {
         MaxHP = 5;
         HP = MaxHP;
+
+        Select(false);
     }
 
     public void OnVent()
