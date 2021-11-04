@@ -204,6 +204,7 @@ MonoBehaviour:
   _animator: {fileID: 2231056166769122081}
   _smoothSync: {fileID: 2231056166769122082}
   _renderer: {fileID: 2231056166769122080}
+  _collider2D: {fileID: 2688566595277226603}
   _attackRange: {fileID: 4678803042610845422}
   _skill_1Range: {fileID: 8768315868052885975}
   _skill_2Range: {fileID: 1326802555962496175}

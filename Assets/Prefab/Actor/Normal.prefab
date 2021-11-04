@@ -153,6 +153,7 @@ MonoBehaviour:
   _animator: {fileID: 2231056166769122081}
   _smoothSync: {fileID: 2231056166769122082}
   _renderer: {fileID: 2231056166769122080}
+  _collider2D: {fileID: 556348195071171943}
   _attackRange: {fileID: 8563778044943470810}
   _skill_1Range: {fileID: 5633362897846998840}
   _skill_2Range: {fileID: 6681744780552787780}
