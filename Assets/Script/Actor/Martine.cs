@@ -217,9 +217,12 @@ public class Martine : Actor
         {
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
+                _ventingVent.Select(false);
+
                 currentIndex = GetRightVent(GetCurrentVentIndex());
 
                 _ventingVent = _myVentList[currentIndex];
+                _ventingVent.Select(true);
 
                 lastVentPos = _ventingVent.transform.position + new Vector3(0, 0.2f, 0);
 
@@ -228,9 +231,12 @@ public class Martine : Actor
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
+                _ventingVent.Select(false);
+
                 currentIndex = GetLeftVent(GetCurrentVentIndex());
 
                 _ventingVent = _myVentList[currentIndex];
+                _ventingVent.Select(true);
 
                 lastVentPos = _ventingVent.transform.position + new Vector3(0, 0.2f, 0);
 
@@ -258,6 +264,8 @@ public class Martine : Actor
         if (_ventingVent != null)
         {
             _currentVent = _ventingVent;
+            _currentVent.Select(true);
+
             _ventingVent = null;
         }
 
@@ -356,6 +364,7 @@ public class Martine : Actor
         if (_currentVent == null && _colliedVent.Count > 0)
         {
             _currentVent = _colliedVent[0].GetComponent<Martine_Vent>();
+            _currentVent.Select(true);
         }
     }
 
