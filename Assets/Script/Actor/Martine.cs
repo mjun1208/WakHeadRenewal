@@ -359,7 +359,7 @@ public class Martine : Actor
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void VentColliderEnter(Collider2D collision)
     {
         if (collision.CompareTag("Vent"))
         {
@@ -370,7 +370,7 @@ public class Martine : Actor
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public void VentColliderExit(Collider2D collision)
     {
         if (collision.CompareTag("Vent"))
         {
@@ -378,6 +378,7 @@ public class Martine : Actor
             {
                 if (collision.gameObject == _currentVent.gameObject)
                 {
+                    _currentVent.Select(false);
                     _currentVent = null;
                 }
             }
