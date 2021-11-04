@@ -65,7 +65,7 @@ public class Summoned : ActorSub
 
     public void Damaged(Vector3 pos)
     {
-        if (photonView == null)
+        if (photonView == null || !photonView.IsMine)
         {
             return;
         }
