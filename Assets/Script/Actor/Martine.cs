@@ -175,9 +175,10 @@ public class Martine : Actor
 
         photonView.RPC("Hide", RpcTarget.All, true);
 
+        // 벤트 선택
+
         _selectNextVent = SelectNextVent();
         StartCoroutine(_selectNextVent);
-        // 벤트 올라옴
     }
 
     private IEnumerator SelectNextVent()
