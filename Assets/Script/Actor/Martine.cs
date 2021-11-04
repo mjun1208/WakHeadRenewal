@@ -40,6 +40,12 @@ public class Martine : Actor
 
                 _myVentList.Remove(vent);
 
+                var ventCollider = vent.GetComponent<Collider2D>();
+                if (_colliedVent.Contains(ventCollider))
+                {
+                    _colliedVent.Remove(ventCollider);
+                }
+
                 PhotonNetwork.Destroy(vent.gameObject);
             }
         }
