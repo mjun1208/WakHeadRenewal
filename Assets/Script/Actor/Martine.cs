@@ -316,7 +316,10 @@ public class Martine : Actor
     {
         if (collision.CompareTag("Vent"))
         {
-            _colliedVent.Add(collision);
+            if (collision.GetComponent<Martine_Vent>().photonView.IsMine)
+            {
+                _colliedVent.Add(collision);
+            }
         }
     }
 
