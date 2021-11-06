@@ -12,6 +12,8 @@ public class AnimalCrossing : Actor
     private IEnumerator _castingCoroutine = null;
     private bool _isCastingComplete = false;
 
+    private bool _isHaveFish = false;
+
     protected override void Start()
     {
         base.Start();
@@ -187,6 +189,8 @@ public class AnimalCrossing : Actor
 
         // end
 
+        _isHaveFish = true;
+
         _animator.SetBool("IsSkill_1_2", false);
 
         IsDoingSkill = false;
@@ -196,6 +200,15 @@ public class AnimalCrossing : Actor
         photonView.RPC("SetActiveFish", RpcTarget.All, false);
 
         OnSkillCoroutine = null;
+    }
+
+    public override void OnSkill_2()
+    {
+        if (_isHaveFish)
+        {
+            base.OnSkill_2();
+            _isHaveFish = false;
+        }
     }
 
     [PunRPC]
