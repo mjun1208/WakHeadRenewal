@@ -236,4 +236,13 @@ public class AnimalCrossing : Actor
 
         newFish.GetComponent<AnimalCrossing_FishBullet>().SetInfo(this.photonView, this.gameObject, GetAttackDir(), index);
     }
+
+    protected override void Dead()
+    {
+        base.Dead();
+
+        _isHaveFish = false;
+        _isCasting = false;
+        _isBite = false;
+    }
 }
