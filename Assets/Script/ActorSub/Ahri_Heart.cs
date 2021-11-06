@@ -22,7 +22,10 @@ public class Ahri_Heart : ActorSub
         }, true);
         _attackRange.AttackSummoned(targetSummoned =>
         {
-            targetSummoned.Damaged(targetSummoned.transform.position);
+            if (_ownerPhotonView.IsMine)
+            {
+                targetSummoned.Damaged(targetSummoned.transform.position);
+            }
             OnDamage(null, 10);
         }, true);
     }

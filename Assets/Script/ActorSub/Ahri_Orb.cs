@@ -38,8 +38,11 @@ public class Ahri_Orb : ActorSub
         {
             if (!_collidedObjectList.Contains(targetSummoned.gameObject))
             {
-                targetSummoned.Damaged(targetSummoned.transform.position);
-                _collidedObjectList.Add(targetSummoned.gameObject);
+                if (_ownerPhotonView.IsMine)
+                {
+                    targetSummoned.Damaged(targetSummoned.transform.position);
+                    _collidedObjectList.Add(targetSummoned.gameObject);
+                }
             }
         }, this);
     }

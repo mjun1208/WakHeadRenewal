@@ -33,7 +33,10 @@ public class Kakashi_Shuriken : ActorSub
         }, true);
         _attackRange.AttackSummoned(targetSummoned =>
         {
-            targetSummoned.Damaged(targetSummoned.transform.position);
+            if (_ownerPhotonView.IsMine)
+            {
+                targetSummoned.Damaged(targetSummoned.transform.position);
+            }
             OnDamage(null, 3);
         }, true);
     }
