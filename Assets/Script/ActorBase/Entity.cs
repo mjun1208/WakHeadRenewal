@@ -56,6 +56,13 @@ public abstract class Entity : MonoBehaviourPunCallbacks
         protected set
         {
             _currentHP = value;
+
+            if (_currentHP <= 0)
+            {
+                IsDead = true;
+
+                _currentHP = 0;
+            }
         }
     }
 
@@ -260,12 +267,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
 
         if (photonView.IsMine)
         {
-            _currentHP -= damage;
-
-            if (_currentHP <= 0)
-            {
-                IsDead = true;
-            }
+            HP -= damage;
         }
     }
 
