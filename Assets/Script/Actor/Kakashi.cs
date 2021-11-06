@@ -8,7 +8,7 @@ public class Kakashi : Actor
     [SerializeField] private Material _copyMaterial;
 
     private GameObject _copyActor = null;
-    private Actor _copyActorScprit = null;
+    private Actor _copyActorScript = null;
 
     private Vector3 _shurikenPosition;
     private Vector3 _shurikenDir;
@@ -71,7 +71,7 @@ public class Kakashi : Actor
         DestroyCopiedActor();
 
         _copyActor = PhotonNetwork.Instantiate(Global.instance.EnemyActorName, this.transform.position, Quaternion.identity);
-        _copyActorScprit = _copyActor.GetComponent<Actor>();
+        _copyActorScript = _copyActor.GetComponent<Actor>();
 
         _copyActor.transform.position = this.transform.position;
         _copyActor.transform.localScale = this.transform.localScale;
