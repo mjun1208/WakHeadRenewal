@@ -111,6 +111,8 @@ public class Kakashi : Actor
             yield return null;
         }
 
+        photonView.RPC("ActorCopy", RpcTarget.All, _copyActor.GetPhotonView().ViewID, false);
+
         ReturnKakashi();
 
         OnSkillCoroutine = null;
@@ -120,12 +122,11 @@ public class Kakashi : Actor
     {
         base.Start();
 
-        photonView.RPC("ActorCopy", RpcTarget.All, _copyActor.GetPhotonView().ViewID, false);
-
-        _copyActorScprit = null;
-
-        this.transform.position = _copyActor.transform.position;
-        this.transform.localScale = _copyActor.transform.localScale;
+        if (_copyActor != null)
+        {
+            this.transform.position = _copyActor.transform.position;
+            this.transform.localScale = _copyActor.transform.localScale;
+        }
 
         _smoothSync.teleport();
     }
