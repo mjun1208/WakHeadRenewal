@@ -63,7 +63,7 @@ public abstract class Actor : Entity, IPunObservable
         DeadAction += Dead;
 
         MaxHP = 100;
-        HP = MaxHP;
+        ResetHp();
     }
 
     protected virtual void Start()
@@ -368,7 +368,7 @@ public abstract class Actor : Entity, IPunObservable
     public void Respawn()
     {
         IsDead = false;
-        HP = MaxHP;
+        ResetHp();
 
         photonView.RPC("RespawnRPC", RpcTarget.All);
     }

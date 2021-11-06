@@ -268,4 +268,9 @@ public abstract class Entity : MonoBehaviourPunCallbacks
             }
         }
     }
+
+    public void ResetHp()
+    {
+        HP = MaxHP;
+    }
 }

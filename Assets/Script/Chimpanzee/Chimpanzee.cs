@@ -56,7 +56,7 @@ public class Chimpanzee : Entity, IPunObservable
         };
 
         MaxHP = 50;
-        HP = MaxHP;
+        ResetHp();
 
         DeadAction += Dead;
     }

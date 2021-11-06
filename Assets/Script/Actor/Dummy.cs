@@ -9,7 +9,7 @@ public class Dummy : Entity
         base.Awake();
 
         MaxHP = 99999;
-        HP = MaxHP;
+        ResetHp();
     }
 
     private void Update()
