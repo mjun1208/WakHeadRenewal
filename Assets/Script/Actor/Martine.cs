@@ -66,7 +66,6 @@ public class Martine : Actor
         }
 
         _selectNextVent = null;
-        _renderer.enabled = true;
     }
 
     protected override void Active_Attack()
