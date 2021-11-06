@@ -115,6 +115,8 @@ public class Kakashi : Actor
 
         ReturnKakashi();
 
+        DestroyCopiedActor();
+
         OnSkillCoroutine = null;
     }
 
@@ -134,7 +136,12 @@ public class Kakashi : Actor
     private void DestroyCopiedActor()
     {
         if (_copyActor != null)
-        {
+        { 
+            if (_copyActorScript != null)
+            {
+                _copyActorScript.DeadAction?.Invoke();
+            }
+
             PhotonNetwork.Destroy(_copyActor);
         }
     }
@@ -209,5 +216,17 @@ public class Kakashi : Actor
     public void Sharingan()
     {
         var newEye = Global.PoolingManager.LocalSpawn("Kakashi_EyeCanvas", this.transform.position, Quaternion.identity, true);
+    }
+
+    protected override void Dead()
+    {
+        ReturnKakashi();
+
+        base.Dead();
+
+        DestroyCopiedActor();
+
+        _copyActor = null;
+        _copyActorScript = null;    
     }
 }
