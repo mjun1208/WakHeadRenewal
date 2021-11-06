@@ -90,6 +90,8 @@ public class Kakashi : Actor
         _copyActor = PhotonNetwork.Instantiate(Global.instance.EnemyActorName, this.transform.position, Quaternion.identity);
         _copyActorScript = _copyActor.GetComponent<Actor>();
 
+        _copyActorScript.SetTeam(MyTeam);
+
         _copyActor.transform.position = this.transform.position;
         _copyActor.transform.localScale = this.transform.localScale;
 
