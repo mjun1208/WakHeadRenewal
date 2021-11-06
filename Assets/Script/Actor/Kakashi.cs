@@ -20,6 +20,23 @@ public class Kakashi : Actor
         base.Start();
     }
 
+    protected override void Update()
+    {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        base.Update();
+
+        if (_copyActorScript != null)
+        {
+            var damage = _copyActorScript.MaxHP - _copyActorScript.HP;
+            _copyActorScript.ResetHp();
+            HP -= damage;
+        }
+    }
+
     protected override void Active_Attack()
     {
         if (!photonView.IsMine)
