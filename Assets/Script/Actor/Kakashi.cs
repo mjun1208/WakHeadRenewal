@@ -139,10 +139,12 @@ public class Kakashi : Actor
     [PunRPC]
     public void ActorCopy(int actorID, bool isCopy)
     {
-        _copyActor = PhotonView.Find(actorID).gameObject;
+        if (isCopy)
+        {
+            _copyActor = PhotonView.Find(actorID).gameObject;
+            _copyActor.GetComponent<SpriteRenderer>().material = _copyMaterial;
+        }
 
-        _copyActor.SetActive(isCopy);
-        _copyActor.GetComponent<SpriteRenderer>().material = _copyMaterial;
         _renderer.enabled = !isCopy;
         _collider2D.enabled = !isCopy;
 
