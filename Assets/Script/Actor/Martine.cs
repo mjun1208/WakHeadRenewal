@@ -199,8 +199,23 @@ public class Martine : Actor
 
         photonView.RPC("Hide", RpcTarget.All, true);
 
-        // 벤트 선택
+        // 벤트 null 체크
+        if (_ventingVent == null)
+        {
+            photonView.RPC("Hide", RpcTarget.All, false);
 
+            if (_ventingVent != null)
+            {
+                _currentVent = _ventingVent;
+                _currentVent.Select(true);
+
+                _ventingVent = null;
+            }
+
+            UpVent(this.transform.position);
+        }
+
+        // 벤트 선택
         _selectNextVent = SelectNextVent();
         StartCoroutine(_selectNextVent);
     }
