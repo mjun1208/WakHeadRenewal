@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: acb5c2f64ec7a4c458752d157bb62dc1
+guid: 7da4d75b5654e4b47bcc7544bfa90fdb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -88,5 +88,5 @@ TextureImporter:
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: 
+  assetBundleName: profileicon
   assetBundleVariant: 
