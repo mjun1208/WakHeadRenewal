@@ -43,22 +43,28 @@
       "KorName": "왁루토"
     },
     {
-      "ID": 6,
+      "ID": 7,
       "Name": "Kakashi",
       "Artist": "코디잉",
       "KorName": "왁카시"
     },
     {
-      "ID": 7,
+      "ID": 8,
       "Name": "Minecraft",
       "Artist": "코디잉",
       "KorName": "마크두"
     },
     {
-      "ID": 7,
+      "ID": 9,
       "Name": "VR",
       "Artist": "코디잉",
       "KorName": "VR두"
+    },
+    {
+      "ID": 10,
+      "Name": "BattleGround",
+      "Artist": "코디잉",
+      "KorName": "배그두"
     }
   ]
 }
