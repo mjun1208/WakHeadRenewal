@@ -21141,6 +21141,7 @@ GameObject:
   - component: {fileID: 720543347}
   - component: {fileID: 720543349}
   - component: {fileID: 720543348}
+  - component: {fileID: 720543350}
   m_Layer: 5
   m_Name: BlueSkill_2
   m_TagString: Untagged
@@ -21204,6 +21205,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 720543346}
   m_CullTransparentMesh: 0
+--- !u!114 &720543350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720543346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240af07574a54af4c86fad3bd4b44a20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _team: 1
+  _skillIconImage: {fileID: 720543348}
+  _skillNum: 2
 --- !u!1 &721662417
 GameObject:
   m_ObjectHideFlags: 0
@@ -53067,6 +53083,7 @@ GameObject:
   - component: {fileID: 1760674821}
   - component: {fileID: 1760674823}
   - component: {fileID: 1760674822}
+  - component: {fileID: 1760674824}
   m_Layer: 5
   m_Name: RedSkill_1
   m_TagString: Untagged
@@ -53130,6 +53147,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760674820}
   m_CullTransparentMesh: 0
+--- !u!114 &1760674824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760674820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240af07574a54af4c86fad3bd4b44a20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _team: 2
+  _skillIconImage: {fileID: 1760674822}
+  _skillNum: 1
 --- !u!1 &1771123994
 GameObject:
   m_ObjectHideFlags: 0
@@ -54934,6 +54966,7 @@ GameObject:
   - component: {fileID: 1810135628}
   - component: {fileID: 1810135630}
   - component: {fileID: 1810135629}
+  - component: {fileID: 1810135631}
   m_Layer: 5
   m_Name: RedSkill_2
   m_TagString: Untagged
@@ -54997,6 +55030,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810135627}
   m_CullTransparentMesh: 0
+--- !u!114 &1810135631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810135627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240af07574a54af4c86fad3bd4b44a20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _team: 2
+  _skillIconImage: {fileID: 1810135629}
+  _skillNum: 2
 --- !u!1 &1810679623
 GameObject:
   m_ObjectHideFlags: 0
@@ -63229,6 +63277,7 @@ GameObject:
   - component: {fileID: 2057255842}
   - component: {fileID: 2057255844}
   - component: {fileID: 2057255843}
+  - component: {fileID: 2057255845}
   m_Layer: 5
   m_Name: BlueSkill_1
   m_TagString: Untagged
@@ -63292,6 +63341,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057255841}
   m_CullTransparentMesh: 0
+--- !u!114 &2057255845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057255841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240af07574a54af4c86fad3bd4b44a20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _team: 1
+  _skillIconImage: {fileID: 2057255843}
+  _skillNum: 1
 --- !u!1 &2057544833
 GameObject:
   m_ObjectHideFlags: 0
@@ -66904,6 +66968,7 @@ MonoBehaviour:
   _animator: {fileID: 1771355095690767619}
   _smoothSync: {fileID: 1771355095690767616}
   _renderer: {fileID: 1771355095690767618}
+  _collider2D: {fileID: 0}
   _attackRange: {fileID: 8123355810948130552}
   _skill_1Range: {fileID: 5210359539341664538}
   _skill_2Range: {fileID: 6546264262348988774}
