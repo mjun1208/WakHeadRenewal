@@ -9,11 +9,13 @@ public class GameDataManager
     public ActorGameDataArray ActorGameData { get; set; }
 
     private Object[] _loadedSkillIcon;
+    private Object[] _loadedProfilelIcon;
 
     public void Load()
     {
         GameDataLoad();
         SkillIconLoad();
+        ProfileIconLoad();
     }
 
     public void GameDataLoad()
@@ -47,6 +49,22 @@ public class GameDataManager
 
         _loadedSkillIcon = bundle.LoadAllAssets();
     }
+
+    public void ProfileIconLoad()
+    {
+        string assetBundlePath;
+
+#if UNITY_EDITOR
+        assetBundlePath = "Assets/StreamingAssets/profileicon";
+#else
+        assetBundlePath = Application.dataPath + "/StreamingAssets/profileicon";
+#endif
+        AssetBundleCreateRequest request = AssetBundle.LoadFromMemoryAsync(File.ReadAllBytes(assetBundlePath));
+        AssetBundle bundle = request.assetBundle;
+
+        _loadedProfilelIcon = bundle.LoadAllAssets();
+    }
+
     public Sprite FindSkillIcon(string name)
     {
         foreach (var skillIcon in _loadedSkillIcon)
@@ -58,6 +76,23 @@ public class GameDataManager
                 Sprite skillIconSprite = Sprite.Create(skillIconTex, new Rect(0.0f, 0.0f, skillIconTex.width, skillIconTex.height), new Vector2(0.5f, 0.5f), 100.0f);
 
                 return skillIconSprite as Sprite;
+            }
+        }
+
+        return null;
+    }
+
+    public Sprite FindProfileIcon(string name)
+    {
+        foreach (var profileIcon in _loadedProfilelIcon)
+        {
+            if (profileIcon.name == name)
+            {
+                var profileIconTex = profileIcon as Texture2D;
+
+                Sprite profileIconSprite = Sprite.Create(profileIconTex, new Rect(0.0f, 0.0f, profileIconTex.width, profileIconTex.height), new Vector2(0.5f, 0.5f), 100.0f);
+
+                return profileIconSprite as Sprite;
             }
         }
 
