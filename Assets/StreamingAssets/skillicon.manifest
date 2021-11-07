@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3690894229
+CRC: 160624222
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7bc0a12f6b167741bd7309cec6d58c43
+    Hash: 048216f977da2a4b59cdda3d363ea576
   TypeTreeHash:
     serializedVersion: 2
     Hash: c90fc19e2679e5295d10bd00f33cb4c3
@@ -17,17 +17,22 @@ Assets:
 - Assets/Image/SkillIcon/Naruto_Skill_2_Icon.png
 - Assets/Image/SkillIcon/Normal_Skill_1_Icon.png
 - Assets/Image/SkillIcon/Naruto_Skill_1_Icon.png
+- Assets/Image/SkillIcon/icon30.png
 - Assets/Image/SkillIcon/icon24.png
+- Assets/Image/SkillIcon/icon27.png
 - Assets/Image/SkillIcon/Kakashi_Skill_2_Icon.png
 - Assets/Image/SkillIcon/Jett_Skill_2_Icon.png
+- Assets/Image/SkillIcon/icon29.png
 - Assets/Image/SkillIcon/Minecraft_Skill_1_Icon.png
 - Assets/Image/SkillIcon/Ahri_Skill_2_Icon.png
+- Assets/Image/SkillIcon/icon25.png
 - Assets/Image/SkillIcon/VR_Skill_2_Icon.png
 - Assets/Image/SkillIcon/icon23.png
 - Assets/Image/SkillIcon/Sans_Skill_1_Icon.png
 - Assets/Image/SkillIcon/AnimalCrossing_Skill_2_Icon.png
 - Assets/Image/SkillIcon/Minecraft_Skill_2_Icon.png
 - Assets/Image/SkillIcon/AnimalCrossing_Skill_1_Icon.png
+- Assets/Image/SkillIcon/icon26.png
 - Assets/Image/SkillIcon/icon17.png
 - Assets/Image/SkillIcon/icon18.png
 - Assets/Image/SkillIcon/Martine_Skill_1_Icon.png
@@ -38,4 +43,5 @@ Assets:
 - Assets/Image/SkillIcon/Ahri_Skill_1_Icon.png
 - Assets/Image/SkillIcon/Martine_Skill_2_Icon.png
 - Assets/Image/SkillIcon/Kakashi_Skill_1_Icon.png
+- Assets/Image/SkillIcon/icon28.png
 Dependencies: []
