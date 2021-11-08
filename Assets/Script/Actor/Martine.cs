@@ -426,6 +426,13 @@ public class Martine : Actor
             _currentVent = null;
         }
 
+        for (int i = 0; i < _myVentList.Count; i++)
+        {
+            Global.PoolingManager.LocalSpawn("DeathEffect", _myVentList[i].transform.position, _myVentList[i].transform.transform.rotation, true);
+            PhotonNetwork.Destroy(_myVentList[i].gameObject);
+        }
+
+        _myVentList.Clear();
         _colliedVent.Clear();
     }
 }
