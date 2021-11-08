@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3998083645
+CRC: 88487596
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 29d02ebf13082a888c9d4d6bf8ca5d2e
+    Hash: 7eef79f4897b3743cff4d50657fd1bd0
   TypeTreeHash:
     serializedVersion: 2
-    Hash: e9b7c7d7e5b86ace488a36d093733ccc
+    Hash: 5c65eccebf3e74851a7a1d16fe10a37f
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -58,6 +58,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 9b3486641cd10744ba029c1551f3ffdf, type: 3}
@@ -73,6 +75,10 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 12625a965a9c6af46a34e99decc655bc, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 8069ffa6ab7df7340ad5ce0c3da47526, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 102214086907cdc4d8cebf3d9c366ff2, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1b1f2808311340143b370c1f194e7c63, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 9aa258383063c6143ab87af7af76ca3c, type: 3}
 - Class: 114
@@ -133,6 +139,8 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 233
   Script: {instanceID: 0}
+- Class: 331
+  Script: {instanceID: 0}
 Assets:
 - Assets/Prefab/Chimpanzee/Panzee_Blue.prefab
 - Assets/Prefab/Actor/Actor.prefab
@@ -156,6 +164,7 @@ Assets:
 - Assets/Prefab/Actor_Sub/Normal_Bullet.prefab
 - Assets/Prefab/Effect/OperatorTrajectory.prefab
 - Assets/Prefab/Effect/Kakashi_EyeCanvas.prefab
+- Assets/Prefab/Actor_Sub/BattleGround_Aim.prefab
 - Assets/Prefab/Actor_Sub/AnimalCrossing_FishBullet.prefab
 - Assets/Prefab/Actor_Sub/Sans_Gaster_Blast.prefab
 - Assets/Prefab/ActorSpawner.prefab
@@ -176,5 +185,6 @@ Assets:
 - Assets/Prefab/Chimpanzee/Panzee_Red_TShirt.prefab
 - Assets/Prefab/Actor/Naruto.prefab
 - Assets/Prefab/Actor_Sub/Ahri_Heart.prefab
+- Assets/Prefab/Effect/BattleGround_BackGround.prefab
 - Assets/Prefab/Actor/AnimalCrossing.prefab
 Dependencies: []
