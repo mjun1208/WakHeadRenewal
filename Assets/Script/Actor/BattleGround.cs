@@ -17,6 +17,11 @@ public class BattleGround : Actor
     private ThrowType _throwType;
     private bool _onSniping = false;
 
+    private Vector3 _throwPosition;
+    private Vector3 _throwDir;
+
+    private List<BattleGround_Throw> _throwList = new List<BattleGround_Throw>();
+
     protected override void Active_Attack()
     {
         if (!photonView.IsMine)
@@ -74,9 +79,12 @@ public class BattleGround : Actor
     [PunRPC]
     public void ThrowRPC(int throwType)
     {
-        var newBullet = Global.PoolingManager.LocalSpawn("Normal_Bullet", this.transform.position, Quaternion.identity, true);
+        var newThrow = Global.PoolingManager.LocalSpawn($"BattleGround_Throw_{(ThrowType)throwType}", this.transform.position, Quaternion.identity, true);
+        var newThrowScript = newThrow.GetComponent<BattleGround_Throw>();
+        newThrowScript.SetInfo(this.photonView, this.gameObject, GetAttackDir(), (ThrowType)throwType);
 
-        newBullet.GetComponent<Normal_Bullet>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
+        newThrowScript.DestoryAction += DespawnThrow;
+        _throwList.Add(newThrowScript);
     }
 
     [PunRPC]
@@ -85,5 +93,44 @@ public class BattleGround : Actor
         var newBullet = Global.PoolingManager.LocalSpawn("BattleGround_Aim", this.transform.position, Quaternion.identity, true);
 
         newBullet.GetComponent<BattleGround_Aim>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
+    }
+
+    public void DespawnThrow(ActorSub throws)
+    {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        throws.DestoryAction -= DespawnThrow;
+
+        photonView.RPC("DespawnThrowRPC", RpcTarget.All, GetThrowIndex(throws as BattleGround_Throw));
+    }
+
+    private int GetThrowIndex(BattleGround_Throw targetThrow)
+    {
+        int index = 0;
+
+        foreach (var throws in _throwList)
+        {
+            if (throws == targetThrow)
+            {
+                return index;
+            }
+
+            index++;
+        }
+
+        return -1;
+    }
+
+    [PunRPC]
+    public void DespawnThrowRPC(int count)
+    {
+        var targetThrow = _throwList[count];
+
+        _throwList.Remove(targetThrow);
+
+        Global.PoolingManager.LocalDespawn(targetThrow.gameObject);
     }
 }
