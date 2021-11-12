@@ -24,7 +24,7 @@ public class BattleGround_Throw : ActorSub
 
     private void Update()
     {
-        this.transform.localEulerAngles += new Vector3(0, 0, 30) * Time.deltaTime;
+        this.transform.Rotate(new Vector3(0, 0, 720f) * Time.deltaTime);
 
         _attackRange.AttackEntity(targetEntity =>
         {
