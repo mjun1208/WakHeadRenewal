@@ -204,7 +204,6 @@ public class Kakashi : Actor
     [PunRPC]
     public void DespawnShurikenRPC(int count)
     {
-        Debug.Log(count);
         var targetShuriken = _shurikenList[count];
 
         _shurikenList.Remove(targetShuriken);
