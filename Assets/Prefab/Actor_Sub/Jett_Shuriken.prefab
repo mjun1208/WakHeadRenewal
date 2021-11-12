@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4940520504604284284}
   - component: {fileID: 4316313160832286636}
   - component: {fileID: 3755827562695655822}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Jett_Shuriken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
