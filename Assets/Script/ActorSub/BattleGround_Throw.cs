@@ -13,6 +13,10 @@ public class BattleGround_Throw : ActorSub
 
         _throwType = throwType;
 
+        _rigid.velocity = Vector2.zero;
+
+        _rigid.AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
+
         _moveSpeed = Constant.BATTLEGROUND_THROW_MOVE_SPEED;
 
         StartCoroutine(Go());
@@ -34,6 +38,24 @@ public class BattleGround_Throw : ActorSub
             }
             OnDamage(null, 5);
         }, true);
+    }
+
+    protected override IEnumerator Go()
+    {
+        float goTime = 0;
+
+        while (goTime < _lifeTime)
+        {
+            goTime += Time.deltaTime;
+
+            this.transform.position += _dir * _moveSpeed * Time.deltaTime;
+            // this.transform.Translate(_dir * _moveSpeed * Time.deltaTime);
+            //_rigid.MovePosition(this.transform.position + _dir * _moveSpeed * Time.deltaTime);
+
+            yield return null;
+        }
+
+        Destroy();
     }
 
     protected override void OnDamage(Entity entity, int damage)
