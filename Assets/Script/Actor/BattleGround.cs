@@ -15,10 +15,11 @@ public class BattleGround : Actor
     }
 
     private ThrowType _throwType;
-    private bool _onSniping = false;
 
     private Vector3 _throwPosition;
     private Vector3 _throwDir;
+
+    private bool _onSniping = false;
 
     private List<BattleGround_Throw> _throwList = new List<BattleGround_Throw>();
 
