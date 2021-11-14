@@ -21,7 +21,37 @@ public class BattleGround : Actor
 
     private bool _onSniping = false;
 
+    private BattleGround_Aim _aim;
     private List<BattleGround_Throw> _throwList = new List<BattleGround_Throw>();
+
+    protected override void ForceStop()
+    {
+        base.ForceStop();
+
+        if (_aim != null)
+        {
+            _aim.Destroy();
+            _aim = null;
+        }
+    }
+
+    protected override void Update()
+    {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        if (_aim != null)
+        {
+            if (Skill_2Input())
+            {
+                photonView.RPC("SnipeShootRPC", RpcTarget.All, _aim.AimPosition);
+            }
+        }
+
+        base.Update();
+    }
 
     protected override void Active_Attack()
     {
@@ -74,7 +104,20 @@ public class BattleGround : Actor
 
         _animator.SetBool("IsSkill_2", true);
 
-        photonView.RPC("SnipeRPC", RpcTarget.All);
+        var centerPosition = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0f));
+        centerPosition.z = 0f;
+
+        var newAim = Global.PoolingManager.Spawn("BattleGround_Aim", centerPosition, Quaternion.identity);
+        photonView.RPC("SetAimInfoRPC", RpcTarget.All, centerPosition, newAim.GetPhotonView().ViewID);
+    }
+
+    public void EndSnipe(ActorSub aim) 
+    {
+        aim.DestoryAction -= EndSnipe;
+
+        IsDoingSkill = false;
+        IsSkill_2 = false;
+        _animator.SetBool("IsSkill_2", false);
     }
 
     [PunRPC]
@@ -89,11 +132,25 @@ public class BattleGround : Actor
     }
 
     [PunRPC]
-    public void SnipeRPC()
+    public void SetAimInfoRPC(Vector3 aimPosition, int photonViewID)
     {
-        var newBullet = Global.PoolingManager.LocalSpawn("BattleGround_Aim", this.transform.position, Quaternion.identity, true);
+        var newAim = PhotonView.Find(photonViewID).gameObject.GetComponent<BattleGround_Aim>();
 
-        newBullet.GetComponent<BattleGround_Aim>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
+        newAim.GetComponent<BattleGround_Aim>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
+
+        newAim.transform.position = aimPosition;
+
+        _aim = newAim.GetComponent<BattleGround_Aim>();
+        _aim.DestoryAction += EndSnipe;
+    }
+
+    [PunRPC]
+    public void SnipeShootRPC(Vector3 aimPosition)
+    {
+        if (_aim != null)
+        {
+            _aim.Shoot(aimPosition);
+        }
     }
 
     public void DespawnThrow(ActorSub throws)
@@ -133,5 +190,15 @@ public class BattleGround : Actor
         _throwList.Remove(targetThrow);
 
         Global.PoolingManager.LocalDespawn(targetThrow.gameObject);
+    }
+
+    protected override void Dead()
+    {
+        base.Dead();
+
+        if (_aim != null){
+            _aim.Destroy();
+            _aim = null;
+        }
     }
 }
