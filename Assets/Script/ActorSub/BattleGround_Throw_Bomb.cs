@@ -13,6 +13,11 @@ public class BattleGround_Throw_Bomb : ActorSub
 
         _throwType = throwType;
 
+        if (_throwType == BattleGround.ThrowType.MOLOTOV)
+        {
+            pos += new Vector3(0, 1f, 0);
+        }
+
         this.transform.position = pos;
     }
 
