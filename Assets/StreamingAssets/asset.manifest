@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1030815893
+CRC: 1069667432
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5c707f53009a7511dd597ef2b4e6b08d
+    Hash: 73d514767c38bcc82dd8f9d5edddd3d4
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 511acc63e27903f3ab056b69bb163cc6
+    Hash: 61e147cae3569b6d994f0b66e02ce305
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -74,6 +74,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 3c5c1db55a3383841a076e3478f3f466, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 24911a86f9cf4b341a79a3109246935e, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 12625a965a9c6af46a34e99decc655bc, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 8069ffa6ab7df7340ad5ce0c3da47526, type: 3}
@@ -123,8 +125,6 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 5551c22f62fabdb4aa5ab8452dafd9f8, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 4ce6e1df3bd4d454da47664251cd7f1e, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 24911a86f9cf4b341a79a3109246935e, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 198
@@ -160,7 +160,6 @@ Assets:
 - Assets/Prefab/Actor/Dummy.prefab
 - Assets/Prefab/Effect/HitEffect.prefab
 - Assets/Prefab/Actor_Sub/Kakashi_Shuriken.prefab
-- Assets/Prefab/Actor_Sub/AnimalCrossing_Fish.prefab
 - Assets/Prefab/Effect/Blood.prefab
 - Assets/Prefab/Actor_Sub/Sans_Gaster.prefab
 - Assets/Prefab/Actor_Sub/Minecraft_Lava.prefab
@@ -188,6 +187,7 @@ Assets:
 - Assets/Prefab/Actor_Sub/BattleGround_Throw_MOLOTOV.prefab
 - Assets/Prefab/Actor/Minecraft.prefab
 - Assets/Prefab/Actor/Sans.prefab
+- Assets/Prefab/Effect/SnipeHitEffect.prefab
 - Assets/Prefab/Actor_Sub/Naruto_Dummy.prefab
 - Assets/Prefab/Effect/GhostEffect.prefab
 - Assets/Prefab/Actor_Sub/Jett_Shuriken.prefab
