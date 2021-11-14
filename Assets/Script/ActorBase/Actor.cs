@@ -23,7 +23,7 @@ public abstract class Actor : Entity, IPunObservable
     protected bool _isAttack = false;
     protected bool _isAttackInput = false;
 
-    private Vector3 _Movedir = Vector3.zero;
+    private Vector3 _movedir = Vector3.zero;
 
     protected bool _isSkill_1Input = false;
     protected bool _isSkill_2Input = false;
@@ -157,27 +157,27 @@ public abstract class Actor : Entity, IPunObservable
     {
         _isMoveInput = false;
 
-        _Movedir = Vector3.zero;
+        _movedir = Vector3.zero;
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            _Movedir = Vector3.left;
+            _movedir = Vector3.left;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            _Movedir = Vector3.right;
+            _movedir = Vector3.right;
         }
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            _Movedir += Vector3.up * 0.6f;
+            _movedir += Vector3.up * 0.6f;
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
-            _Movedir += Vector3.down * 0.6f;
+            _movedir += Vector3.down * 0.6f;
         }
 
-        if (_Movedir != Vector3.zero)
+        if (_movedir != Vector3.zero)
         {
             _isMoveInput = true;
         }
@@ -187,20 +187,21 @@ public abstract class Actor : Entity, IPunObservable
     {
         _isMove = false;
 
-        if (_Movedir != Vector3.zero)
+        if (_movedir != Vector3.zero)
         {
             _isMove = true;
         }
 
-        if (_isMove && _Movedir.x != 0)
+        if (_isMove && _movedir.x != 0)
         {
-            float rotationScale = _originalScale.x * _Movedir.x;
+            float rotationScale = _originalScale.x * _movedir.x;
             this.transform.localScale = new Vector3(rotationScale, _originalScale.y, _originalScale.z);
         }
 
         float moveSpeed = _isAttack ? _attackMoveSpeed : _moveSpeed;
 
-        _rigid.MovePosition(transform.position + _Movedir * moveSpeed * Time.deltaTime);
+        Vector2 vow = transform.position + _movedir * moveSpeed * Time.deltaTime;
+        _rigid.MovePosition(vow);
         _animator.SetBool("IsWalk", _isMove);
     }
 
