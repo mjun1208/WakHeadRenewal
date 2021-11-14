@@ -13,6 +13,8 @@ public class Title : MonoBehaviourPunCallbacks
 
     public int playerTTL = -1;
 
+    private bool _isConnected = false;
+
     [SerializeField] private GameObject _waitImage;
 
     private void Start()
@@ -23,6 +25,11 @@ public class Title : MonoBehaviourPunCallbacks
 
     public void CreateRoom()
     {
+        if (!PhotonNetwork.IsConnected || !_isConnected)
+        {
+            return;
+        }
+
         _waitImage.SetActive(true);
 
         RoomOptions roomOptions = new RoomOptions() { MaxPlayers = this.MaxPlayers };
@@ -49,6 +56,8 @@ public class Title : MonoBehaviourPunCallbacks
             "] and can join a room. Calling: PhotonNetwork.JoinRandomRoom();");
 
         PhotonNetwork.AutomaticallySyncScene = true;
+
+        _isConnected = true;
     }
 
     public override void OnJoinedLobby()
