@@ -30,7 +30,10 @@ public class BattleGround_Throw_Bomb : ActorSub
 
         _attackRange.Attack(targetEntity =>
         {
-            targetEntity.Damaged(this.transform.position, 5);
+            var dir = targetEntity.transform.position - this.transform.position;
+            dir.Normalize();
+            targetEntity.KnockBack(10, dir, 0.1f, 0);
+            // targetEntity.Damaged(this.transform.position, 5);
         });
     }
 }
