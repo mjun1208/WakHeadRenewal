@@ -20,6 +20,8 @@ public static class Constant
     public const float KAKASHI_SHURIKEN_MOVE_SPEED = 15f;
     public const float NARUTO_RASENGAN_MOVE_SPEED = 3f;
     public const float MINECRAFT_SLAVE_MOVE_SPEED = 8f;
+    public const float BATTLEGROUND_THROW_MOVE_SPEED = 10f;
+    public const float BATTLEGROUND_THROW_LIFETIME = 0.65f;
 
     public const string PANZEE_BLUE = "Panzee_Blue";
     public const string PANZEE_RED = "Panzee_Red";

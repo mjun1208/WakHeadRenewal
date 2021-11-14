@@ -15,9 +15,10 @@ public class BattleGround_Throw : ActorSub
 
         _rigid.velocity = Vector2.zero;
 
-        _rigid.AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
+        _rigid.AddForce(new Vector2(0f, 6f), ForceMode2D.Impulse);
 
         _moveSpeed = Constant.BATTLEGROUND_THROW_MOVE_SPEED;
+        _lifeTime = Constant.BATTLEGROUND_THROW_LIFETIME;
 
         StartCoroutine(Go());
     }
