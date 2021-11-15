@@ -28,12 +28,36 @@ public class BattleGround_Throw_Bomb : ActorSub
             return;
         }
 
-        _attackRange.Attack(targetEntity =>
+        switch (_throwType)
         {
-            var dir = targetEntity.transform.position - this.transform.position;
-            dir.Normalize();
-            targetEntity.KnockBack(10, dir, 0.1f, 0);
-            // targetEntity.Damaged(this.transform.position, 5);
-        });
+            case BattleGround.ThrowType.GRENADE:
+                {
+                    _attackRange.Attack(targetEntity =>
+                    {
+                        var dir = targetEntity.transform.position - this.transform.position;
+                        dir.Normalize();
+
+                        targetEntity.KnockBack(20, dir, 1f, 0);
+                    });
+                    break;
+                }
+            case BattleGround.ThrowType.MOLOTOV:
+                {
+                    _attackRange.Attack(targetEntity =>
+                    {
+                        targetEntity.Damaged(targetEntity.transform.position, 10);
+                    });
+                    break;
+                }
+            case BattleGround.ThrowType.FLASH_BANG:
+                {
+                    _attackRange.Attack(targetEntity =>
+                    {
+                        targetEntity.Stun(2.5f);
+                        targetEntity.Damaged(targetEntity.transform.position, 10);
+                    });
+                    break;
+                }
+        }
     }
 }
