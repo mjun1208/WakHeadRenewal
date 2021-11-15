@@ -96,6 +96,33 @@ public class Chimpanzee : Entity, IPunObservable
             return;
         }
 
+        if (_isHeart)
+        {
+            Actor enemy = null;
+
+            if (MyTeam == Global.instance.MyTeam)
+            {
+                enemy = Global.instance.EnemyActor;
+            }
+            else
+            {
+                enemy = Global.instance.MyActor;
+            }
+
+            if (enemy != null)
+            {
+                var enemyPos = enemy.transform.position;
+                var dir = enemyPos - this.transform.position;
+                dir.Normalize();
+
+                Vector2 vow = transform.position + dir * moveSpeed * 0.5f * Time.deltaTime;
+                _rigid.MovePosition(vow);
+                _animator.SetBool("IsWalk", _isHeart);
+            }
+
+            return;
+        }
+
         if (_attackDelay > 0)
         {
             _attackDelay -= Time.deltaTime;

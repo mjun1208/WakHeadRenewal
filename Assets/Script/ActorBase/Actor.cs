@@ -100,6 +100,21 @@ public abstract class Actor : Entity, IPunObservable
             return;
         }
 
+        if (_isHeart)
+        {
+            if (Global.instance.EnemyActor != null)
+            {
+                var enemyPos = Global.instance.EnemyActor.transform.position;
+                var dir = enemyPos - this.transform.position;
+                dir.Normalize();
+
+                Vector2 vow = transform.position + dir * _moveSpeed * 0.5f * Time.deltaTime;
+                _rigid.MovePosition(vow);
+                _animator.SetBool("IsWalk", _isHeart);
+            }
+
+            return;
+        }
         if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
             _isAttack = true;
