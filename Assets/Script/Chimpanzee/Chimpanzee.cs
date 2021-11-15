@@ -91,7 +91,7 @@ public class Chimpanzee : Entity, IPunObservable
 
     private void Update()
     {
-        if (!photonView.IsMine)
+        if (!photonView.IsMine || IsDead || IsStun)
         {
             return;
         }
