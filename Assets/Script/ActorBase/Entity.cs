@@ -286,6 +286,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
 
         _isHeart = false;
     }
+
     public void Damaged(Vector3 pos, int damage)
     {
         photonView.RPC("OnDamageRPC", RpcTarget.All, pos, damage);
