@@ -95,7 +95,7 @@ public abstract class Actor : Entity, IPunObservable
 
     protected virtual void Update()
     {
-        if (!photonView.IsMine || IsDead)
+        if (!photonView.IsMine || IsDead || IsStun)
         {
             return;
         }
