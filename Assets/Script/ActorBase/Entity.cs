@@ -85,6 +85,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
 
     protected bool _isStun = false;
     protected bool _isDead = false;
+    protected bool _isHeart = false;
 
     private IEnumerator currentCrownControl = null;
 
@@ -95,6 +96,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
             stream.SendNext(_maxHP);
             stream.SendNext(_currentHP);
             stream.SendNext(_isDead);
+            stream.SendNext(_isHeart);
         }
         else
         {
@@ -102,10 +104,16 @@ public abstract class Entity : MonoBehaviourPunCallbacks
             _currentHP = (int)stream.ReceiveNext();
 
             bool isDead = (bool)stream.ReceiveNext();
+            bool isHeart = (bool)stream.ReceiveNext();
 
             if (IsDead != isDead)
             {
                 IsDead = isDead;
+            }
+
+            if (_isHeart != isHeart)
+            {
+                _isHeart = isHeart;
             }
         }
     }
@@ -125,6 +133,7 @@ public abstract class Entity : MonoBehaviourPunCallbacks
         if (currentCrownControl != null)
         {
             StopCoroutine(currentCrownControl);
+            _isHeart = false;
         }
 
         currentCrownControl = null;
@@ -190,6 +199,27 @@ public abstract class Entity : MonoBehaviourPunCallbacks
         StartCoroutine(currentCrownControl);
     }
 
+
+    public void Heart()
+    {
+        photonView.RPC("HeartRPC", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void HeartRPC()
+    {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        CrownControlAction?.Invoke();
+
+        currentCrownControl = OnHeart();
+
+        StartCoroutine(currentCrownControl);
+    }
+
     private IEnumerator OnKnockBack(int damage, Vector3 dir, float power, float stunTime)
     {
         if (stunTime > 0)
@@ -248,6 +278,14 @@ public abstract class Entity : MonoBehaviourPunCallbacks
         IsStun = false;
     }
 
+    private IEnumerator OnHeart()
+    {
+        _isHeart = true;
+
+        yield return new WaitForSeconds(3f);
+
+        _isHeart = false;
+    }
     public void Damaged(Vector3 pos, int damage)
     {
         photonView.RPC("OnDamageRPC", RpcTarget.All, pos, damage);
