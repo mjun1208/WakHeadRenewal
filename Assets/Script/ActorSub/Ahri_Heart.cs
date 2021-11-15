@@ -29,4 +29,17 @@ public class Ahri_Heart : ActorSub
             OnDamage(null, 10);
         }, true);
     }
+
+    protected override void OnDamage(Entity entity, int damage)
+    {
+        StopAllCoroutines();
+
+        if (_ownerPhotonView.IsMine)
+        {
+            entity?.Damaged(this.transform.position, damage);
+            entity?.Heart();
+        }
+
+        Destroy();
+    }
 }
