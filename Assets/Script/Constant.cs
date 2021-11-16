@@ -28,4 +28,6 @@ public static class Constant
     public const string PANZEE_RED = "Panzee_Red";
     public const string PANZEE_BLUE_TSHIRT = "Panzee_Blue_TShirt";
     public const string PANZEE_RED_TSHIRT = "Panzee_Red_TShirt";
+
+    public static readonly Color HEART_COLOR = new Color(255f / 255f, 20f / 255f, 150f / 255f, 1f);
 }
