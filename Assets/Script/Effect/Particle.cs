@@ -17,6 +17,7 @@ public class Particle : MonoBehaviour
     {
         if (!_particle.isPlaying)
         {
+            _particle.Stop();
             Global.PoolingManager.Despawn(this.gameObject);
         }
     }

@@ -8,6 +8,7 @@ public class LocalParticle : Particle
     {
         if (!_particle.isPlaying)
         {
+            _particle.Stop();
             Global.PoolingManager.LocalDespawn(this.gameObject);
         }
     }
