@@ -7,6 +7,7 @@ using UnityEngine;
 public abstract class Entity : MonoBehaviourPunCallbacks
 {
     [SerializeField] protected Rigidbody2D _rigid;
+    [SerializeField] protected SpriteRenderer _renderer;
 
     private bool _knockBack = false;
     private bool _grab = false;
