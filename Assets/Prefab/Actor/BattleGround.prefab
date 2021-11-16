@@ -150,9 +150,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigid: {fileID: 813009445568382610}
+  _renderer: {fileID: 813009445568382607}
   _animator: {fileID: 813009445568382606}
   _smoothSync: {fileID: 813009445568382605}
-  _renderer: {fileID: 813009445568382607}
   _collider2D: {fileID: 1298907750334873800}
   _attackRange: {fileID: 7162562656467340661}
   _skill_1Range: {fileID: 6598784724097485463}
@@ -346,9 +346,6 @@ MonoBehaviour:
     Name: IsAttack
   - Type: 4
     SynchronizeType: 2
-    Name: IsSkill_1
-  - Type: 4
-    SynchronizeType: 2
     Name: IsSkill_2
   - Type: 4
     SynchronizeType: 0
@@ -359,6 +356,9 @@ MonoBehaviour:
   - Type: 3
     SynchronizeType: 2
     Name: Throws
+  - Type: 4
+    SynchronizeType: 0
+    Name: IsSkill_1_0
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
