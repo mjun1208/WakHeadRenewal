@@ -118,6 +118,8 @@ public class BattleGround : Actor
         IsDoingSkill = false;
         IsSkill_2 = false;
         _animator.SetBool("IsSkill_2", false);
+
+        aim = null;
     }
 
     [PunRPC]
