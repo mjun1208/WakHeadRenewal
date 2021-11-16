@@ -185,11 +185,17 @@ public class BattleGround : Actor
     [PunRPC]
     public void DespawnThrowRPC(int count)
     {
-        var targetThrow = _throwList[count];
+        if (_throwList.Count > count)
+        {
+            var targetThrow = _throwList[count];
 
-        _throwList.Remove(targetThrow);
+            if (targetThrow != null)
+            {
+                _throwList.Remove(targetThrow);
 
-        Global.PoolingManager.LocalDespawn(targetThrow.gameObject);
+                Global.PoolingManager.LocalDespawn(targetThrow.gameObject);
+            }
+        }
     }
 
     protected override void Dead()
