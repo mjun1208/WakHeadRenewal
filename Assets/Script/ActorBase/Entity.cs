@@ -135,6 +135,9 @@ public abstract class Entity : MonoBehaviourPunCallbacks
         {
             StopCoroutine(currentCrownControl);
             _isHeart = false;
+
+            photonView.RPC("ChangeColor", RpcTarget.All,
+                Color.white.r, Color.white.g, Color.white.b, Color.white.a);
         }
 
         currentCrownControl = null;
@@ -209,6 +212,11 @@ public abstract class Entity : MonoBehaviourPunCallbacks
     [PunRPC]
     public void HeartRPC()
     {
+        var heartParticle = Global.PoolingManager.LocalSpawn("HeartParticle", this.transform.position + new Vector3(0,0,-1f), Quaternion.Euler(-90f, 0f, 0f), true);
+        heartParticle.transform.parent = this.transform;
+        heartParticle.transform.localPosition = Vector3.zero;
+        heartParticle.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+
         if (!photonView.IsMine)
         {
             return;
@@ -283,9 +291,23 @@ public abstract class Entity : MonoBehaviourPunCallbacks
     {
         _isHeart = true;
 
-        yield return new WaitForSeconds(3f);
+        StunAction?.Invoke();
+
+        photonView.RPC("ChangeColor", RpcTarget.All,
+            Constant.HEART_COLOR.r, Constant.HEART_COLOR.g, Constant.HEART_COLOR.b, Constant.HEART_COLOR.a);
+
+        yield return new WaitForSeconds(1.5f);
 
         _isHeart = false;
+
+        photonView.RPC("ChangeColor", RpcTarget.All, 
+            Color.white.r, Color.white.g, Color.white.b, Color.white.a);
+    }
+
+    [PunRPC]
+    public void ChangeColor(float r, float g, float b, float a)
+    {
+        _renderer.color = new Color(r, g, b, a);
     }
 
     public void Damaged(Vector3 pos, int damage)
