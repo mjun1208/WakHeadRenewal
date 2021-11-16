@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigid: {fileID: 1156776969094489898}
+  _renderer: {fileID: 5355879083403094324}
   _animator: {fileID: 7455623265249978266}
   _attackRange: {fileID: 2006480668188023102}
 --- !u!212 &5355879083403094324
