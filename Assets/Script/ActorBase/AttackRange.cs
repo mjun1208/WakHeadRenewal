@@ -100,6 +100,54 @@ public class AttackRange : MonoBehaviour
         }
     }
 
+    public void AttackRandom(Action<Entity> entityAction, bool singleTarget = false)
+    {
+        bool isEntity = false;
+        bool isSummoned = false;
+
+        if (CollidedObjectList.Count > 0)
+        {
+            isEntity = true;
+        }
+        if (CollidedSummonedObjectList.Count > 0)
+        {
+            isSummoned = false;
+        }
+
+        var attackEntitiy = UnityEngine.Random.Range(0, 2) == 0;
+
+        if (isEntity && !isSummoned)
+        {
+            attackEntitiy = true;
+        }
+        else if (!isEntity && isSummoned)
+        {
+            attackEntitiy = false;
+        }
+
+        if (attackEntitiy && isEntity)
+        {
+            int index = UnityEngine.Random.Range(0, CollidedObjectList.Count);
+
+            var targetObject = CollidedObjectList[index];
+
+            if (targetObject.GetComponent<Entity>().IsDead)
+            {
+                CollidedObjectList.Remove(targetObject);
+            }
+
+            entityAction?.Invoke(targetObject.GetComponent<Entity>());
+        }
+        else if (!attackEntitiy && isSummoned)
+        {
+            int index = UnityEngine.Random.Range(0, CollidedSummonedObjectList.Count);
+
+            var targetObject = CollidedSummonedObjectList[index];
+
+            targetObject.GetComponent<Summoned>().Damaged(targetObject.transform.position);
+        }
+    }
+
     public void AttackEntity(Action<Entity> entityAction, bool singleTarget = false)
     {
         if (CollidedObjectList.Count > 0)
