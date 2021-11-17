@@ -22305,6 +22305,7 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 917e46a801271bf429c137d7f2f469a3, type: 2}
   - {fileID: 9100000, guid: a6d2f22d0d7482946b676157cccd109f, type: 2}
   - {fileID: 9100000, guid: 30239818ac0ac314c8b373bb4d999511, type: 2}
+  - {fileID: 9100000, guid: 1a1ea3782801c544e8634a19fccdc5ec, type: 2}
 --- !u!95 &1465424282
 Animator:
   serializedVersion: 3
@@ -29991,7 +29992,7 @@ PrefabInstance:
     - target: {fileID: 4815150383174760520, guid: d2f0b614659344a44af3513cbb9bfff5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4815150383174760520, guid: d2f0b614659344a44af3513cbb9bfff5,
         type: 3}
@@ -30001,22 +30002,22 @@ PrefabInstance:
     - target: {fileID: 5446785290038663124, guid: d2f0b614659344a44af3513cbb9bfff5,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 68.836716
+      value: 101.1409
       objectReference: {fileID: 0}
     - target: {fileID: 5446785290038663124, guid: d2f0b614659344a44af3513cbb9bfff5,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 114.01083
+      value: 101.1409
       objectReference: {fileID: 0}
     - target: {fileID: 5446785290038663124, guid: d2f0b614659344a44af3513cbb9bfff5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 10.7
+      value: 4.4
       objectReference: {fileID: 0}
     - target: {fileID: 5446785290038663124, guid: d2f0b614659344a44af3513cbb9bfff5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -41.8
+      value: -29.2
       objectReference: {fileID: 0}
     - target: {fileID: 5922519519423978938, guid: d2f0b614659344a44af3513cbb9bfff5,
         type: 3}
@@ -30027,8 +30028,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c96104eaa4481c947ae9c69810453bc2,
-        type: 2}
+      objectReference: {fileID: -6407621143176597715, guid: 8599c408628dd51499430769b814b005,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2f0b614659344a44af3513cbb9bfff5, type: 3}
 --- !u!1 &2099021592
@@ -33124,3 +33125,4 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 917e46a801271bf429c137d7f2f469a3, type: 2}
   - {fileID: 9100000, guid: a6d2f22d0d7482946b676157cccd109f, type: 2}
   - {fileID: 9100000, guid: 30239818ac0ac314c8b373bb4d999511, type: 2}
+  - {fileID: 9100000, guid: 1a1ea3782801c544e8634a19fccdc5ec, type: 2}
