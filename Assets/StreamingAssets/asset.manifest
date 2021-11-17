@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2600349821
+CRC: 664835435
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 83876aade436fa1b10966184151d7ff5
+    Hash: daa430e87b916b5c5c3cbdc75f570c83
   TypeTreeHash:
     serializedVersion: 2
     Hash: 7b71a97e677840a31520f6991a41c341
@@ -196,6 +196,7 @@ Assets:
 - Assets/Prefab/PickSync.prefab
 - Assets/Prefab/Actor_Sub/BattleGround_Throw_GRENADE_Bomb.prefab
 - Assets/Prefab/Chimpanzee/Panzee_Red_TShirt.prefab
+- Assets/Resources/Vengenpro.prefab
 - Assets/Prefab/Actor/Naruto.prefab
 - Assets/Prefab/Actor_Sub/Ahri_Heart.prefab
 - Assets/Prefab/Actor/AnimalCrossing.prefab
