@@ -529,9 +529,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.048567683
   m_TransitionOffset: 0
-  m_ExitTime: 0.9
+  m_ExitTime: 0.90000004
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -580,7 +580,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6e15e4fa2ee243b49b0232cae896f111, type: 2}
+  m_Motion: {fileID: 7400000, guid: e3f555a6704bdeb47b013eecce317dec, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -800,9 +800,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.043333292
+  m_TransitionDuration: 0.064166665
   m_TransitionOffset: 0
-  m_ExitTime: 0.90000004
+  m_ExitTime: 0.9
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1005,7 +1005,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Actor
+  m_Name: Vengenpro
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: IsWalk
@@ -1174,7 +1174,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 38220f6e0c5f71842b61cac8c1b109c2, type: 2}
+  m_Motion: {fileID: 7400000, guid: fb31c80e958ca97448c4ddedc25b40a0, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1330,7 +1330,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: deaf0524e7776c24eb7e82a91153b28d, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2f4e129d0471ebe44b15175fe6b4c560, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1434,7 +1434,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c06e1cfe364e68e449f8144f7255802c, type: 2}
+  m_Motion: {fileID: 7400000, guid: 3bc6184e44fe130488da2142a9fd6afb, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1626,9 +1626,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.091796815
   m_TransitionOffset: 0
-  m_ExitTime: 0.9
+  m_ExitTime: 0.8999999
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1726,7 +1726,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 715cf5e7f1238664691b69ca9beb1041, type: 2}
+  m_Motion: {fileID: 7400000, guid: 74a07fdc6b259da45a0ce0cb9eb8daa1, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
