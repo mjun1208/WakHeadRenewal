@@ -63,3 +63,4 @@ Library/
 obj/
 Packages/
 *.sln
+.idea/
