@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2496863151
+CRC: 2556047933
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 20c470dc511fc2ccfc70f61766c5df91
+    Hash: 7f9a29842b658252b292b3214eb52a9a
   TypeTreeHash:
     serializedVersion: 2
-    Hash: b64822e1a6724a5ff4eb3a86d37c60d1
+    Hash: 74571dcc7ad7be8031f0d82fa945440e
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -43,6 +43,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: d5fbc760242446a4b906f71e9ead084f, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: c71e1b904d327ac49afe87a621a585c3, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ff33b5a09280c3d468133390361e9ff4, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: b057bea05aff6fd4389c3b8e69355ff3, type: 3}
 - Class: 114
@@ -127,6 +129,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 4ce6e1df3bd4d454da47664251cd7f1e, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: b58ecaff1ebb31a4d963f9c5c45e6588, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4a1816937c1820440821b2a0b3d81a4c, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 198
@@ -193,8 +197,10 @@ Assets:
 - Assets/Prefab/Actor/Sans.prefab
 - Assets/Prefab/Effect/SnipeHitEffect.prefab
 - Assets/Prefab/Actor_Sub/Naruto_Dummy.prefab
+- Assets/Prefab/Actor_Sub/Vengenpro_Note.prefab
 - Assets/Prefab/Effect/GhostEffect.prefab
 - Assets/Prefab/Actor_Sub/Jett_Shuriken.prefab
+- Assets/Prefab/Actor_Sub/Vengenpro_Zzang.prefab
 - Assets/Prefab/PickSync.prefab
 - Assets/Prefab/Actor_Sub/BattleGround_Throw_GRENADE_Bomb.prefab
 - Assets/Prefab/Chimpanzee/Panzee_Red_TShirt.prefab
