@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 516445533490580215}
   - component: {fileID: 768661795185579733}
   - component: {fileID: 6290173404489604046}
-  - component: {fileID: -886958525672393772}
+  - component: {fileID: 3278743630797315881}
   m_Layer: 12
   m_Name: Vengenpro_Zzang
   m_TagString: Untagged
@@ -135,7 +135,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-886958525672393772
+--- !u!114 &3278743630797315881
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8122539821149293536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff33b5a09280c3d468133390361e9ff4, type: 3}
+  m_Script: {fileID: 11500000, guid: 290b44ac1a94f474e967a048cf9b07dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rigid: {fileID: 6290173404489604046}
