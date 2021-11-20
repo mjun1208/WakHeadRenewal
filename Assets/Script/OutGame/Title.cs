@@ -15,28 +15,29 @@ public class Title : MonoBehaviourPunCallbacks
 
     private bool _isConnected = false;
 
+    [SerializeField] private GameObject _lobbyConnect;
+    [SerializeField] private GameObject _nickName;
+    [SerializeField] private GameObject _lobbyButton;
     [SerializeField] private GameObject _waitImage;
 
     private void Start()
     {
+        StartCoroutine(WaitConnectLobby());
+        
         PhotonNetwork.ConnectUsingSettings();
         PhotonNetwork.GameVersion = this.Version + "." + SceneManagerHelper.ActiveSceneBuildIndex;
     }
 
     public void CreateRoom()
     {
-        if (!PhotonNetwork.IsConnected || !_isConnected)
-        {
-            return;
-        }
-
         _waitImage.SetActive(true);
+        _lobbyButton.SetActive(false);
 
         RoomOptions roomOptions = new RoomOptions() { MaxPlayers = this.MaxPlayers };
         if (playerTTL >= 0)
             roomOptions.PlayerTtl = playerTTL;
 
-        PhotonNetwork.CreateRoom("WAK", roomOptions, null);
+        PhotonNetwork.CreateRoom(Global.instance.PlayerName, roomOptions, null);
 
         StartCoroutine(WaitPlayer());
     }
@@ -44,7 +45,9 @@ public class Title : MonoBehaviourPunCallbacks
     public void JoinRoom()
     {
         _waitImage.SetActive(true);
+        _lobbyButton.SetActive(false);
 
+        // PhotonNetwork.JoinRoom(Global.instance.PlayerName);
         PhotonNetwork.JoinRandomRoom();
 
         StartCoroutine(WaitPlayer());
@@ -66,7 +69,8 @@ public class Title : MonoBehaviourPunCallbacks
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
-    {
+    {        
+        GoLobby();
         Debug.Log("OnJoinRandomFailed() was called by PUN. No random room available in region [" + PhotonNetwork.CloudRegion + "], so we create one.");
     }
 
@@ -99,6 +103,11 @@ public class Title : MonoBehaviourPunCallbacks
 
         while (PhotonNetwork.CurrentRoom.PlayerCount < MaxPlayers)
         {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                break;
+            }
+
             yield return null;
         }
 
@@ -107,5 +116,39 @@ public class Title : MonoBehaviourPunCallbacks
         PhotonNetwork.AutomaticallySyncScene = true;
 
         PhotonNetwork.LoadLevel("Pick");
+    }
+
+    private IEnumerator WaitConnectLobby()
+    {
+        _lobbyConnect.SetActive(true);
+        _nickName.SetActive(false);
+        _lobbyButton.SetActive(false);
+        
+        if (!PhotonNetwork.IsConnected || !_isConnected)
+        { 
+            yield return null;
+        }
+        
+        _lobbyConnect.SetActive(false);
+
+        GoLobby();
+        
+        yield return null;
+    }
+
+    public void GoLobby()
+    {
+        _waitImage.SetActive(false);
+        
+        if (string.IsNullOrWhiteSpace(Global.instance.PlayerName))
+        {
+            _nickName.SetActive(true);
+            _lobbyButton.SetActive(false);
+        }
+        else
+        {
+            _lobbyButton.SetActive(true);
+            _nickName.SetActive(false);
+        }
     }
 }

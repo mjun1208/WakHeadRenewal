@@ -705,7 +705,7 @@ MonoBehaviour:
   _lobbyConnect: {fileID: 333362907}
   _nickName: {fileID: 720463094}
   _lobbyButton: {fileID: 1972542597}
-  _waitImage: {fileID: 0}
+  _waitImage: {fileID: 1217929315}
 --- !u!4 &439904965
 Transform:
   m_ObjectHideFlags: 0
@@ -1621,7 +1621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1217929316
 RectTransform:
   m_ObjectHideFlags: 0
