@@ -64,10 +64,7 @@ public class Vengenpro : Actor
             return;
         }
 
-        _skill_1Range.Attack(targetEntity =>
-        {
-            targetEntity.Grab(10, this.transform.position, 10f);
-        });
+        photonView.RPC("ShootZzang", RpcTarget.All);
     }
 
     protected override void Active_Skill_2()
@@ -77,15 +74,12 @@ public class Vengenpro : Actor
             return;
         }
 
-        photonView.RPC("ShootBullet", RpcTarget.All);
-    }
+        _skill_2Range.AttackEntity(targetEntity =>
+        {
+            var dir = targetEntity.transform.position - this.transform.position;
 
-    [PunRPC]
-    public void ShootBullet()
-    {
-        var newBullet = Global.PoolingManager.LocalSpawn("Normal_Bullet", this.transform.position, Quaternion.identity, true);
-
-        newBullet.GetComponent<Normal_Bullet>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
+            targetEntity.KnockBack(10, dir.normalized, 3f, 1.5f);
+        });
     }
 
     [PunRPC]
@@ -94,5 +88,19 @@ public class Vengenpro : Actor
         var newNote = Global.PoolingManager.LocalSpawn("Vengenpro_Note", this.transform.position, Quaternion.identity, true);
 
         newNote.GetComponent<Vengenpro_Note>().SetInfo(this.photonView, this.gameObject, randomDir);
+    }
+    
+    [PunRPC]
+    public void ShootZzang()
+    {
+        var newZzang = Global.PoolingManager.LocalSpawn("Vengenpro_Zzang", this.transform.position, Quaternion.identity, true);
+        
+        newZzang.GetComponent<Vengenpro_Zzang>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
+    }
+    
+    [PunRPC]
+    public void SonicBoom()
+    {
+        var newSonic = Global.PoolingManager.LocalSpawn("Vengenpro_SonicBoom", this.transform.position, Quaternion.identity, true);
     }
 }

@@ -86,6 +86,8 @@ MonoBehaviour:
   - HeartRPC
   - ChangeColor
   - ShootNote
+  - SonicBoom
+  - ShootZzang
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
