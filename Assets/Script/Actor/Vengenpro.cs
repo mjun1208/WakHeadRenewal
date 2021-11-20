@@ -6,7 +6,7 @@ using UnityEngine;
 public class Vengenpro : Actor
 {
     float _attackPressTime = 0f;
-    float _attackPressFullCharingTime = 0f;
+    float _attackPressFullChargingTime = 0f;
     float _attackPressDelay = 0f;
 
     protected override void Update()
@@ -17,20 +17,20 @@ public class Vengenpro : Actor
         {
             _attackPressDelay = 0f;
 
-            if (_attackPressTime < 5f)
+            if (_attackPressTime < 10f)
             {
                 _attackPressTime += Time.deltaTime;
                 _animator.SetFloat("AttackSpeed", 1 + _attackPressTime * 0.5f);
             }
             else
             {
-                _attackPressFullCharingTime += Time.deltaTime;
+                _attackPressFullChargingTime += Time.deltaTime;
             }
 
-            if (_attackPressFullCharingTime >= 1.5f)
+            if (_attackPressFullChargingTime >= 1.5f)
             {
-                _attackPressFullCharingTime = 0f;
-                _attackPressDelay = 5f;
+                _attackPressFullChargingTime = 0f;
+                _attackPressDelay = 0.5f;
             }
         }
         else
@@ -51,8 +51,10 @@ public class Vengenpro : Actor
 
         for (int i = 0; i < 3; i++)
         {
-            Vector2 randomDir = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+            Vector2 randomDir = new Vector2(Random.Range(0f, 1f), Random.Range(-0.5f, 0.5f));
 
+            randomDir.x *= GetAttackDir().x;
+            
             photonView.RPC("ShootNote", RpcTarget.All, randomDir);
         }
     }
