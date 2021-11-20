@@ -106,10 +106,10 @@ public abstract class Actor : Entity, IPunObservable
                 var enemyPos = Global.instance.EnemyActor.transform.position;
                 var dir = enemyPos - this.transform.position;
                 dir.Normalize();
-
-                Vector2 vow = transform.position + dir * _moveSpeed * 0.5f * Time.deltaTime;
-                _rigid.MovePosition(vow);
-                _animator.SetBool("IsWalk", _isHeart);
+                
+                _movedir = dir;
+                
+                Move(_moveSpeed * 0.5f);
             }
 
             return;
@@ -197,7 +197,7 @@ public abstract class Actor : Entity, IPunObservable
         }
     }
 
-    private void Move()
+    private void Move(float moveSpeed = 0f)
     {
         _isMove = false;
 
@@ -208,11 +208,24 @@ public abstract class Actor : Entity, IPunObservable
 
         if (_isMove && _movedir.x != 0)
         {
-            float rotationScale = _originalScale.x * _movedir.x;
+            float rotation = 0;
+            if (_movedir.x > 0)
+            {
+                rotation = 1;
+            }
+            else
+            {
+                rotation = -1;
+            }
+            
+            float rotationScale = _originalScale.x * rotation;
             this.transform.localScale = new Vector3(rotationScale, _originalScale.y, _originalScale.z);
         }
 
-        float moveSpeed = _isAttack ? _attackMoveSpeed : _moveSpeed;
+        if (moveSpeed == 0f)
+        {
+            moveSpeed = _isAttack ? _attackMoveSpeed : _moveSpeed;
+        }
 
         Vector2 vow = transform.position + _movedir * moveSpeed * Time.deltaTime;
         _rigid.MovePosition(vow);

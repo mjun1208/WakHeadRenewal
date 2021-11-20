@@ -98,28 +98,7 @@ public class Chimpanzee : Entity, IPunObservable
 
         if (_isHeart)
         {
-            Actor enemy = null;
-
-            if (MyTeam == Global.instance.MyTeam)
-            {
-                enemy = Global.instance.EnemyActor;
-            }
-            else
-            {
-                enemy = Global.instance.MyActor;
-            }
-
-            if (enemy != null)
-            {
-                var enemyPos = enemy.transform.position;
-                var dir = enemyPos - this.transform.position;
-                dir.Normalize();
-
-                Vector2 vow = transform.position + dir * moveSpeed * 0.5f * Time.deltaTime;
-                _rigid.MovePosition(vow);
-                _animator.SetBool("IsWalk", _isHeart);
-            }
-
+            HeartMove();
             return;
         }
 
@@ -174,6 +153,44 @@ public class Chimpanzee : Entity, IPunObservable
         {
             Vector3 dir = _targetTower.transform.position - this.transform.position;
             dir = dir.normalized;
+
+            if (dir.x != 0)
+            {
+                float rotation = 0;
+                if (dir.x > 0)
+                {
+                    rotation = 1;
+                }
+                else
+                {
+                    rotation = -1;
+                }
+                float rotationScale = _originalScale.x * rotation;
+                this.transform.localScale = new Vector3(rotationScale, _originalScale.y, _originalScale.z);
+            }
+
+            _rigid.MovePosition(transform.position + dir * moveSpeed * Time.deltaTime);
+        }
+    }
+
+    private void HeartMove()
+    {
+        Actor enemy = null;
+
+        if (MyTeam == Global.instance.MyTeam)
+        {
+            enemy = Global.instance.EnemyActor;
+        }
+        else
+        {
+            enemy = Global.instance.MyActor;
+        }
+
+        if (enemy != null)
+        {
+            var enemyPos = enemy.transform.position;
+            var dir = enemyPos - this.transform.position;
+            dir.Normalize();
 
             if (dir.x != 0)
             {
