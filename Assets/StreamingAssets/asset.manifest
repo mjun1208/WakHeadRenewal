@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2556047933
+CRC: 1394398323
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7f9a29842b658252b292b3214eb52a9a
+    Hash: 20734ed56507d712296f139e55baef1d
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 74571dcc7ad7be8031f0d82fa945440e
+    Hash: d87bf257a126e417d0df89303a818396
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -44,8 +44,6 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: c71e1b904d327ac49afe87a621a585c3, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: ff33b5a09280c3d468133390361e9ff4, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: b057bea05aff6fd4389c3b8e69355ff3, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: c39af3d05d213294092681fdf3bed02f, type: 3}
@@ -61,6 +59,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 8635c5c1e0b64714faae8f04285c813d, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4a1816937c1820440821b2a0b3d81a4c, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
 - Class: 114
@@ -110,6 +110,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 4715328ca41cd1145a4f0cbfb61da4c7, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 290b44ac1a94f474e967a048cf9b07dc, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 894eeddcfdfeead4d846b30307d8efb9, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: c5fc2f5da04b38e4897ecc07d9dfdcb6, type: 3}
@@ -129,8 +131,6 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 4ce6e1df3bd4d454da47664251cd7f1e, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: b58ecaff1ebb31a4d963f9c5c45e6588, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 4a1816937c1820440821b2a0b3d81a4c, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 198
@@ -179,6 +179,7 @@ Assets:
 - Assets/Prefab/Effect/OperatorTrajectory.prefab
 - Assets/Prefab/Effect/Kakashi_EyeCanvas.prefab
 - Assets/Prefab/Actor_Sub/BattleGround_Aim.prefab
+- Assets/Prefab/Actor_Sub/Vengenpro_SonicBoom.prefab
 - Assets/Prefab/Actor_Sub/AnimalCrossing_FishBullet.prefab
 - Assets/Prefab/Actor_Sub/Sans_Gaster_Blast.prefab
 - Assets/Prefab/ActorSpawner.prefab
