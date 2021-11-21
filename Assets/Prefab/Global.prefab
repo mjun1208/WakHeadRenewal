@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2cffce4172132745a1a94b26d3dcf2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GlobalCanvas: {fileID: 4760579507976235938}
   _fadeUI: {fileID: 4760579509005505557}
 --- !u!1 &4760579509005505552
 GameObject:

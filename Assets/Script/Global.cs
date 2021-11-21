@@ -51,6 +51,7 @@ public class Global : MonoBehaviour
     public Action<Actor> BlueActorSetAction;
     public Action<Actor> RedActorSetAction;
 
+    public Transform GlobalCanvas;
     [SerializeField] private Image _fadeUI;
 
     private void Awake()

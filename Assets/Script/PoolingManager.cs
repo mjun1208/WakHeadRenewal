@@ -198,6 +198,7 @@ public class PoolingManager : IOnEventCallback
     public void SpawnNotifyText(string text, Color color, float startY = 60f)
     {
         var notifyText = LocalSpawn("NotifyText", new Vector3(0, startY), Quaternion.identity, true);
+        notifyText.transform.parent = Global.instance.GlobalCanvas;
         notifyText.GetComponent<NotifyText>().SetMsg(text, color, startY);
     }
 }
