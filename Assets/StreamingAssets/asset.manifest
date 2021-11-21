@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1394398323
+CRC: 2530589925
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 20734ed56507d712296f139e55baef1d
+    Hash: cb694abdb5b8990f02ce43a489ff7d02
   TypeTreeHash:
     serializedVersion: 2
-    Hash: d87bf257a126e417d0df89303a818396
+    Hash: 8bcaf606bc0de8969e107c4330c428ee
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -36,7 +36,11 @@ ClassTypes:
 - Class: 96
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 76af7810b411c9f47a586c7b4c14d0a5, type: 3}
 - Class: 114
@@ -104,8 +108,6 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 199a051c1e3b666419a8a04a3050e872, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: cba62c4cdb069df46bcf5241eff77e31, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 4715328ca41cd1145a4f0cbfb61da4c7, type: 3}
@@ -131,7 +133,11 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 4ce6e1df3bd4d454da47664251cd7f1e, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: b58ecaff1ebb31a4d963f9c5c45e6588, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: cd9552df169cf1e49af46351fcbe7433, type: 3}
 - Class: 115
+  Script: {instanceID: 0}
+- Class: 128
   Script: {instanceID: 0}
 - Class: 198
   Script: {instanceID: 0}
@@ -186,6 +192,7 @@ Assets:
 - Assets/Prefab/Actor/Ahri.prefab
 - Assets/Prefab/Effect/OperatorEffect.prefab
 - Assets/Prefab/Actor_Sub/BattleGround_Throw_MOLOTOV_Bomb.prefab
+- Assets/Prefab/NotifyText.prefab
 - Assets/Prefab/Actor_Sub/Sans_Bone.prefab
 - Assets/Prefab/Actor/VR.prefab
 - Assets/Prefab/Actor/Kakashi.prefab
