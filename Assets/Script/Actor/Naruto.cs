@@ -100,8 +100,17 @@ public class Naruto : Actor
 
     public override void OnSkill_1()
     {
-        if (_rasenganState == RasenganState.Shoot || _dummyList.Count >= 5)
+        if (_rasenganState == RasenganState.Shoot)
         {
+            Global.PoolingManager.SpawnNotifyText("나선환이 차징 되어있으면 분신 소환을 못 합니다.!!");
+            
+            return;
+        }
+
+        if (_dummyList.Count >= 5)
+        {
+            Global.PoolingManager.SpawnNotifyText("분신은 5명까지 소환 가능합니다.!!");
+            
             return;
         }
 

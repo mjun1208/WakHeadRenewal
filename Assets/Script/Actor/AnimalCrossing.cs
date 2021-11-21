@@ -209,6 +209,10 @@ public class AnimalCrossing : Actor
             base.OnSkill_2();
             _isHaveFish = false;
         }
+        else
+        {
+            Global.PoolingManager.SpawnNotifyText("낚은 물고기가 없습니다.!!");
+        }
     }
 
     [PunRPC]
