@@ -30,6 +30,9 @@ public class Global : MonoBehaviour
     private static ResourceManager _resourceManager;
     private static PoolingManager _poolingManager;
 
+    public string PlayerName { get; private set; }
+    public string EnemyName { get; private set; }
+    
     public string MyActorName { get; private set; }
     public string EnemyActorName { get; private set; }
 
@@ -83,6 +86,17 @@ public class Global : MonoBehaviour
         _fadeUI.DOKill();
         _fadeUI.DOFade(0f, 0.5f).SetEase(Ease.Linear).OnComplete(callback);
     }
+    
+    public void SetPlayerName(string name)
+    {
+        PlayerName = name;
+    }
+
+    public void SetEnemyName(string name)
+    {
+        EnemyName = name;
+    }
+
 
     public void SetMyActorName(string name)
     {

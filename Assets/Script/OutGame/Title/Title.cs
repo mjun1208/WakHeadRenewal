@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class Title : MonoBehaviourPunCallbacks
 {
@@ -18,6 +19,7 @@ public class Title : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject _lobbyConnect;
     [SerializeField] private GameObject _nickName;
     [SerializeField] private GameObject _lobbyButton;
+    [SerializeField] private GameObject _roomList;
     [SerializeField] private GameObject _waitImage;
 
     private void Start()
@@ -32,25 +34,49 @@ public class Title : MonoBehaviourPunCallbacks
     {
         _waitImage.SetActive(true);
         _lobbyButton.SetActive(false);
+        _roomList.SetActive(false);
 
-        RoomOptions roomOptions = new RoomOptions() { MaxPlayers = this.MaxPlayers };
+        RoomOptions roomOptions = new RoomOptions()
+        {
+            MaxPlayers = this.MaxPlayers,
+            CustomRoomProperties = new Hashtable()
+            {
+                {"RN", Global.instance.PlayerName},
+                {"RI", PhotonNetwork.LocalPlayer.UserId}
+            },
+            CustomRoomPropertiesForLobby = new string[] {"RN", "RI"},
+            IsVisible = true,
+            IsOpen = true
+        };
         if (playerTTL >= 0)
             roomOptions.PlayerTtl = playerTTL;
-
-        PhotonNetwork.CreateRoom(Global.instance.PlayerName, roomOptions, null);
+        
+        PhotonNetwork.CreateRoom(Global.instance.PlayerName + PhotonNetwork.LocalPlayer.UserId, roomOptions, null);
 
         StartCoroutine(WaitPlayer());
     }
 
-    public void JoinRoom()
+    public void ShowRoomList(bool isShow)
+    {
+        _lobbyButton.SetActive(!isShow);
+        _roomList.SetActive(isShow);
+    }
+    
+    public void JoinRoom(string roomName, string roomID)
     {
         _waitImage.SetActive(true);
         _lobbyButton.SetActive(false);
+        _roomList.SetActive(false);
 
-        // PhotonNetwork.JoinRoom(Global.instance.PlayerName);
-        PhotonNetwork.JoinRandomRoom();
-
-        StartCoroutine(WaitPlayer());
+        if (!PhotonNetwork.JoinRoom(roomName + roomID))
+        {
+            _waitImage.SetActive(false);
+            ShowRoomList(false);
+        }
+        else
+        {
+            StartCoroutine(WaitPlayer());
+        }
     }
 
     public override void OnConnectedToMaster()
@@ -61,6 +87,8 @@ public class Title : MonoBehaviourPunCallbacks
         PhotonNetwork.AutomaticallySyncScene = true;
 
         _isConnected = true;
+
+        PhotonNetwork.JoinLobby();
     }
 
     public override void OnJoinedLobby()
@@ -94,8 +122,18 @@ public class Title : MonoBehaviourPunCallbacks
 
         yield return null;
 
+        float timeOut = 5f;
+        
         while (PhotonNetwork.CurrentRoom == null)
         {
+            timeOut -= Time.deltaTime;
+
+            if (timeOut <= 0f)
+            {            
+                _waitImage.SetActive(false);
+                ShowRoomList(false);
+                yield break;
+            }
             yield return null;
         }
 
@@ -123,6 +161,7 @@ public class Title : MonoBehaviourPunCallbacks
         _lobbyConnect.SetActive(true);
         _nickName.SetActive(false);
         _lobbyButton.SetActive(false);
+        _roomList.SetActive(false);
         
         if (!PhotonNetwork.IsConnected || !_isConnected)
         { 
@@ -144,11 +183,13 @@ public class Title : MonoBehaviourPunCallbacks
         {
             _nickName.SetActive(true);
             _lobbyButton.SetActive(false);
+            _roomList.SetActive(false);
         }
         else
         {
             _lobbyButton.SetActive(true);
             _nickName.SetActive(false);
+            _roomList.SetActive(false);
         }
     }
 }
