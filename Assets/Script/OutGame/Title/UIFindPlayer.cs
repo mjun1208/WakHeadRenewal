@@ -9,7 +9,7 @@ public class UIFindPlayer : MonoBehaviour
 {
     [SerializeField] private Text _findPlayerText;
     
-    private void OnEnable()
+    private void Start()
     {
         TextAnimation();
     }
