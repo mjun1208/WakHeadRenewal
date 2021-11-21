@@ -197,8 +197,28 @@ public class PoolingManager : IOnEventCallback
     
     public void SpawnNotifyText(string text, Color color, float startY = 60f)
     {
-        var notifyText = LocalSpawn("NotifyText", new Vector3(0, startY), Quaternion.identity, true);
-        notifyText.transform.parent = Global.instance.GlobalCanvas;
-        notifyText.GetComponent<NotifyText>().SetMsg(text, color, startY);
+        if (!_localPool.ContainsKey("NotifyText"))
+        {
+            _localPool.Add("NotifyText", new Queue<GameObject>());
+        }
+
+        var pool = _localPool["NotifyText"];
+
+        GameObject spawnObject = null;
+
+        if (pool.Count > 0)
+        {
+            spawnObject = pool.Dequeue();
+        }
+        else
+        {
+            spawnObject = GameObject.Instantiate(Global.ResourceManager.FindPrefab("NotifyText"), Global.instance.GlobalCanvas);
+            spawnObject.name = "NotifyText";
+        }
+        
+        spawnObject.SetActive(true);
+        
+        spawnObject.transform.parent = Global.instance.GlobalCanvas;
+        spawnObject.GetComponent<NotifyText>().SetMsg(text, color, startY);
     }
 }
