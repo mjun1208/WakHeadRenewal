@@ -16,27 +16,29 @@ public class UIRoomList : MonoBehaviourPunCallbacks
     {
         foreach (var room in roomList)
         {
-            if (room.RemovedFromList)
-            {
-                var removedRoom = _roomLists.Find(x => x.RoomName + x.RoomID == room.Name);
+            var removedRoom = _roomLists.Find(x => x.RoomName + x.RoomID == room.Name);
 
-                if (removedRoom != null) 
-                {
-                    _roomLists.Remove(removedRoom);
-                    Destroy(removedRoom.gameObject);
-                }
+            if (removedRoom != null) 
+            {
+                _roomLists.Remove(removedRoom);
+                Destroy(removedRoom.gameObject);
+            }
+            
+            if (room.RemovedFromList || room.MaxPlayers == room.PlayerCount)
+            {
+               return;
             }
             else
             {
                 var newRoom = Instantiate(_roonInfoObject, _contentObject.transform);
 
-                var roomInfo = newRoom.GetComponent<UIRoomInfo>();
+                var uiRoomInfo = newRoom.GetComponent<UIRoomInfo>();
                 
                 string roomName = (string) room.CustomProperties["RN"];
                 string roomID = (string) room.CustomProperties["RI"];
-                roomInfo.SetInfo(roomName, roomID);
+                uiRoomInfo.SetInfo(roomName, roomID);
                 
-                _roomLists.Add(roomInfo);
+                _roomLists.Add(uiRoomInfo);
             }
         }
     }
