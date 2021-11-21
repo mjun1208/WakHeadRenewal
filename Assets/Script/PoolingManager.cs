@@ -189,4 +189,15 @@ public class PoolingManager : IOnEventCallback
             LocalSpawnEvent(targetName, targetPostion, targetRotation);
         }
     }
+
+    public void SpawnNotifyText(string text, float startY = 60f)
+    {
+        SpawnNotifyText(text, Color.red, startY);
+    }
+    
+    public void SpawnNotifyText(string text, Color color, float startY = 60f)
+    {
+        var notifyText = LocalSpawn("NotifyText", new Vector3(0, startY), Quaternion.identity, true);
+        notifyText.GetComponent<NotifyText>().SetMsg(text, color, startY);
+    }
 }
