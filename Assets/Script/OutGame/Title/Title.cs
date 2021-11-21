@@ -129,7 +129,9 @@ public class Title : MonoBehaviourPunCallbacks
             timeOut -= Time.deltaTime;
 
             if (timeOut <= 0f)
-            {            
+            {
+                Global.PoolingManager.SpawnNotifyText("방이 사라졌습니다..!!", -80f);
+                
                 _waitImage.SetActive(false);
                 ShowRoomList(false);
                 yield break;
