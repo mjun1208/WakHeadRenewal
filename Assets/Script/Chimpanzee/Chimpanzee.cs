@@ -24,6 +24,10 @@ public class Chimpanzee : Entity, IPunObservable
 
     private float _attackDelay = 0;
 
+    private bool _isTowerInAttackRange = false;
+    
+    private readonly Vector3 TowerOffset = new Vector3(0, -1, 0);
+
     public override void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         base.OnPhotonSerializeView(stream, info);
@@ -110,6 +114,10 @@ public class Chimpanzee : Entity, IPunObservable
         {
             _attackDelay = 0f;
         }
+        
+        
+        var towerDistance = Vector3.Distance(_targetTower.transform.position + TowerOffset, this.transform.position);
+        _isTowerInAttackRange = towerDistance <= 0.5f;
 
         switch (_state)
         {
@@ -119,7 +127,7 @@ public class Chimpanzee : Entity, IPunObservable
                     {
                         Move();
 
-                        if (_attackRange.CollidedObjectList.Count > 0)
+                        if (_attackRange.CollidedObjectList.Count > 0 || _isTowerInAttackRange)
                         {
                             _state = ChimpanzeeState.Attack;
 
@@ -154,7 +162,7 @@ public class Chimpanzee : Entity, IPunObservable
     {
         if (_targetEntity == null)
         {
-            Vector3 dir = _targetTower.transform.position - this.transform.position;
+            Vector3 dir = _targetTower.transform.position + TowerOffset - this.transform.position;
             dir = dir.normalized;
 
             if (dir.x != 0)
@@ -216,11 +224,18 @@ public class Chimpanzee : Entity, IPunObservable
 
     private void Attack()
     {
-        _attackRange.Attack(targetEntity =>
+        if (_isTowerInAttackRange)
         {
-            targetEntity.Damaged(targetEntity.transform.position, 1);
-            //targetEntity.KnockBack(GetAttackDir(), 0.5f, 0);
-        });
+            _targetTower.OnDamage();
+        }
+        else
+        {
+            _attackRange.Attack(targetEntity =>
+            {
+                targetEntity.Damaged(targetEntity.transform.position, 1);
+                //targetEntity.KnockBack(GetAttackDir(), 0.5f, 0);
+            });
+        }
 
         _attackDelay = 0.2f;
     }
