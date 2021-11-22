@@ -22,7 +22,7 @@ public class Chimpanzee : Entity, IPunObservable
 
     private Vector3 _originalScale = Vector3.zero;
 
-    private  float _attackDelay = 0;
+    private float _attackDelay = 0;
 
     public override void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -132,7 +132,10 @@ public class Chimpanzee : Entity, IPunObservable
                 }
             case ChimpanzeeState.Attack:
                 {
-                    Attack();
+                    if (_attackDelay <= 0)
+                    {
+                        Attack();
+                    }
 
                     if (_attackRange.CollidedObjectList.Count == 0)
                     {
@@ -215,9 +218,11 @@ public class Chimpanzee : Entity, IPunObservable
     {
         _attackRange.Attack(targetEntity =>
         {
-            targetEntity.Damaged(targetEntity.transform.position, 2);
+            targetEntity.Damaged(targetEntity.transform.position, 1);
             //targetEntity.KnockBack(GetAttackDir(), 0.5f, 0);
         });
+
+        _attackDelay = 0.2f;
     }
 
     private void Dead()
