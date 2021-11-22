@@ -24,7 +24,7 @@ public class Tower : MonoBehaviourPunCallbacks , IPunObservable
         }
     }
     
-    public int _maxHp;
+    private int _maxHp;
     private int _hp;
 
     private Action _hpDownAction;
