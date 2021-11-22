@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1106789597
+CRC: 1751964582
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d03d6d0affe994df935c8853ff7b9c04
+    Hash: 9aab1c9e88a29685411bca69d6089332
   TypeTreeHash:
     serializedVersion: 2
     Hash: 11c4ed6b782245296cbdfd613cafb749
@@ -181,6 +181,7 @@ Assets:
 - Assets/Prefab/Actor/Normal.prefab
 - Assets/Prefab/Actor_Sub/Martine_Vent.prefab
 - Assets/Prefab/Actor_Sub/Sans_Charge_Blast.prefab
+- Assets/Prefab/Effect/RedTowerHit.prefab
 - Assets/Prefab/Actor_Sub/Normal_Bullet.prefab
 - Assets/Prefab/Effect/OperatorTrajectory.prefab
 - Assets/Prefab/Effect/Kakashi_EyeCanvas.prefab
@@ -205,6 +206,7 @@ Assets:
 - Assets/Prefab/Actor/Sans.prefab
 - Assets/Prefab/Effect/SnipeHitEffect.prefab
 - Assets/Prefab/Actor_Sub/Naruto_Dummy.prefab
+- Assets/Prefab/Effect/BlueTowerHit.prefab
 - Assets/Prefab/Actor_Sub/Vengenpro_Note.prefab
 - Assets/Prefab/Effect/GhostEffect.prefab
 - Assets/Prefab/Actor_Sub/Jett_Shuriken.prefab
