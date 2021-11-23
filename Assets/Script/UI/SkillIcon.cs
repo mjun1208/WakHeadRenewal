@@ -48,4 +48,32 @@ public class SkillIcon : MonoBehaviour
         _skillIconImage.sprite = Global.GameDataManager.FindSkillIcon(skillIconName);
         _skillCoolTimeIconImage.sprite = _skillIconImage.sprite;
     }
+    
+    private void Update()
+    {
+        if (_targetActor != null) {
+            if (_skillNum == 1)
+            {
+                if (_targetActor.Skill_1_Delay > 0)
+                {
+                    _skillCoolTimeIconImage.fillAmount = _targetActor.Skill_1_Delay / _targetActor.Skill_1_CoolTime;
+                }
+                else
+                {
+                    _skillCoolTimeIconImage.fillAmount = 0f;
+                }
+            }
+            else
+            {
+                if (_targetActor.Skill_2_Delay > 0)
+                {
+                    _skillCoolTimeIconImage.fillAmount = _targetActor.Skill_2_Delay / _targetActor.Skill_2_CoolTime;
+                }
+                else
+                {
+                    _skillCoolTimeIconImage.fillAmount = 0f;
+                }
+            }
+        }
+    }
 }
