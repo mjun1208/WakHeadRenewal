@@ -15,4 +15,6 @@ public class ActorGameData
     public string Name;
     public string Artist;
     public string KorName;
+    public float Skill_1_CoolTime;
+    public float Skill_2_CoolTime;
 }
