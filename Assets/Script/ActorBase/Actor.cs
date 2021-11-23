@@ -27,6 +27,12 @@ public abstract class Actor : Entity, IPunObservable
     protected bool _isSkill_1Input = false;
     protected bool _isSkill_2Input = false;
 
+    protected float _skill_1_CoolTime = 0f;
+    protected float _skill_2_CoolTime = 0f;
+    
+    protected float _skill_1_Delay = 0f;
+    protected float _skill_2_Delay = 0f;
+    
     public bool IsSkill_1 { get; protected set; } = false;
     public bool IsSkill_2 { get; protected set; } = false;
 
@@ -63,6 +69,9 @@ public abstract class Actor : Entity, IPunObservable
 
         MaxHP = 100;
         ResetHp();
+
+        _skill_1_CoolTime = Global.GameDataManager.ActorGameData.ActorGameDataList[Global.instance.MyActorID].Skill_1_CoolTime;
+        _skill_2_CoolTime = Global.GameDataManager.ActorGameData.ActorGameDataList[Global.instance.MyActorID].Skill_2_CoolTime;
     }
 
     protected virtual void Start()
@@ -133,13 +142,13 @@ public abstract class Actor : Entity, IPunObservable
 
             if (!_isAttackInput)
             {
-                if (_isSkill_1Input)
+                if (_isSkill_1Input && _skill_1_Delay <= 0f)
                 {
                     OnSkill_1();
                     return;
                 }
 
-                if (_isSkill_2Input)
+                if (_isSkill_2Input && _skill_2_Delay <= 0f)
                 {
                     OnSkill_2();
                     return;
