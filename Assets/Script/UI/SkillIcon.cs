@@ -7,6 +7,7 @@ public class SkillIcon : MonoBehaviour
 {
     [SerializeField] private Team _team;
     [SerializeField] private Image _skillIconImage;
+    [SerializeField] private Image _skillCoolTimeIconImage;
     [SerializeField] private int _skillNum;
 
     private Actor _targetActor;
@@ -45,5 +46,6 @@ public class SkillIcon : MonoBehaviour
         var skillIconName = $"{_actorName}_Skill_{_skillNum}_Icon";
 
         _skillIconImage.sprite = Global.GameDataManager.FindSkillIcon(skillIconName);
+        _skillCoolTimeIconImage.sprite = _skillIconImage.sprite;
     }
 }
