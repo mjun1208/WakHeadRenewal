@@ -57,7 +57,7 @@ namespace WakHead
 
         private void Update()
         {
-            if (_targetActor != null)
+            if (_targetActor != null && _targetActor.photonView.IsMine)
             {
                 if (_skillNum == 1)
                 {
