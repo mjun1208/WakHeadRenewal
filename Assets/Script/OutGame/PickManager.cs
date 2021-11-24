@@ -142,7 +142,7 @@ namespace WakHead
 
         public void StartGame()
         {
-            if (!IsMyReady || !IsEnemyReady)
+            if (!IsMyReady || !IsEnemyReady || !PhotonNetwork.IsMasterClient)
             {
                 return;
             }
