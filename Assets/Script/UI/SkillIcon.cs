@@ -83,12 +83,14 @@ namespace WakHead
             {
                 if (!_isOn)
                 {
-                    _skillOnIconImage.DOColor(new Color(1, 1, 1, 0.5f), 1f)
+                    _skillOnIconImage.DOColor(new Color(1, 1, 1, 0.5f), 0.2f)
                         .From(new Color(1, 1, 1, 0f))
                         .OnComplete(()=>
                         {
-                            _skillOnIconImage.DOColor(new Color(1, 1, 1, 0f), 1f);
+                            _skillOnIconImage.DOColor(new Color(1, 1, 1, 0f), 0.2f);
                         });
+
+                    _isOn = true;
                 }
                         
                 _skillIconEdgeImage.gameObject.SetActive(true);
