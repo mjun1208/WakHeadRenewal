@@ -3,34 +3,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleGround_Throw_Bomb : ActorSub
+namespace WakHead
 {
-    private BattleGround.ThrowType _throwType;
-
-    public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 pos, Vector3 dir, BattleGround.ThrowType throwType)
+    public class BattleGround_Throw_Bomb : ActorSub
     {
-        base.SetInfo(ownerPhotonView, owner, dir);
+        private BattleGround.ThrowType _throwType;
 
-        _throwType = throwType;
-
-        if (_throwType == BattleGround.ThrowType.MOLOTOV)
+        public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 pos, Vector3 dir,
+            BattleGround.ThrowType throwType)
         {
-            pos += new Vector3(0, 1f, 0);
+            base.SetInfo(ownerPhotonView, owner, dir);
+
+            _throwType = throwType;
+
+            if (_throwType == BattleGround.ThrowType.MOLOTOV)
+            {
+                pos += new Vector3(0, 1f, 0);
+            }
+
+            this.transform.position = pos;
         }
 
-        this.transform.position = pos;
-    }
-
-    private void OnDamage()
-    {
-        if (_ownerPhotonView == null || !_ownerPhotonView.IsMine)
+        private void OnDamage()
         {
-            return;
-        }
+            if (_ownerPhotonView == null || !_ownerPhotonView.IsMine)
+            {
+                return;
+            }
 
-        switch (_throwType)
-        {
-            case BattleGround.ThrowType.GRENADE:
+            switch (_throwType)
+            {
+                case BattleGround.ThrowType.GRENADE:
                 {
                     _attackRange.Attack(targetEntity =>
                     {
@@ -41,15 +44,12 @@ public class BattleGround_Throw_Bomb : ActorSub
                     });
                     break;
                 }
-            case BattleGround.ThrowType.MOLOTOV:
+                case BattleGround.ThrowType.MOLOTOV:
                 {
-                    _attackRange.Attack(targetEntity =>
-                    {
-                        targetEntity.Damaged(targetEntity.transform.position, 10);
-                    });
+                    _attackRange.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, 10); });
                     break;
                 }
-            case BattleGround.ThrowType.FLASH_BANG:
+                case BattleGround.ThrowType.FLASH_BANG:
                 {
                     _attackRange.Attack(targetEntity =>
                     {
@@ -58,6 +58,7 @@ public class BattleGround_Throw_Bomb : ActorSub
                     });
                     break;
                 }
+            }
         }
     }
 }

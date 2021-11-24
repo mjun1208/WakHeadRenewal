@@ -2,41 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimalCrossing_Fish : ActorSub
+namespace WakHead
 {
-    [SerializeField] private SpriteRenderer _renderer;
-    [SerializeField] private List<Sprite> _fishSprites;
-
-    private int _currentFishIndex = 0;
-
-    public void SetActive(bool isActive)
+    public class AnimalCrossing_Fish : ActorSub
     {
-        this.gameObject.SetActive(isActive);
+        [SerializeField] private SpriteRenderer _renderer;
+        [SerializeField] private List<Sprite> _fishSprites;
 
-        if (isActive)
+        private int _currentFishIndex = 0;
+
+        public void SetActive(bool isActive)
         {
-            _rigid.AddForce(Vector2.right * 10f, ForceMode2D.Impulse);
+            this.gameObject.SetActive(isActive);
+
+            if (isActive)
+            {
+                _rigid.AddForce(Vector2.right * 10f, ForceMode2D.Impulse);
+            }
         }
-    }
 
-    public void SelectFish(int index)
-    {
-        _currentFishIndex = index;
+        public void SelectFish(int index)
+        {
+            _currentFishIndex = index;
 
-        _renderer.sprite = _fishSprites[index];
-    }
+            _renderer.sprite = _fishSprites[index];
+        }
 
-    public int GetMyFishIndex()
-    {
-        return _currentFishIndex;
-    }
+        public int GetMyFishIndex()
+        {
+            return _currentFishIndex;
+        }
 
-    public void SelectRandomFish()
-    {
-        var randomIndex = Random.Range(0, _fishSprites.Count);
+        public void SelectRandomFish()
+        {
+            var randomIndex = Random.Range(0, _fishSprites.Count);
 
-        _currentFishIndex = randomIndex;
+            _currentFishIndex = randomIndex;
 
-        _renderer.sprite = _fishSprites[randomIndex];
+            _renderer.sprite = _fishSprites[randomIndex];
+        }
     }
 }

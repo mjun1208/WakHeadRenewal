@@ -4,75 +4,78 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActorSub : MonoBehaviourPunCallbacks
+namespace WakHead
 {
-    [SerializeField] protected Rigidbody2D _rigid;
-    [SerializeField] protected AttackRange _attackRange;
-
-    protected GameObject _owner;
-    protected Vector3 _dir;
-    protected PhotonView _ownerPhotonView = null;
-
-    protected float _moveSpeed = Constant.ACTOR_SUB_DEFAULT_MOVE_SPEED;
-    protected float _lifeTime = Constant.ACTOR_SUB_DEFAULT_LIFETIME;
-
-    public Action<ActorSub> DestoryAction = null;
-
-    public Team MyTeam { get; protected set; } = Team.None;
-
-    public virtual void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
+    public class ActorSub : MonoBehaviourPunCallbacks
     {
-        _ownerPhotonView = ownerPhotonView;
+        [SerializeField] protected Rigidbody2D _rigid;
+        [SerializeField] protected AttackRange _attackRange;
 
-        if (owner != null)
+        protected GameObject _owner;
+        protected Vector3 _dir;
+        protected PhotonView _ownerPhotonView = null;
+
+        protected float _moveSpeed = Constant.ACTOR_SUB_DEFAULT_MOVE_SPEED;
+        protected float _lifeTime = Constant.ACTOR_SUB_DEFAULT_LIFETIME;
+
+        public Action<ActorSub> DestoryAction = null;
+
+        public Team MyTeam { get; protected set; } = Team.None;
+
+        public virtual void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
         {
-            _attackRange.SetOwner(owner);
-            this.transform.position = owner.transform.position;
+            _ownerPhotonView = ownerPhotonView;
 
-            _owner = owner;
+            if (owner != null)
+            {
+                _attackRange.SetOwner(owner);
+                this.transform.position = owner.transform.position;
+
+                _owner = owner;
+            }
+
+            _dir = dir;
+
+            DestoryAction += OnDestory;
         }
 
-        _dir = dir;
-
-        DestoryAction += OnDestory;
-    }
-
-    protected virtual void OnDamage(Entity entity, int damage)
-    {
-        StopAllCoroutines();
-
-        if (_ownerPhotonView.IsMine)
+        protected virtual void OnDamage(Entity entity, int damage)
         {
-            entity?.Damaged(this.transform.position, damage);
+            StopAllCoroutines();
+
+            if (_ownerPhotonView.IsMine)
+            {
+                entity?.Damaged(this.transform.position, damage);
+            }
+
+            Destroy();
         }
 
-        Destroy();
-    }
-
-    protected virtual IEnumerator Go()
-    {
-        float goTime = 0;
-
-        while (goTime < _lifeTime)
+        protected virtual IEnumerator Go()
         {
-            goTime += Time.deltaTime;
-            _rigid.MovePosition(this.transform.position + _dir * _moveSpeed * Time.deltaTime);
+            float goTime = 0;
 
-            yield return null;
+            while (goTime < _lifeTime)
+            {
+                goTime += Time.deltaTime;
+                _rigid.MovePosition(this.transform.position + _dir * _moveSpeed * Time.deltaTime);
+
+                yield return null;
+            }
+
+            Destroy();
         }
 
-        Destroy();
-    }
+        public virtual void Destroy()
+        {
+            DestoryAction?.Invoke(this);
 
-    public virtual void Destroy()
-    {
-        DestoryAction?.Invoke(this);
+            Global.PoolingManager.LocalDespawn(this.gameObject);
+        }
 
-        Global.PoolingManager.LocalDespawn(this.gameObject);
-    }
-
-    protected virtual void OnDestory(ActorSub actorSub)
-    {
-        DestoryAction -= OnDestory;
+        protected virtual void OnDestory(ActorSub actorSub)
+        {
+            DestoryAction -= OnDestory;
+        }
     }
 }

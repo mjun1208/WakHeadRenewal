@@ -5,18 +5,21 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIFindPlayer : MonoBehaviour
+namespace WakHead
 {
-    [SerializeField] private Text _findPlayerText;
-    
-    private void Start()
+    public class UIFindPlayer : MonoBehaviour
     {
-        TextAnimation();
-    }
+        [SerializeField] private Text _findPlayerText;
 
-    public void TextAnimation()
-    {
-        _findPlayerText.DOText("플레이어 찾는 중.....", 1f).From("플레이어 찾는 중", true, false)
-            .OnComplete(TextAnimation);
+        private void Start()
+        {
+            TextAnimation();
+        }
+
+        public void TextAnimation()
+        {
+            _findPlayerText.DOText("플레이어 찾는 중.....", 1f).From("플레이어 찾는 중", true, false)
+                .OnComplete(TextAnimation);
+        }
     }
 }

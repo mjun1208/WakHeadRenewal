@@ -4,15 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
 
-public class CutOutMaskUI : Image 
+namespace WakHead
 {
-    public override Material materialForRendering
+    public class CutOutMaskUI : Image
     {
-        get
+        public override Material materialForRendering
         {
-            Material material = new Material(base.materialForRendering);
-            material.SetInt("_StencilComp", (int)CompareFunction.NotEqual);
-            return material;
+            get
+            {
+                Material material = new Material(base.materialForRendering);
+                material.SetInt("_StencilComp", (int) CompareFunction.NotEqual);
+                return material;
+            }
         }
     }
 }

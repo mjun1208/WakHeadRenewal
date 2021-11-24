@@ -5,22 +5,25 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIOnlinePlayer : MonoBehaviour
+namespace WakHead
 {
-    [SerializeField] private Text _lobbyPlayerCountText;
-
-    private void Start()
+    public class UIOnlinePlayer : MonoBehaviour
     {
-        UpdatePlayerCount();
-    }
+        [SerializeField] private Text _lobbyPlayerCountText;
 
-    private void Update()
-    {
-        UpdatePlayerCount();
-    }
+        private void Start()
+        {
+            UpdatePlayerCount();
+        }
 
-    private void UpdatePlayerCount()
-    {
-        _lobbyPlayerCountText.text = $"현재 접속자 수 : {PhotonNetwork.CountOfPlayers} 명";
+        private void Update()
+        {
+            UpdatePlayerCount();
+        }
+
+        private void UpdatePlayerCount()
+        {
+            _lobbyPlayerCountText.text = $"현재 접속자 수 : {PhotonNetwork.CountOfPlayers} 명";
+        }
     }
 }

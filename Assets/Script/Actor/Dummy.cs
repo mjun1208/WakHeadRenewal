@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dummy : Entity
+namespace WakHead
 {
-    protected override void Awake()
+    public class Dummy : Entity
     {
-        base.Awake();
+        protected override void Awake()
+        {
+            base.Awake();
 
-        MaxHP = 99999;
-        ResetHp();
-    }
+            MaxHP = 99999;
+            ResetHp();
+        }
 
-    private void Update()
-    {
-        HP = 99999;
+        private void Update()
+        {
+            HP = 99999;
+        }
     }
 }

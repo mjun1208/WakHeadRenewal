@@ -3,58 +3,61 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Minecraft : Actor
+namespace WakHead
 {
-    [SerializeField] private GameObject _lavaPivot;
-
-    protected override void Active_Attack()
+    public class Minecraft : Actor
     {
-        if (!photonView.IsMine)
-        {
-            return;
-        }
-        
-        _attackRange.Attack(targetEntity =>
-        {
-            targetEntity.KnockBack(5, GetAttackDir(), 1.5f, 0);
-        });
-    }
+        [SerializeField] private GameObject _lavaPivot;
 
-    protected override void Active_Skill_1()
-    {
-        if (!photonView.IsMine)
+        protected override void Active_Attack()
         {
-            return;
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+
+            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(5, GetAttackDir(), 1.5f, 0); });
         }
 
-        photonView.RPC("SummonSlave", RpcTarget.All);
-    }
-
-    protected override void Active_Skill_2()
-    {
-        if (!photonView.IsMine)
+        protected override void Active_Skill_1()
         {
-            return;
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+
+            photonView.RPC("SummonSlave", RpcTarget.All);
         }
 
-        photonView.RPC("LavaElemant", RpcTarget.All);
-    }
+        protected override void Active_Skill_2()
+        {
+            if (!photonView.IsMine)
+            {
+                return;
+            }
 
-    [PunRPC]
-    public void SummonSlave()
-    {
-        var newSlave = Global.PoolingManager.LocalSpawn("Minecraft_Slave", _lavaPivot.transform.position, Quaternion.identity, true);
+            photonView.RPC("LavaElemant", RpcTarget.All);
+        }
 
-        newSlave.GetComponent<Minecraft_Slave>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
-    }
+        [PunRPC]
+        public void SummonSlave()
+        {
+            var newSlave = Global.PoolingManager.LocalSpawn("Minecraft_Slave", _lavaPivot.transform.position,
+                Quaternion.identity, true);
 
-    [PunRPC]
-    public void LavaElemant()
-    {
-        var newLavaBasket = Global.PoolingManager.LocalSpawn("Minecraft_LavaBasket", _lavaPivot.transform.position, Quaternion.identity, true);
-        var newLava = Global.PoolingManager.LocalSpawn("Minecraft_Lava", _lavaPivot.transform.position, Quaternion.identity, true);
+            newSlave.GetComponent<Minecraft_Slave>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
+        }
 
-        newLava.GetComponent<Minecraft_Lava>().SetInfo(this.photonView, null, _lavaPivot.transform.position, GetAttackDir());
+        [PunRPC]
+        public void LavaElemant()
+        {
+            var newLavaBasket = Global.PoolingManager.LocalSpawn("Minecraft_LavaBasket", _lavaPivot.transform.position,
+                Quaternion.identity, true);
+            var newLava = Global.PoolingManager.LocalSpawn("Minecraft_Lava", _lavaPivot.transform.position,
+                Quaternion.identity, true);
+
+            newLava.GetComponent<Minecraft_Lava>()
+                .SetInfo(this.photonView, null, _lavaPivot.transform.position, GetAttackDir());
+        }
     }
 }
-

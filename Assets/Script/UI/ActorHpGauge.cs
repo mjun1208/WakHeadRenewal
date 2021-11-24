@@ -3,46 +3,50 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ActorHpGauge : MonoBehaviour
+namespace WakHead
 {
-    [SerializeField] private Team _team;
-    [SerializeField] private Image _hpGaugeImage;
-
-    private Actor _targetActor;
-
-    private void Start()
+    public class ActorHpGauge : MonoBehaviour
     {
-        switch (_team)
+        [SerializeField] private Team _team;
+        [SerializeField] private Image _hpGaugeImage;
+
+        private Actor _targetActor;
+
+        private void Start()
         {
-            case Team.BLUE:
+            switch (_team)
+            {
+                case Team.BLUE:
                 {
                     Global.instance.BlueActorSetAction += SetActor;
                     break;
                 }
-            case Team.RED:
+                case Team.RED:
                 {
                     Global.instance.RedActorSetAction += SetActor;
                     break;
                 }
-        }
-    }
-
-    private void SetActor(Actor actor)
-    {
-        _targetActor = actor;
-    }
-
-    private void Update()
-    {
-        if (_targetActor != null) {
-
-            if (_targetActor.HP > 0)
-            {
-                _hpGaugeImage.fillAmount = ((float)_targetActor.HP / (float)_targetActor.MaxHP);
             }
-            else
+        }
+
+        private void SetActor(Actor actor)
+        {
+            _targetActor = actor;
+        }
+
+        private void Update()
+        {
+            if (_targetActor != null)
             {
-                _hpGaugeImage.fillAmount = 0f;
+
+                if (_targetActor.HP > 0)
+                {
+                    _hpGaugeImage.fillAmount = ((float) _targetActor.HP / (float) _targetActor.MaxHP);
+                }
+                else
+                {
+                    _hpGaugeImage.fillAmount = 0f;
+                }
             }
         }
     }

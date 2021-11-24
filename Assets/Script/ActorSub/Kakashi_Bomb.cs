@@ -3,25 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Kakashi_Bomb : ActorSub
+namespace WakHead
 {
-    public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 pos, Vector3 dir)
+    public class Kakashi_Bomb : ActorSub
     {
-        base.SetInfo(ownerPhotonView, owner, dir);
-
-        this.transform.position = pos;
-    }
-
-    private void OnDamage()
-    {
-        if (_ownerPhotonView == null || !_ownerPhotonView.IsMine)
+        public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 pos, Vector3 dir)
         {
-            return;
+            base.SetInfo(ownerPhotonView, owner, dir);
+
+            this.transform.position = pos;
         }
 
-        _attackRange.Attack(targetEntity =>
+        private void OnDamage()
         {
-            targetEntity.Damaged(this.transform.position, 5);
-        });
+            if (_ownerPhotonView == null || !_ownerPhotonView.IsMine)
+            {
+                return;
+            }
+
+            _attackRange.Attack(targetEntity => { targetEntity.Damaged(this.transform.position, 5); });
+        }
     }
 }

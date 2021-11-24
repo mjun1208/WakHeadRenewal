@@ -3,41 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class PickSync : MonoBehaviourPunCallbacks, IPunObservable
+namespace WakHead
 {
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    public class PickSync : MonoBehaviourPunCallbacks, IPunObservable
     {
-        if (stream.IsWriting)
+        public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
         {
-            stream.SendNext(PickManager.Instance.CurrentMyActorID);
-            stream.SendNext(PickManager.Instance.IsMyReady);
+            if (stream.IsWriting)
+            {
+                stream.SendNext(PickManager.Instance.CurrentMyActorID);
+                stream.SendNext(PickManager.Instance.IsMyReady);
+            }
+            else
+            {
+                int enemyActorID = (int) stream.ReceiveNext();
+
+                if (enemyActorID != -1)
+                {
+                    PickManager.Instance.EnemyActorSelect(enemyActorID);
+                }
+
+                bool isReady = (bool) stream.ReceiveNext();
+                if (isReady != PickManager.Instance.IsEnemyReady)
+                {
+                    PickManager.Instance.EnemyReady();
+                }
+
+                PickManager.Instance.IsEnemyReady = isReady;
+            }
         }
-        else
+
+        public void StartGame()
         {
-            int enemyActorID = (int)stream.ReceiveNext();
-
-            if (enemyActorID != -1)
-            {
-                PickManager.Instance.EnemyActorSelect(enemyActorID);
-            }
-
-            bool isReady = (bool)stream.ReceiveNext();
-            if (isReady != PickManager.Instance.IsEnemyReady)
-            {
-                PickManager.Instance.EnemyReady();
-            }
-            PickManager.Instance.IsEnemyReady = isReady;
+            photonView.RPC("StartGameRPC", RpcTarget.Others);
         }
-    }
 
-    public void StartGame()
-    {
-        photonView.RPC("StartGameRPC", RpcTarget.Others);
-    }
-
-    [PunRPC]
-    public void StartGameRPC()
-    {
-        PickManager.Instance.StartGameClient();
+        [PunRPC]
+        public void StartGameRPC()
+        {
+            PickManager.Instance.StartGameClient();
+        }
     }
 }

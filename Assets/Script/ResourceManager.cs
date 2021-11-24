@@ -4,51 +4,54 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class ResourceManager : MonoBehaviour
+namespace WakHead
 {
-    public bool IsLoaded { get; private set; } = false;
-
-    private string _assetBundlePath = "Assets/AssetBundles/asset";
-    private Object[] _loadedPrefabs;
-
-    public void Load()
+    public class ResourceManager : MonoBehaviour
     {
+        public bool IsLoaded { get; private set; } = false;
+
+        private string _assetBundlePath = "Assets/AssetBundles/asset";
+        private Object[] _loadedPrefabs;
+
+        public void Load()
+        {
 #if UNITY_EDITOR
-        _assetBundlePath = "Assets/StreamingAssets/asset";
+            _assetBundlePath = "Assets/StreamingAssets/asset";
 #else
         _assetBundlePath = Application.dataPath + "/StreamingAssets/asset";
 #endif
-        AssetBundleCreateRequest request = AssetBundle.LoadFromMemoryAsync(File.ReadAllBytes(_assetBundlePath));
-        AssetBundle bundle = request.assetBundle;
+            AssetBundleCreateRequest request = AssetBundle.LoadFromMemoryAsync(File.ReadAllBytes(_assetBundlePath));
+            AssetBundle bundle = request.assetBundle;
 
-        _loadedPrefabs = bundle.LoadAllAssets();
+            _loadedPrefabs = bundle.LoadAllAssets();
 
-        PoolingPrefabs();
-    }
+            PoolingPrefabs();
+        }
 
-    public void PoolingPrefabs()
-    {
-        DefaultPool pool = PhotonNetwork.PrefabPool as DefaultPool;
-        if (pool != null && _loadedPrefabs != null)
+        public void PoolingPrefabs()
         {
-            foreach (GameObject prefab in _loadedPrefabs)
+            DefaultPool pool = PhotonNetwork.PrefabPool as DefaultPool;
+            if (pool != null && _loadedPrefabs != null)
             {
-                pool.ResourceCache.Add(prefab.name, prefab);
+                foreach (GameObject prefab in _loadedPrefabs)
+                {
+                    pool.ResourceCache.Add(prefab.name, prefab);
+                }
             }
+
+            IsLoaded = true;
         }
 
-        IsLoaded = true;
-    }
-
-    public GameObject FindPrefab(string name)
-    {
-        DefaultPool pool = PhotonNetwork.PrefabPool as DefaultPool;
-
-        if (!pool.ResourceCache.ContainsKey(name))
+        public GameObject FindPrefab(string name)
         {
-            return null;
-        }
+            DefaultPool pool = PhotonNetwork.PrefabPool as DefaultPool;
 
-        return pool.ResourceCache[name];
+            if (!pool.ResourceCache.ContainsKey(name))
+            {
+                return null;
+            }
+
+            return pool.ResourceCache[name];
+        }
     }
 }

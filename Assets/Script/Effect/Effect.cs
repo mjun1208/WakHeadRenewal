@@ -2,22 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Effect : MonoBehaviour
+namespace WakHead
 {
-    [SerializeField] protected Animator _animator;
-
-    // Start is called before the first frame update
-    void Start()
+    public class Effect : MonoBehaviour
     {
-        _animator.Rebind();
-    }
+        [SerializeField] protected Animator _animator;
 
-    // Update is called once per frame
-    public virtual void Update()
-    {
-        if (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.95f)
+        // Start is called before the first frame update
+        void Start()
         {
-            Global.PoolingManager.Despawn(this.gameObject);
+            _animator.Rebind();
+        }
+
+        // Update is called once per frame
+        public virtual void Update()
+        {
+            if (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.95f)
+            {
+                Global.PoolingManager.Despawn(this.gameObject);
+            }
         }
     }
 }

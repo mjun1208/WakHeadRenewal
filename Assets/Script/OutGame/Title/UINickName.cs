@@ -5,48 +5,48 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UINickName : MonoBehaviour
+namespace WakHead
 {
-    [SerializeField] private InputField _nickNameInputField;
-    [SerializeField] private Title _title;
-    
-    [SerializeField] private Text _nameConnect;
+    public class UINickName : MonoBehaviour
+    {
+        [SerializeField] private InputField _nickNameInputField;
+        [SerializeField] private Title _title;
 
-    private void Start()
-    {
-        _nickNameInputField.onValueChanged.AddListener(SetPlayerName);
-    }
+        [SerializeField] private Text _nameConnect;
 
-    public void SetPlayerName(string name)
-    {
-        Global.instance.SetPlayerName(name);
-    }
-    
-    public void ConfirmedName()
-    {
-        if (string.IsNullOrWhiteSpace(_nickNameInputField.text))
+        private void Start()
         {
-            return;
+            _nickNameInputField.onValueChanged.AddListener(SetPlayerName);
         }
-        
-        SetPlayerName(_nickNameInputField.text);
 
-        _nameConnect.gameObject.SetActive(true);
-        _nameConnect.text = "";
-        _nameConnect.transform.localScale = new Vector3(1, 1, 1);
-        _nameConnect.transform.localRotation = Quaternion.Euler(Vector3.zero);
-        
-        this.gameObject.SetActive(false);
+        public void SetPlayerName(string name)
+        {
+            Global.instance.SetPlayerName(name);
+        }
 
-        DOTween.Sequence()
-            .Append(_nameConnect.DOText($"{_nickNameInputField.text}으로 접속합니다", 1.5f))
-            .Append(_nameConnect.transform.DORotate(new Vector3(0, 0, -720f), 2f, RotateMode.LocalAxisAdd))
-            .Append(_nameConnect.transform.DOPunchScale(new Vector3(2, 2, 2), 1f))
-            .Append(_nameConnect.transform.DOScale(new Vector3(0, 0, 0), 1f))
-            .OnComplete(() =>
+        public void ConfirmedName()
+        {
+            if (string.IsNullOrWhiteSpace(_nickNameInputField.text))
             {
-                _title.GoLobby();
-            });
-        // _title.GoLobby();
+                return;
+            }
+
+            SetPlayerName(_nickNameInputField.text);
+
+            _nameConnect.gameObject.SetActive(true);
+            _nameConnect.text = "";
+            _nameConnect.transform.localScale = new Vector3(1, 1, 1);
+            _nameConnect.transform.localRotation = Quaternion.Euler(Vector3.zero);
+
+            this.gameObject.SetActive(false);
+
+            DOTween.Sequence()
+                .Append(_nameConnect.DOText($"{_nickNameInputField.text}으로 접속합니다", 1.5f))
+                .Append(_nameConnect.transform.DORotate(new Vector3(0, 0, -720f), 2f, RotateMode.LocalAxisAdd))
+                .Append(_nameConnect.transform.DOPunchScale(new Vector3(2, 2, 2), 1f))
+                .Append(_nameConnect.transform.DOScale(new Vector3(0, 0, 0), 1f))
+                .OnComplete(() => { _title.GoLobby(); });
+            // _title.GoLobby();
+        }
     }
 }

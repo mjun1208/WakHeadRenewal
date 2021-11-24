@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LocalParticle : Particle
+namespace WakHead
 {
-    public override void Update()
+    public class LocalParticle : Particle
     {
-        if (!_particle.isPlaying)
+        public override void Update()
         {
-            _particle.Stop();
-            Global.PoolingManager.LocalDespawn(this.gameObject);
+            if (!_particle.isPlaying)
+            {
+                _particle.Stop();
+                Global.PoolingManager.LocalDespawn(this.gameObject);
+            }
         }
     }
 }

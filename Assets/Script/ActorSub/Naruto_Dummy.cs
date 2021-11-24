@@ -4,91 +4,91 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-public class Naruto_Dummy : Summoned, IPunObservable
+namespace WakHead
 {
-    [SerializeField] private Animator _animator;
-
-    private Vector3 _originalScale;
-
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    public class Naruto_Dummy : Summoned, IPunObservable
     {
-        if (stream.IsWriting)
+        [SerializeField] private Animator _animator;
+
+        private Vector3 _originalScale;
+
+        public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
         {
-            stream.SendNext(_dir.x);
+            if (stream.IsWriting)
+            {
+                stream.SendNext(_dir.x);
+            }
+            else
+            {
+                float rotationScale = _originalScale.x * (float) stream.ReceiveNext();
+                this.transform.localScale = new Vector3(rotationScale, _originalScale.y, _originalScale.z);
+            }
         }
-        else
+
+        public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
         {
-            float rotationScale = _originalScale.x * (float)stream.ReceiveNext();
+            base.SetInfo(ownerPhotonView, owner, dir);
+
+            IsDead = false;
+
+            _lifeTime = 0f;
+
+            _animator.Rebind();
+
+            MaxHP = 5;
+            HP = MaxHP;
+        }
+
+        protected override void Awake()
+        {
+            base.Awake();
+
+            _originalScale = this.transform.localScale;
+        }
+
+        private void Update()
+        {
+            _lifeTime += Time.deltaTime;
+
+            if (_lifeTime > 10f)
+            {
+                IsDead = true;
+            }
+        }
+
+        private void Active_Attack()
+        {
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+
+            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(3, _dir, 1.5f, 0); });
+        }
+
+        public void SetDir(Vector3 dir)
+        {
+            _dir = dir;
+            float rotationScale = _originalScale.x * dir.x;
             this.transform.localScale = new Vector3(rotationScale, _originalScale.y, _originalScale.z);
         }
-    }
 
-    public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
-    {
-        base.SetInfo(ownerPhotonView, owner, dir);
-
-        IsDead = false;
-
-        _lifeTime = 0f;
-
-        _animator.Rebind();
-
-        MaxHP = 5;
-        HP = MaxHP;
-    }
-
-    protected override void Awake()
-    {
-        base.Awake();
-
-        _originalScale = this.transform.localScale;
-    }
-
-    private void Update()
-    {
-        _lifeTime += Time.deltaTime;
-
-        if (_lifeTime > 10f)
+        public void Attack(bool isAttack)
         {
-            IsDead = true;
-        }
-    }
-
-    private void Active_Attack()
-    {
-        if (!photonView.IsMine)
-        {
-            return;
+            _animator.SetBool("IsAttack", isAttack);
         }
 
-        _attackRange.Attack(targetEntity =>
+        public void SetAnimationParameter(string name, bool isTrue)
         {
-            targetEntity.KnockBack(3, _dir, 1.5f, 0); 
-        });
-    }
+            _animator.SetBool(name, isTrue);
+        }
 
-    public void SetDir(Vector3 dir)
-    {
-        _dir = dir;
-        float rotationScale = _originalScale.x * dir.x;
-        this.transform.localScale = new Vector3(rotationScale, _originalScale.y, _originalScale.z);
-    }
+        public void Charging()
+        {
+        }
 
-    public void Attack(bool isAttack)
-    {
-        _animator.SetBool("IsAttack", isAttack);
-    }
-    
-    public void SetAnimationParameter(string name, bool isTrue)
-    {
-        _animator.SetBool(name, isTrue);
-    }
-
-    public void Charging()
-    {
-    }
-
-    public void Rasengan()
-    {
+        public void Rasengan()
+        {
+        }
     }
 }

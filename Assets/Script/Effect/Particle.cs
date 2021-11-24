@@ -2,23 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Particle : MonoBehaviour
+namespace WakHead
 {
-    [SerializeField] protected ParticleSystem _particle;
-
-    // Start is called before the first frame update
-    void Start()
+    public class Particle : MonoBehaviour
     {
-        _particle.Play();
-    }
+        [SerializeField] protected ParticleSystem _particle;
 
-    // Update is called once per frame
-    public virtual void Update()
-    {
-        if (!_particle.isPlaying)
+        // Start is called before the first frame update
+        void Start()
         {
-            _particle.Stop();
-            Global.PoolingManager.Despawn(this.gameObject);
+            _particle.Play();
+        }
+
+        // Update is called once per frame
+        public virtual void Update()
+        {
+            if (!_particle.isPlaying)
+            {
+                _particle.Stop();
+                Global.PoolingManager.Despawn(this.gameObject);
+            }
         }
     }
 }

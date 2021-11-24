@@ -2,23 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleActor : MonoBehaviour
+namespace WakHead
 {
-    [SerializeField] private Animator _animator;
-
-    [SerializeField] private List<RuntimeAnimatorController> _animatorControllerList;
-
-    public void Select(int index)
+    public class SimpleActor : MonoBehaviour
     {
-        _animator.runtimeAnimatorController = _animatorControllerList[index];
-    }
+        [SerializeField] private Animator _animator;
 
-    public void Confirmed()
-    {
-        _animator.Play("Attack");
-    }
+        [SerializeField] private List<RuntimeAnimatorController> _animatorControllerList;
 
-    public void Active_Attack()
-    {
+        public void Select(int index)
+        {
+            _animator.runtimeAnimatorController = _animatorControllerList[index];
+        }
+
+        public void Confirmed()
+        {
+            _animator.Play("Attack");
+        }
+
+        public void Active_Attack()
+        {
+        }
     }
 }

@@ -3,26 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIRoomInfo : MonoBehaviour
+namespace WakHead
 {
-    [SerializeField] private Title _title;
-    [SerializeField] private Text _roomNameText;
-    
-    public string RoomName { get; private set; }
-    public string RoomID { get; private set; }
-
-    public void SetInfo(string roomName, string roomID)
+    public class UIRoomInfo : MonoBehaviour
     {
-        RoomName = roomName;
-        RoomID = roomID;
+        [SerializeField] private Title _title;
+        [SerializeField] private Text _roomNameText;
 
-        _roomNameText.text = $"{RoomName} 님의 방";
+        public string RoomName { get; private set; }
+        public string RoomID { get; private set; }
 
-        this.gameObject.SetActive(true);
-    }
+        public void SetInfo(string roomName, string roomID)
+        {
+            RoomName = roomName;
+            RoomID = roomID;
 
-    public void JoinRoom()
-    {
-        _title.JoinRoom(RoomName, RoomID);
+            _roomNameText.text = $"{RoomName} 님의 방";
+
+            this.gameObject.SetActive(true);
+        }
+
+        public void JoinRoom()
+        {
+            _title.JoinRoom(RoomName, RoomID);
+        }
     }
 }

@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Team
+namespace WakHead
 {
-    None,
-    BLUE,
-    RED
+    public enum Team
+    {
+        None,
+        BLUE,
+        RED
+    }
 }

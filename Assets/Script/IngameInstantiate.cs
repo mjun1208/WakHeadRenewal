@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IngameInstantiate : MonoBehaviour
+namespace WakHead
 {
-    private void Start()
+    public class IngameInstantiate : MonoBehaviour
     {
-        Photon.Pun.PhotonNetwork.Instantiate("ActorSpawner", Vector3.zero, Quaternion.identity);
+        private void Start()
+        {
+            Photon.Pun.PhotonNetwork.Instantiate("ActorSpawner", Vector3.zero, Quaternion.identity);
+        }
     }
 }

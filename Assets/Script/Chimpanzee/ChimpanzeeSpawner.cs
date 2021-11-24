@@ -3,55 +3,59 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChimpanzeeSpawner : MonoBehaviourPunCallbacks
+namespace WakHead
 {
-    [SerializeField] private Team _team;
-
-    private List<GameObject> _chimpanzeeList = new List<GameObject>();
-
-    private void Start()
+    public class ChimpanzeeSpawner : MonoBehaviourPunCallbacks
     {
-        StartCoroutine(Vow());
-    }
+        [SerializeField] private Team _team;
 
-    private IEnumerator Vow()
-    {
-        while (true)
+        private List<GameObject> _chimpanzeeList = new List<GameObject>();
+
+        private void Start()
         {
-            if (PhotonNetwork.IsConnected && PhotonNetwork.IsMasterClient &&
-                !string.IsNullOrWhiteSpace(Global.instance.MyActorName) &&
-                !string.IsNullOrWhiteSpace(Global.instance.EnemyActorName))
-            {
-                Spawn();
-            }
-
-            yield return new WaitForSeconds(5f);
+            StartCoroutine(Vow());
         }
-    }
 
-    public void Spawn()
-    {
-        string spawnName = "";
-
-        switch (_team)
+        private IEnumerator Vow()
         {
-            case Team.BLUE:
+            while (true)
+            {
+                if (PhotonNetwork.IsConnected && PhotonNetwork.IsMasterClient &&
+                    !string.IsNullOrWhiteSpace(Global.instance.MyActorName) &&
+                    !string.IsNullOrWhiteSpace(Global.instance.EnemyActorName))
+                {
+                    Spawn();
+                }
+
+                yield return new WaitForSeconds(5f);
+            }
+        }
+
+        public void Spawn()
+        {
+            string spawnName = "";
+
+            switch (_team)
+            {
+                case Team.BLUE:
                 {
                     spawnName = Constant.PANZEE_BLUE;
                     break;
                 }
-            case Team.RED:
+                case Team.RED:
                 {
                     spawnName = Constant.PANZEE_RED;
                     break;
                 }
+            }
+
+            var randomPos = (Vector3) Random.insideUnitCircle * 3f;
+
+            var newPanzee =
+                PhotonNetwork.Instantiate(spawnName, this.transform.position + randomPos, Quaternion.identity);
+            newPanzee.GetComponent<Chimpanzee>().Init(_team);
+
+            _chimpanzeeList.Add(newPanzee);
         }
-
-        var randomPos = (Vector3)Random.insideUnitCircle * 3f;
-
-        var newPanzee = PhotonNetwork.Instantiate(spawnName, this.transform.position + randomPos, Quaternion.identity);
-        newPanzee.GetComponent<Chimpanzee>().Init(_team);
-
-        _chimpanzeeList.Add(newPanzee);
     }
 }

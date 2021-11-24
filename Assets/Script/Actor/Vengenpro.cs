@@ -3,106 +3,112 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Vengenpro : Actor
+namespace WakHead
 {
-    float _attackPressTime = 0f;
-    float _attackPressFullChargingTime = 0f;
-    float _attackPressDelay = 0f;
-
-    protected override void Update()
+    public class Vengenpro : Actor
     {
-        base.Update();
+        float _attackPressTime = 0f;
+        float _attackPressFullChargingTime = 0f;
+        float _attackPressDelay = 0f;
 
-        if (_isAttack && _attackPressDelay <= 0f)
+        protected override void Update()
         {
-            _attackPressDelay = 0f;
+            base.Update();
 
-            if (_attackPressTime < 10f)
+            if (_isAttack && _attackPressDelay <= 0f)
             {
-                _attackPressTime += Time.deltaTime;
-                _animator.SetFloat("AttackSpeed", 1 + _attackPressTime * 0.5f);
+                _attackPressDelay = 0f;
+
+                if (_attackPressTime < 10f)
+                {
+                    _attackPressTime += Time.deltaTime;
+                    _animator.SetFloat("AttackSpeed", 1 + _attackPressTime * 0.5f);
+                }
+                else
+                {
+                    _attackPressFullChargingTime += Time.deltaTime;
+                }
+
+                if (_attackPressFullChargingTime >= 1.5f)
+                {
+                    _attackPressFullChargingTime = 0f;
+                    _attackPressDelay = 0.5f;
+                }
             }
             else
             {
-                _attackPressFullChargingTime += Time.deltaTime;
-            }
+                _attackPressDelay -= Time.deltaTime;
 
-            if (_attackPressFullChargingTime >= 1.5f)
+                _attackPressTime = 0;
+                _animator.SetFloat("AttackSpeed", 1);
+            }
+        }
+
+        protected override void Active_Attack()
+        {
+            if (!photonView.IsMine)
             {
-                _attackPressFullChargingTime = 0f;
-                _attackPressDelay = 0.5f;
+                return;
+            }
+
+            for (int i = 0; i < 3; i++)
+            {
+                Vector2 randomDir = new Vector2(Random.Range(0f, 1f), Random.Range(-0.5f, 0.5f));
+
+                randomDir.x *= GetAttackDir().x;
+
+                photonView.RPC("ShootNote", RpcTarget.All, randomDir);
             }
         }
-        else
-        {
-            _attackPressDelay -= Time.deltaTime;
 
-            _attackPressTime = 0;
-            _animator.SetFloat("AttackSpeed", 1);
-        }
-    }
-
-    protected override void Active_Attack()
-    {
-        if (!photonView.IsMine)
+        protected override void Active_Skill_1()
         {
-            return;
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+
+            photonView.RPC("ShootZzang", RpcTarget.All);
         }
 
-        for (int i = 0; i < 3; i++)
+        protected override void Active_Skill_2()
         {
-            Vector2 randomDir = new Vector2(Random.Range(0f, 1f), Random.Range(-0.5f, 0.5f));
+            if (!photonView.IsMine)
+            {
+                return;
+            }
 
-            randomDir.x *= GetAttackDir().x;
-            
-            photonView.RPC("ShootNote", RpcTarget.All, randomDir);
-        }
-    }
+            _skill_2Range.AttackEntity(targetEntity =>
+            {
+                var dir = targetEntity.transform.position - this.transform.position;
 
-    protected override void Active_Skill_1()
-    {
-        if (!photonView.IsMine)
-        {
-            return;
+                targetEntity.KnockBack(10, dir.normalized, 3f, 1.5f);
+            });
         }
 
-        photonView.RPC("ShootZzang", RpcTarget.All);
-    }
-
-    protected override void Active_Skill_2()
-    {
-        if (!photonView.IsMine)
+        [PunRPC]
+        public void ShootNote(Vector2 randomDir)
         {
-            return;
+            var newNote =
+                Global.PoolingManager.LocalSpawn("Vengenpro_Note", this.transform.position, Quaternion.identity, true);
+
+            newNote.GetComponent<Vengenpro_Note>().SetInfo(this.photonView, this.gameObject, randomDir);
         }
 
-        _skill_2Range.AttackEntity(targetEntity =>
+        [PunRPC]
+        public void ShootZzang()
         {
-            var dir = targetEntity.transform.position - this.transform.position;
+            var newZzang = Global.PoolingManager.LocalSpawn("Vengenpro_Zzang", this.transform.position,
+                Quaternion.identity, true);
 
-            targetEntity.KnockBack(10, dir.normalized, 3f, 1.5f);
-        });
-    }
+            newZzang.GetComponent<Vengenpro_Zzang>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
+        }
 
-    [PunRPC]
-    public void ShootNote(Vector2 randomDir)
-    {
-        var newNote = Global.PoolingManager.LocalSpawn("Vengenpro_Note", this.transform.position, Quaternion.identity, true);
-
-        newNote.GetComponent<Vengenpro_Note>().SetInfo(this.photonView, this.gameObject, randomDir);
-    }
-    
-    [PunRPC]
-    public void ShootZzang()
-    {
-        var newZzang = Global.PoolingManager.LocalSpawn("Vengenpro_Zzang", this.transform.position, Quaternion.identity, true);
-        
-        newZzang.GetComponent<Vengenpro_Zzang>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
-    }
-    
-    [PunRPC]
-    public void SonicBoom()
-    {
-        var newSonic = Global.PoolingManager.LocalSpawn("Vengenpro_SonicBoom", this.transform.position, Quaternion.identity, true);
+        [PunRPC]
+        public void SonicBoom()
+        {
+            var newSonic = Global.PoolingManager.LocalSpawn("Vengenpro_SonicBoom", this.transform.position,
+                Quaternion.identity, true);
+        }
     }
 }

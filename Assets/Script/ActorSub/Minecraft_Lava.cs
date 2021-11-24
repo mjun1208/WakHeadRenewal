@@ -3,68 +3,69 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Minecraft_Lava : ActorSub
+namespace WakHead
 {
-    [SerializeField] private List<GameObject> _lavaList = new List<GameObject>();
-
-    public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 pos, Vector3 dir)
+    public class Minecraft_Lava : ActorSub
     {
-        base.SetInfo(ownerPhotonView, owner, dir);
+        [SerializeField] private List<GameObject> _lavaList = new List<GameObject>();
 
-        this.transform.position = pos;
-
-        foreach (var lava in _lavaList)
+        public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 pos, Vector3 dir)
         {
-            lava.SetActive(false);
+            base.SetInfo(ownerPhotonView, owner, dir);
+
+            this.transform.position = pos;
+
+            foreach (var lava in _lavaList)
+            {
+                lava.SetActive(false);
+            }
+
+            StartCoroutine(Fire());
+            StartCoroutine(Diffuse());
         }
 
-        StartCoroutine(Fire());
-        StartCoroutine(Diffuse());
-    }
-
-    public void ActiveDamage()
-    {
-        _attackRange.Attack(targetEntity =>
+        public void ActiveDamage()
         {
-            OnDamage(targetEntity, 3);
-        });
-    }
-
-    protected override void OnDamage(Entity entity, int damage)
-    {
-        if (_ownerPhotonView.IsMine)
-        {
-            entity?.Damaged(this.transform.position, damage);
+            _attackRange.Attack(targetEntity => { OnDamage(targetEntity, 3); });
         }
-    }
 
-    private IEnumerator Fire()
-    {
-        while (true) {
-            yield return new WaitForSeconds(0.1f);
-            ActiveDamage();
-        }
-    }
-
-    private IEnumerator Diffuse()
-    {
-        foreach (var lava in _lavaList)
+        protected override void OnDamage(Entity entity, int damage)
         {
-            lava.SetActive(true);
+            if (_ownerPhotonView.IsMine)
+            {
+                entity?.Damaged(this.transform.position, damage);
+            }
+        }
+
+        private IEnumerator Fire()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(0.1f);
+                ActiveDamage();
+            }
+        }
+
+        private IEnumerator Diffuse()
+        {
+            foreach (var lava in _lavaList)
+            {
+                lava.SetActive(true);
+                yield return new WaitForSeconds(0.5f);
+            }
+
             yield return new WaitForSeconds(0.5f);
+
+            foreach (var lava in _lavaList)
+            {
+                lava.SetActive(false);
+                yield return new WaitForSeconds(0.5f);
+            }
+
+            yield return null;
+
+            Destroy();
         }
 
-        yield return new WaitForSeconds(0.5f);
-
-        foreach (var lava in _lavaList)
-        {
-            lava.SetActive(false);
-            yield return new WaitForSeconds(0.5f);
-        }
-
-        yield return null;
-
-        Destroy();
     }
-
 }

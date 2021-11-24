@@ -3,155 +3,163 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jett : Actor
+namespace WakHead
 {
-    [SerializeField] private GameObject _ghostPivot;
-    [SerializeField] private GameObject _operatorTrajectoryPivot;
-    [SerializeField] private GameObject _skill2_0Pivot;
-    [SerializeField] private GameObject _skill2_1Pivot;
-
-    private int _shurikenCount = 0;
-
-    protected override void Start()
+    public class Jett : Actor
     {
-        base.Start();
+        [SerializeField] private GameObject _ghostPivot;
+        [SerializeField] private GameObject _operatorTrajectoryPivot;
+        [SerializeField] private GameObject _skill2_0Pivot;
+        [SerializeField] private GameObject _skill2_1Pivot;
 
-        _attackMoveSpeed = 2f;
-    }
+        private int _shurikenCount = 0;
 
-    protected override void Update()
-    {
-        if (_animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        protected override void Start()
         {
-            _isAttack = true;
-        }
-        else
-        {
-            _isAttack = false;
+            base.Start();
+
+            _attackMoveSpeed = 2f;
         }
 
-        base.Update();
-    }
-
-    protected override void Active_Attack()
-    {
-        if (!photonView.IsMine)
+        protected override void Update()
         {
-            return;
+            if (_animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+            {
+                _isAttack = true;
+            }
+            else
+            {
+                _isAttack = false;
+            }
+
+            base.Update();
         }
 
-        RaycastHit2D[] hits = Physics2D.RaycastAll(_ghostPivot.transform.position, GetAttackDir(), 3f);
-        Debug.DrawRay(_ghostPivot.transform.position, GetAttackDir() * 3f, Color.red, 3f);
-
-        foreach (var hit in hits)
+        protected override void Active_Attack()
         {
-            if (hit.transform.gameObject == this.gameObject)
+            if (!photonView.IsMine)
             {
-                continue;
+                return;
             }
 
-            var entity = hit.transform.GetComponent<Entity>();
-            if (entity != null)
+            RaycastHit2D[] hits = Physics2D.RaycastAll(_ghostPivot.transform.position, GetAttackDir(), 3f);
+            Debug.DrawRay(_ghostPivot.transform.position, GetAttackDir() * 3f, Color.red, 3f);
+
+            foreach (var hit in hits)
             {
-                entity.KnockBack(3, GetAttackDir(), 0.5f, 0);
-                break;
-            }
+                if (hit.transform.gameObject == this.gameObject)
+                {
+                    continue;
+                }
 
-            var summoned = hit.transform.GetComponent<Summoned>();
-            if (summoned != null)
-            {
-                summoned.Damaged(summoned.transform.position);
-                break;
-            }
-        }
-    }
+                var entity = hit.transform.GetComponent<Entity>();
+                if (entity != null)
+                {
+                    entity.KnockBack(3, GetAttackDir(), 0.5f, 0);
+                    break;
+                }
 
-    protected override void Active_Skill_1()
-    {
-        if (!photonView.IsMine)
-        {
-            return;
-        }
-
-        int layerMask = (1 << LayerMask.NameToLayer("Enemy")) + (1 << LayerMask.NameToLayer("Summoned")) + (1 << LayerMask.NameToLayer("Minion"));
-        RaycastHit2D[] hits = Physics2D.RaycastAll(_operatorTrajectoryPivot.transform.position, GetAttackDir(), 10f, layerMask);
-        Debug.DrawRay(_operatorTrajectoryPivot.transform.position, GetAttackDir() * 10f, Color.red, 3f);
-
-        foreach (var hit in hits)
-        {
-            if (hit.transform.gameObject == this.gameObject)
-            {
-                continue;
-            }
-
-            var entity = hit.transform.GetComponent<Entity>();
-            if (entity != null)
-            {
-                entity.KnockBack(20, GetAttackDir(), 1f, 0);
-            }
-
-            var summoned = hit.transform.GetComponent<Summoned>();
-            if (summoned != null)
-            {
-                summoned.Damaged(summoned.transform.position);
+                var summoned = hit.transform.GetComponent<Summoned>();
+                if (summoned != null)
+                {
+                    summoned.Damaged(summoned.transform.position);
+                    break;
+                }
             }
         }
 
-        photonView.RPC("ShootOperator", RpcTarget.All);
-    }
-
-    protected override void Active_Skill_2()
-    {
-        if (!photonView.IsMine)
+        protected override void Active_Skill_1()
         {
-            return;
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+
+            int layerMask = (1 << LayerMask.NameToLayer("Enemy")) + (1 << LayerMask.NameToLayer("Summoned")) +
+                            (1 << LayerMask.NameToLayer("Minion"));
+            RaycastHit2D[] hits = Physics2D.RaycastAll(_operatorTrajectoryPivot.transform.position, GetAttackDir(), 10f,
+                layerMask);
+            Debug.DrawRay(_operatorTrajectoryPivot.transform.position, GetAttackDir() * 10f, Color.red, 3f);
+
+            foreach (var hit in hits)
+            {
+                if (hit.transform.gameObject == this.gameObject)
+                {
+                    continue;
+                }
+
+                var entity = hit.transform.GetComponent<Entity>();
+                if (entity != null)
+                {
+                    entity.KnockBack(20, GetAttackDir(), 1f, 0);
+                }
+
+                var summoned = hit.transform.GetComponent<Summoned>();
+                if (summoned != null)
+                {
+                    summoned.Damaged(summoned.transform.position);
+                }
+            }
+
+            photonView.RPC("ShootOperator", RpcTarget.All);
         }
 
-        _shurikenCount += 10;
-    }
-
-    private void ThrowShuriken()
-    {
-        if (!photonView.IsMine)
+        protected override void Active_Skill_2()
         {
-            return;
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+
+            _shurikenCount += 10;
         }
 
-        photonView.RPC("ThrowShurikenRPC", RpcTarget.All, _shurikenCount % 2 == 0);
-        _shurikenCount--;
-    }
-
-    protected override void Attack()
-    {
-        base.Attack();
-        if (_shurikenCount == 0)
+        private void ThrowShuriken()
         {
-            _animator.SetBool("IsAttack", _isAttackInput);
+            if (!photonView.IsMine)
+            {
+                return;
+            }
 
-            _animator.SetBool("IsAttack_2_0", false);
-            _animator.SetBool("IsAttack_2_1", false);
+            photonView.RPC("ThrowShurikenRPC", RpcTarget.All, _shurikenCount % 2 == 0);
+            _shurikenCount--;
         }
-        else
+
+        protected override void Attack()
         {
-            _animator.SetBool("IsAttack_2_0", _isAttackInput && _shurikenCount % 2 == 0);
-            _animator.SetBool("IsAttack_2_1", _isAttackInput && _shurikenCount % 2 == 1);
+            base.Attack();
+            if (_shurikenCount == 0)
+            {
+                _animator.SetBool("IsAttack", _isAttackInput);
+
+                _animator.SetBool("IsAttack_2_0", false);
+                _animator.SetBool("IsAttack_2_1", false);
+            }
+            else
+            {
+                _animator.SetBool("IsAttack_2_0", _isAttackInput && _shurikenCount % 2 == 0);
+                _animator.SetBool("IsAttack_2_1", _isAttackInput && _shurikenCount % 2 == 1);
+            }
         }
-    }
 
-    [PunRPC]
-    public void ThrowShurikenRPC(bool isPivot0)
-    {
-        var throwPosition = isPivot0 ? _skill2_0Pivot : _skill2_1Pivot;
+        [PunRPC]
+        public void ThrowShurikenRPC(bool isPivot0)
+        {
+            var throwPosition = isPivot0 ? _skill2_0Pivot : _skill2_1Pivot;
 
-        var newShuriken = Global.PoolingManager.LocalSpawn("Jett_Shuriken", throwPosition.transform.position, Quaternion.identity, true);
+            var newShuriken = Global.PoolingManager.LocalSpawn("Jett_Shuriken", throwPosition.transform.position,
+                Quaternion.identity, true);
 
-        newShuriken.GetComponent<Jett_Shuriken>().SetInfo(this.photonView, this.gameObject, throwPosition.transform.position, GetAttackDir());
-    }
+            newShuriken.GetComponent<Jett_Shuriken>().SetInfo(this.photonView, this.gameObject,
+                throwPosition.transform.position, GetAttackDir());
+        }
 
-    [PunRPC]
-    public void ShootOperator()
-    {
-        var newOperatorTrajectory = Global.PoolingManager.LocalSpawn("OperatorTrajectory", _operatorTrajectoryPivot.transform.position, Quaternion.identity, true);
-        newOperatorTrajectory.GetComponent<SpriteRenderer>().flipX = GetAttackDir().x < 0;
+        [PunRPC]
+        public void ShootOperator()
+        {
+            var newOperatorTrajectory = Global.PoolingManager.LocalSpawn("OperatorTrajectory",
+                _operatorTrajectoryPivot.transform.position, Quaternion.identity, true);
+            newOperatorTrajectory.GetComponent<SpriteRenderer>().flipX = GetAttackDir().x < 0;
+        }
     }
 }

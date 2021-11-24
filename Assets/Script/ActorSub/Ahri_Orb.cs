@@ -3,91 +3,94 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ahri_Orb : ActorSub
+namespace WakHead
 {
-    [SerializeField] private TrailRenderer _trail;
-
-    public const float BackSpeed = 15f;
-
-    private List<GameObject> _collidedObjectList = new List<GameObject>();
-
-    public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
+    public class Ahri_Orb : ActorSub
     {
-        base.SetInfo(ownerPhotonView, owner, dir);
+        [SerializeField] private TrailRenderer _trail;
 
-        _trail.Clear();
+        public const float BackSpeed = 15f;
 
-        _collidedObjectList.Clear();
+        private List<GameObject> _collidedObjectList = new List<GameObject>();
 
-        _moveSpeed = Constant.AHRI_ORB_MOVE_SPEED;
-
-        StartCoroutine(Go());
-    }
-
-    private void Update()
-    {
-        _attackRange.AttackEntity(targetEntity =>
+        public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
         {
-            if (!_collidedObjectList.Contains(targetEntity.gameObject))
-            {
-                OnDamage(targetEntity, 3);
-                _collidedObjectList.Add(targetEntity.gameObject);
-            }
-        });
-        _attackRange.AttackSummoned(targetSummoned =>
+            base.SetInfo(ownerPhotonView, owner, dir);
+
+            _trail.Clear();
+
+            _collidedObjectList.Clear();
+
+            _moveSpeed = Constant.AHRI_ORB_MOVE_SPEED;
+
+            StartCoroutine(Go());
+        }
+
+        private void Update()
         {
-            if (!_collidedObjectList.Contains(targetSummoned.gameObject))
+            _attackRange.AttackEntity(targetEntity =>
             {
-                if (_ownerPhotonView.IsMine)
+                if (!_collidedObjectList.Contains(targetEntity.gameObject))
                 {
-                    targetSummoned.Damaged(targetSummoned.transform.position);
-                    _collidedObjectList.Add(targetSummoned.gameObject);
+                    OnDamage(targetEntity, 3);
+                    _collidedObjectList.Add(targetEntity.gameObject);
                 }
+            });
+            _attackRange.AttackSummoned(targetSummoned =>
+            {
+                if (!_collidedObjectList.Contains(targetSummoned.gameObject))
+                {
+                    if (_ownerPhotonView.IsMine)
+                    {
+                        targetSummoned.Damaged(targetSummoned.transform.position);
+                        _collidedObjectList.Add(targetSummoned.gameObject);
+                    }
+                }
+            }, this);
+        }
+
+        protected override void OnDamage(Entity entity, int damage)
+        {
+            if (_ownerPhotonView.IsMine)
+            {
+                entity?.Damaged(this.transform.position, damage);
             }
-        }, this);
-    }
-
-    protected override void OnDamage(Entity entity, int damage)
-    {
-        if (_ownerPhotonView.IsMine)
-        {
-            entity?.Damaged(this.transform.position, damage);
-        }
-    }
-
-    protected override IEnumerator Go()
-    {
-        float goTime = 0;
-
-        while (goTime < 0.5f)
-        {
-            goTime += Time.deltaTime;
-            _rigid.MovePosition(this.transform.position + _dir * _moveSpeed * Time.deltaTime);
-
-            yield return null;
         }
 
-        StartCoroutine(Back());
-    }
-
-    private IEnumerator Back()
-    {
-        _collidedObjectList.Clear();
-
-        float ownerDistance = Vector3.Distance(this.transform.position, _owner.transform.position);
-
-        while (ownerDistance > 0.2f)
+        protected override IEnumerator Go()
         {
-            _dir = this.transform.position - _owner.transform.position;
-            _rigid.MovePosition(this.transform.position - _dir.normalized * BackSpeed * Time.deltaTime);
+            float goTime = 0;
 
-            ownerDistance = Vector3.Distance(this.transform.position, _owner.transform.position);
+            while (goTime < 0.5f)
+            {
+                goTime += Time.deltaTime;
+                _rigid.MovePosition(this.transform.position + _dir * _moveSpeed * Time.deltaTime);
 
-            yield return null;
+                yield return null;
+            }
+
+            StartCoroutine(Back());
         }
 
-        _trail.Clear();
+        private IEnumerator Back()
+        {
+            _collidedObjectList.Clear();
 
-        Destroy();
+            float ownerDistance = Vector3.Distance(this.transform.position, _owner.transform.position);
+
+            while (ownerDistance > 0.2f)
+            {
+                _dir = this.transform.position - _owner.transform.position;
+                _rigid.MovePosition(this.transform.position - _dir.normalized * BackSpeed * Time.deltaTime);
+
+                ownerDistance = Vector3.Distance(this.transform.position, _owner.transform.position);
+
+                yield return null;
+            }
+
+            _trail.Clear();
+
+            Destroy();
+        }
     }
 }

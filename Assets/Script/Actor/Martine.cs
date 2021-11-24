@@ -3,204 +3,272 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Martine : Actor
+namespace WakHead
 {
-    private List<Martine_Vent> _myVentList = new List<Martine_Vent>();
-
-    private Martine_Vent _currentVent = null;
-    private Martine_Vent _ventingVent = null;
-
-    private bool _isOnVent = false;
-    private bool _isVenting = false;
-
-    private List<Collider2D> _colliedVent = new List<Collider2D>();
-
-    private IEnumerator _selectNextVent = null;
-
-    protected override void Start()
+    public class Martine : Actor
     {
-        base.Start();
-    }
+        private List<Martine_Vent> _myVentList = new List<Martine_Vent>();
 
-    protected override void Update()
-    {
-        if (!photonView.IsMine)
+        private Martine_Vent _currentVent = null;
+        private Martine_Vent _ventingVent = null;
+
+        private bool _isOnVent = false;
+        private bool _isVenting = false;
+
+        private List<Collider2D> _colliedVent = new List<Collider2D>();
+
+        private IEnumerator _selectNextVent = null;
+
+        protected override void Start()
         {
-            return;
+            base.Start();
         }
 
-        base.Update();
-
-        if (!_isVenting)
+        protected override void Update()
         {
-            SelectVent();
-        }
-
-        for (int i = 0; i < _myVentList.Count; i++)
-        {
-            if (_myVentList[i].IsDead)
+            if (!photonView.IsMine)
             {
-                var vent = _myVentList[i];
+                return;
+            }
 
-                photonView.RPC("SpawnDeadEffect", RpcTarget.All, vent.transform.position);
+            base.Update();
 
-                _myVentList.Remove(vent);
+            if (!_isVenting)
+            {
+                SelectVent();
+            }
 
-                var ventCollider = vent.GetComponent<Collider2D>();
-                if (_colliedVent.Contains(ventCollider))
+            for (int i = 0; i < _myVentList.Count; i++)
+            {
+                if (_myVentList[i].IsDead)
                 {
-                    _colliedVent.Remove(ventCollider);
+                    var vent = _myVentList[i];
+
+                    photonView.RPC("SpawnDeadEffect", RpcTarget.All, vent.transform.position);
+
+                    _myVentList.Remove(vent);
+
+                    var ventCollider = vent.GetComponent<Collider2D>();
+                    if (_colliedVent.Contains(ventCollider))
+                    {
+                        _colliedVent.Remove(ventCollider);
+                    }
+
+                    PhotonNetwork.Destroy(vent.gameObject);
+                }
+            }
+        }
+
+        protected override void ForceStop()
+        {
+            base.ForceStop();
+            if (_selectNextVent != null)
+            {
+                StopCoroutine(_selectNextVent);
+            }
+
+            _selectNextVent = null;
+        }
+
+        protected override void Active_Attack()
+        {
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+
+            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(5, GetAttackDir(), 0.5f, 0); });
+        }
+
+        protected override void Active_Skill_1()
+        {
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+
+            _skill_1Range.Attack(targetEntity => { targetEntity.KnockBack(15, GetAttackDir(), 1f, 0); });
+        }
+
+        private void Active_Skill_1_2()
+        {
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+
+            _skill_1Range.Attack(targetEntity => { targetEntity.KnockBack(15, -GetAttackDir(), 1f, 0); });
+        }
+
+        protected override void Active_Skill_2()
+        {
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+        }
+
+        public override void OnSkill_2()
+        {
+            if (_ventingVent != null)
+            {
+                return;
+            }
+
+            if (_currentVent == null)
+            {
+                var newVent =
+                    Global.PoolingManager.Spawn("Martine_Vent", this.transform.position, this.transform.rotation);
+                var newVentScript = newVent.GetComponent<Martine_Vent>();
+                newVentScript.SetInfo(this.photonView, this.gameObject, GetAttackDir());
+                _myVentList.Add(newVentScript);
+            }
+            else
+            {
+                this.transform.position = _currentVent.transform.position + new Vector3(0, 0.2f, 0);
+                base.OnSkill_2();
+
+                _currentVent.OnVent();
+
+                _colliedVent.Clear();
+
+                _animator.SetBool("IsSkill_2", true);
+
+                if (OnSkillCoroutine != null)
+                {
+                    StopCoroutine(OnSkillCoroutine);
+                    OnSkillCoroutine = null;
                 }
 
-                PhotonNetwork.Destroy(vent.gameObject);
+                IsDoingSkill = true;
+
+                StartCoroutine(Venting());
             }
         }
-    }
 
-    protected override void ForceStop()
-    {
-        base.ForceStop();
-        if (_selectNextVent != null)
+        private int GetCurrentVentIndex()
         {
-            StopCoroutine(_selectNextVent);
-        }
+            int ventIndex = 0;
+            int currentVentIndex = 0;
 
-        _selectNextVent = null;
-    }
-
-    protected override void Active_Attack()
-    {
-        if (!photonView.IsMine)
-        {
-            return;
-        }
-
-        _attackRange.Attack(targetEntity =>
-        {
-            targetEntity.KnockBack(5, GetAttackDir(), 0.5f, 0);
-        });
-    }
-
-    protected override void Active_Skill_1()
-    {
-        if (!photonView.IsMine)
-        {
-            return;
-        }
-
-        _skill_1Range.Attack(targetEntity =>
-        {
-            targetEntity.KnockBack(15, GetAttackDir(), 1f, 0);
-        });
-    }
-
-    private void Active_Skill_1_2()
-    {
-        if (!photonView.IsMine)
-        {
-            return;
-        }
-
-        _skill_1Range.Attack(targetEntity =>
-        {
-            targetEntity.KnockBack(15, -GetAttackDir(), 1f, 0);
-        });
-    }
-
-    protected override void Active_Skill_2()
-    {
-        if (!photonView.IsMine)
-        {
-            return;
-        }
-    }
-
-    public override void OnSkill_2()
-    {
-        if (_ventingVent != null)
-        {
-            return;
-        }
-
-        if (_currentVent == null)
-        {
-            var newVent = Global.PoolingManager.Spawn("Martine_Vent", this.transform.position, this.transform.rotation);
-            var newVentScript = newVent.GetComponent<Martine_Vent>();
-            newVentScript.SetInfo(this.photonView, this.gameObject, GetAttackDir());
-            _myVentList.Add(newVentScript);
-        }
-        else
-        {
-            this.transform.position = _currentVent.transform.position + new Vector3(0, 0.2f, 0);
-            base.OnSkill_2();
-
-            _currentVent.OnVent();
-
-            _colliedVent.Clear();
-
-            _animator.SetBool("IsSkill_2", true);
-
-            if (OnSkillCoroutine != null)
+            foreach (var vent in _myVentList)
             {
-                StopCoroutine(OnSkillCoroutine);
-                OnSkillCoroutine = null;
+                if (vent == _ventingVent)
+                {
+                    currentVentIndex = ventIndex;
+                }
+
+                ventIndex++;
             }
 
-            IsDoingSkill = true;
-
-            StartCoroutine(Venting());
+            return currentVentIndex;
         }
-    }
 
-    private int GetCurrentVentIndex()
-    {
-        int ventIndex = 0;
-        int currentVentIndex = 0;
-
-        foreach (var vent in _myVentList)
+        [PunRPC]
+        private void Hide(bool isTrue)
         {
-            if (vent == _ventingVent)
+            _renderer.enabled = !isTrue;
+            _collider2D.enabled = !isTrue;
+        }
+
+        private IEnumerator Venting()
+        {
+            _isVenting = true;
+
+            _ventingVent = _currentVent;
+            int currentVentIndex = GetCurrentVentIndex();
+
+            while (!_animator.GetCurrentAnimatorStateInfo(0).IsName("Skill_2"))
             {
-                currentVentIndex = ventIndex;
+                yield return null;
             }
 
-            ventIndex++;
-        }
-
-        return currentVentIndex;
-    }
-
-    [PunRPC]
-    private void Hide(bool isTrue)
-    {
-        _renderer.enabled = !isTrue;
-        _collider2D.enabled = !isTrue;
-    }
-
-    private IEnumerator Venting()
-    {
-        _isVenting = true;
-
-        _ventingVent = _currentVent;
-        int currentVentIndex = GetCurrentVentIndex();
-
-        while (!_animator.GetCurrentAnimatorStateInfo(0).IsName("Skill_2"))
-        {
             yield return null;
+
+            while (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.95f)
+            {
+                yield return null;
+            }
+
+            photonView.RPC("Hide", RpcTarget.All, true);
+
+            // 벤트 null 체크
+            if (_ventingVent == null)
+            {
+                photonView.RPC("Hide", RpcTarget.All, false);
+
+                if (_ventingVent != null)
+                {
+                    _currentVent = _ventingVent;
+                    _currentVent.Select(true);
+
+                    _ventingVent = null;
+                }
+
+                UpVent(this.transform.position);
+            }
+
+            // 벤트 선택
+            _selectNextVent = SelectNextVent();
+            StartCoroutine(_selectNextVent);
         }
 
-        yield return null;
-
-        while (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.95f)
+        private IEnumerator SelectNextVent()
         {
-            yield return null;
-        }
+            bool isInputUp = true;
 
-        photonView.RPC("Hide", RpcTarget.All, true);
+            int currentIndex = GetCurrentVentIndex();
 
-        // 벤트 null 체크
-        if (_ventingVent == null)
-        {
+            Vector3 lastVentPos = _ventingVent.transform.position + new Vector3(0, 0.2f, 0);
+
+            while (isInputUp)
+            {
+                if (Input.GetKeyDown(KeyCode.RightArrow))
+                {
+                    _ventingVent.Select(false);
+
+                    currentIndex = GetRightVent(GetCurrentVentIndex());
+
+                    _ventingVent = _myVentList[currentIndex];
+                    _ventingVent.Select(true);
+
+                    lastVentPos = _ventingVent.transform.position + new Vector3(0, 0.2f, 0);
+
+                    this.transform.position = lastVentPos;
+                    _smoothSync.teleport();
+                }
+
+                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                {
+                    _ventingVent.Select(false);
+
+                    currentIndex = GetLeftVent(GetCurrentVentIndex());
+
+                    _ventingVent = _myVentList[currentIndex];
+                    _ventingVent.Select(true);
+
+                    lastVentPos = _ventingVent.transform.position + new Vector3(0, 0.2f, 0);
+
+                    this.transform.position = lastVentPos;
+                    _smoothSync.teleport();
+                }
+
+                if (Input.GetKeyDown(KeyCode.C) || _ventingVent == null)
+                {
+                    isInputUp = false;
+                }
+
+                yield return null;
+            }
+
+            // 벤트 올라옴
+            if (_ventingVent != null)
+            {
+                _ventingVent.OnVent();
+            }
+
+            yield return new WaitForSeconds(0.15f);
+
             photonView.RPC("Hide", RpcTarget.All, false);
 
             if (_ventingVent != null)
@@ -211,228 +279,158 @@ public class Martine : Actor
                 _ventingVent = null;
             }
 
-            UpVent(this.transform.position);
+            UpVent(lastVentPos);
+
+            _selectNextVent = null;
         }
 
-        // 벤트 선택
-        _selectNextVent = SelectNextVent();
-        StartCoroutine(_selectNextVent);
-    }
-
-    private IEnumerator SelectNextVent()
-    {
-        bool isInputUp = true;
-
-        int currentIndex = GetCurrentVentIndex();
-
-        Vector3 lastVentPos = _ventingVent.transform.position + new Vector3(0, 0.2f, 0);
-
-        while (isInputUp)
+        private int GetRightVent(int currentIndex)
         {
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            if (_myVentList.Count < 1)
             {
-                _ventingVent.Select(false);
-
-                currentIndex = GetRightVent(GetCurrentVentIndex());
-
-                _ventingVent = _myVentList[currentIndex];
-                _ventingVent.Select(true);
-
-                lastVentPos = _ventingVent.transform.position + new Vector3(0, 0.2f, 0);
-
-                this.transform.position = lastVentPos;
-                _smoothSync.teleport();
-            }
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                _ventingVent.Select(false);
-
-                currentIndex = GetLeftVent(GetCurrentVentIndex());
-
-                _ventingVent = _myVentList[currentIndex];
-                _ventingVent.Select(true);
-
-                lastVentPos = _ventingVent.transform.position + new Vector3(0, 0.2f, 0);
-
-                this.transform.position = lastVentPos;
-                _smoothSync.teleport();
+                return GetCurrentVentIndex();
             }
 
-            if (Input.GetKeyDown(KeyCode.C) || _ventingVent == null)
+            Vector2 minDistance = new Vector2(float.MaxValue, float.MaxValue);
+
+            int nextIndex = currentIndex;
+            int ventIndex = 0;
+
+            foreach (var vent in _myVentList)
             {
-                isInputUp = false;
-            }
-            yield return null;
-        }
+                Vector2 distance = vent.transform.position;
 
-        // 벤트 올라옴
-        if (_ventingVent != null)
-        {
-            _ventingVent.OnVent();
-        }
-
-        yield return new WaitForSeconds(0.15f);
-
-        photonView.RPC("Hide", RpcTarget.All, false);
-
-        if (_ventingVent != null)
-        {
-            _currentVent = _ventingVent;
-            _currentVent.Select(true);
-
-            _ventingVent = null;
-        }
-
-        UpVent(lastVentPos);
-
-        _selectNextVent = null;
-    }
-
-    private int GetRightVent(int currentIndex)
-    {
-        if (_myVentList.Count < 1)
-        {
-            return GetCurrentVentIndex();
-        }
-
-        Vector2 minDistance = new Vector2(float.MaxValue, float.MaxValue);
-
-        int nextIndex = currentIndex;
-        int ventIndex = 0;
-
-        foreach (var vent in _myVentList)
-        {
-            Vector2 distance = vent.transform.position;
-
-            if (_myVentList[currentIndex].transform.position.x < distance.x)
-            {
-                if (minDistance.x > distance.x)
+                if (_myVentList[currentIndex].transform.position.x < distance.x)
                 {
-                    minDistance = distance;
-                    nextIndex = ventIndex;
+                    if (minDistance.x > distance.x)
+                    {
+                        minDistance = distance;
+                        nextIndex = ventIndex;
+                    }
+                }
+
+                ventIndex++;
+            }
+
+            return nextIndex;
+        }
+
+        private int GetLeftVent(int currentIndex)
+        {
+            if (_myVentList.Count < 1)
+            {
+                return GetCurrentVentIndex();
+            }
+
+            Vector2 maxDistance = new Vector2(-float.MaxValue, -float.MaxValue);
+
+            int nextIndex = currentIndex;
+            int ventIndex = 0;
+
+            foreach (var vent in _myVentList)
+            {
+                Vector2 distance = vent.transform.position;
+
+                if (_myVentList[currentIndex].transform.position.x > distance.x)
+                {
+                    if (maxDistance.x < distance.x)
+                    {
+                        maxDistance = distance;
+                        nextIndex = ventIndex;
+                    }
+                }
+
+                ventIndex++;
+            }
+
+            return nextIndex;
+        }
+
+        private void UpVent(Vector3 lastVentPos)
+        {
+            // var nextVent = _myVentList[ventIndex];
+            this.transform.position = lastVentPos;
+
+            _smoothSync.teleport();
+
+            _animator.SetBool("IsSkill_2", false);
+            _animator.SetBool("IsSkill_2_Reverse", true);
+
+            if (OnSkillCoroutine != null)
+            {
+                StopCoroutine(OnSkillCoroutine);
+                OnSkillCoroutine = null;
+            }
+
+            IsDoingSkill = true;
+            OnSkillCoroutine = OnSkill("Skill_2_Reverse");
+            StartCoroutine(OnSkillCoroutine);
+
+            _isVenting = false;
+        }
+
+        private void SelectVent()
+        {
+            if (_currentVent == null && _ventingVent == null && _colliedVent.Count > 0)
+            {
+                _currentVent = _colliedVent[0].GetComponent<Martine_Vent>();
+                _currentVent.Select(true);
+            }
+        }
+
+        public void VentColliderEnter(Collider2D collision)
+        {
+            if (collision.CompareTag("Vent"))
+            {
+                if (collision.GetComponent<Martine_Vent>().photonView.IsMine)
+                {
+                    _colliedVent.Add(collision);
                 }
             }
-
-            ventIndex++;
         }
 
-        return nextIndex;
-    }
-
-    private int GetLeftVent(int currentIndex)
-    {
-        if (_myVentList.Count < 1)
+        public void VentColliderExit(Collider2D collision)
         {
-            return GetCurrentVentIndex();
-        }
-
-        Vector2 maxDistance = new Vector2(-float.MaxValue, -float.MaxValue);
-
-        int nextIndex = currentIndex;
-        int ventIndex = 0;
-
-        foreach (var vent in _myVentList)
-        {
-            Vector2 distance = vent.transform.position;
-
-            if (_myVentList[currentIndex].transform.position.x > distance.x)
+            if (collision.CompareTag("Vent"))
             {
-                if (maxDistance.x < distance.x)
+                if (_currentVent != null)
                 {
-                    maxDistance = distance;
-                    nextIndex = ventIndex;
+                    if (collision.gameObject == _currentVent.gameObject)
+                    {
+                        _currentVent.Select(false);
+                        _currentVent = null;
+                    }
                 }
-            }
 
-            ventIndex++;
-        }
-
-        return nextIndex;
-    }
-
-    private void UpVent(Vector3 lastVentPos)
-    {
-        // var nextVent = _myVentList[ventIndex];
-        this.transform.position = lastVentPos;
-
-        _smoothSync.teleport();
-
-        _animator.SetBool("IsSkill_2", false);
-        _animator.SetBool("IsSkill_2_Reverse", true);
-
-        if (OnSkillCoroutine != null)
-        {
-            StopCoroutine(OnSkillCoroutine);
-            OnSkillCoroutine = null;
-        }
-
-        IsDoingSkill = true;
-        OnSkillCoroutine = OnSkill("Skill_2_Reverse");
-        StartCoroutine(OnSkillCoroutine);
-
-        _isVenting = false;
-    }
-
-    private void SelectVent()
-    {
-        if (_currentVent == null && _ventingVent == null && _colliedVent.Count > 0)
-        {
-            _currentVent = _colliedVent[0].GetComponent<Martine_Vent>();
-            _currentVent.Select(true);
-        }
-    }
-
-    public void VentColliderEnter(Collider2D collision)
-    {
-        if (collision.CompareTag("Vent"))
-        {
-            if (collision.GetComponent<Martine_Vent>().photonView.IsMine)
-            {
-                _colliedVent.Add(collision);
+                _colliedVent.Remove(collision);
             }
         }
-    }
 
-    public void VentColliderExit(Collider2D collision)
-    {
-        if (collision.CompareTag("Vent"))
+        [PunRPC]
+        public void SpawnDeadEffect(Vector3 pos)
         {
+            Global.PoolingManager.LocalSpawn("DeathEffect", pos, Quaternion.identity, true);
+        }
+
+        protected override void Dead()
+        {
+            base.Dead();
+
             if (_currentVent != null)
             {
-                if (collision.gameObject == _currentVent.gameObject)
-                {
-                    _currentVent.Select(false);
-                    _currentVent = null;
-                }
+                _currentVent.Select(false);
+                _currentVent = null;
             }
 
-            _colliedVent.Remove(collision);
+            for (int i = 0; i < _myVentList.Count; i++)
+            {
+                Global.PoolingManager.LocalSpawn("DeathEffect", _myVentList[i].transform.position,
+                    _myVentList[i].transform.transform.rotation, true);
+                PhotonNetwork.Destroy(_myVentList[i].gameObject);
+            }
+
+            _myVentList.Clear();
+            _colliedVent.Clear();
         }
-    }
-
-    [PunRPC]
-    public void SpawnDeadEffect(Vector3 pos)
-    {
-        Global.PoolingManager.LocalSpawn("DeathEffect", pos, Quaternion.identity, true);
-    }
-
-    protected override void Dead()
-    {
-        base.Dead();
-
-        if (_currentVent != null)
-        {
-            _currentVent.Select(false);
-            _currentVent = null;
-        }
-
-        for (int i = 0; i < _myVentList.Count; i++)
-        {
-            Global.PoolingManager.LocalSpawn("DeathEffect", _myVentList[i].transform.position, _myVentList[i].transform.transform.rotation, true);
-            PhotonNetwork.Destroy(_myVentList[i].gameObject);
-        }
-
-        _myVentList.Clear();
-        _colliedVent.Clear();
     }
 }

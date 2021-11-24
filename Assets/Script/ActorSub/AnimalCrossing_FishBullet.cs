@@ -3,85 +3,85 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimalCrossing_FishBullet : ActorSub
+namespace WakHead
 {
-    [SerializeField] private List<GameObject> _fishs;
-
-    private Vector3 _originalPos;
-
-    public const float Offset = 1f;
-
-    public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, int fishIndex)
+    public class AnimalCrossing_FishBullet : ActorSub
     {
-        _ownerPhotonView = ownerPhotonView;
-        _owner = owner;
+        [SerializeField] private List<GameObject> _fishs;
 
-        foreach (var fish in _fishs)
+        private Vector3 _originalPos;
+
+        public const float Offset = 1f;
+
+        public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, int fishIndex)
         {
-            fish.SetActive(false);
+            _ownerPhotonView = ownerPhotonView;
+            _owner = owner;
+
+            foreach (var fish in _fishs)
+            {
+                fish.SetActive(false);
+            }
+
+            _fishs[fishIndex].SetActive(true);
+
+            _attackRange = _fishs[fishIndex].GetComponent<AttackRange>();
+            _attackRange.SetOwner(owner);
+
+            this.transform.position = owner.transform.position;
+            _originalPos = owner.transform.position;
+
+            _moveSpeed = Constant.ANIMALCROSSING_FISHBULLET_MOVE_SPEED;
+            _lifeTime = Constant.ANIMALCROSSING_FISHBULLET_LIFETIME;
+
+            StartCoroutine(Go());
         }
 
-        _fishs[fishIndex].SetActive(true);
-
-        _attackRange = _fishs[fishIndex].GetComponent<AttackRange>();
-        _attackRange.SetOwner(owner);
-
-        this.transform.position = owner.transform.position;
-        _originalPos = owner.transform.position;
-
-        _moveSpeed = Constant.ANIMALCROSSING_FISHBULLET_MOVE_SPEED;
-        _lifeTime = Constant.ANIMALCROSSING_FISHBULLET_LIFETIME;
-
-        StartCoroutine(Go());
-    }
-
-    private void Update()
-    {
-        if (_attackRange == null)
+        private void Update()
         {
-            return;
+            if (_attackRange == null)
+            {
+                return;
+            }
+
+            _attackRange.Attack(targetEntity => { OnDamage(targetEntity, 2); });
         }
 
-        _attackRange.Attack(targetEntity =>
+        protected override void OnDamage(Entity entity, int damage)
         {
-            OnDamage(targetEntity, 2);
-        });
-    }
-
-    protected override void OnDamage(Entity entity, int damage)
-    {
-        if (_ownerPhotonView.IsMine)
-        {
-            entity?.Damaged(this.transform.position, damage);
-        }
-    }
-
-    protected override IEnumerator Go()
-    {
-        float goTime = 0;
-        float moveAngle = 0;
-        float distance = 0;
-
-        while (goTime < _lifeTime)
-        {
-            float x = Mathf.Cos(moveAngle * Mathf.Deg2Rad * 100f);
-            float y = Mathf.Sin(moveAngle * Mathf.Deg2Rad * 100f);
-
-            float angle = Mathf.Atan2(-y, -x) * Mathf.Rad2Deg;
-
-            _dir = new Vector3(x, y, 0);
-
-            this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 90));
-
-            goTime += Time.deltaTime;
-            moveAngle += _moveSpeed * Time.deltaTime;
-            distance += Time.deltaTime;
-
-            _rigid.MovePosition(_originalPos + _dir * (Offset + distance));
-
-            yield return null;
+            if (_ownerPhotonView.IsMine)
+            {
+                entity?.Damaged(this.transform.position, damage);
+            }
         }
 
-        Destroy();
+        protected override IEnumerator Go()
+        {
+            float goTime = 0;
+            float moveAngle = 0;
+            float distance = 0;
+
+            while (goTime < _lifeTime)
+            {
+                float x = Mathf.Cos(moveAngle * Mathf.Deg2Rad * 100f);
+                float y = Mathf.Sin(moveAngle * Mathf.Deg2Rad * 100f);
+
+                float angle = Mathf.Atan2(-y, -x) * Mathf.Rad2Deg;
+
+                _dir = new Vector3(x, y, 0);
+
+                this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 90));
+
+                goTime += Time.deltaTime;
+                moveAngle += _moveSpeed * Time.deltaTime;
+                distance += Time.deltaTime;
+
+                _rigid.MovePosition(_originalPos + _dir * (Offset + distance));
+
+                yield return null;
+            }
+
+            Destroy();
+        }
     }
 }

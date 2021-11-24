@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LocalEffect : Effect
+namespace WakHead
 {
-    public override void Update()
+    public class LocalEffect : Effect
     {
-        if (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.95f)
+        public override void Update()
         {
-            Global.PoolingManager.LocalDespawn(this.gameObject);
+            if (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.95f)
+            {
+                Global.PoolingManager.LocalDespawn(this.gameObject);
+            }
         }
     }
 }
