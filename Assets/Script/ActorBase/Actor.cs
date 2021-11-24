@@ -1,6 +1,5 @@
 ﻿using Photon.Pun;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Smooth;
 
@@ -108,6 +107,24 @@ namespace WakHead
 
         protected virtual void Update()
         {
+            if (Skill_1_Delay > 0)
+            {
+                Skill_1_Delay -= Time.deltaTime;
+            }
+            else
+            {
+                Skill_1_Delay = 0;
+            }
+            
+            if (Skill_2_Delay > 0)
+            {
+                Skill_2_Delay -= Time.deltaTime;
+            }
+            else
+            {
+                Skill_2_Delay = 0;
+            }
+            
             if (!photonView.IsMine || IsDead || IsStun)
             {
                 return;
@@ -287,6 +304,8 @@ namespace WakHead
                 StartCoroutine(OnSkillCoroutine);
 
                 _animator.SetBool("IsSkill_1", true);
+
+                Skill_1_Delay = Skill_1_CoolTime;
             }
             else
             {
@@ -317,6 +336,8 @@ namespace WakHead
                 StartCoroutine(OnSkillCoroutine);
 
                 _animator.SetBool("IsSkill_2", true);
+                
+                Skill_2_Delay = Skill_2_CoolTime;
             }
             else
             {
