@@ -24007,8 +24007,8 @@ MonoBehaviour:
   _team: 1
   _skillIconImage: {fileID: 720543348}
   _skillCoolTimeIconImage: {fileID: 1998971503}
-  _skillOnIconImage: {fileID: 0}
-  _skillIconEdgeImage: {fileID: 0}
+  _skillOnIconImage: {fileID: 764295347}
+  _skillIconEdgeImage: {fileID: 1799460578}
   _skillNum: 2
 --- !u!1 &721662417
 GameObject:
@@ -60340,8 +60340,8 @@ MonoBehaviour:
   _team: 2
   _skillIconImage: {fileID: 1760674822}
   _skillCoolTimeIconImage: {fileID: 1094966117}
-  _skillOnIconImage: {fileID: 0}
-  _skillIconEdgeImage: {fileID: 0}
+  _skillOnIconImage: {fileID: 1094415985}
+  _skillIconEdgeImage: {fileID: 1293626384}
   _skillNum: 1
 --- !u!1 &1771123994
 GameObject:
@@ -62510,8 +62510,8 @@ MonoBehaviour:
   _team: 2
   _skillIconImage: {fileID: 1810135629}
   _skillCoolTimeIconImage: {fileID: 1844642551}
-  _skillOnIconImage: {fileID: 0}
-  _skillIconEdgeImage: {fileID: 0}
+  _skillOnIconImage: {fileID: 743884533}
+  _skillIconEdgeImage: {fileID: 1415942120}
   _skillNum: 2
 --- !u!1 &1810679623
 GameObject:
@@ -71988,8 +71988,8 @@ MonoBehaviour:
   _team: 1
   _skillIconImage: {fileID: 2057255843}
   _skillCoolTimeIconImage: {fileID: 1710545762}
-  _skillOnIconImage: {fileID: 0}
-  _skillIconEdgeImage: {fileID: 0}
+  _skillOnIconImage: {fileID: 639065358}
+  _skillIconEdgeImage: {fileID: 1096864727}
   _skillNum: 1
 --- !u!1 &2057544833
 GameObject:
