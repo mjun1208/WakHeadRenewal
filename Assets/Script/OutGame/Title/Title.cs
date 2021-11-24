@@ -173,7 +173,7 @@ namespace WakHead
             _lobbyButton.SetActive(false);
             _roomList.SetActive(false);
 
-            if (!PhotonNetwork.IsConnected || !_isConnected)
+            if (!PhotonNetwork.IsConnected || !_isConnected || !Global.instance.IsLoaded)
             {
                 yield return null;
             }

@@ -53,6 +53,8 @@ namespace WakHead
         public Action<Actor> BlueActorSetAction;
         public Action<Actor> RedActorSetAction;
 
+        public bool IsLoaded { get; private set; } = false;
+
         public Transform GlobalCanvas;
         [SerializeField] private Image _fadeUI;
 
@@ -69,6 +71,8 @@ namespace WakHead
 
                 _gameDataManager.Load();
                 _resourceManager.Load();
+
+                IsLoaded = true;
             }
             else
             {
