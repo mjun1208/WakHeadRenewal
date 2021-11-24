@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,11 +11,14 @@ namespace WakHead
         [SerializeField] private Team _team;
         [SerializeField] private Image _skillIconImage;
         [SerializeField] private Image _skillCoolTimeIconImage;
+        [SerializeField] private Image _skillOnIconImage;
+        [SerializeField] private Image _skillIconEdgeImage;
         [SerializeField] private int _skillNum;
 
         private Actor _targetActor;
         private string _actorName;
-
+        private bool _isOn = true;
+        
         private void Start()
         {
             switch (_team)
@@ -57,26 +61,38 @@ namespace WakHead
             {
                 if (_skillNum == 1)
                 {
-                    if (_targetActor.Skill_1_Delay > 0)
-                    {
-                        _skillCoolTimeIconImage.fillAmount = _targetActor.Skill_1_Delay / _targetActor.Skill_1_CoolTime;
-                    }
-                    else
-                    {
-                        _skillCoolTimeIconImage.fillAmount = 0f;
-                    }
+                    SkillIconUpdate(_targetActor.Skill_1_Delay, _targetActor.Skill_1_CoolTime);
                 }
                 else
                 {
-                    if (_targetActor.Skill_2_Delay > 0)
-                    {
-                        _skillCoolTimeIconImage.fillAmount = _targetActor.Skill_2_Delay / _targetActor.Skill_2_CoolTime;
-                    }
-                    else
-                    {
-                        _skillCoolTimeIconImage.fillAmount = 0f;
-                    }
+                    SkillIconUpdate(_targetActor.Skill_2_Delay, _targetActor.Skill_2_CoolTime);
                 }
+            }
+        }
+
+        public void SkillIconUpdate(float delay, float coolTime)
+        {
+            if (delay > 0)
+            {
+                _skillIconEdgeImage.gameObject.SetActive(false);
+                _skillCoolTimeIconImage.fillAmount = delay / coolTime;
+
+                _isOn = false;
+            }
+            else
+            {
+                if (!_isOn)
+                {
+                    _skillOnIconImage.DOColor(new Color(1, 1, 1, 0.5f), 1f)
+                        .From(new Color(1, 1, 1, 0f))
+                        .OnComplete(()=>
+                        {
+                            _skillOnIconImage.DOColor(new Color(1, 1, 1, 0f), 1f);
+                        });
+                }
+                        
+                _skillIconEdgeImage.gameObject.SetActive(true);
+                _skillCoolTimeIconImage.fillAmount = 0f;
             }
         }
     }
