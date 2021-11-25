@@ -1,6 +1,7 @@
 ﻿using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using CodeStage.AntiCheat.ObscuredTypes;
 using UnityEngine;
 
 namespace WakHead
@@ -12,7 +13,7 @@ namespace WakHead
         [SerializeField] private GameObject _skill2_0Pivot;
         [SerializeField] private GameObject _skill2_1Pivot;
 
-        private int _shurikenCount = 0;
+        private ObscuredInt _shurikenCount = 0;
 
         protected override void Start()
         {

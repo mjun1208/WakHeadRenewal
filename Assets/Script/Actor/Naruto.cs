@@ -1,6 +1,7 @@
 ﻿using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using CodeStage.AntiCheat.ObscuredTypes;
 using UnityEngine;
 
 namespace WakHead
@@ -8,9 +9,9 @@ namespace WakHead
     public class Naruto : Actor
     {
         private List<Naruto_Dummy> _dummyList = new List<Naruto_Dummy>();
-        private bool _isSkill_2KeyDown = false;
+        private ObscuredBool _isSkill_2KeyDown = false;
 
-        private int _chargingGauge = 0;
+        private ObscuredInt _chargingGauge = 0;
 
         private enum RasenganState
         {
@@ -27,7 +28,7 @@ namespace WakHead
 
             if (stream.IsWriting)
             {
-                stream.SendNext(_chargingGauge);
+                stream.SendNext(_chargingGauge.GetDecrypted());
             }
             else
             {

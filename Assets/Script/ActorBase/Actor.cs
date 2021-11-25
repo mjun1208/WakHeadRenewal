@@ -1,5 +1,6 @@
 ﻿using Photon.Pun;
 using System.Collections;
+using CodeStage.AntiCheat.ObscuredTypes;
 using UnityEngine;
 using Smooth;
 
@@ -15,31 +16,31 @@ namespace WakHead
         [SerializeField] protected AttackRange _skill_1Range;
         [SerializeField] protected AttackRange _skill_2Range;
 
-        protected float _attackMoveSpeed = 4f;
-        protected float _moveSpeed = 8f;
+        protected ObscuredFloat _attackMoveSpeed = 4f;
+        protected ObscuredFloat _moveSpeed = 8f;
 
-        protected bool _isMove = false;
-        protected bool _isMoveInput = false;
-        protected bool _isAttack = false;
-        protected bool _isAttackInput = false;
+        protected ObscuredBool _isMove = false;
+        protected ObscuredBool _isMoveInput = false;
+        protected ObscuredBool _isAttack = false;
+        protected ObscuredBool _isAttackInput = false;
 
         private Vector3 _movedir = Vector3.zero;
 
-        protected bool _isSkill_1Input = false;
-        protected bool _isSkill_2Input = false;
+        protected ObscuredBool _isSkill_1Input = false;
+        protected ObscuredBool _isSkill_2Input = false;
 
-        public float Skill_1_CoolTime { get; protected set; } = 0f;
-        public float Skill_2_CoolTime { get; protected set; } = 0f;
+        public ObscuredFloat Skill_1_CoolTime { get; protected set; } = 0f;
+        public ObscuredFloat Skill_2_CoolTime { get; protected set; } = 0f;
 
-        public float Skill_1_Delay { get; protected set; } = 0f;
-        public float Skill_2_Delay { get; protected set; } = 0f;
+        public ObscuredFloat Skill_1_Delay { get; protected set; } = 0f;
+        public ObscuredFloat Skill_2_Delay { get; protected set; } = 0f;
 
-        public bool IsSkill_1 { get; protected set; } = false;
-        public bool IsSkill_2 { get; protected set; } = false;
+        public ObscuredBool IsSkill_1 { get; protected set; } = false;
+        public ObscuredBool IsSkill_2 { get; protected set; } = false;
 
         protected Vector3 _originalScale = Vector3.zero;
 
-        public bool IsDoingSkill { get; protected set; } = false;
+        public ObscuredBool IsDoingSkill { get; protected set; } = false;
 
         public IEnumerator OnSkillCoroutine { get; protected set; } = null;
 
@@ -50,7 +51,7 @@ namespace WakHead
             if (stream.IsWriting)
             {
                 stream.SendNext(this.transform.localScale.x);
-                stream.SendNext(IsStun);
+                stream.SendNext(IsStun.GetDecrypted());
             }
             else
             {

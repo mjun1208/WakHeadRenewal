@@ -1,6 +1,7 @@
 ﻿using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using CodeStage.AntiCheat.ObscuredTypes;
 using UnityEngine;
 
 namespace WakHead
@@ -9,7 +10,6 @@ namespace WakHead
     {
         private GameObject MyOrb;
 
-        private float _rushSpeed = 15f;
 
         public override void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
         {
@@ -28,6 +28,8 @@ namespace WakHead
             base.Start();
         }
 
+        private ObscuredFloat _rushSpeed = 15f;
+        
         protected override void Update()
         {
             base.Update();

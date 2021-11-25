@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using CodeStage.AntiCheat.ObscuredTypes;
 using UnityEngine;
 using Random = System.Random;
 
@@ -21,7 +22,7 @@ namespace WakHead
         private Vector3 _throwPosition;
         private Vector3 _throwDir;
 
-        private bool _onSniping = false;
+        private ObscuredBool _onSniping = false;
 
         private BattleGround_Aim _aim;
         private List<BattleGround_Throw> _throwList = new List<BattleGround_Throw>();

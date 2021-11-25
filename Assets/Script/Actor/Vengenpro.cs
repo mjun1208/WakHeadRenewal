@@ -1,15 +1,16 @@
 ﻿using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using CodeStage.AntiCheat.ObscuredTypes;
 using UnityEngine;
 
 namespace WakHead
 {
     public class Vengenpro : Actor
     {
-        float _attackPressTime = 0f;
-        float _attackPressFullChargingTime = 0f;
-        float _attackPressDelay = 0f;
+        private ObscuredFloat _attackPressTime = 0f;
+        private ObscuredFloat _attackPressFullChargingTime = 0f;
+        private ObscuredFloat _attackPressDelay = 0f;
 
         protected override void Update()
         {

@@ -1,6 +1,7 @@
 ﻿using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using CodeStage.AntiCheat.ObscuredTypes;
 using UnityEngine;
 
 namespace WakHead
@@ -12,8 +13,8 @@ namespace WakHead
         private Martine_Vent _currentVent = null;
         private Martine_Vent _ventingVent = null;
 
-        private bool _isOnVent = false;
-        private bool _isVenting = false;
+        private ObscuredBool _isOnVent = false;
+        private ObscuredBool _isVenting = false;
 
         private List<Collider2D> _colliedVent = new List<Collider2D>();
 

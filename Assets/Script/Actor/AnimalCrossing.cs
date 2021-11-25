@@ -1,6 +1,7 @@
 ﻿using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using CodeStage.AntiCheat.ObscuredTypes;
 using UnityEngine;
 
 namespace WakHead
@@ -9,10 +10,10 @@ namespace WakHead
     {
         [SerializeField] private AnimalCrossing_Fish myFish;
 
-        private bool _isCasting = false;
-        private bool _isBite = false;
+        private ObscuredBool _isCasting = false;
+        private ObscuredBool _isBite = false;
         private IEnumerator _castingCoroutine = null;
-        private bool _isCastingComplete = false;
+        private ObscuredBool _isCastingComplete = false;
 
         private bool _isHaveFish = false;
 
@@ -20,6 +21,7 @@ namespace WakHead
         {
             base.Start();
         }
+        private ObscuredBool _isHaveFish = false;
 
         protected override void Update()
         {

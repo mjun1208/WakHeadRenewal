@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using System;
+using CodeStage.AntiCheat.ObscuredTypes;
 using Photon.Pun;
 
 namespace WakHead
@@ -32,14 +33,14 @@ namespace WakHead
         private static ResourceManager _resourceManager;
         private static PoolingManager _poolingManager;
 
-        public string PlayerName { get; private set; }
-        public string EnemyName { get; private set; }
+        public ObscuredString PlayerName { get; private set; }
+        public ObscuredString EnemyName { get; private set; }
 
-        public string MyActorName { get; private set; }
-        public string EnemyActorName { get; private set; }
+        public ObscuredString MyActorName { get; private set; }
+        public ObscuredString EnemyActorName { get; private set; }
 
-        public int MyActorID { get; private set; }
-        public int EnemyActorID { get; private set; }
+        public ObscuredInt MyActorID { get; private set; }
+        public ObscuredInt EnemyActorID { get; private set; }
 
         public Tower RedTower { get; private set; }
         public Tower BlueTower { get; private set; }

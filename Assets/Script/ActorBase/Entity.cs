@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CodeStage.AntiCheat.ObscuredTypes;
 
 namespace WakHead
 {
@@ -11,8 +12,8 @@ namespace WakHead
         [SerializeField] protected Rigidbody2D _rigid;
         [SerializeField] protected SpriteRenderer _renderer;
 
-        private bool _knockBack = false;
-        private bool _grab = false;
+        private ObscuredBool _knockBack = false;
+        private ObscuredBool _grab = false;
 
         public Action StunAction;
         public Action CrownControlAction;
@@ -20,10 +21,10 @@ namespace WakHead
 
         public Team MyTeam { get; protected set; } = Team.None;
 
-        private int _maxHP;
-        private int _currentHP;
+        private ObscuredInt _maxHP;
+        private ObscuredInt _currentHP;
 
-        public bool IsStun
+        public ObscuredBool IsStun
         {
             get { return _isStun; }
             protected set
@@ -37,13 +38,13 @@ namespace WakHead
             }
         }
 
-        public int MaxHP
+        public ObscuredInt MaxHP
         {
             get { return _maxHP; }
             protected set { _maxHP = value; }
         }
 
-        public int HP
+        public ObscuredInt HP
         {
             get { return _currentHP; }
             protected set
@@ -59,7 +60,7 @@ namespace WakHead
             }
         }
 
-        public bool IsDead
+        public ObscuredBool IsDead
         {
             get { return _isDead; }
             protected set
@@ -74,9 +75,9 @@ namespace WakHead
         }
 
 
-        protected bool _isStun = false;
-        protected bool _isDead = false;
-        protected bool _isHeart = false;
+        protected ObscuredBool _isStun = false;
+        protected ObscuredBool _isDead = false;
+        protected ObscuredBool _isHeart = false;
 
         private IEnumerator currentCrownControl = null;
 
@@ -84,10 +85,10 @@ namespace WakHead
         {
             if (stream.IsWriting)
             {
-                stream.SendNext(_maxHP);
-                stream.SendNext(_currentHP);
-                stream.SendNext(_isDead);
-                stream.SendNext(_isHeart);
+                stream.SendNext(_maxHP.GetDecrypted());
+                stream.SendNext(_currentHP.GetDecrypted());
+                stream.SendNext(_isDead.GetDecrypted());
+                stream.SendNext(_isHeart.GetDecrypted());
             }
             else
             {
