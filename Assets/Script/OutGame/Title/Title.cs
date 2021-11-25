@@ -43,7 +43,7 @@ namespace WakHead
                 MaxPlayers = this.MaxPlayers,
                 CustomRoomProperties = new Hashtable()
                 {
-                    {"RN", Global.instance.PlayerName},
+                    {"RN", Global.instance.PlayerName.GetDecrypted()},
                     {"RI", PhotonNetwork.LocalPlayer.UserId}
                 },
                 CustomRoomPropertiesForLobby = new string[] {"RN", "RI"},
@@ -53,7 +53,7 @@ namespace WakHead
             if (playerTTL >= 0)
                 roomOptions.PlayerTtl = playerTTL;
 
-            PhotonNetwork.CreateRoom(Global.instance.PlayerName + PhotonNetwork.LocalPlayer.UserId, roomOptions, null);
+            PhotonNetwork.CreateRoom(Global.instance.PlayerName.GetDecrypted() + PhotonNetwork.LocalPlayer.UserId, roomOptions, null);
 
             StartCoroutine(WaitPlayer());
         }
