@@ -151,7 +151,13 @@ namespace WakHead
 
             _pickUI.transform.DOLocalMoveY(-750, 1f).SetEase(Ease.InOutBack).OnComplete(() =>
             {
-                Global.instance.FadeIn(() => PhotonNetwork.LoadLevel("Ingame"));
+                Global.instance.FadeIn(() =>
+                {
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        PhotonNetwork.LoadLevel("Ingame");
+                    }
+                });
             });
         }
 
