@@ -15,12 +15,6 @@ namespace WakHead
         private IEnumerator _castingCoroutine = null;
         private ObscuredBool _isCastingComplete = false;
 
-        private bool _isHaveFish = false;
-
-        protected override void Start()
-        {
-            base.Start();
-        }
         private ObscuredBool _isHaveFish = false;
 
         protected override void Update()

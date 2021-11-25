@@ -7,16 +7,6 @@ namespace WakHead
 {
     public class Normal : Actor
     {
-        protected override void Start()
-        {
-            base.Start();
-        }
-
-        protected override void Update()
-        {
-            base.Update();
-        }
-
         protected override void Active_Attack()
         {
             if (!photonView.IsMine)

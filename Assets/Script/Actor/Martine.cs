@@ -20,11 +20,6 @@ namespace WakHead
 
         private IEnumerator _selectNextVent = null;
 
-        protected override void Start()
-        {
-            base.Start();
-        }
-
         protected override void Update()
         {
             if (!photonView.IsMine)

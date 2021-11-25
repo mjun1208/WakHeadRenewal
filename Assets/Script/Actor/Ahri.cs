@@ -10,24 +10,6 @@ namespace WakHead
     {
         private GameObject MyOrb;
 
-
-        public override void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-        {
-            base.OnPhotonSerializeView(stream, info);
-
-            if (stream.IsWriting)
-            {
-            }
-            else
-            {
-            }
-        }
-
-        protected override void Start()
-        {
-            base.Start();
-        }
-
         private ObscuredFloat _rushSpeed = 15f;
         
         protected override void Update()
