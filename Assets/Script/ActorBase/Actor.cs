@@ -68,6 +68,8 @@ namespace WakHead
 
             _originalScale = this.transform.localScale;
             StunAction += ForceStop;
+
+            DeadCameraAction += CameraManager.instance.Dead; 
             DeadAction += Dead;
 
             MaxHP = 100;
