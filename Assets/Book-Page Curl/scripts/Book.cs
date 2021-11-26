@@ -49,6 +49,12 @@ public class Book : MonoBehaviour {
     public Image LeftNext;
     public Image Right;
     public Image RightNext;
+
+    public Page LeftPage;
+    public Page LeftNextPage;
+    public Page RightPage;
+    public Page RightNextPage;
+        
     public UnityEvent OnFlip;
     float radius1, radius2;
     //Spine Bottom
@@ -291,13 +297,25 @@ public class Book : MonoBehaviour {
         Left.transform.eulerAngles = new Vector3(0, 0, 0);
         Left.sprite = (currentPage < bookPages.Length) ? bookPages[currentPage] : background;
         Left.transform.SetAsFirstSibling();
-        
+        if (LeftPage != null)
+        {
+            LeftPage.Index = (currentPage < bookPages.Length) ? currentPage : -1;
+        }
+
         Right.gameObject.SetActive(true);
         Right.transform.position = RightNext.transform.position;
         Right.transform.eulerAngles = new Vector3(0, 0, 0);
         Right.sprite = (currentPage < bookPages.Length - 1) ? bookPages[currentPage + 1] : background;
-
+        if (RightPage != null)
+        {
+            RightPage.Index = (currentPage < bookPages.Length - 1) ? currentPage + 1 : -1;
+        }
+        
         RightNext.sprite = (currentPage < bookPages.Length - 2) ? bookPages[currentPage + 2] : background;
+        if (RightNextPage != null)
+        {
+            RightNextPage.Index = (currentPage < bookPages.Length - 2) ? currentPage + 2 : -1;
+        }
 
         LeftNext.transform.SetAsFirstSibling();
         if (enableShadowEffect) Shadow.gameObject.SetActive(true);
@@ -324,14 +342,26 @@ public class Book : MonoBehaviour {
         Right.sprite = bookPages[currentPage - 1];
         Right.transform.eulerAngles = new Vector3(0, 0, 0);
         Right.transform.SetAsFirstSibling();
+        if (RightPage != null)
+        {
+            RightPage.Index = currentPage - 1;
+        }
 
         Left.gameObject.SetActive(true);
         Left.rectTransform.pivot = new Vector2(1, 0);
         Left.transform.position = LeftNext.transform.position;
         Left.transform.eulerAngles = new Vector3(0, 0, 0);
         Left.sprite = (currentPage >= 2) ? bookPages[currentPage - 2] : background;
+        if (LeftPage != null)
+        {
+            LeftPage.Index = (currentPage >= 2) ? currentPage - 2 : -1;
+        }
 
         LeftNext.sprite = (currentPage >= 3) ? bookPages[currentPage - 3] : background;
+        if (LeftNextPage != null)
+        {
+            LeftNextPage.Index = (currentPage >= 3) ? currentPage - 3 : -1;
+        }
 
         RightNext.transform.SetAsFirstSibling();
         if (enableShadowEffect) ShadowLTR.gameObject.SetActive(true);
@@ -367,7 +397,18 @@ public class Book : MonoBehaviour {
     void UpdateSprites()
     {
         LeftNext.sprite= (currentPage > 0 && currentPage <= bookPages.Length) ? bookPages[currentPage-1] : background;
+
+        if (LeftNextPage != null)
+        {
+            LeftNextPage.Index = (currentPage > 0 && currentPage <= bookPages.Length) ? currentPage - 1 : -1;
+        }
+
         RightNext.sprite=(currentPage>=0 &&currentPage<bookPages.Length) ? bookPages[currentPage] : background;
+
+        if (RightNextPage != null)
+        {
+            RightNextPage.Index=(currentPage>=0 &&currentPage<bookPages.Length) ? currentPage : -1;
+        }
     }
     public void TweenForward()
     {
