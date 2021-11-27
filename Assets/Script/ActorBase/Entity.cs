@@ -142,13 +142,13 @@ namespace WakHead
             currentCrownControl = null;
         }
 
-        public void KnockBack(int damage, Vector3 dir, float power, float stunTime)
+        public void KnockBack(int damage, Vector3 dir, float power, float stunTime, string effectName = "HitEffect", bool effectFlip = false)
         {
-            photonView.RPC("KnockBackRPC", RpcTarget.All, damage, dir, power, stunTime);
+            photonView.RPC("KnockBackRPC", RpcTarget.All, damage, dir, power, stunTime, effectName, effectFlip);
         }
 
         [PunRPC]
-        public void KnockBackRPC(int damage, Vector3 dir, float power, float stunTime)
+        public void KnockBackRPC(int damage, Vector3 dir, float power, float stunTime, string effectName = "HitEffect", bool effectFlip = false)
         {
             if (!photonView.IsMine)
             {
@@ -157,18 +157,18 @@ namespace WakHead
 
             CrownControlAction?.Invoke();
 
-            currentCrownControl = OnKnockBack(damage, dir, power, stunTime);
+            currentCrownControl = OnKnockBack(damage, dir, power, stunTime, effectName, effectFlip);
 
             StartCoroutine(currentCrownControl);
         }
 
-        public void Grab(int damage, Vector3 targetPostion, float grabSpeed)
+        public void Grab(int damage, Vector3 targetPostion, float grabSpeed, string effectName = "HitEffect", bool effectFlip = false)
         {
-            photonView.RPC("GrabRPC", RpcTarget.All, damage, targetPostion, grabSpeed);
+            photonView.RPC("GrabRPC", RpcTarget.All, damage, targetPostion, grabSpeed, effectName, effectFlip);
         }
 
         [PunRPC]
-        public void GrabRPC(int damage, Vector3 targetPostion, float grabSpeed)
+        public void GrabRPC(int damage, Vector3 targetPostion, float grabSpeed, string effectName = "HitEffect", bool effectFlip = false)
         {
             if (!photonView.IsMine)
             {
@@ -177,7 +177,7 @@ namespace WakHead
 
             CrownControlAction?.Invoke();
 
-            currentCrownControl = OnGrab(damage, targetPostion, grabSpeed);
+            currentCrownControl = OnGrab(damage, targetPostion, grabSpeed, effectName, effectFlip);
 
             StartCoroutine(currentCrownControl);
         }
@@ -229,14 +229,14 @@ namespace WakHead
             StartCoroutine(currentCrownControl);
         }
 
-        private IEnumerator OnKnockBack(int damage, Vector3 dir, float power, float stunTime)
+        private IEnumerator OnKnockBack(int damage, Vector3 dir, float power, float stunTime, string effectName = "HitEffect", bool effectFlip = false)
         {
             if (stunTime > 0)
             {
                 IsStun = true;
             }
 
-            Damaged(this.transform.position, damage);
+            Damaged(this.transform.position, damage, effectName, effectFlip);
 
             var targetPosition = this.transform.position + dir * power;
 
@@ -256,7 +256,7 @@ namespace WakHead
             IsStun = false;
         }
 
-        private IEnumerator OnGrab(int damage, Vector3 targetPostion, float grabSpeed)
+        private IEnumerator OnGrab(int damage, Vector3 targetPostion, float grabSpeed, string effectName = "HitEffect", bool effectFlip = false)
         {
             IsStun = true;
 
@@ -272,7 +272,7 @@ namespace WakHead
                 yield return null;
             }
 
-            Damaged(this.transform.position, damage);
+            Damaged(this.transform.position, damage, effectName, effectFlip);
 
             yield return null;
 
@@ -311,23 +311,23 @@ namespace WakHead
             _renderer.color = new Color(r, g, b, a);
         }
 
-        public void Damaged(Vector3 pos, int damage)
+        public void Damaged(Vector3 pos, int damage, string effectName = "HitEffect", bool effectFlip = false)
         {
-            photonView.RPC("OnDamageRPC", RpcTarget.All, pos, damage);
+            photonView.RPC("OnDamageRPC", RpcTarget.All, pos, damage, effectName, effectFlip);
         }
 
         [PunRPC]
-        public void OnDamageRPC(Vector3 pos, int damage)
+        public void OnDamageRPC(Vector3 pos, int damage, string effectName = "HitEffect", bool effectFlip = false)
         {
-            OnDamage(pos, damage);
+            OnDamage(pos, damage, effectName, effectFlip);
         }
 
-        public void OnDamage(Vector3 pos, int damage)
+        public void OnDamage(Vector3 pos, int damage, string effectName = "HitEffect", bool effectFlip = false)
         {
-            var randomPos = (Vector3) UnityEngine.Random.insideUnitCircle * 0.5f;
+            var randomPos = (Vector3) UnityEngine.Random.insideUnitCircle * 0.2f;
 
-            Global.PoolingManager.LocalSpawn("HitEffect", this.transform.position + randomPos, this.transform.rotation,
-                true);
+            Global.PoolingManager.LocalSpawn(effectName, this.transform.position + randomPos,
+                Quaternion.Euler(new Vector3(0, effectFlip ? 0 : -180, 0)), true);
 
             if (photonView.IsMine)
             {

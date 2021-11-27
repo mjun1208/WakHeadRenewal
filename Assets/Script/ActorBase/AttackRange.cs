@@ -86,7 +86,7 @@ namespace WakHead
             }
         }
 
-        public void Attack(Action<Entity> entityAction, bool singleTarget = false)
+        public void Attack(Action<Entity> entityAction, bool singleTarget = false, string effectName = "HitEffect", bool effectFlip = false)
         {
             AttackEntity(entityAction, singleTarget);
 
@@ -94,7 +94,7 @@ namespace WakHead
             {
                 foreach (var targetObject in CollidedSummonedObjectList)
                 {
-                    targetObject.GetComponent<Summoned>().Damaged(targetObject.transform.position);
+                    targetObject.GetComponent<Summoned>().Damaged(targetObject.transform.position, effectName, effectFlip);
 
                     if (singleTarget)
                     {

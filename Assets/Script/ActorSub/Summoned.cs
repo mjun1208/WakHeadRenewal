@@ -51,28 +51,28 @@ namespace WakHead
 
         }
 
-        public void Damaged(Vector3 pos)
+        public void Damaged(Vector3 pos, string effectName = "HitEffect", bool effectFlip = false)
         {
             if (photonView == null)
             {
                 return;
             }
 
-            photonView.RPC("OnDamageRPC", RpcTarget.All, pos);
+            photonView.RPC("OnDamageRPC", RpcTarget.All, pos, effectName, effectFlip);
         }
 
         [PunRPC]
-        public void OnDamageRPC(Vector3 pos)
+        public void OnDamageRPC(Vector3 pos, string effectName, bool effectFlip)
         {
-            OnDamage(pos);
+            OnDamage(pos, effectName, effectFlip);
         }
 
-        public void OnDamage(Vector3 pos)
+        public void OnDamage(Vector3 pos, string effectName, bool effectFlip)
         {
             var randomPos = (Vector3) UnityEngine.Random.insideUnitCircle * 0.5f;
 
-            Global.PoolingManager.LocalSpawn("HitEffect", this.transform.position + randomPos, this.transform.rotation,
-                true);
+            Global.PoolingManager.LocalSpawn("HitEffect", this.transform.position + randomPos,
+                Quaternion.Euler(new Vector3(0, effectFlip ? 0 : -180, 0)), true);
 
             if (photonView.IsMine)
             {
