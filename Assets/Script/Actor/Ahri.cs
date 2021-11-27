@@ -71,7 +71,7 @@ namespace WakHead
 
             base.Attack();
             MyOrb.SetActive(true);
-            MyOrb.GetComponent<Ahri_Orb>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
+            MyOrb.GetComponent<Ahri_Orb>().SetInfo(this.photonView, this.gameObject, GetAttackDir(), MyTeam);
         }
 
         [PunRPC]
@@ -80,7 +80,7 @@ namespace WakHead
             var newHeart =
                 Global.PoolingManager.LocalSpawn("Ahri_Heart", this.transform.position, Quaternion.identity, true);
 
-            newHeart.GetComponent<Ahri_Heart>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
+            newHeart.GetComponent<Ahri_Heart>().SetInfo(this.photonView, this.gameObject, GetAttackDir(), MyTeam);
         }
     }
 }

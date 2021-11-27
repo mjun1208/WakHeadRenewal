@@ -93,7 +93,7 @@ namespace WakHead
             var newNote =
                 Global.PoolingManager.LocalSpawn("Vengenpro_Note", this.transform.position, Quaternion.identity, true);
 
-            newNote.GetComponent<Vengenpro_Note>().SetInfo(this.photonView, this.gameObject, randomDir);
+            newNote.GetComponent<Vengenpro_Note>().SetInfo(this.photonView, this.gameObject, randomDir, MyTeam);
         }
 
         [PunRPC]
@@ -102,7 +102,7 @@ namespace WakHead
             var newZzang = Global.PoolingManager.LocalSpawn("Vengenpro_Zzang", this.transform.position,
                 Quaternion.identity, true);
 
-            newZzang.GetComponent<Vengenpro_Zzang>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
+            newZzang.GetComponent<Vengenpro_Zzang>().SetInfo(this.photonView, this.gameObject, GetAttackDir(), MyTeam);
         }
 
         [PunRPC]

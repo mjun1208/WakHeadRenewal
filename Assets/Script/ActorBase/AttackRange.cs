@@ -16,12 +16,14 @@ namespace WakHead
         private void OnEnable()
         {
             CollidedObjectList.Clear();
+            CollidedSummonedObjectList.Clear();
             MyTeam = Team.None;
         }
 
         private void OnDisable()
         {
             CollidedObjectList.Clear();
+            CollidedSummonedObjectList.Clear();
             MyTeam = Team.None;
         }
 
@@ -86,7 +88,7 @@ namespace WakHead
             }
         }
 
-        public void Attack(Action<Entity> entityAction, bool singleTarget = false, string effectName = "HitEffect", bool effectFlip = false)
+        public void Attack(Action<Entity> entityAction, bool singleTarget = false, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
         {
             AttackEntity(entityAction, singleTarget);
 
@@ -94,7 +96,7 @@ namespace WakHead
             {
                 foreach (var targetObject in CollidedSummonedObjectList)
                 {
-                    targetObject.GetComponent<Summoned>().Damaged(targetObject.transform.position, effectName, effectFlip);
+                    targetObject.GetComponent<Summoned>().Damaged(targetObject.transform.position, MyTeam, effectName, effectXOffset, effectFlip);
 
                     if (singleTarget)
                     {
@@ -149,7 +151,7 @@ namespace WakHead
 
                 var targetObject = CollidedSummonedObjectList[index];
 
-                targetObject.GetComponent<Summoned>().Damaged(targetObject.transform.position);
+                targetObject.GetComponent<Summoned>().Damaged(targetObject.transform.position, MyTeam);
             }
         }
 

@@ -45,7 +45,7 @@ namespace WakHead
             var newSlave = Global.PoolingManager.LocalSpawn("Minecraft_Slave", _lavaPivot.transform.position,
                 Quaternion.identity, true);
 
-            newSlave.GetComponent<Minecraft_Slave>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
+            newSlave.GetComponent<Minecraft_Slave>().SetInfo(this.photonView, this.gameObject, GetAttackDir(), MyTeam);
         }
 
         [PunRPC]
@@ -57,7 +57,7 @@ namespace WakHead
                 Quaternion.identity, true);
 
             newLava.GetComponent<Minecraft_Lava>()
-                .SetInfo(this.photonView, null, _lavaPivot.transform.position, GetAttackDir());
+                .SetInfo(this.photonView, null, _lavaPivot.transform.position, GetAttackDir(), MyTeam);
         }
     }
 }

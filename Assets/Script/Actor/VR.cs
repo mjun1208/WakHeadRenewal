@@ -30,7 +30,7 @@ namespace WakHead
                 return;
             }
 
-            _attackRange.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, 5); });
+            _attackRange.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, 5, MyTeam); });
         }
 
         protected override void Active_Skill_1()
@@ -40,7 +40,7 @@ namespace WakHead
                 return;
             }
 
-            _skill_1Range.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, 5); });
+            _skill_1Range.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, 5, MyTeam); });
         }
 
         protected override void Attack()

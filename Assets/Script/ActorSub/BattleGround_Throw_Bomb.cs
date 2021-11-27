@@ -10,9 +10,9 @@ namespace WakHead
         private BattleGround.ThrowType _throwType;
 
         public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 pos, Vector3 dir,
-            BattleGround.ThrowType throwType)
+            BattleGround.ThrowType throwType, Team team = Team.None)
         {
-            base.SetInfo(ownerPhotonView, owner, dir);
+            base.SetInfo(ownerPhotonView, owner, dir, team);
 
             _throwType = throwType;
 
@@ -46,7 +46,7 @@ namespace WakHead
                 }
                 case BattleGround.ThrowType.MOLOTOV:
                 {
-                    _attackRange.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, 10); });
+                    _attackRange.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, 10, MyTeam); });
                     break;
                 }
                 case BattleGround.ThrowType.FLASH_BANG:
@@ -54,7 +54,7 @@ namespace WakHead
                     _attackRange.Attack(targetEntity =>
                     {
                         targetEntity.Stun(2.5f);
-                        targetEntity.Damaged(targetEntity.transform.position, 10);
+                        targetEntity.Damaged(targetEntity.transform.position, 10, MyTeam);
                     });
                     break;
                 }

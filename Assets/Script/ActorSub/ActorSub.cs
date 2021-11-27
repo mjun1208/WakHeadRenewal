@@ -22,8 +22,10 @@ namespace WakHead
 
         public Team MyTeam { get; protected set; } = Team.None;
 
-        public virtual void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
+        public virtual void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, Team team = Team.None)
         {
+            MyTeam = team;
+            
             _ownerPhotonView = ownerPhotonView;
 
             if (owner != null)
@@ -31,6 +33,9 @@ namespace WakHead
                 if (_attackRange != null)
                 {
                     _attackRange.SetOwner(owner);
+                    _attackRange.SetTeam(MyTeam);
+                    _attackRange.CollidedObjectList.Clear();
+                    _attackRange.CollidedSummonedObjectList.Clear();
                 }
                 this.transform.position = owner.transform.position;
 
@@ -48,7 +53,7 @@ namespace WakHead
 
             if (_ownerPhotonView.IsMine)
             {
-                entity?.Damaged(this.transform.position, damage);
+                entity?.Damaged(this.transform.position, damage, MyTeam);
             }
 
             Destroy();

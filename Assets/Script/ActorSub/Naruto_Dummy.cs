@@ -25,9 +25,9 @@ namespace WakHead
             }
         }
 
-        public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
+        public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, Team team = Team.None)
         {
-            base.SetInfo(ownerPhotonView, owner, dir);
+            base.SetInfo(ownerPhotonView, owner, dir, team);
 
             IsDead = false;
 

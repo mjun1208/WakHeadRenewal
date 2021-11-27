@@ -128,7 +128,7 @@ namespace WakHead
             var newThrow = Global.PoolingManager.LocalSpawn($"BattleGround_Throw_{(ThrowType) throwType}",
                 this.transform.position, Quaternion.identity, true);
             var newThrowScript = newThrow.GetComponent<BattleGround_Throw>();
-            newThrowScript.SetInfo(this.photonView, this.gameObject, GetAttackDir(), (ThrowType) throwType);
+            newThrowScript.SetInfo(this.photonView, this.gameObject, GetAttackDir(), (ThrowType) throwType, MyTeam);
 
             newThrowScript.DestoryAction += DespawnThrow;
             _throwList.Add(newThrowScript);
@@ -139,7 +139,7 @@ namespace WakHead
         {
             var newAim = PhotonView.Find(photonViewID).gameObject.GetComponent<BattleGround_Aim>();
 
-            newAim.GetComponent<BattleGround_Aim>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
+            newAim.GetComponent<BattleGround_Aim>().SetInfo(this.photonView, this.gameObject, GetAttackDir(), MyTeam);
 
             newAim.transform.position = aimPosition;
 

@@ -15,11 +15,11 @@ namespace WakHead
             _originalScale = this.transform.localScale;
         }
 
-        public void SetInfo(PhotonView ownerPhotonView, GameObject gaster, GameObject owner, Vector3 pos, Vector3 dir)
+        public void SetInfo(PhotonView ownerPhotonView, GameObject gaster, GameObject owner, Vector3 pos, Vector3 dir, Team team = Team.None)
         {
             _gaster = gaster;
 
-            base.SetInfo(ownerPhotonView, owner, dir);
+            base.SetInfo(ownerPhotonView, owner, dir, team);
 
             this.transform.position = pos;
 

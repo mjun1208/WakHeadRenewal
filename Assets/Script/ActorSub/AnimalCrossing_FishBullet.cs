@@ -16,9 +16,9 @@ namespace WakHead
             _originalScale = this.transform.localScale;
         }
         
-        public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, int fishIndex)
+        public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, int fishIndex, Team team = Team.None)
         {
-            base.SetInfo(ownerPhotonView, owner, dir);
+            base.SetInfo(ownerPhotonView, owner, dir, team);
 
             this.transform.position = owner.transform.position + new Vector3(0, Random.Range(-0.5f, 0.5f));
             

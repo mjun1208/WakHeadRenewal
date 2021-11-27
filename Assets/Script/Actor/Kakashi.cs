@@ -169,7 +169,7 @@ namespace WakHead
             var newShuriken = Global.PoolingManager.LocalSpawn("Kakashi_Shuriken", this.transform.position,
                 Quaternion.identity, true);
             var shurikenScript = newShuriken.GetComponent<Kakashi_Shuriken>();
-            shurikenScript.SetInfo(this.photonView, this.gameObject, shurikenPosition, shurikenDir);
+            shurikenScript.SetInfo(this.photonView, this.gameObject, shurikenPosition, shurikenDir, MyTeam);
 
             _shurikenList.Add(shurikenScript);
             shurikenScript.DestoryAction += DespawnShuriken;

@@ -43,7 +43,7 @@ namespace WakHead
             var newBullet =
                 Global.PoolingManager.LocalSpawn("Normal_Bullet", this.transform.position, Quaternion.identity, true);
 
-            newBullet.GetComponent<Normal_Bullet>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
+            newBullet.GetComponent<Normal_Bullet>().SetInfo(this.photonView, this.gameObject, GetAttackDir(), MyTeam);
         }
     }
 }

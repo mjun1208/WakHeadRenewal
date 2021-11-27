@@ -235,7 +235,7 @@ namespace WakHead
                 Quaternion.identity, true);
 
             newFish.GetComponent<AnimalCrossing_FishBullet>()
-                .SetInfo(this.photonView, this.gameObject, GetAttackDir(), index);
+                .SetInfo(this.photonView, this.gameObject, GetAttackDir(), index, MyTeam);
         }
 
         protected override void Dead()

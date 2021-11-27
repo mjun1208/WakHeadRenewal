@@ -10,9 +10,9 @@ namespace WakHead
         [SerializeField] private SpriteRenderer _renderer;
         [SerializeField] private List<Sprite> _spriteList = new List<Sprite>();
 
-        public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
+        public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, Team team = Team.None)
         {
-            base.SetInfo(ownerPhotonView, owner, dir);
+            base.SetInfo(ownerPhotonView, owner, dir, team);
 
             _renderer.sprite = _spriteList[Random.Range(0, _spriteList.Count)];
 
@@ -28,7 +28,7 @@ namespace WakHead
             {
                 if (_ownerPhotonView.IsMine)
                 {
-                    targetSummoned.Damaged(targetSummoned.transform.position);
+                    targetSummoned.Damaged(targetSummoned.transform.position, MyTeam);
                 }
 
                 OnDamage(null, 5);

@@ -23,23 +23,27 @@ namespace WakHead
             _originalScale = this.transform.localScale;
         }
 
-        public void SetInfo(int ownerID, GameObject owner, Vector3 pos, Vector3 dir)
+        public void SetInfo(int ownerID, GameObject owner, Vector3 pos, Vector3 dir, Team team = Team.None)
         {
+            MyTeam = team;
+
             _ownerID = ownerID;
 
             _owner = owner;
 
             this.transform.position = pos;
 
-            photonView.RPC("SetInfo", RpcTarget.All, _ownerID, dir);
+            photonView.RPC("SetInfo", RpcTarget.All, _ownerID, dir, team);
 
             MaxHP = 5;
             HP = MaxHP;
         }
 
         [PunRPC]
-        private void SetInfo(int ownerID, Vector3 dir)
+        private void SetInfo(int ownerID, Vector3 dir, Team team = Team.None)
         {
+            MyTeam = team;
+            
             _ownerID = ownerID;
 
             _owner = PhotonView.Find(ownerID).gameObject;
@@ -88,7 +92,7 @@ namespace WakHead
             var newBlast = Global.PoolingManager.LocalSpawn("Sans_Gaster_Blast", this.transform.position,
                 Quaternion.identity, true);
             newBlast.GetComponent<Sans_Gaster_Blast>().SetInfo(this.photonView, this.gameObject, _owner,
-                _blastPivot.transform.position, _dir);
+                _blastPivot.transform.position, _dir, MyTeam);
         }
     }
 }

@@ -10,8 +10,10 @@ namespace WakHead
         [SerializeField] private Animator _animator;
         [SerializeField] private GameObject _arrow;
 
-        public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
+        public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, Team team = Team.None)
         {
+            MyTeam = team;
+            
             MaxHP = 5;
             HP = MaxHP;
 

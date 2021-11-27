@@ -115,7 +115,7 @@ namespace WakHead
             }
 
             var newDummy = Global.PoolingManager.Spawn("Naruto_Dummy", this.transform.position, Quaternion.identity);
-            newDummy.GetComponent<Naruto_Dummy>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
+            newDummy.GetComponent<Naruto_Dummy>().SetInfo(this.photonView, this.gameObject, GetAttackDir(), MyTeam);
             _dummyList.Add(newDummy.GetComponent<Naruto_Dummy>());
 
             photonView.RPC("SummonSmokeRPC", RpcTarget.All, this.transform.position);
@@ -274,7 +274,7 @@ namespace WakHead
             var newRasengan = Global.PoolingManager.LocalSpawn("Naruto_Rasengan", this.transform.position,
                 Quaternion.identity, true);
             newRasengan.GetComponent<Naruto_Rasengan>().SetInfo(this.photonView, this.gameObject,
-                this.transform.position, GetAttackDir(), _chargingGauge);
+                this.transform.position, GetAttackDir(), _chargingGauge, MyTeam);
         }
 
         [PunRPC]
@@ -282,7 +282,7 @@ namespace WakHead
         {
             var newDummyRasengan = Global.PoolingManager.LocalSpawn("Naruto_Rasengan", pos, Quaternion.identity, true);
             newDummyRasengan.GetComponent<Naruto_Rasengan>()
-                .SetInfo(this.photonView, this.gameObject, pos, GetAttackDir(), _chargingGauge);
+                .SetInfo(this.photonView, this.gameObject, pos, GetAttackDir(), _chargingGauge, MyTeam);
         }
 
         [PunRPC]

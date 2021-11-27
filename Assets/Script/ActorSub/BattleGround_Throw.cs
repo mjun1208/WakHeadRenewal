@@ -9,9 +9,9 @@ namespace WakHead
     {
         private BattleGround.ThrowType _throwType;
 
-        public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, BattleGround.ThrowType throwType)
+        public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, BattleGround.ThrowType throwType, Team team = Team.None)
         {
-            base.SetInfo(ownerPhotonView, owner, dir);
+            base.SetInfo(ownerPhotonView, owner, dir, team);
 
             _throwType = throwType;
 
@@ -34,7 +34,7 @@ namespace WakHead
             {
                 if (_ownerPhotonView.IsMine)
                 {
-                    targetSummoned.Damaged(targetSummoned.transform.position);
+                    targetSummoned.Damaged(targetSummoned.transform.position, MyTeam);
                 }
 
                 OnDamage(null, 5);
@@ -84,7 +84,7 @@ namespace WakHead
                 $"BattleGround_Throw_{(BattleGround.ThrowType) _throwType}_Bomb", this.transform.position,
                 Quaternion.identity, false);
             newBomb.GetComponent<BattleGround_Throw_Bomb>()
-                .SetInfo(_ownerPhotonView, _owner, this.transform.position, _dir, _throwType);
+                .SetInfo(_ownerPhotonView, _owner, this.transform.position, _dir, _throwType, MyTeam);
         }
 
         public override void Destroy()

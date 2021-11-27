@@ -15,9 +15,9 @@ namespace WakHead
             _originalScale = this.transform.localScale;
         }
 
-        public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 pos, Vector3 dir)
+        public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 pos, Vector3 dir, Team team = Team.None)
         {
-            base.SetInfo(ownerPhotonView, owner, dir);
+            base.SetInfo(ownerPhotonView, owner, dir, team);
 
             this.transform.position = pos;
 
@@ -39,7 +39,7 @@ namespace WakHead
             {
                 if (_ownerPhotonView.IsMine)
                 {
-                    targetSummoned.Damaged(targetSummoned.transform.position);
+                    targetSummoned.Damaged(targetSummoned.transform.position, MyTeam);
                 }
 
                 OnDamage(null, 10);

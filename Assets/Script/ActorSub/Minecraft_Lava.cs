@@ -9,9 +9,9 @@ namespace WakHead
     {
         [SerializeField] private List<GameObject> _lavaList = new List<GameObject>();
 
-        public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 pos, Vector3 dir)
+        public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 pos, Vector3 dir, Team team = Team.None)
         {
-            base.SetInfo(ownerPhotonView, owner, dir);
+            base.SetInfo(ownerPhotonView, owner, dir, team);
 
             this.transform.position = pos;
 
@@ -33,7 +33,7 @@ namespace WakHead
         {
             if (_ownerPhotonView.IsMine)
             {
-                entity?.Damaged(this.transform.position, damage);
+                entity?.Damaged(this.transform.position, damage, MyTeam);
             }
         }
 

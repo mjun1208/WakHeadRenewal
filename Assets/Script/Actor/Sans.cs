@@ -53,7 +53,7 @@ namespace WakHead
             var newGaster =
                 Global.PoolingManager.Spawn("Sans_Gaster", this.transform.position, this.transform.rotation);
             var newGasterScript = newGaster.GetComponent<Sans_Gaster>();
-            newGasterScript.SetInfo(photonView.ViewID, this.gameObject, this.transform.position, GetAttackDir());
+            newGasterScript.SetInfo(photonView.ViewID, this.gameObject, this.transform.position, GetAttackDir(), MyTeam);
             _myGasterList.Add(newGasterScript);
         }
 
@@ -76,7 +76,7 @@ namespace WakHead
             var newbone =
                 Global.PoolingManager.LocalSpawn("Sans_Bone", this.transform.position, Quaternion.identity, true);
 
-            newbone.GetComponent<Sans_Bone>().SetInfo(this.photonView, this.gameObject, GetAttackDir());
+            newbone.GetComponent<Sans_Bone>().SetInfo(this.photonView, this.gameObject, GetAttackDir(), MyTeam);
         }
 
         protected override void Dead()

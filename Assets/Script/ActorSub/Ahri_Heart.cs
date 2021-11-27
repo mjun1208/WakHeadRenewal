@@ -7,9 +7,9 @@ namespace WakHead
 {
     public class Ahri_Heart : ActorSub
     {
-        public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
+        public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, Team team = Team.None)
         {
-            base.SetInfo(ownerPhotonView, owner, dir);
+            base.SetInfo(ownerPhotonView, owner, dir, team);
 
             _moveSpeed = Constant.AHRI_HEART_MOVE_SPEED;
 
@@ -23,7 +23,7 @@ namespace WakHead
             {
                 if (_ownerPhotonView.IsMine)
                 {
-                    targetSummoned.Damaged(targetSummoned.transform.position);
+                    targetSummoned.Damaged(targetSummoned.transform.position, MyTeam);
                 }
 
                 OnDamage(null, 10);
@@ -36,7 +36,7 @@ namespace WakHead
 
             if (_ownerPhotonView.IsMine)
             {
-                entity?.Damaged(this.transform.position, damage);
+                entity?.Damaged(this.transform.position, damage, MyTeam);
                 entity?.Heart();
             }
 

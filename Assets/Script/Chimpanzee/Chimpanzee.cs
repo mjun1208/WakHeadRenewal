@@ -241,7 +241,7 @@ namespace WakHead
             {
                 _attackRange.Attack(targetEntity =>
                 {
-                    targetEntity.Damaged(targetEntity.transform.position, 1);
+                    targetEntity.Damaged(targetEntity.transform.position, 1, MyTeam);
                     //targetEntity.KnockBack(GetAttackDir(), 0.5f, 0);
                 });
             }

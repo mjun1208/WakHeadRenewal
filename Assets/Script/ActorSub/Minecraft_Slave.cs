@@ -14,9 +14,9 @@ namespace WakHead
             _originalScale = this.transform.localScale;
         }
 
-        public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
+        public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, Team team = Team.None)
         {
-            base.SetInfo(ownerPhotonView, owner, dir);
+            base.SetInfo(ownerPhotonView, owner, dir, team);
 
             _moveSpeed = Constant.MINECRAFT_SLAVE_MOVE_SPEED;
 

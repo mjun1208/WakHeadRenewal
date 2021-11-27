@@ -51,29 +51,34 @@ namespace WakHead
 
         }
 
-        public void Damaged(Vector3 pos, string effectName = "HitEffect", bool effectFlip = false)
+        public void Damaged(Vector3 pos, Team team, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
         {
-            if (photonView == null)
+            if (photonView == null || (MyTeam != Team.None && MyTeam == team))
             {
                 return;
             }
 
-            photonView.RPC("OnDamageRPC", RpcTarget.All, pos, effectName, effectFlip);
+            photonView.RPC("OnDamageRPC", RpcTarget.All, pos, team, effectName, effectXOffset, effectFlip);
         }
 
         [PunRPC]
-        public void OnDamageRPC(Vector3 pos, string effectName, bool effectFlip)
+        public void OnDamageRPC(Vector3 pos, Team team, string effectName,float effectXOffset , bool effectFlip)
         {
-            OnDamage(pos, effectName, effectFlip);
+            OnDamage(pos, team, effectName, effectXOffset, effectFlip);
         }
 
-        public void OnDamage(Vector3 pos, string effectName, bool effectFlip)
+        public void OnDamage(Vector3 pos, Team team, string effectName, float effectXOffset, bool effectFlip)
         {
             var randomPos = (Vector3) UnityEngine.Random.insideUnitCircle * 0.5f;
 
             Global.PoolingManager.LocalSpawn("HitEffect", this.transform.position + randomPos,
                 Quaternion.Euler(new Vector3(0, effectFlip ? 0 : -180, 0)), true);
 
+            if (MyTeam != Team.None && MyTeam == team)
+            {
+                return;
+            }
+            
             if (photonView.IsMine)
             {
                 _currentHP--;

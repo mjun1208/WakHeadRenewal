@@ -12,9 +12,9 @@ namespace WakHead
 
         public const float X_OFFSET = 2f;
 
-        public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
+        public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, Team team = Team.None)
         {
-            base.SetInfo(ownerPhotonView, owner, dir);
+            base.SetInfo(ownerPhotonView, owner, dir, team);
 
             this.transform.position = owner.transform.position + new Vector3(X_OFFSET * dir.x, 0, 0);
 
@@ -36,7 +36,7 @@ namespace WakHead
         {
             if (_ownerPhotonView.IsMine)
             {
-                _attackRange.Attack(targetEntity => { targetEntity.Damaged(this.transform.position, 10); });
+                _attackRange.Attack(targetEntity => { targetEntity.Damaged(this.transform.position, 10, MyTeam); });
             }
         }
     }

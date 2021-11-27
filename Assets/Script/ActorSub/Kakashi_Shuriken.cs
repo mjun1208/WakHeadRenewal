@@ -14,9 +14,9 @@ namespace WakHead
             _originalScale = this.transform.localScale;
         }
 
-        public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 position, Vector3 dir)
+        public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 position, Vector3 dir, Team team = Team.None)
         {
-            base.SetInfo(ownerPhotonView, owner, dir);
+            base.SetInfo(ownerPhotonView, owner, dir, team);
             this.transform.position = position;
 
             _moveSpeed = Constant.KAKASHI_SHURIKEN_MOVE_SPEED;
@@ -34,7 +34,7 @@ namespace WakHead
             {
                 if (_ownerPhotonView.IsMine)
                 {
-                    targetSummoned.Damaged(targetSummoned.transform.position);
+                    targetSummoned.Damaged(targetSummoned.transform.position, MyTeam);
                 }
 
                 OnDamage(null, 3);
@@ -57,7 +57,7 @@ namespace WakHead
 
             var newBomb =
                 Global.PoolingManager.LocalSpawn("Kakashi_Bomb", this.transform.position, Quaternion.identity, false);
-            newBomb.GetComponent<Kakashi_Bomb>().SetInfo(_ownerPhotonView, _owner, this.transform.position, _dir);
+            newBomb.GetComponent<Kakashi_Bomb>().SetInfo(_ownerPhotonView, _owner, this.transform.position, _dir, MyTeam);
         }
     }
 }

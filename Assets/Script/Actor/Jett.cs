@@ -63,7 +63,7 @@ namespace WakHead
                 var summoned = hit.transform.GetComponent<Summoned>();
                 if (summoned != null)
                 {
-                    summoned.Damaged(summoned.transform.position);
+                    summoned.Damaged(summoned.transform.position, MyTeam);
                     break;
                 }
             }
@@ -98,7 +98,7 @@ namespace WakHead
                 var summoned = hit.transform.GetComponent<Summoned>();
                 if (summoned != null)
                 {
-                    summoned.Damaged(summoned.transform.position);
+                    summoned.Damaged(summoned.transform.position, MyTeam);
                 }
             }
 
@@ -152,7 +152,7 @@ namespace WakHead
                 Quaternion.identity, true);
 
             newShuriken.GetComponent<Jett_Shuriken>().SetInfo(this.photonView, this.gameObject,
-                throwPosition.transform.position, GetAttackDir());
+                throwPosition.transform.position, GetAttackDir(), MyTeam);
         }
 
         [PunRPC]
