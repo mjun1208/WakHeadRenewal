@@ -28,7 +28,10 @@ namespace WakHead
 
             if (owner != null)
             {
-                _attackRange.SetOwner(owner);
+                if (_attackRange != null)
+                {
+                    _attackRange.SetOwner(owner);
+                }
                 this.transform.position = owner.transform.position;
 
                 _owner = owner;

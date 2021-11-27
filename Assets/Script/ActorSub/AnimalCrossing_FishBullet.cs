@@ -8,16 +8,20 @@ namespace WakHead
     public class AnimalCrossing_FishBullet : ActorSub
     {
         [SerializeField] private List<GameObject> _fishs;
+        
+        private Vector3 _originalScale;
 
-        private Vector3 _originalPos;
-
-        public const float Offset = 1f;
-
+        private void Awake()
+        {
+            _originalScale = this.transform.localScale;
+        }
+        
         public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, int fishIndex)
         {
-            _ownerPhotonView = ownerPhotonView;
-            _owner = owner;
+            base.SetInfo(ownerPhotonView, owner, dir);
 
+            this.transform.position = owner.transform.position + new Vector3(0, Random.Range(-0.5f, 0.5f));
+            
             foreach (var fish in _fishs)
             {
                 fish.SetActive(false);
@@ -27,10 +31,10 @@ namespace WakHead
 
             _attackRange = _fishs[fishIndex].GetComponent<AttackRange>();
             _attackRange.SetOwner(owner);
-
-            this.transform.position = owner.transform.position;
-            _originalPos = owner.transform.position;
-
+            
+            float rotationScale = _originalScale.y * -dir.x;
+            this.transform.localScale = new Vector3(_originalScale.x, rotationScale, _originalScale.z);
+            
             _moveSpeed = Constant.ANIMALCROSSING_FISHBULLET_MOVE_SPEED;
             _lifeTime = Constant.ANIMALCROSSING_FISHBULLET_LIFETIME;
 
@@ -59,24 +63,23 @@ namespace WakHead
         {
             float goTime = 0;
             float moveAngle = 0;
-            float distance = 0;
+            moveAngle = Random.Range(0, 360);
 
             while (goTime < _lifeTime)
             {
-                float x = Mathf.Cos(moveAngle * Mathf.Deg2Rad * 100f);
+                // float x = Mathf.Cos(moveAngle * Mathf.Deg2Rad * 100f);
                 float y = Mathf.Sin(moveAngle * Mathf.Deg2Rad * 100f);
 
-                float angle = Mathf.Atan2(-y, -x) * Mathf.Rad2Deg;
+                float angle = Mathf.Atan2(-y, -_dir.x) * Mathf.Rad2Deg;
 
-                _dir = new Vector3(x, y, 0);
+                _dir = new Vector3(_dir.x, y, 0);
 
-                this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 90));
+                this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
                 goTime += Time.deltaTime;
                 moveAngle += _moveSpeed * Time.deltaTime;
-                distance += Time.deltaTime;
 
-                _rigid.MovePosition(_originalPos + _dir * (Offset + distance));
+                _rigid.MovePosition(this.transform.position + _dir * _moveSpeed * Time.deltaTime);
 
                 yield return null;
             }
