@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace WakHead
 {
@@ -57,9 +58,20 @@ namespace WakHead
 
             Time.timeScale = 0.2f;
             this.transform.position = targetPos;
+
             _myCamera.DOFieldOfView(15, 0.5f);
             transform.DOMoveX(targetPos.x, 0.5f);
             transform.DOMoveY(targetPos.y, 0.5f);
+            
+            Global.PoolingManager.LocalSpawn("Blood_1",new Vector3(targetPos.x, targetPos.y, 0), 
+                Quaternion.Euler(new Vector3(0, Random.Range(0, 2) == 0 ? 0 : -180)), true);
+            Global.PoolingManager.LocalSpawn("Blood_2",new Vector3(targetPos.x, targetPos.y, 0), 
+                Quaternion.Euler(new Vector3(0, Random.Range(0, 2) == 0 ? 0 : -180)), true);
+            Global.PoolingManager.LocalSpawn("Blood_3", new Vector3(targetPos.x, targetPos.y, 0),
+                Quaternion.Euler(new Vector3(0, Random.Range(0, 2) == 0 ? 0 : -180)),true);
+            Global.PoolingManager.LocalSpawn("Blood_7",new Vector3(targetPos.x, targetPos.y, 0),
+                Quaternion.Euler(new Vector3(0, Random.Range(0, 2) == 0 ? 0 : -180)), true);
+
             _myCamera.DOShakePosition(0.4f, 0.1f).OnComplete(() =>
             {
                 deadAction?.Invoke();
@@ -68,10 +80,13 @@ namespace WakHead
                 this.transform.position = originalPos;
                 Time.timeScale = 1f;
 
-                _isDeadAction = false;
-                
-                _myCamera.DOShakePosition(3f, 0.5f);
-                _myCamera.DOShakeRotation(3f, 0.5f).OnComplete(() =>
+                _myCamera.DOShakePosition(1.5f, 0.5f).OnComplete(() =>
+                {
+                    this.transform.position = originalPos;
+                    
+                    _isDeadAction = false;
+                });
+                _myCamera.DOShakeRotation(1.5f, 0.5f).OnComplete(() =>
                 {
                     this.transform.rotation = Quaternion.identity;
                 });
