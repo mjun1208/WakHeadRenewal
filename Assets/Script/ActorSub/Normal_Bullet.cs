@@ -7,9 +7,9 @@ namespace WakHead
 {
     public class Normal_Bullet : ActorSub
     {
-        public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir)
+        public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, Team team = Team.None)
         {
-            base.SetInfo(ownerPhotonView, owner, dir);
+            base.SetInfo(ownerPhotonView, owner, dir, team);
 
             _moveSpeed = Constant.NORMAL_BULLET_MOVE_SPEED;
 
@@ -23,7 +23,7 @@ namespace WakHead
             {
                 if (_ownerPhotonView.IsMine)
                 {
-                    targetSummoned.Damaged(targetSummoned.transform.position);
+                    targetSummoned.Damaged(targetSummoned.transform.position, MyTeam);
                 }
 
                 OnDamage(null, 30);
@@ -36,7 +36,7 @@ namespace WakHead
 
             if (_ownerPhotonView.IsMine)
             {
-                entity?.KnockBack(damage, _dir, 3f, 0f);
+                entity?.KnockBack(damage, _dir, 3f, 0f, "NormalSkill_2Effect" , -_dir.x * 0.3f, _dir.x > 0);
             }
 
             Destroy();

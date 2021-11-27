@@ -73,7 +73,7 @@ namespace WakHead
                 return;
             }
 
-            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(5, GetAttackDir(), 0.5f, 0); });
+            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(5, GetAttackDir(), 0.5f, 0, "Blood_2", GetAttackDir().x  * 0.3f, GetAttackDir().x > 0); });
         }
 
         protected override void Active_Skill_1()
@@ -83,7 +83,7 @@ namespace WakHead
                 return;
             }
 
-            _skill_1Range.Attack(targetEntity => { targetEntity.KnockBack(15, GetAttackDir(), 1f, 0); });
+            _skill_1Range.Attack(targetEntity => { targetEntity.KnockBack(15, GetAttackDir(), 1f, 0, "Blood_4", -GetAttackDir().x  * 0.3f, GetAttackDir().x < 0); });
         }
 
         private void Active_Skill_1_2()
@@ -93,7 +93,7 @@ namespace WakHead
                 return;
             }
 
-            _skill_1Range.Attack(targetEntity => { targetEntity.KnockBack(15, -GetAttackDir(), 1f, 0); });
+            _skill_1Range.Attack(targetEntity => { targetEntity.KnockBack(15, -GetAttackDir(), 1f, 0, "Blood_4", GetAttackDir().x  * 0.3f, GetAttackDir().x > 0); });
         }
 
         protected override void Active_Skill_2()
