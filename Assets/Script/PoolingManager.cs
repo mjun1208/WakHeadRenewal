@@ -113,6 +113,11 @@ namespace WakHead
             {
                 spawnObject = pool.Dequeue();
 
+                if (spawnObject == null)
+                {
+                    return LocalSpawn(prefabName, position, rotation, isLocal);
+                }
+                
                 spawnObject.transform.position = position;
                 spawnObject.transform.rotation = rotation;
             }
