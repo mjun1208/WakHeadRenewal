@@ -162,6 +162,7 @@ namespace WakHead
             var pool = _localPool[prefabName];
 
             pool.Enqueue(targetObject);
+            targetObject.transform.parent = null;
             targetObject.SetActive(false);
         }
 
