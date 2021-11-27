@@ -13,10 +13,10 @@ namespace WakHead
 
         private void Start()
         {
-            StartCoroutine(Vow());
+            StartCoroutine(StartSpawn());
         }
 
-        private IEnumerator Vow()
+        private IEnumerator StartSpawn()
         {
             while (true)
             {
