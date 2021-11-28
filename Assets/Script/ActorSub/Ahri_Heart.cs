@@ -18,7 +18,7 @@ namespace WakHead
 
         private void Update()
         {
-            _attackRange.AttackEntity(targetEntity => { OnDamage(targetEntity, 10); },MyTeam , true);
+            _attackRange.AttackEntity(targetEntity => { OnDamage(targetEntity, 10); }, MyTeam,true);
             _attackRange.AttackSummoned(targetSummoned =>
             {
                 if (_ownerPhotonView.IsMine)
