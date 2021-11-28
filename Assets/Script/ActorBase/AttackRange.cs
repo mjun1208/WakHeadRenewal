@@ -96,12 +96,14 @@ namespace WakHead
             {
                 foreach (var targetObject in CollidedSummonedObjectList)
                 {
-                    if (targetObject.GetComponent<Summoned>().MyTeam != Team.None && MyTeam == team)
+                    var summoned = targetObject.GetComponent<Summoned>();
+                    
+                    if (summoned.MyTeam != Team.None && summoned.MyTeam == team)
                     {
                         continue;
                     }
 
-                    targetObject.GetComponent<Summoned>().Damaged(targetObject.transform.position, MyTeam, effectName, effectXOffset, effectFlip);
+                    summoned.Damaged(targetObject.transform.position, MyTeam, effectName, effectXOffset, effectFlip);
 
                     if (singleTarget)
                     {
@@ -119,17 +121,19 @@ namespace WakHead
                 {
                     var targetObject = CollidedObjectList[i];
 
-                    if (targetObject.GetComponent<Entity>().MyTeam != Team.None && MyTeam == team)
+                    var entity = targetObject.GetComponent<Entity>();
+                    
+                    if (entity.MyTeam != Team.None && entity.MyTeam == team)
                     {
                         continue;
                     }
 
-                    if (targetObject.GetComponent<Entity>().IsDead)
+                    if (entity.IsDead)
                     {
                         CollidedObjectList.Remove(targetObject);
                     }
 
-                    entityAction?.Invoke(targetObject.GetComponent<Entity>());
+                    entityAction?.Invoke(entity);
 
                     if (singleTarget)
                     {
@@ -145,12 +149,14 @@ namespace WakHead
             {
                 foreach (var targetObject in CollidedSummonedObjectList)
                 {
-                    if (targetObject.GetComponent<Summoned>().MyTeam != Team.None && MyTeam == team)
+                    var summoned = targetObject.GetComponent<Summoned>();
+                    
+                    if (summoned.MyTeam != Team.None && summoned.MyTeam == team)
                     {
                         continue;
                     }
                     
-                    summonedAction?.Invoke(targetObject.GetComponent<Summoned>());
+                    summonedAction?.Invoke(summoned);
 
                     if (singleTarget)
                     {
