@@ -95,6 +95,15 @@ namespace WakHead
 
             CameraManager.instance.SetTarget(this.transform);
         }
+        
+        public override void SetTeam(Team team)
+        {
+            base.SetTeam(team);
+            
+            _attackRange.SetTeam(team);
+            _skill_1Range.SetTeam(team);
+            _skill_2Range.SetTeam(team);
+        }
 
         public void SetActor()
         {
