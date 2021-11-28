@@ -18,7 +18,7 @@ namespace WakHead
             {
                 var instance = Instance[playerName];
                 Instance.Remove(playerName);
-                Destroy(instance.gameObject);
+                PhotonNetwork.Destroy(instance.gameObject);
             }
             
             Instance.Add(playerName, this);
