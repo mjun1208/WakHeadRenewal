@@ -56,14 +56,16 @@ namespace WakHead
                 var entity = hit.transform.GetComponent<Entity>();
                 if (entity != null)
                 {
-                    entity.KnockBack(3, GetAttackDir(), 0.5f, 0);
+                    entity.KnockBack(3, GetAttackDir(), 0.5f, 0, MyTeam, 
+                        "JettAttackEffect", 0, GetAttackDir().x > 0);
                     break;
                 }
 
                 var summoned = hit.transform.GetComponent<Summoned>();
                 if (summoned != null)
                 {
-                    summoned.Damaged(summoned.transform.position, MyTeam);
+                    summoned.Damaged(summoned.transform.position, MyTeam, 
+                        "JettAttackEffect", 0, GetAttackDir().x > 0);
                     break;
                 }
             }
@@ -92,13 +94,15 @@ namespace WakHead
                 var entity = hit.transform.GetComponent<Entity>();
                 if (entity != null)
                 {
-                    entity.KnockBack(20, GetAttackDir(), 1f, 0);
+                    entity.KnockBack(20, GetAttackDir(), 1f, 0, MyTeam, 
+                        "JettSkill_1Effect",  GetAttackDir().x * 0.3f, GetAttackDir().x > 0);
                 }
 
                 var summoned = hit.transform.GetComponent<Summoned>();
                 if (summoned != null)
                 {
-                    summoned.Damaged(summoned.transform.position, MyTeam);
+                    summoned.Damaged(summoned.transform.position, MyTeam,
+                        "JettSkill_1Effect", GetAttackDir().x * 0.3f, GetAttackDir().x > 0);
                 }
             }
 

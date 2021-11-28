@@ -39,7 +39,8 @@ namespace WakHead
             {
                 if (_ownerPhotonView.IsMine)
                 {
-                    targetSummoned.Damaged(targetSummoned.transform.position, MyTeam);
+                    targetSummoned.Damaged(targetSummoned.transform.position, MyTeam, 
+                        "JettAttackEffect", 0,_dir.x > 0);
                 }
 
                 OnDamage(null, 10);
@@ -52,7 +53,8 @@ namespace WakHead
 
             if (_ownerPhotonView.IsMine)
             {
-                entity?.KnockBack(damage, _dir, 0.5f, 0f);
+                entity?.KnockBack(damage, _dir, 0.5f, 0f, MyTeam, 
+                    "JettAttackEffect", 0, _dir.x > 0);
             }
 
             Destroy();

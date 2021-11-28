@@ -53,7 +53,7 @@ namespace WakHead
         {
             if (_ownerPhotonView.IsMine)
             {
-                entity?.Damaged(this.transform.position, damage, MyTeam);
+                entity?.Damaged(this.transform.position, damage, MyTeam, "AhriAttackEffect", -_dir.normalized.x * 0.3f ,_dir.x > 0);
             }
         }
 
@@ -80,8 +80,8 @@ namespace WakHead
 
             while (ownerDistance > 0.2f)
             {
-                _dir = this.transform.position - _owner.transform.position;
-                _rigid.MovePosition(this.transform.position - _dir.normalized * BackSpeed * Time.deltaTime);
+                _dir = _owner.transform.position - this.transform.position;
+                _rigid.MovePosition(this.transform.position + _dir.normalized * BackSpeed * Time.deltaTime);
 
                 ownerDistance = Vector3.Distance(this.transform.position, _owner.transform.position);
 
