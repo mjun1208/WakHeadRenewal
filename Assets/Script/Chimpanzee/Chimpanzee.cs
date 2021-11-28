@@ -69,11 +69,17 @@ namespace WakHead
             DeadAction += Dead;
         }
 
-        public void Init(Team team)
+        [PunRPC]
+        private void SetTeamRPC(Team team)
         {
             SetTeam(team);
             _attackRange.SetTeam(team);
-
+        }
+        
+        public void Init(Team team)
+        {
+            photonView.RPC("SetTeamRPC", RpcTarget.All, team);
+            
             switch (MyTeam)
             {
                 case Team.BLUE:
@@ -89,8 +95,6 @@ namespace WakHead
                     break;
                 }
             }
-
-            _attackRange.SetTeam(MyTeam);
         }
 
         public void SetTarget(Entity entity)
