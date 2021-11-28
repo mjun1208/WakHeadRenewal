@@ -159,10 +159,18 @@ namespace WakHead
                 yield return null;
             }
 
+            foreach (var player in PhotonNetwork.CurrentRoom.Players)
+            {
+                if (player.Value.NickName != Global.instance.PlayerName)
+                {
+                    Global.instance.SetEnemyName(player.Value.NickName);
+                }
+            }
+
             yield return null;
             
             if (PhotonNetwork.IsMasterClient)
-            { 
+            {
                 PhotonNetwork.AutomaticallySyncScene = true;
             
                 PhotonNetwork.LoadLevel("Pick");
