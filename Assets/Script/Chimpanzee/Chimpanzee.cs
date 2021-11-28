@@ -241,7 +241,7 @@ namespace WakHead
             {
                 _attackRange.Attack(targetEntity =>
                 {
-                    targetEntity.Damaged(targetEntity.transform.position, 1, MyTeam);
+                    targetEntity.Damaged(targetEntity.transform.position, 1, MyTeam, "ChimpanzeeAttackEffect");
                     //targetEntity.KnockBack(GetAttackDir(), 0.5f, 0);
                 });
             }
