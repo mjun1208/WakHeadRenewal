@@ -267,7 +267,7 @@ namespace WakHead
 
             float distance = float.MaxValue;
 
-            Damaged(this.transform.position, damage, MyTeam, effectName, effectXOffset, effectFlip);
+            Damaged(this.transform.position, damage, team, effectName, effectXOffset, effectFlip);
             
             while (distance > 0.1f)
             {
