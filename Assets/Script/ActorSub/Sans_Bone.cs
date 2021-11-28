@@ -36,7 +36,7 @@ namespace WakHead
         {
             if (_ownerPhotonView.IsMine)
             {
-                _attackRange.Attack(targetEntity => { targetEntity.Damaged(this.transform.position, 10, MyTeam, "SansAttackEffect"); });
+                _attackRange.Attack(targetEntity => { targetEntity.Damaged(this.transform.position, 10, MyTeam, "SansAttackEffect"); }, MyTeam);
             }
         }
     }

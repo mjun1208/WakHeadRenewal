@@ -38,7 +38,7 @@ namespace WakHead
 
         public void ActiveDamage()
         {
-            _attackRange.Attack(targetEntity => { OnDamage(targetEntity, 1); });
+            _attackRange.Attack(targetEntity => { OnDamage(targetEntity, 1); }, MyTeam);
         }
 
         protected override void OnDamage(Entity entity, int damage)

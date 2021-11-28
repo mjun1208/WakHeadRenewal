@@ -63,7 +63,7 @@ namespace WakHead
                 return;
             }
 
-            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(3, _dir, 1.5f, 0, MyTeam); });
+            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(3, _dir, 1.5f, 0, MyTeam); }, MyTeam);
         }
 
         public void SetDir(Vector3 dir)

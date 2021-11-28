@@ -88,14 +88,19 @@ namespace WakHead
             }
         }
 
-        public void Attack(Action<Entity> entityAction, bool singleTarget = false, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
+        public void Attack(Action<Entity> entityAction, Team team, bool singleTarget = false, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
         {
-            AttackEntity(entityAction, singleTarget);
+            AttackEntity(entityAction, team, singleTarget);
 
             if (CollidedSummonedObjectList.Count > 0)
             {
                 foreach (var targetObject in CollidedSummonedObjectList)
                 {
+                    if (targetObject.GetComponent<Summoned>().MyTeam != Team.None && MyTeam == team)
+                    {
+                        continue;
+                    }
+
                     targetObject.GetComponent<Summoned>().Damaged(targetObject.transform.position, MyTeam, effectName, effectXOffset, effectFlip);
 
                     if (singleTarget)
@@ -106,14 +111,18 @@ namespace WakHead
             }
         }
 
-
-        public void AttackEntity(Action<Entity> entityAction, bool singleTarget = false)
+        public void AttackEntity(Action<Entity> entityAction, Team team, bool singleTarget = false)
         {
             if (CollidedObjectList.Count > 0)
             {
                 for (int i = 0; i < CollidedObjectList.Count; i++)
                 {
                     var targetObject = CollidedObjectList[i];
+
+                    if (targetObject.GetComponent<Entity>().MyTeam != Team.None && MyTeam == team)
+                    {
+                        continue;
+                    }
 
                     if (targetObject.GetComponent<Entity>().IsDead)
                     {
@@ -130,12 +139,17 @@ namespace WakHead
             }
         }
 
-        public void AttackSummoned(Action<Summoned> summonedAction = null, bool singleTarget = false)
+        public void AttackSummoned(Action<Summoned> summonedAction, Team team, bool singleTarget = false)
         {
             if (CollidedSummonedObjectList.Count > 0)
             {
                 foreach (var targetObject in CollidedSummonedObjectList)
                 {
+                    if (targetObject.GetComponent<Summoned>().MyTeam != Team.None && MyTeam == team)
+                    {
+                        continue;
+                    }
+                    
                     summonedAction?.Invoke(targetObject.GetComponent<Summoned>());
 
                     if (singleTarget)

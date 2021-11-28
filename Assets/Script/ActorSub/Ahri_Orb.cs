@@ -35,7 +35,7 @@ namespace WakHead
                     OnDamage(targetEntity, 3);
                     _collidedObjectList.Add(targetEntity.gameObject);
                 }
-            });
+            } ,MyTeam);
             _attackRange.AttackSummoned(targetSummoned =>
             {
                 if (!_collidedObjectList.Contains(targetSummoned.gameObject))
@@ -46,7 +46,7 @@ namespace WakHead
                         _collidedObjectList.Add(targetSummoned.gameObject);
                     }
                 }
-            }, this);
+            } ,MyTeam ,this);
         }
 
         protected override void OnDamage(Entity entity, int damage)

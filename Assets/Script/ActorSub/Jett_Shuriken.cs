@@ -33,7 +33,7 @@ namespace WakHead
 
         private void Update()
         {
-            _attackRange.AttackEntity(targetEntity => { OnDamage(targetEntity, 10); }, true);
+            _attackRange.AttackEntity(targetEntity => { OnDamage(targetEntity, 10); }, MyTeam, true);
 
             _attackRange.AttackSummoned(targetSummoned =>
             {
@@ -44,7 +44,7 @@ namespace WakHead
                 }
 
                 OnDamage(null, 10);
-            }, true);
+            }, MyTeam, true);
         }
 
         protected override void OnDamage(Entity entity, int damage)

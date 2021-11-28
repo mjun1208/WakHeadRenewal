@@ -244,7 +244,7 @@ namespace WakHead
                 {
                     targetEntity.Damaged(targetEntity.transform.position, 1, MyTeam, "ChimpanzeeAttackEffect");
                     //targetEntity.KnockBack(GetAttackDir(), 0.5f, 0);
-                });
+                }, MyTeam);
             }
 
             _attackDelay = 0.2f;

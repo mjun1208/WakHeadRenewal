@@ -41,12 +41,12 @@ namespace WakHead
                         dir.Normalize();
 
                         targetEntity.KnockBack(20, dir, 1f, 0, MyTeam);
-                    });
+                    }, MyTeam);
                     break;
                 }
                 case BattleGround.ThrowType.MOLOTOV:
                 {
-                    _attackRange.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, 10, MyTeam); });
+                    _attackRange.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, 10, MyTeam); }, MyTeam);
                     break;
                 }
                 case BattleGround.ThrowType.FLASH_BANG:
@@ -55,7 +55,7 @@ namespace WakHead
                     {
                         targetEntity.Stun(2.5f);
                         targetEntity.Damaged(targetEntity.transform.position, 10, MyTeam);
-                    });
+                    }, MyTeam);
                     break;
                 }
             }

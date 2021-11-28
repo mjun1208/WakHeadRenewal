@@ -29,7 +29,7 @@ namespace WakHead
         {
             this.transform.Rotate(new Vector3(0, 0, 720f) * Time.deltaTime);
 
-            _attackRange.AttackEntity(targetEntity => { OnDamage(targetEntity, 5); }, true);
+            _attackRange.AttackEntity(targetEntity => { OnDamage(targetEntity, 5); }, MyTeam, true);
             _attackRange.AttackSummoned(targetSummoned =>
             {
                 if (_ownerPhotonView.IsMine)
@@ -38,7 +38,7 @@ namespace WakHead
                 }
 
                 OnDamage(null, 5);
-            }, true);
+            }, MyTeam, true);
         }
 
         protected override IEnumerator Go()

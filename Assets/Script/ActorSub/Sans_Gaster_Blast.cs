@@ -29,7 +29,7 @@ namespace WakHead
 
         private void Update()
         {
-            _attackRange.Attack(targetEntity => { OnDamage(targetEntity, 1); });
+            _attackRange.Attack(targetEntity => { OnDamage(targetEntity, 1); }, MyTeam);
         }
 
         public override void Destroy()

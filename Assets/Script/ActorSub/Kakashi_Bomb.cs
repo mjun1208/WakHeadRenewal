@@ -21,7 +21,7 @@ namespace WakHead
                 return;
             }
 
-            _attackRange.Attack(targetEntity => { targetEntity.Damaged(this.transform.position, 5, MyTeam); });
+            _attackRange.Attack(targetEntity => { targetEntity.Damaged(this.transform.position, 5, MyTeam); }, MyTeam);
         }
     }
 }

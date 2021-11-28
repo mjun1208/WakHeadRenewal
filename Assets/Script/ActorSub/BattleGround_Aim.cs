@@ -117,7 +117,7 @@ namespace WakHead
         {
             ShootCount--;
 
-            _attackRange.AttackEntity(targetEntity => { OnDamage(targetEntity, 10); }, true);
+            _attackRange.AttackEntity(targetEntity => { OnDamage(targetEntity, 10); }, MyTeam, true);
             _attackRange.AttackSummoned(targetSummoned =>
             {
                 if (_ownerPhotonView.IsMine)
@@ -126,7 +126,7 @@ namespace WakHead
                 }
 
                 OnDamage(null, 10);
-            }, true);
+            }, MyTeam, true);
 
             Global.PoolingManager.LocalSpawn("SnipeHitEffect", _aimObject.transform.position, Quaternion.identity,
                 true);
