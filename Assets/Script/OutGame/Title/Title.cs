@@ -160,10 +160,13 @@ namespace WakHead
             }
 
             yield return null;
-
+            
             PhotonNetwork.AutomaticallySyncScene = true;
-
-            PhotonNetwork.LoadLevel("Pick");
+            
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.LoadLevel("Pick");
+            }
         }
 
         private IEnumerator WaitConnectLobby()
