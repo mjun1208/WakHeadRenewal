@@ -37,7 +37,7 @@ namespace WakHead
             if (_ownerPhotonView.IsMine)
             {
                 entity?.Damaged(this.transform.position, damage, MyTeam);
-                entity?.Heart();
+                entity?.Heart(MyTeam);
             }
 
             Destroy();

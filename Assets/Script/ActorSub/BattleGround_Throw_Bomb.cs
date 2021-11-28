@@ -40,7 +40,7 @@ namespace WakHead
                         var dir = targetEntity.transform.position - this.transform.position;
                         dir.Normalize();
 
-                        targetEntity.KnockBack(20, dir, 1f, 0);
+                        targetEntity.KnockBack(20, dir, 1f, 0, MyTeam);
                     });
                     break;
                 }

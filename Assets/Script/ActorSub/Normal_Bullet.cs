@@ -36,7 +36,7 @@ namespace WakHead
 
             if (_ownerPhotonView.IsMine)
             {
-                entity?.KnockBack(damage, _dir, 3f, 0f, "NormalSkill_2Effect" , -_dir.x * 0.3f, _dir.x > 0);
+                entity?.KnockBack(damage, _dir, 3f, 0f, MyTeam, "NormalSkill_2Effect" , -_dir.x * 0.3f, _dir.x > 0);
             }
 
             Destroy();

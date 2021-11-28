@@ -16,7 +16,7 @@ namespace WakHead
                 return;
             }
 
-            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(5, GetAttackDir(), 1.5f, 0); });
+            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(5, GetAttackDir(), 1.5f, 0, MyTeam); });
         }
 
         protected override void Active_Skill_1()
