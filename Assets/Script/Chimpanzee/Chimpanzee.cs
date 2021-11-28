@@ -72,6 +72,7 @@ namespace WakHead
         public void Init(Team team)
         {
             SetTeam(team);
+            _attackRange.SetTeam(team);
 
             switch (MyTeam)
             {
