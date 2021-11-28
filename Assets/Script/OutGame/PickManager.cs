@@ -33,7 +33,7 @@ namespace WakHead
         public bool IsMyReady { get; set; } = false;
         public bool IsEnemyReady { get; set; } = false;
 
-        private PickSync _myPickSync;
+        public PickSync MyPickSync { get; set; }
 
         void Awake()
         {
@@ -45,7 +45,8 @@ namespace WakHead
             Global.instance.FadeOut();
 
             var pickSync = PhotonNetwork.Instantiate("PickSync", Vector3.zero, Quaternion.identity);
-            _myPickSync = pickSync.GetComponent<PickSync>();
+            MyPickSync = pickSync.GetComponent<PickSync>();
+        }
         }
 
         public void ActorSelect(int index)
@@ -147,7 +148,7 @@ namespace WakHead
                 return;
             }
 
-            _myPickSync.StartGame();
+            MyPickSync.StartGame();
 
             _pickUI.transform.DOLocalMoveY(-750, 1f).SetEase(Ease.InOutBack).OnComplete(() =>
             {
