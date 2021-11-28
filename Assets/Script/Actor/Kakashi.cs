@@ -59,7 +59,8 @@ namespace WakHead
                 return;
             }
 
-            _skill_1Range.Attack(targetEntity => { targetEntity.KnockBack(10, GetAttackDir(), 1f, 0, MyTeam); }, MyTeam);
+            _skill_1Range.Attack(targetEntity => { targetEntity.KnockBack(10, GetAttackDir(), 1f, 0, MyTeam, 
+                "KakashiSkill_1Effect",0, Random.Range(0, 2) == 0); }, MyTeam);
         }
 
         protected override void Active_Skill_2()
