@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1616961319
+CRC: 3344693513
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5e877d7b44d16b0fd74b41b92360750f
+    Hash: d08844ea98e632a9343f3f602d777d4c
   TypeTreeHash:
     serializedVersion: 2
     Hash: d27077570efac0ec4abe9c04bad66554
@@ -174,6 +174,7 @@ Assets:
 - Assets/Prefab/Effect/NormalSkill_2Effect.prefab
 - Assets/Prefab/Actor_Sub/Naruto_Smoke.prefab
 - Assets/Prefab/Actor/Dummy.prefab
+- Assets/Prefab/Effect/SansAttackEffect.prefab
 - Assets/Prefab/Effect/AnimalCrossingSkill_2Effect.prefab
 - Assets/Prefab/Effect/HitEffect.prefab
 - Assets/Prefab/Actor_Sub/Kakashi_Shuriken.prefab
@@ -185,9 +186,13 @@ Assets:
 - Assets/Prefab/Actor_Sub/Minecraft_Lava.prefab
 - Assets/Prefab/Effect/Minecraft_LavaBasket.prefab
 - Assets/Prefab/Actor/Normal.prefab
+- Assets/Prefab/Effect/ChimpanzeeAttackEffect.prefab
 - Assets/Prefab/Actor_Sub/Martine_Vent.prefab
 - Assets/Prefab/Actor_Sub/Sans_Charge_Blast.prefab
+- Assets/Prefab/Effect/JettAttackEffect.prefab
 - Assets/Prefab/Effect/RedTowerHit.prefab
+- Assets/Prefab/Effect/JettSkill_1Effect.prefab
+- Assets/Prefab/Effect/NarutoSkill_2Effect.prefab
 - Assets/Prefab/Actor_Sub/Normal_Bullet.prefab
 - Assets/Prefab/Effect/OperatorTrajectory.prefab
 - Assets/Prefab/Effect/Kakashi_EyeCanvas.prefab
@@ -207,6 +212,7 @@ Assets:
 - Assets/Prefab/Actor_Sub/Minecraft_Slave.prefab
 - Assets/Prefab/Effect/Blood/Blood_3.prefab
 - Assets/Prefab/Actor_Sub/Kakashi_Bomb.prefab
+- Assets/Prefab/Effect/KakashiSkill_1Effect.prefab
 - Assets/Prefab/Actor/Martine.prefab
 - Assets/Prefab/Effect/Blood/Blood_9.prefab
 - Assets/Prefab/Actor_Sub/BattleGround_Throw_FLASH_BANG_Bomb.prefab
@@ -215,6 +221,7 @@ Assets:
 - Assets/Prefab/Actor/Sans.prefab
 - Assets/Prefab/Effect/SnipeHitEffect.prefab
 - Assets/Prefab/Actor_Sub/Naruto_Dummy.prefab
+- Assets/Prefab/Effect/NarutoAttackEffect.prefab
 - Assets/Prefab/Effect/BlueTowerHit.prefab
 - Assets/Prefab/Actor_Sub/Vengenpro_Note.prefab
 - Assets/Prefab/Effect/SansSkill_2Effect.prefab
@@ -228,6 +235,7 @@ Assets:
 - Assets/Prefab/PickSync.prefab
 - Assets/Prefab/Actor_Sub/BattleGround_Throw_GRENADE_Bomb.prefab
 - Assets/Prefab/Chimpanzee/Panzee_Red_TShirt.prefab
+- Assets/Prefab/Effect/AhriAttackEffect.prefab
 - Assets/Prefab/Actor/Vengenpro.prefab
 - Assets/Prefab/Actor/Naruto.prefab
 - Assets/Prefab/Actor_Sub/Ahri_Heart.prefab
