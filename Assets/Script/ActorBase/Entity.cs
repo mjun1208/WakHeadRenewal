@@ -66,7 +66,7 @@ namespace WakHead
             get { return _isDead; }
             protected set
             {
-                if (value)
+                if (value && IsDead != value)
                 {
                     if (DeadCameraAction != null)
                     {
