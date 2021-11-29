@@ -6,10 +6,12 @@ using DG.Tweening;
 using System;
 using CodeStage.AntiCheat.ObscuredTypes;
 using Photon.Pun;
+using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 namespace WakHead
 {
-    public class Global : MonoBehaviour
+    public class Global : MonoBehaviourPunCallbacks
     {
         public static Global instance
         {
@@ -59,6 +61,8 @@ namespace WakHead
         public Transform GlobalCanvas;
         [SerializeField] private Image _fadeUI;
 
+        private bool _isLeaving = false;
+        
         private void Awake()
         {
             if (_instance == null)
@@ -79,6 +83,58 @@ namespace WakHead
             {
                 Destroy(this.gameObject);
             }
+        }
+
+        public override void OnPlayerLeftRoom(Player otherPlayer)
+        {
+            LeaveRoom();
+        }
+
+        public override void OnLeftRoom()
+        {
+            SceneManager.LoadScene("RealTitle");
+            SceneManager.sceneLoaded += Leaving;
+        }
+        
+        public void LeaveRoom()
+        {
+            ResetInfo();
+
+            if (!_isLeaving)
+            {
+                _isLeaving = true;
+                PhotonNetwork.LeaveRoom();
+            }
+        }
+
+        public void Leaving(Scene scene, LoadSceneMode mode)
+        {
+            SceneManager.sceneLoaded -= Leaving;
+            
+            _isLeaving = false;
+        }
+
+        public void ResetInfo()
+        {
+            EnemyName = null;
+
+            MyActorName = null;
+            EnemyActorName = null;
+
+            MyActorID = 0;
+            EnemyActorID = 0;
+
+            RedTower = null;
+            BlueTower = null;
+
+            MyActor = null;
+            EnemyActor = null;
+            
+            MyTeam = Team.None;
+            EnemyTeam = Team.None;
+
+            BlueActorSetAction = null;
+            RedActorSetAction = null;
         }
 
         public void FadeIn(TweenCallback callback = null)
