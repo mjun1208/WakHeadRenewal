@@ -17,7 +17,7 @@ namespace WakHead
 
         public Action StunAction;
         public Action CrownControlAction;
-        public Action<Action, Vector3> DeadCameraAction;
+        public Action<Action, Entity> DeadCameraAction;
         public Action DeadAction;
 
         public Team MyTeam { get; protected set; } = Team.None;
@@ -70,7 +70,7 @@ namespace WakHead
                 {
                     if (DeadCameraAction != null)
                     {
-                        DeadCameraAction?.Invoke(DeadAction, this.transform.position);
+                        DeadCameraAction?.Invoke(DeadAction, this);
                     }
                     else
                     {
