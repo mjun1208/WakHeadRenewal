@@ -34,5 +34,17 @@ namespace WakHead
                 OnDamage(null, 5);
             }, MyTeam, true);
         }
+        
+        protected override void OnDamage(Entity entity, int damage)
+        {
+            StopAllCoroutines();
+
+            if (_ownerPhotonView.IsMine)
+            {
+                entity?.Damaged(this.transform.position, damage, MyTeam, "VengenproAttackEffect");
+            }
+
+            Destroy();
+        }
     }
 }

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3344693513
+CRC: 4194320097
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d08844ea98e632a9343f3f602d777d4c
+    Hash: 85950863459b46dbc97bb74da479af0f
   TypeTreeHash:
     serializedVersion: 2
-    Hash: d27077570efac0ec4abe9c04bad66554
+    Hash: 39c4e6f6874fa343b4ebbf8dabc4aac4
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -135,6 +135,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: cd9552df169cf1e49af46351fcbe7433, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: b58ecaff1ebb31a4d963f9c5c45e6588, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6344677d5636c9c419cfba471d5487a3, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 128
@@ -169,8 +171,10 @@ Assets:
 - Assets/Prefab/Actor_Sub/Ahri_Orb.prefab
 - Assets/Prefab/Effect/DeathEffect.prefab
 - Assets/Prefab/Effect/HeartParticle.prefab
+- Assets/Prefab/Effect/VengenproAttackEffect.prefab
 - Assets/Prefab/Actor/Jett.prefab
 - Assets/Prefab/Effect/Blood/Blood_7.prefab
+- Assets/Prefab/Effect/VengenproSkill_1Effect.prefab
 - Assets/Prefab/Effect/NormalSkill_2Effect.prefab
 - Assets/Prefab/Actor_Sub/Naruto_Smoke.prefab
 - Assets/Prefab/Actor/Dummy.prefab

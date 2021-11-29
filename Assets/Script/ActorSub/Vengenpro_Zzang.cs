@@ -58,7 +58,7 @@ namespace WakHead
         {
             if (_ownerPhotonView.IsMine)
             {
-                entity?.Damaged(this.transform.position, damage, MyTeam);
+                entity?.Damaged(this.transform.position, damage, MyTeam, "VengenproSkill_1Effect", _dir.x * 0.01f);
             }
         }
     }
