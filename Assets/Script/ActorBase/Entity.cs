@@ -202,7 +202,6 @@ namespace WakHead
             StartCoroutine(currentCrownControl);
         }
 
-
         public void Heart(Team team)
         {
             photonView.RPC("HeartRPC", RpcTarget.All, team);
