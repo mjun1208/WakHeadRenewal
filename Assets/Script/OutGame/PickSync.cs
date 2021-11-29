@@ -53,12 +53,14 @@ namespace WakHead
 
         public void StartGame()
         {
+            Instance.Clear();
             photonView.RPC("StartGameRPC", RpcTarget.Others);
         }
 
         [PunRPC]
         public void StartGameRPC()
         {
+            Instance.Clear();
             PickManager.Instance.StartGameClient();
         }
     }
