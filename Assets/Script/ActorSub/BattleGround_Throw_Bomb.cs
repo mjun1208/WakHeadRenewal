@@ -18,7 +18,7 @@ namespace WakHead
 
             if (_throwType == BattleGround.ThrowType.MOLOTOV)
             {
-                pos += new Vector3(0, 1f, 0);
+                pos += new Vector3(0, 1.2f, 0);
             }
 
             this.transform.position = pos;
@@ -40,13 +40,14 @@ namespace WakHead
                         var dir = targetEntity.transform.position - this.transform.position;
                         dir.Normalize();
 
-                        targetEntity.KnockBack(20, dir, 1f, 0, MyTeam);
-                    }, MyTeam);
+                        targetEntity.KnockBack(20, dir, 1f, 0, MyTeam,
+                            "BattleGroundSkill_1_BoomEffect", _dir.x * 0.01f); }, MyTeam);
                     break;
                 }
                 case BattleGround.ThrowType.MOLOTOV:
                 {
-                    _attackRange.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, 10, MyTeam); }, MyTeam);
+                    _attackRange.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, 10, MyTeam,
+                        "BattleGroundSkill_1_FireEffect", _dir.x * 0.01f); }, MyTeam);
                     break;
                 }
                 case BattleGround.ThrowType.FLASH_BANG:

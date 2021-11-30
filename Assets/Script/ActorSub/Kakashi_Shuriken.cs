@@ -41,6 +41,20 @@ namespace WakHead
             }, MyTeam, true);
         }
 
+        protected override void OnDamage(Entity entity, int damage)
+        {
+            StopAllCoroutines();
+
+            if (_ownerPhotonView.IsMine)
+            {
+                entity?.Damaged(this.transform.position, damage, MyTeam,
+                    "NarutoAttackEffect", -_dir.x * 0.1f, _dir.x < 0);
+            }
+
+            Destroy();
+        }
+
+        
         public override void Destroy()
         {
             DestoryAction?.Invoke(this);

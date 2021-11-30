@@ -33,7 +33,7 @@ namespace WakHead
         {
             if (_ownerPhotonView.IsMine)
             {
-                entity?.Damaged(this.transform.position, damage, MyTeam);
+                entity?.Damaged(this.transform.position, damage, MyTeam, "MinecraftSkill_2Effect" , _dir.x * 0.01f);
             }
         }
 

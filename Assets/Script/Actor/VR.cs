@@ -30,7 +30,8 @@ namespace WakHead
                 return;
             }
 
-            _attackRange.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, 5, MyTeam); }, MyTeam);
+            _attackRange.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, 5, MyTeam,
+                "VRAttackEffect" , -GetAttackDir().x * 0.25f , GetAttackDir().x < 0); }, MyTeam);
         }
 
         protected override void Active_Skill_1()
@@ -40,7 +41,10 @@ namespace WakHead
                 return;
             }
 
-            _skill_1Range.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, 5, MyTeam); }, MyTeam);
+            _skill_1Range.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, 5, MyTeam,
+                Random.Range(0, 2) == 0 ? "VRSkill_1Effect_1" : "VRSkill_1Effect_2", 0, Random.Range(0, 2) == 0); }, MyTeam);
+            _skill_1Range.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, 5, MyTeam,
+                Random.Range(0, 2) == 0 ? "VRSkill_1Effect_1" : "VRSkill_1Effect_2", 0, Random.Range(0, 2) == 0); }, MyTeam);
         }
 
         protected override void Attack()

@@ -83,8 +83,8 @@ namespace WakHead
             {
                 var dir = targetEntity.transform.position - this.transform.position;
 
-                targetEntity.KnockBack(10, dir.normalized, 3f, 1.5f, MyTeam);
-            }, MyTeam);
+                targetEntity.KnockBack(10, dir.normalized, 3f, 1.5f, MyTeam, 
+                    "VengenproSkill_2Effect" , 0.01f, false); }, MyTeam);
         }
 
         [PunRPC]
