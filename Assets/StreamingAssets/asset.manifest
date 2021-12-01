@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1884813497
+CRC: 908024523
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8fcfb4345032eb9a41f9385daf8f9089
+    Hash: 443ca522351042846e3bc7e9344fa805
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 39c4e6f6874fa343b4ebbf8dabc4aac4
+    Hash: f792cb3dc3fcecc430a81561c47e1961
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -136,6 +136,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: b58ecaff1ebb31a4d963f9c5c45e6588, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: a567251368ac1a644bd9c344bd42fad3, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 6344677d5636c9c419cfba471d5487a3, type: 3}
 - Class: 115
   Script: {instanceID: 0}
@@ -194,6 +196,7 @@ Assets:
 - Assets/Prefab/Effect/Blood/Blood_1.prefab
 - Assets/Prefab/Effect/VRAttackEffect.prefab
 - Assets/Prefab/Actor/BattleGround.prefab
+- Assets/Prefab/Actor_Sub/Tree_Leaf.prefab
 - Assets/Prefab/Actor_Sub/Sans_Gaster.prefab
 - Assets/Prefab/Actor_Sub/Minecraft_Lava.prefab
 - Assets/Prefab/Effect/Minecraft_LavaBasket.prefab
@@ -226,6 +229,7 @@ Assets:
 - Assets/Prefab/Effect/NormalAttackEffect.prefab
 - Assets/Prefab/Effect/Blood/Blood_3.prefab
 - Assets/Prefab/Actor_Sub/Kakashi_Bomb.prefab
+- Assets/Prefab/Effect/TreeAttackEffect.prefab
 - Assets/Prefab/Effect/KakashiSkill_1Effect.prefab
 - Assets/Prefab/Actor/Martine.prefab
 - Assets/Prefab/Effect/Blood/Blood_9.prefab
