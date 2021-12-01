@@ -51,14 +51,16 @@ namespace WakHead
             if (stream.IsWriting)
             {
                 stream.SendNext(this.transform.localScale.x);
+                stream.SendNext(this.transform.localScale.y);
                 stream.SendNext(IsStun.GetDecrypted());
             }
             else
             {
                 var scale_x = (float) stream.ReceiveNext();
+                var scale_y = (float) stream.ReceiveNext();
                 IsStun = (bool) stream.ReceiveNext();
                 this.transform.localScale =
-                    new Vector3(scale_x, this.transform.localScale.y, this.transform.localScale.z);
+                    new Vector3(scale_x, scale_y, this.transform.localScale.z);
             }
         }
 
