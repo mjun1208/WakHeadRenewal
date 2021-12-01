@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 338564505
+CRC: 1884813497
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 365d5057b5f812c5154c6807c31badeb
+    Hash: 8fcfb4345032eb9a41f9385daf8f9089
   TypeTreeHash:
     serializedVersion: 2
     Hash: 39c4e6f6874fa343b4ebbf8dabc4aac4
@@ -160,6 +160,7 @@ ClassTypes:
 - Class: 331
   Script: {instanceID: 0}
 Assets:
+- Assets/Resources/Tree.prefab
 - Assets/Prefab/Actor_Sub/BattleGround_Throw_GRENADE.prefab
 - Assets/Prefab/Effect/Blood/Blood_5.prefab
 - Assets/Prefab/Effect/MinecraftSkill_2Effect.prefab
