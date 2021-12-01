@@ -95,6 +95,30 @@
       "KorName": "벤젠프로",
       "Skill_1_CoolTime" : 0,
       "Skill_2_CoolTime" : 0
+    },
+    {
+      "ID": 12,
+      "Name": "Tree",
+      "Artist": "코디잉",
+      "KorName": "뱅갈고무나무두",
+      "Skill_1_CoolTime" : 0,
+      "Skill_2_CoolTime" : 0
+    },
+    {
+      "ID": 13,
+      "Name": "Ranger",
+      "Artist": "은콩",
+      "KorName": "느그레인저 - 페리도트 그린",
+      "Skill_1_CoolTime" : 0,
+      "Skill_2_CoolTime" : 0
+    },
+    {
+      "ID": 14,
+      "Name": "Banana",
+      "Artist": "코디잉",
+      "KorName": "바나나두",
+      "Skill_1_CoolTime" : 0,
+      "Skill_2_CoolTime" : 0
     }
   ]
 }
