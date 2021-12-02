@@ -157,7 +157,7 @@ namespace WakHead
 
                 return;
             }
-
+            
             if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
             {
                 _isAttack = true;
@@ -209,8 +209,21 @@ namespace WakHead
                 Skill_1Input();
                 Skill_2Input();
             }
+            
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                Flash();
+            }
         }
 
+        protected virtual void Flash()
+        {
+            var flashDir = _movedir == Vector3.zero ? GetAttackDir() : _movedir;
+
+            transform.Translate(flashDir * Constant.FLASH_OFFSET);
+            _smoothSync.teleport();
+        } 
+        
         private void MoveInput()
         {
             _isMoveInput = false;
