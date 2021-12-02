@@ -44,6 +44,25 @@ namespace WakHead
             {
                 return;
             }
+
+            for (int i = 0; i < 5; i++)
+            {
+                var randomPos = (Vector3) Random.insideUnitCircle * 0.3f * this.transform.localScale.y;
+
+                var leafScale = _originalScale.y / _realOriginalScale.y;
+
+                photonView.RPC("ShakeLeaf", RpcTarget.All, randomPos.x, randomPos.y, leafScale);
+            }
+        }
+
+        [PunRPC]
+        public void ShakeLeaf(float randomPos_x, float randomPos_y, float leaftScale)
+        {
+            var newLeaf =
+                Global.PoolingManager.LocalSpawn("Tree_Leaf", this.transform.position + new Vector3(randomPos_x, randomPos_y), Quaternion.identity, true);
+
+            newLeaf.GetComponent<Tree_Leaf>().SetInfo(this.photonView, this.gameObject,
+                this.transform.position + new Vector3(randomPos_x, randomPos_y), GetAttackDir(), leaftScale, MyTeam);
         }
         
         protected override void Dead()
