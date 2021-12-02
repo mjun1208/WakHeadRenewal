@@ -29,7 +29,7 @@ TagManager:
   - Tower
   - VentCollider
   - OccupiedArea
-  - 
+  - OccupiedCollider
   - 
   - 
   - 
