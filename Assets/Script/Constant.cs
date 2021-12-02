@@ -29,6 +29,7 @@ namespace WakHead
         public const float BATTLEGROUND_THROW_LIFETIME = 0.65f;
         public const float VENGENPRO_NOTE_MOVE_SPEED = 5f;
         public const float VENGENPRO_ZZANG_MOVE_SPEED = 5f;
+        public const float TREE_LEFT_MOVE_SPEED = 1f;
 
         public const string PANZEE_BLUE = "Panzee_Blue";
         public const string PANZEE_RED = "Panzee_Red";
