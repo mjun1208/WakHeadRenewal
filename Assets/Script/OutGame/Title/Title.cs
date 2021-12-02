@@ -16,6 +16,7 @@ namespace WakHead
 
         public int playerTTL = -1;
 
+        private bool _isJoinLobby = false;
         private bool _isConnected = false;
 
         [SerializeField] private GameObject _lobbyConnect;
@@ -26,6 +27,8 @@ namespace WakHead
 
         private void Start()
         {
+            _isJoinLobby = false;
+            
             StartCoroutine(WaitConnectLobby());
 
             PhotonNetwork.ConnectUsingSettings();
@@ -97,6 +100,8 @@ namespace WakHead
 
         public override void OnJoinedLobby()
         {
+            _isJoinLobby = true;
+            
             Debug.Log("OnJoinedLobby(). This client is now connected to Relay in region [" + PhotonNetwork.CloudRegion +
                       "]. This script now calls: PhotonNetwork.JoinRandomRoom();");
         }
@@ -184,11 +189,8 @@ namespace WakHead
             _lobbyButton.SetActive(false);
             _roomList.SetActive(false);
 
-            if (!PhotonNetwork.IsConnected || !_isConnected || !Global.instance.IsLoaded)
-            {
-                yield return null;
-            }
-
+            yield return new WaitUntil(() => PhotonNetwork.IsConnected && _isConnected && Global.instance.IsLoaded && _isJoinLobby);
+            
             _lobbyConnect.SetActive(false);
 
             GoLobby();

@@ -1,6 +1,4 @@
 ﻿using Photon.Pun;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace WakHead
@@ -12,6 +10,9 @@ namespace WakHead
             Move,
             Attack
         }
+
+        public bool IsAttack { get; private set; } = false;
+        public bool IsTowerInAttackRange { get; private set; } = false;
 
         [SerializeField] protected Animator _animator;
         [SerializeField] protected AttackRange _attackRange;
@@ -26,9 +27,9 @@ namespace WakHead
 
         private float _attackDelay = 0;
 
-        private bool _isTowerInAttackRange = false;
-
         private readonly Vector3 TowerOffset = new Vector3(0, -1, 0);
+        
+        private Vector3 _currentPosition;
 
         public override void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
         {
@@ -59,8 +60,12 @@ namespace WakHead
                 _animator.SetBool("isAttack", false);
 
                 _rigid.isKinematic = false;
+                
+                _rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
 
                 _attackDelay = 0.5f;
+                
+                IsAttack = false;
             };
 
             MaxHP = 50;
@@ -127,7 +132,7 @@ namespace WakHead
 
             var towerDistance =
                 Vector3.Distance(_targetTower.transform.position + TowerOffset, this.transform.position);
-            _isTowerInAttackRange = towerDistance <= 0.5f;
+            IsTowerInAttackRange = towerDistance <= 0.5f;
 
             switch (_state)
             {
@@ -137,13 +142,15 @@ namespace WakHead
                     {
                         Move();
 
-                        if (_attackRange.CollidedObjectList.Count > 0 || _isTowerInAttackRange)
+                        if (_attackRange.CollidedObjectList.Count > 0 || IsTowerInAttackRange || GetAttackTarget())
                         {
                             _state = ChimpanzeeState.Attack;
 
                             _animator.SetBool("isAttack", true);
 
                             _rigid.isKinematic = true;
+                            _rigid.constraints = RigidbodyConstraints2D.FreezeAll;
+                            IsAttack = true;
                         }
                     }
 
@@ -151,18 +158,22 @@ namespace WakHead
                 }
                 case ChimpanzeeState.Attack:
                 {
+                    _currentPosition = this.transform.position;
+                    
                     if (_attackDelay <= 0)
                     {
                         Attack();
                     }
 
-                    if (_attackRange.CollidedObjectList.Count == 0)
+                    if (_attackRange.CollidedObjectList.Count == 0 && !IsTowerInAttackRange)
                     {
                         _state = ChimpanzeeState.Move;
 
                         _animator.SetBool("isAttack", false);
 
                         _rigid.isKinematic = false;
+                        _rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
+                        IsAttack = false;
                     }
 
                     break;
@@ -170,6 +181,25 @@ namespace WakHead
             }
         }
 
+        private bool GetAttackTarget()
+        {
+            float maxDistance = 0f;
+            int layerMask = (1 << LayerMask.NameToLayer("Minion"));
+            RaycastHit2D[] hits = Physics2D.BoxCastAll(this.transform.position + GetAttackDir() * 0.1f * 1.5f, new Vector2(0.2f * 1.5f,0.29f * 1.5f), 0f, GetAttackDir(), maxDistance, layerMask);
+
+            foreach (var hit in hits)
+            {
+                var hitChimpanzee = hit.transform.GetComponent<Chimpanzee>();
+
+                if (hitChimpanzee.MyTeam != MyTeam)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        
         private void Move()
         {
             if (_targetEntity == null)
@@ -193,8 +223,32 @@ namespace WakHead
                     this.transform.localScale = new Vector3(rotationScale, _originalScale.y, _originalScale.z);
                 }
 
+                float dirY = GetYDir();
+                dir.y = dirY == 0 ? dir.y : dirY;
+                
                 _rigid.MovePosition(transform.position + dir * moveSpeed * Time.deltaTime);
             }
+        }
+
+        private float GetYDir()
+        {
+            float maxDistance = 1f;
+            int layerMask = (1 << LayerMask.NameToLayer("Minion"));
+            RaycastHit2D[] hits = Physics2D.BoxCastAll(this.transform.position + GetAttackDir() * 0.15f, new Vector2(1f,1f), 0f, GetAttackDir(), maxDistance, layerMask);
+
+            foreach (var hit in hits)
+            {
+                var hitChimpanzee = hit.transform.GetComponent<Chimpanzee>();
+
+                if (hitChimpanzee.IsAttack && !hitChimpanzee.IsTowerInAttackRange && hitChimpanzee.MyTeam == MyTeam)
+                {
+                    float dirY = hit.transform.position.y > this.transform.position.y ? -1f : 1f;
+
+                    return dirY;
+                }
+            }
+
+            return 0f;
         }
 
         private void HeartMove()
@@ -238,7 +292,7 @@ namespace WakHead
 
         private void Attack()
         {
-            if (_isTowerInAttackRange)
+            if (IsTowerInAttackRange)
             {
                 _targetTower.OnDamage();
             }

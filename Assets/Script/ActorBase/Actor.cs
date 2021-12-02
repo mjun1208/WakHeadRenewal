@@ -16,6 +16,8 @@ namespace WakHead
         [SerializeField] protected AttackRange _skill_1Range;
         [SerializeField] protected AttackRange _skill_2Range;
 
+        [SerializeField] protected OccupiedCollider _occupiedCollider;
+
         protected ObscuredFloat _attackMoveSpeed = 4f;
         protected ObscuredFloat _moveSpeed = 8f;
 
@@ -105,6 +107,7 @@ namespace WakHead
             _attackRange.SetTeam(team);
             _skill_1Range.SetTeam(team);
             _skill_2Range.SetTeam(team);
+            _occupiedCollider.SetTeam(team);
         }
 
         public void SetActor()
@@ -159,7 +162,7 @@ namespace WakHead
 
                 return;
             }
-
+            
             if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
             {
                 _isAttack = true;
@@ -211,8 +214,21 @@ namespace WakHead
                 Skill_1Input();
                 Skill_2Input();
             }
+            
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                Flash();
+            }
         }
 
+        protected virtual void Flash()
+        {
+            var flashDir = _movedir == Vector3.zero ? GetAttackDir() : _movedir;
+
+            transform.Translate(flashDir * Constant.FLASH_OFFSET);
+            _smoothSync.teleport();
+        } 
+        
         private void MoveInput()
         {
             _isMoveInput = false;
@@ -424,15 +440,6 @@ namespace WakHead
             {
                 return;
             }
-        }
-
-        protected Vector3 GetAttackDir()
-        {
-            float dir = transform.localScale.x > 0 ? 1 : -1;
-
-            Vector3 attackDir = new Vector3(dir, 0, 0);
-
-            return attackDir;
         }
 
         protected virtual void Dead()

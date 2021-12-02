@@ -28,8 +28,8 @@ TagManager:
   - Summoned
   - Tower
   - VentCollider
-  - 
-  - 
+  - OccupiedArea
+  - OccupiedCollider
   - 
   - 
   - 
