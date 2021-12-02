@@ -14,7 +14,7 @@ namespace WakHead
         [SerializeField] private SpriteRenderer _renderer;
         [SerializeField] private Text _gaugeText;
         
-        private List<Entity> _collidedEntities = new List<Entity>();
+        private List<OccupiedCollider> _collidedOccupiedColliderList = new List<OccupiedCollider>();
         private float _gauge = 0f;
         
         
@@ -51,9 +51,9 @@ namespace WakHead
 
         private void Update()
         {
-            foreach (var entity in _collidedEntities)
+            foreach (var occupiedCollider in _collidedOccupiedColliderList)
             {
-                UpdateGauge(entity.MyTeam);
+                UpdateGauge(occupiedCollider.MyTeam);
             }
         }
 
@@ -98,19 +98,18 @@ namespace WakHead
                 return;
             }
             
-            if (!_collidedEntities.Contains(other.GetComponent<Entity>()))
+            if (!_collidedOccupiedColliderList.Contains(other.GetComponent<OccupiedCollider>()))
             {
-                _collidedEntities.Add(other.GetComponent<Entity>());
+                _collidedOccupiedColliderList.Add(other.GetComponent<OccupiedCollider>());
             }
         }
         
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (_collidedEntities.Contains(other.GetComponent<Entity>()))
+            if (_collidedOccupiedColliderList.Contains(other.GetComponent<OccupiedCollider>()))
             {
-                _collidedEntities.Remove(other.GetComponent<Entity>());
+                _collidedOccupiedColliderList.Remove(other.GetComponent<OccupiedCollider>());
             }
         }
-        
     }
 }
