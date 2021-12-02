@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3187216730402318409}
   - component: {fileID: 8260782112624903785}
   - component: {fileID: 3098485314377695091}
+  - component: {fileID: 4664171937568132923}
   m_Layer: 18
   m_Name: AreaCollider
   m_TagString: Untagged
@@ -79,6 +80,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4664171937568132923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177809123506676343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae98e73d09f8e1f429be57cd45f95d9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &179611112925503190
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,6 +395,7 @@ MonoBehaviour:
   _attackRange: {fileID: 4678803042610845422}
   _skill_1Range: {fileID: 8768315868052885975}
   _skill_2Range: {fileID: 1326802555962496175}
+  _occupiedCollider: {fileID: 4664171937568132923}
 --- !u!95 &2231056166769122081
 Animator:
   serializedVersion: 3

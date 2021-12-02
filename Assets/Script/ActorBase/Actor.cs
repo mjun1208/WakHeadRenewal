@@ -16,6 +16,8 @@ namespace WakHead
         [SerializeField] protected AttackRange _skill_1Range;
         [SerializeField] protected AttackRange _skill_2Range;
 
+        [SerializeField] protected OccupiedCollider _occupiedCollider;
+
         protected ObscuredFloat _attackMoveSpeed = 4f;
         protected ObscuredFloat _moveSpeed = 8f;
 
@@ -103,6 +105,7 @@ namespace WakHead
             _attackRange.SetTeam(team);
             _skill_1Range.SetTeam(team);
             _skill_2Range.SetTeam(team);
+            _occupiedCollider.SetTeam(team);
         }
 
         public void SetActor()

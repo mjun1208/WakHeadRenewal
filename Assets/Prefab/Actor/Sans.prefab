@@ -158,6 +158,7 @@ MonoBehaviour:
   _attackRange: {fileID: 302246306506545210}
   _skill_1Range: {fileID: 3706672329442129630}
   _skill_2Range: {fileID: 7108084466897120817}
+  _occupiedCollider: {fileID: 4410116670551434105}
 --- !u!212 &1637838892813352035
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -443,6 +444,7 @@ GameObject:
   - component: {fileID: 1646072638374701926}
   - component: {fileID: 4408312985766806114}
   - component: {fileID: 3594728338596285537}
+  - component: {fileID: 4410116670551434105}
   m_Layer: 18
   m_Name: AreaCollider
   m_TagString: Untagged
@@ -511,6 +513,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4410116670551434105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6823220185576006686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae98e73d09f8e1f429be57cd45f95d9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7146021027019897877
 GameObject:
   m_ObjectHideFlags: 0

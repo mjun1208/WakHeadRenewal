@@ -263,6 +263,7 @@ MonoBehaviour:
   _attackRange: {fileID: 2578892939789859831}
   _skill_1Range: {fileID: 1480387700987663635}
   _skill_2Range: {fileID: 4998757218159365628}
+  _occupiedCollider: {fileID: 3205622790826801169}
   _ghostPivot: {fileID: 6470358408132265447}
   _operatorTrajectoryPivot: {fileID: 4481499202161905717}
   _skill2_0Pivot: {fileID: 8874636246292013432}
@@ -618,6 +619,7 @@ GameObject:
   - component: {fileID: 2706768974015760035}
   - component: {fileID: 8097296323358370955}
   - component: {fileID: 8389246140158763482}
+  - component: {fileID: 3205622790826801169}
   m_Layer: 18
   m_Name: AreaCollider
   m_TagString: Untagged
@@ -686,6 +688,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3205622790826801169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6627993419094990335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae98e73d09f8e1f429be57cd45f95d9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8874636246292013432
 GameObject:
   m_ObjectHideFlags: 0
