@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3169615114
+CRC: 665230388
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d1bb6132c176f579c0f7d91443459106
+    Hash: f882c11316333494742d1f7a46ba8405
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 39c4e6f6874fa343b4ebbf8dabc4aac4
+    Hash: 54e670efe3ac3b41f7cf99231f8a2966
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -62,6 +62,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: a567251368ac1a644bd9c344bd42fad3, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 4a1816937c1820440821b2a0b3d81a4c, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 97a9e3b3995fe6e45b253f67a1d6f0e6, type: 3}
@@ -115,6 +117,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 290b44ac1a94f474e967a048cf9b07dc, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 894eeddcfdfeead4d846b30307d8efb9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ae98e73d09f8e1f429be57cd45f95d9c, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: c5fc2f5da04b38e4897ecc07d9dfdcb6, type: 3}
 - Class: 114
@@ -227,6 +231,7 @@ Assets:
 - Assets/Prefab/Effect/NormalAttackEffect.prefab
 - Assets/Prefab/Effect/Blood/Blood_3.prefab
 - Assets/Prefab/Actor_Sub/Kakashi_Bomb.prefab
+- Assets/Prefab/Effect/TreeAttackEffect.prefab
 - Assets/Prefab/Effect/KakashiSkill_1Effect.prefab
 - Assets/Prefab/Actor/Martine.prefab
 - Assets/Prefab/Effect/Blood/Blood_9.prefab
