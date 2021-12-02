@@ -437,15 +437,6 @@ namespace WakHead
             }
         }
 
-        protected Vector3 GetAttackDir()
-        {
-            float dir = transform.localScale.x > 0 ? 1 : -1;
-
-            Vector3 attackDir = new Vector3(dir, 0, 0);
-
-            return attackDir;
-        }
-
         protected virtual void Dead()
         {
             var deathEffect = Global.PoolingManager.LocalSpawn("DeathEffect", this.transform.position,
