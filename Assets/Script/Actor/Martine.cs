@@ -66,6 +66,14 @@ namespace WakHead
             _selectNextVent = null;
         }
 
+        protected override void Flash()
+        {
+            if (!_isVenting)
+            {
+                base.Flash();
+            }
+        } 
+        
         protected override void Active_Attack()
         {
             if (!photonView.IsMine)
