@@ -24546,6 +24546,7 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 30239818ac0ac314c8b373bb4d999511, type: 2}
   - {fileID: 9100000, guid: 1a1ea3782801c544e8634a19fccdc5ec, type: 2}
   - {fileID: 9100000, guid: 2def06efe121a87419935de1b2097a57, type: 2}
+  - {fileID: 9100000, guid: 0565924f22b3f604b9197b2829240c0c, type: 2}
 --- !u!95 &1465424282
 Animator:
   serializedVersion: 3
@@ -36398,3 +36399,4 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 30239818ac0ac314c8b373bb4d999511, type: 2}
   - {fileID: 9100000, guid: 1a1ea3782801c544e8634a19fccdc5ec, type: 2}
   - {fileID: 9100000, guid: 2def06efe121a87419935de1b2097a57, type: 2}
+  - {fileID: 9100000, guid: 0565924f22b3f604b9197b2829240c0c, type: 2}
