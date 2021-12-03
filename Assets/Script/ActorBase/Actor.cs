@@ -162,15 +162,8 @@ namespace WakHead
 
                 return;
             }
-            
-            if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
-            {
-                _isAttack = true;
-            }
-            else
-            {
-                _isAttack = false;
-            }
+
+            CheckAttack();
 
             KeyInput();
 
@@ -197,6 +190,18 @@ namespace WakHead
             }
         }
 
+        protected virtual void CheckAttack()
+        {
+            if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+            {
+                _isAttack = true;
+            }
+            else
+            {
+                _isAttack = false;
+            }
+        }
+        
         protected virtual void ForceStop()
         {
             _animator.Rebind();
