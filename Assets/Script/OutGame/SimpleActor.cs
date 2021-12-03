@@ -23,5 +23,10 @@ namespace WakHead
         public void Active_Attack()
         {
         }
+
+        public void AttackLoop()
+        {
+            
+        }
     }
 }
