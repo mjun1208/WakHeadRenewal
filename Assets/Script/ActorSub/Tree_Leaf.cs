@@ -14,6 +14,20 @@ namespace WakHead
         {
             _originalScale = this.transform.localScale;
         }
+        
+        public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 pos, Vector3 dir, float scale, Team team = Team.None)
+        {
+            base.SetInfo(ownerPhotonView, owner, dir, team);
+
+            this.transform.position = pos;
+            this.transform.localScale = _originalScale * scale;
+            
+            _moveSpeed = Constant.TREE_LEFT_MOVE_SPEED * scale;
+            
+            StartCoroutine(Go());
+            
+            _dir = Vector3.down;
+        }
 
         private void Update()
         {
@@ -27,20 +41,6 @@ namespace WakHead
 
                 OnDamage(null, 3);
             }, MyTeam, true);
-        }
-
-        public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 pos, Vector3 dir, float scale, Team team = Team.None)
-        {
-            base.SetInfo(ownerPhotonView, owner, dir, team);
-
-            this.transform.position = pos;
-            this.transform.localScale = _originalScale * scale;
-            
-            _moveSpeed = Constant.TREE_LEFT_MOVE_SPEED;
-            
-            StartCoroutine(Go());
-            
-            _dir = Vector3.down;
         }
 
         protected override void OnDamage(Entity entity, int damage)
