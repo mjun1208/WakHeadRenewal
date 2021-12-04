@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - Vent
   - Tower
+  - Trampoline
   layers:
   - Default
   - TransparentFX
