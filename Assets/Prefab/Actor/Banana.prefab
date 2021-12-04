@@ -81,6 +81,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2231056166769122083}
   - component: {fileID: 2231056166769122111}
+  - component: {fileID: 6581263295027376811}
   - component: {fileID: 2231056166769122080}
   - component: {fileID: 2231056166769122081}
   - component: {fileID: 2231056166769122109}
@@ -131,11 +132,33 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 6581263295027376811}
   - {fileID: 2231056166769122082}
   - {fileID: 693140671910505272}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &6581263295027376811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2231056166769122086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f522e98d015ee2f41bc1987f7d3e484b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigid: {fileID: 2231056166769122109}
+  _renderer: {fileID: 2231056166769122080}
+  _animator: {fileID: 2231056166769122081}
+  _smoothSync: {fileID: 2231056166769122082}
+  _collider2D: {fileID: 4804301689556421808}
+  _attackRange: {fileID: 899949592466800505}
+  _skill_1Range: {fileID: 4268346816177131933}
+  _skill_2Range: {fileID: 7703535948715084146}
+  _occupiedCollider: {fileID: 0}
 --- !u!212 &2231056166769122080
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -384,7 +407,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.38757685, y: -0.096005306}
+  m_Offset: {x: 0.075931, y: 0.03954333}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -395,7 +418,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.67998236, y: 0.2817383}
+  m_Size: {x: 0.28376356, y: 0.6594203}
   m_EdgeRadius: 0
 --- !u!114 &899949592466800505
 MonoBehaviour:
