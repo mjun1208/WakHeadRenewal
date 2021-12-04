@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4530598939645330358}
   - component: {fileID: 2534458463651372249}
   - component: {fileID: 2751595661575264556}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Minecraft_LavaBasket
   m_TagString: Untagged
   m_Icon: {fileID: 0}

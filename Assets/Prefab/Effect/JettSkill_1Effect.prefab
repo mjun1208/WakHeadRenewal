@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 878824547322888300}
   - component: {fileID: 7432994009249352914}
   - component: {fileID: 8032060898895782198}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: JettSkill_1Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

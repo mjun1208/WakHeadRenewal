@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1714933662996762595}
   - component: {fileID: 2477304397170319846}
   - component: {fileID: 2575835521710030913}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: ChimpanzeeAttackEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

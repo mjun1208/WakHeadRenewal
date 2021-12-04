@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3010726927168839416}
   - component: {fileID: 6174508199637675936}
   - component: {fileID: 3819595179785799698}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: VRSkill_1Effect_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

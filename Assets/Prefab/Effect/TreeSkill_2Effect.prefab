@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3568828052054927666}
   - component: {fileID: 2270549924606495910}
   - component: {fileID: -2635738496364593226}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: TreeSkill_2Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

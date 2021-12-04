@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2035550168042321104}
   - component: {fileID: 599083205486830788}
   - component: {fileID: 3782745990874706308}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: BattleGroundSkill_2Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

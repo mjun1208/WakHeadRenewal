@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2098018039545384098}
   - component: {fileID: 1529584634074907917}
   - component: {fileID: 3405276855441241044}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: SansSkill_2Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4636036612738869396}
   - component: {fileID: 5548957628460799923}
-  - component: {fileID: 4683322804870621562}
   - component: {fileID: 7064741329916662758}
   - component: {fileID: 8939406367742234803}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: VengenproAttackEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4751,19 +4750,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!114 &4683322804870621562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7291767304499233556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6344677d5636c9c419cfba471d5487a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _material: {fileID: 2100000, guid: e113a9821eff37c47919306b6bc61c9b, type: 2}
 --- !u!199 &7064741329916662758
 ParticleSystemRenderer:
   serializedVersion: 6

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6802686889058805404}
   - component: {fileID: 394942812390543425}
   - component: {fileID: 6258529607509685637}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: NarutoSkill_2Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

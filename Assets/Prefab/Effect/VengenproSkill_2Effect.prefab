@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1842706043463422200}
   - component: {fileID: 5789495084682957409}
   - component: {fileID: 7774162877910559743}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: VengenproSkill_2Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3683267544462544324}
   - component: {fileID: 4797866028566906342}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: VengenproSkill_2Effect2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

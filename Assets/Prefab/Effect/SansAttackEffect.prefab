@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7716817299626719120}
   - component: {fileID: 4992507998388371844}
   - component: {fileID: 6980112151521740537}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: SansAttackEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

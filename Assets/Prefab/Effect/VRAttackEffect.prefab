@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2498437964850588960}
   - component: {fileID: 1257670992009412547}
   - component: {fileID: 5802717906218364908}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: VRAttackEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

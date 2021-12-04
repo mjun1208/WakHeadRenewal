@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3614474028232886181}
   - component: {fileID: 519216665768428255}
   - component: {fileID: 29744008858124145}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: SnipeHitEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

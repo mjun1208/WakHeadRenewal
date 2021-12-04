@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2578176270910775020}
   - component: {fileID: 8950851240049809804}
   - component: {fileID: 7493349798389061341}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: JettAttackEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2442162704640410689}
   - component: {fileID: 3214120779059693304}
   - component: {fileID: 5051231516848225859}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: AnimalCrossinglAttackEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
