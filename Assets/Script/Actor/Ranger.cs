@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 namespace WakHead
@@ -19,16 +20,39 @@ namespace WakHead
                 "TreeSkill_2Effect"); }, MyTeam);
         }
         
+        protected override void Active_Skill_1()
+        {
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+            
+            photonView.RPC("SpawnTitan", RpcTarget.All);
+        }
+        
+        protected override void Active_Skill_2()
+        {
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+            
+            photonView.RPC("SpawnRolling", RpcTarget.All);
+        }
+
         protected override void Attack()
         {
             base.Attack();
-            
+
             if (!_isAttackInput)
             {
                 _animator.SetBool("IsAttackLoop", _isAttackInput);
             }
-            
-            _attackBeam.SetActive(_isAttackInput);
+
+            if (_attackBeam.activeSelf != _isAttackInput)
+            {
+                photonView.RPC("SetEnableBeam", RpcTarget.All, _isAttackInput.GetDecrypted());
+            }
         }
 
         protected override void CheckAttack()
@@ -48,11 +72,34 @@ namespace WakHead
             _animator.SetBool("IsAttackLoop", true);
         }
         
+
+        [PunRPC]
+        public void SetEnableBeam(bool enable)
+        {
+            _attackBeam.SetActive(enable);
+        }
+
+        [PunRPC]
+        public void SpawnTitan()
+        {
+            var newTitan = Global.PoolingManager.LocalSpawn("Ranger_Titan", this.transform.position, Quaternion.identity, true);
+
+            newTitan.GetComponent<Ranger_Titan>().SetInfo(this.photonView, this.gameObject, GetAttackDir(), MyTeam);
+        }
+        
+        [PunRPC]
+        public void SpawnRolling()
+        {
+            var newTitan = Global.PoolingManager.LocalSpawn("Ranger_Rolling", this.transform.position, Quaternion.identity, true);
+
+            newTitan.GetComponent<Ranger_Rolling>().SetInfo(this.photonView, this.gameObject, GetAttackDir(), MyTeam);
+        }
+
         protected override void Dead()
         {
             base.Dead();
             
-            _attackBeam.SetActive(false);
+            photonView.RPC("SetEnableBeam", RpcTarget.All, false);
         }
     }
 }
