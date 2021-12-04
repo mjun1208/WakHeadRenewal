@@ -5,7 +5,7 @@
 /// http://www.shadero.com #Docs                            //
 //////////////////////////////////////////////////////////////
 
-Shader "Shadero Customs/doodlemushroom"
+Shader "Shadero Customs/"
 {
 Properties
 {
@@ -32,7 +32,7 @@ SubShader
 {
 
 Tags {"Queue" = "Transparent" "IgnoreProjector" = "true" "RenderType" = "Transparent" "PreviewType"="Plane" "CanUseSpriteAtlas"="True" }
-ZWrite Off Blend SrcAlpha OneMinusSrcAlpha Cull Off
+ZWrite Off Blend SrcAlpha OneMinusSrcAlpha Cull Off 
 
 // required for UI.Mask
 Stencil
@@ -63,6 +63,7 @@ struct v2f
 {
 float2 texcoord  : TEXCOORD0;
 float4 vertex   : SV_POSITION;
+float3 worldPos : TEXCOORD2;
 float4 color    : COLOR;
 };
 
@@ -79,6 +80,7 @@ v2f vert(appdata_t IN)
 {
 v2f OUT;
 OUT.vertex = UnityObjectToClipPos(IN.vertex);
+OUT.worldPos = mul (unity_ObjectToWorld, IN.vertex);
 OUT.texcoord = IN.texcoord;
 OUT.color = IN.color;
 return OUT;
@@ -143,8 +145,6 @@ float4 _PageCurl_1 = PageCurl(_MainTex,DoodleUV_1,_PageCurl_movement_1,_PageCurl
 float4 FinalResult = _PageCurl_1;
 FinalResult.rgb *= i.color.rgb;
 FinalResult.a = FinalResult.a * _SpriteFade * i.color.a;
-FinalResult.rgb *= FinalResult.a;
-FinalResult.a = saturate(FinalResult.a);
 return FinalResult;
 }
 

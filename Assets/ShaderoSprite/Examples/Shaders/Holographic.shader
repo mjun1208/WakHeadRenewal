@@ -5,7 +5,7 @@
 /// http://www.shadero.com #Docs                            //
 //////////////////////////////////////////////////////////////
 
-Shader "Shadero Customs/Holographic"
+Shader "Shadero Customs/RangerBeam"
 {
 Properties
 {
@@ -27,7 +27,7 @@ SubShader
 {
 
 Tags {"Queue" = "Transparent" "IgnoreProjector" = "true" "RenderType" = "Transparent" "PreviewType"="Plane" "CanUseSpriteAtlas"="True" }
-ZWrite Off Blend SrcAlpha OneMinusSrcAlpha Cull Off
+ZWrite Off Blend SrcAlpha OneMinusSrcAlpha Cull Off 
 
 // required for UI.Mask
 Stencil
@@ -58,6 +58,7 @@ struct v2f
 {
 float2 texcoord  : TEXCOORD0;
 float4 vertex   : SV_POSITION;
+float3 worldPos : TEXCOORD2;
 float4 color    : COLOR;
 };
 
@@ -69,6 +70,7 @@ v2f vert(appdata_t IN)
 {
 v2f OUT;
 OUT.vertex = UnityObjectToClipPos(IN.vertex);
+OUT.worldPos = mul (unity_ObjectToWorld, IN.vertex);
 OUT.texcoord = IN.texcoord;
 OUT.color = IN.color;
 return OUT;
@@ -157,14 +159,12 @@ float4 frag (v2f i) : COLOR
 {
 float4 _Hologram_1 = Hologram(i.texcoord,_MainTex,1,1);
 float2 AnimatedZoomUV_1 = AnimatedZoomUV(i.texcoord,1.261,0.5,0.5,3.034,1.232);
-float4 _Generate_Line_1 = Generate_Lines(AnimatedZoomUV_1.y,46,0);
+float4 _Generate_Line_1 = Generate_Lines(AnimatedZoomUV_1.x,46,0);
 _Hologram_1 = lerp(_Hologram_1,_Hologram_1 * _Generate_Line_1,1);
 float4 TintRGBA_1 = TintRGBA(_Hologram_1,_TintRGBA_Color_1);
 float4 FinalResult = TintRGBA_1;
 FinalResult.rgb *= i.color.rgb;
 FinalResult.a = FinalResult.a * _SpriteFade * i.color.a;
-FinalResult.rgb *= FinalResult.a;
-FinalResult.a = saturate(FinalResult.a);
 return FinalResult;
 }
 
