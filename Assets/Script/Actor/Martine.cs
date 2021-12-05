@@ -16,7 +16,7 @@ namespace WakHead
         private ObscuredBool _isOnVent = false;
         private ObscuredBool _isVenting = false;
 
-        private List<Collider2D> _colliedVent = new List<Collider2D>();
+        private List<Collider2D> _collidedVent = new List<Collider2D>();
 
         private IEnumerator _selectNextVent = null;
 
@@ -45,9 +45,9 @@ namespace WakHead
                     _myVentList.Remove(vent);
 
                     var ventCollider = vent.GetComponent<Collider2D>();
-                    if (_colliedVent.Contains(ventCollider))
+                    if (_collidedVent.Contains(ventCollider))
                     {
-                        _colliedVent.Remove(ventCollider);
+                        _collidedVent.Remove(ventCollider);
                     }
 
                     PhotonNetwork.Destroy(vent.gameObject);
@@ -137,7 +137,7 @@ namespace WakHead
 
                 _currentVent.OnVent();
 
-                _colliedVent.Clear();
+                _collidedVent.Clear();
 
                 _animator.SetBool("IsSkill_2", true);
 
@@ -378,9 +378,9 @@ namespace WakHead
 
         private void SelectVent()
         {
-            if (_currentVent == null && _ventingVent == null && _colliedVent.Count > 0)
+            if (_currentVent == null && _ventingVent == null && _collidedVent.Count > 0)
             {
-                _currentVent = _colliedVent[0].GetComponent<Martine_Vent>();
+                _currentVent = _collidedVent[0].GetComponent<Martine_Vent>();
                 _currentVent.Select(true);
             }
         }
@@ -391,7 +391,7 @@ namespace WakHead
             {
                 if (collision.GetComponent<Martine_Vent>().photonView.IsMine)
                 {
-                    _colliedVent.Add(collision);
+                    _collidedVent.Add(collision);
                 }
             }
         }
@@ -409,7 +409,7 @@ namespace WakHead
                     }
                 }
 
-                _colliedVent.Remove(collision);
+                _collidedVent.Remove(collision);
             }
         }
 
@@ -437,7 +437,7 @@ namespace WakHead
             }
 
             _myVentList.Clear();
-            _colliedVent.Clear();
+            _collidedVent.Clear();
         }
     }
 }
