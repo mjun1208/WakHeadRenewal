@@ -10,6 +10,8 @@ namespace WakHead
     {
         [SerializeField] private GameObject _trampolinePivot;
         [SerializeField] private GameObject _groundEffectPivot;
+        [SerializeField] private GameObject _dropPoint;
+
         private bool _isJump = false;
         private bool _isDown = false;
 
@@ -139,6 +141,8 @@ namespace WakHead
             _isJump = true;
 
             _jumpPosition = this.transform.position;
+            
+            _dropPoint.SetActive(true);
         }
         
         public void ActiveDown()
@@ -154,6 +158,7 @@ namespace WakHead
 
             this.transform.position = new Vector3(this.transform.position.x, _jumpPosition.y);
 
+            _dropPoint.SetActive(false);
 
             SpawnGroundEffect();
 
@@ -197,6 +202,8 @@ namespace WakHead
 
             transform.Translate(moveDir * _moveSpeed * Time.fixedDeltaTime);
             _jumpPosition += moveDir * _moveSpeed * Time.fixedDeltaTime;
+            
+            _dropPoint.transform.position = _jumpPosition;
         }
         
         public void SpawnGroundEffect()
