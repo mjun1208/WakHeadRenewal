@@ -32,7 +32,7 @@ TagManager:
   - OccupiedArea
   - OccupiedCollider
   - Effect
-  - 
+  - TrampolineCollider
   - 
   - 
   - 

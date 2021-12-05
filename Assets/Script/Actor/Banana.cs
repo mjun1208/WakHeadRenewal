@@ -98,7 +98,7 @@ namespace WakHead
         
         public void TrampolineColliderEnter(Collider2D collision)
         {
-            if (collision.CompareTag("Vent"))
+            if (collision.CompareTag("Trampoline"))
             {
                 if (collision.GetComponent<Banana_Trampoline>().photonView.IsMine)
                 {
