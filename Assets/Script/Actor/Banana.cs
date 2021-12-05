@@ -123,6 +123,17 @@ namespace WakHead
 
         private void Active_Trampoline()
         {
+            if (IsSkill_1 || _isJump || _isDown)
+            {
+                return;
+            }
+
+            _animator.Rebind();
+            
+            _isJump = false;
+            _isDown = false;
+            _dropPoint.SetActive(false);
+            
             if (!photonView.IsMine)
             {
                 return;
@@ -183,10 +194,13 @@ namespace WakHead
             _isJump = true;
 
             _jumpPosition = this.transform.position;
-            
-            _dropPoint.SetActive(true);
+
+            if (photonView.IsMine)
+            {
+                _dropPoint.SetActive(true);
+            }
         }
-        
+
         public void ActiveDown()
         {
             _isJump = false;
