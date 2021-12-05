@@ -9,12 +9,46 @@ namespace WakHead
     {
         [SerializeField] private GameObject _trampolinePivot;
      
+        private bool _isJump = false;
+        private bool _isDown = false;
+
+        private Vector3 _jumpPosition;
+        
         private List<Banana_Trampoline> _trampolineList = new List<Banana_Trampoline>();
+
+        private void FixedUpdate()
+        {
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+            
+            if (_isJump)
+            {
+                this.transform.Translate(Vector3.up * 30f * Time.fixedDeltaTime);
+
+                JumpMove(_movedir);
+            }
+            
+            if (_isDown)
+            {
+                if (this.transform.position.y > _jumpPosition.y)
+                {
+                    this.transform.Translate(Vector3.down * 30f * Time.fixedDeltaTime);
+                }
+                else
+                {
+                    this.transform.position = new Vector3(this.transform.position.x, _jumpPosition.y);
+                }
+
+                JumpMove(_movedir);
+            }
+        }
 
         protected override void Update()
         {
             base.Update();
-            
+
             for (int i = 0; i < _trampolineList.Count; i++)
             {
                 if (_trampolineList[i].IsDead)
@@ -61,9 +95,21 @@ namespace WakHead
                 return;
             }
             
-            
-        }
+            IsSkill_1 = true;
 
+            if (OnSkillCoroutine == null)
+            {
+                _animator.SetBool("IsSkill_1_Attack", true);
+
+                IsDoingSkill = true;
+                OnSkillCoroutine = OnSkill("Skill_1_Attack");
+                StartCoroutine(OnSkillCoroutine);
+            }
+            else
+            {
+                IsSkill_1 = false;
+            }
+        }
         
         protected override void Active_Skill_2()
         {
@@ -85,6 +131,70 @@ namespace WakHead
             newTrampolineScript.SetInfo(this.photonView, this.gameObject, _trampolinePivot.transform.position, GetAttackDir(), MyTeam);
             
             _trampolineList.Add(newTrampolineScript);
+        }
+
+        public void ActiveJump()
+        {
+            _isJump = true;
+
+            _jumpPosition = this.transform.position;
+        }
+        
+        public void ActiveDown()
+        {
+            _isJump = false;
+            _isDown = true;
+        }
+
+        public void StopDown()
+        {
+            _isJump = false;
+            _isDown = false;
+
+            this.transform.position = new Vector3(this.transform.position.x, _jumpPosition.y);
+
+
+
+            if (photonView.IsMine)
+            {
+                _skill_1Range.Attack(targetEntity =>
+                {
+                    var dir = targetEntity.transform.position - this.transform.position;
+                    dir.Normalize();
+
+                    targetEntity.KnockBack(10, dir, 1f, 0, MyTeam,
+                        "NormalAttackEffect", dir.x * 0.1f, dir.x > 0);
+                }, MyTeam);
+            }
+        }
+
+        private void JumpMove(Vector3 moveDir)
+        {
+            _isMove = false;
+
+            if (moveDir != Vector3.zero)
+            {
+                _isMove = true;
+            }
+
+            if (_isMove && moveDir.x != 0)
+            {
+                float rotation = 0;
+                if (moveDir.x > 0)
+                {
+                    rotation = 1;
+                }
+                else
+                {
+                    rotation = -1;
+                }
+
+                float rotationScale = _originalScale.x * rotation;
+                this.transform.localScale = new Vector3(rotationScale, _originalScale.y, _originalScale.z);
+            }
+
+            transform.Translate(moveDir * _moveSpeed * Time.fixedDeltaTime);
+            _jumpPosition += moveDir * _moveSpeed * Time.fixedDeltaTime;
         }
         
         [PunRPC]
