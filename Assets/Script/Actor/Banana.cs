@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
@@ -8,7 +9,7 @@ namespace WakHead
     public class Banana : Actor
     {
         [SerializeField] private GameObject _trampolinePivot;
-     
+        [SerializeField] private GameObject _groundEffectPivot;
         private bool _isJump = false;
         private bool _isDown = false;
 
@@ -154,6 +155,7 @@ namespace WakHead
             this.transform.position = new Vector3(this.transform.position.x, _jumpPosition.y);
 
 
+            SpawnGroundEffect();
 
             if (photonView.IsMine)
             {
@@ -197,6 +199,12 @@ namespace WakHead
             _jumpPosition += moveDir * _moveSpeed * Time.fixedDeltaTime;
         }
         
+        public void SpawnGroundEffect()
+        {
+            var groundEffect =
+                Global.PoolingManager.LocalSpawn("GroundEffect", _groundEffectPivot.transform.position, Quaternion.identity, true);
+        }
+
         [PunRPC]
         public void SpawnBall()
         {
