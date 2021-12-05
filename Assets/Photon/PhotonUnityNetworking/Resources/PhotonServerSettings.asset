@@ -93,6 +93,13 @@ MonoBehaviour:
   - SetEnableBeam
   - SpawnTitan
   - SpawnRolling
+  - SpawnBall
+  - SpawnTrampoline
+  - SpawnGroundEffect
+  - Rolling
+  - HitBall
+  - StartRolling
+  - StopRolling
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
