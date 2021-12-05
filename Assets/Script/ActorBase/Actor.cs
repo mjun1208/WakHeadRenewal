@@ -26,7 +26,7 @@ namespace WakHead
         protected ObscuredBool _isAttack = false;
         protected ObscuredBool _isAttackInput = false;
 
-        private Vector3 _movedir = Vector3.zero;
+        protected Vector3 _movedir = Vector3.zero;
 
         protected ObscuredBool _isSkill_1Input = false;
         protected ObscuredBool _isSkill_2Input = false;
