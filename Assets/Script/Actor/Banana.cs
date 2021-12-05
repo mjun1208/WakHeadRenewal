@@ -258,10 +258,65 @@ namespace WakHead
             }
         }
         
+        public void BallColliderEnter(Collider2D collision)
+        {
+            if (collision.CompareTag("Ball"))
+            {
+                var ballScript = collision.GetComponent<Banana_Ball>();
+                
+                if (!_collidedBallList.Contains(ballScript) && ballScript.photonView.IsMine)
+                {
+                    _collidedBallList.Add(ballScript);
+                }
+            }
+        }
+
+        public void BallColliderExit(Collider2D collision)
+        {
+            if (collision.CompareTag("Ball"))
+            {
+                var ballScript = collision.GetComponent<Banana_Ball>();
+                
+                if (_collidedBallList.Contains(ballScript) && ballScript.photonView.IsMine)
+                {
+                    _collidedBallList.Remove(ballScript);
+                }
+            }
+        }
+        
         [PunRPC]
         public void SpawnDeadEffect(Vector3 pos)
         {
             Global.PoolingManager.LocalSpawn("DeathEffect", pos, Quaternion.identity, true);
+        }
+
+        protected override void Dead()
+        {
+            base.Dead();
+            
+            _isJump = false;
+            _isDown = false;
+            
+            _dropPoint.SetActive(false);
+
+
+            for (int i = 0; i < _trampolineList.Count; i++)
+            {
+                Global.PoolingManager.LocalSpawn("DeathEffect", _trampolineList[i].transform.position,
+                    _trampolineList[i].transform.transform.rotation, true);
+                PhotonNetwork.Destroy(_trampolineList[i].gameObject);
+            }
+            
+            for (int i = 0; i < _ballList.Count; i++)
+            {
+                Global.PoolingManager.LocalSpawn("DeathEffect", _ballList[i].transform.position,
+                    _ballList[i].transform.transform.rotation, true);
+                PhotonNetwork.Destroy(_ballList[i].gameObject);
+            }
+
+            _trampolineList.Clear();
+            _ballList.Clear();
+            _collidedBallList.Clear();
         }
     }
 }
