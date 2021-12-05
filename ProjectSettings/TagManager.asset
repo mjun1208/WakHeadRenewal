@@ -11,6 +11,7 @@ TagManager:
   - Vent
   - Tower
   - Trampoline
+  - Ball
   layers:
   - Default
   - TransparentFX
@@ -33,7 +34,7 @@ TagManager:
   - OccupiedCollider
   - Effect
   - TrampolineCollider
-  - 
+  - BallCollider
   - 
   - 
   - 
