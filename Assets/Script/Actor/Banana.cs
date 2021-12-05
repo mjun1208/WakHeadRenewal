@@ -102,6 +102,13 @@ namespace WakHead
             
             _attackRange.Attack(targetEntity => { targetEntity.KnockBack(4, GetAttackDir(), 0.5f, 0, MyTeam,
                 "NormalAttackEffect",GetAttackDir().x * 0.1f ,GetAttackDir().x > 0); }, MyTeam);
+
+            foreach (var ball in _collidedBallList)
+            {
+                var dir = ball.transform.position - this.transform.position;
+                dir.Normalize();
+                ball.HitBall(GetAttackDir() + new Vector3(0, dir.y, 0));
+            }
         }
 
         protected override void Active_Skill_1()
