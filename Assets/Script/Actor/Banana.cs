@@ -9,6 +9,7 @@ namespace WakHead
     public class Banana : Actor
     {
         [SerializeField] private GameObject _trampolinePivot;
+        [SerializeField] private GameObject _ballPivot;
         [SerializeField] private GameObject _groundEffectPivot;
         [SerializeField] private GameObject _dropPoint;
 
@@ -18,6 +19,9 @@ namespace WakHead
         private Vector3 _jumpPosition;
         
         private List<Banana_Trampoline> _trampolineList = new List<Banana_Trampoline>();
+        private List<Banana_Ball> _ballList = new List<Banana_Ball>();
+        
+        private List<Banana_Ball> _collidedBallList = new List<Banana_Ball>();
 
         private void FixedUpdate()
         {
@@ -63,6 +67,25 @@ namespace WakHead
                     _trampolineList.Remove(trampoline);
 
                     PhotonNetwork.Destroy(trampoline.gameObject);
+                }
+            }
+
+            for (int i = 0; i < _ballList.Count; i++)
+            {
+                if (_ballList[i].IsDead)
+                {
+                    var ball = _ballList[i];
+
+                    photonView.RPC("SpawnDeadEffect", RpcTarget.All, ball.transform.position);
+
+                    _ballList.Remove(ball);
+                    
+                    if (_collidedBallList.Contains(ball))
+                    {
+                        _collidedBallList.Remove(ball);
+                    }
+
+                    PhotonNetwork.Destroy(ball.gameObject);
                 }
             }
         }
@@ -121,7 +144,7 @@ namespace WakHead
                 return;
             }
 
-            photonView.RPC("SpawnBall", RpcTarget.All);
+            SpawnBall();
         }
         
         public void SpawnTrampoline()
@@ -134,6 +157,18 @@ namespace WakHead
             newTrampolineScript.SetInfo(this.photonView, this.gameObject, _trampolinePivot.transform.position, GetAttackDir(), MyTeam);
             
             _trampolineList.Add(newTrampolineScript);
+        }
+        
+        public void SpawnBall()
+        {
+            var newBall =
+                Global.PoolingManager.Spawn("Banana_Ball", _ballPivot.transform.position, Quaternion.identity);
+            
+            var newBallScript = newBall.GetComponent<Banana_Ball>();
+
+            newBallScript.SetInfo(this.photonView, this.gameObject, _ballPivot.transform.position, GetAttackDir(), MyTeam);
+            
+            _ballList.Add(newBallScript);
         }
 
         public void ActiveJump()
@@ -212,15 +247,6 @@ namespace WakHead
                 Global.PoolingManager.LocalSpawn("GroundEffect", _groundEffectPivot.transform.position, Quaternion.identity, true);
         }
 
-        [PunRPC]
-        public void SpawnBall()
-        {
-            var newBullet =
-                Global.PoolingManager.LocalSpawn("Normal_Bullet", this.transform.position, Quaternion.identity, true);
-
-            newBullet.GetComponent<Normal_Bullet>().SetInfo(this.photonView, this.gameObject, GetAttackDir(), MyTeam);
-        }
-        
         public void TrampolineColliderEnter(Collider2D collision)
         {
             if (collision.CompareTag("Trampoline"))
