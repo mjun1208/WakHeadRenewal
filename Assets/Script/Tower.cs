@@ -102,27 +102,45 @@ namespace WakHead
 
         private Entity GetAttackTarget()
         {
-            int layerMask = (1 << LayerMask.NameToLayer("Minion"));
+            int layerMask = (1 << LayerMask.NameToLayer("Enemy")) + (1 << LayerMask.NameToLayer("Player")) +
+                            (1 << LayerMask.NameToLayer("Minion"));
             RaycastHit2D[] hits = Physics2D.CircleCastAll(this.transform.position, 5f, Vector2.zero, 0f, layerMask);
 
-            Entity targetEntitiy = null;
+            Entity targetEntity = null;
+            Actor targetActor = null;
             
             foreach (var hit in hits)
             {
+                var hitActor = hit.transform.GetComponent<Actor>();
                 var hitChimpanzee = hit.transform.GetComponent<Chimpanzee>();
 
-                if (_targetEntity == hitChimpanzee)
+                if (hitChimpanzee != null && _targetEntity == hitChimpanzee)
                 {
                     return hitChimpanzee;
                 }
-
-                if (hitChimpanzee.MyTeam != _team && targetEntitiy == null) 
+                
+                if (hitActor != null && _targetEntity == hitActor)
                 {
-                    targetEntitiy = hitChimpanzee;
+                    return hitActor;
+                }
+
+                if (hitChimpanzee != null && hitChimpanzee.MyTeam != _team && targetEntity == null) 
+                {
+                    targetEntity = hitChimpanzee;
+                }
+                
+                if (hitActor != null && hitActor.MyTeam != _team) 
+                {
+                    targetActor = hitActor;
                 }
             }
 
-            return targetEntitiy;
+            if (targetEntity == null)
+            {
+                targetEntity = targetActor;
+            }
+
+            return targetEntity;
         }
 
         public void SpawnHitEffect()
