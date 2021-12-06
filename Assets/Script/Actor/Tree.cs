@@ -36,6 +36,15 @@ namespace WakHead
 
             _originalScale *= 1.2f;
             this.transform.localScale *= 1.2f;
+
+            if ( HP + ((MaxHP - HP) * 0.2f) > MaxHP)
+            {
+                HP = MaxHP;
+            }
+            else
+            {
+                HP += (int)Mathf.Round(((MaxHP - HP) * 0.2f));
+            }
         }
 
         protected override void Active_Skill_2()
@@ -47,7 +56,7 @@ namespace WakHead
 
             for (int i = 0; i < 5; i++)
             {
-                var randomPos = (Vector3) Random.insideUnitCircle * 0.3f * this.transform.localScale.y;
+                var randomPos = (Vector3) Random.insideUnitCircle * 0.5f * this.transform.localScale.y;
 
                 var leafScale = _originalScale.y / _realOriginalScale.y;
 
