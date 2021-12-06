@@ -70,7 +70,7 @@ namespace WakHead
             }
             else
             {
-                _gauge -= 20f * Time.deltaTime;
+                _gauge -= 10f * Time.deltaTime;
 
                 if (_gauge <= 0f)
                 {
