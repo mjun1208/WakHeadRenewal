@@ -3,6 +3,7 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace WakHead
 {
@@ -11,6 +12,9 @@ namespace WakHead
         [SerializeField] private Team _team;
         [SerializeField] private LineRenderer _lineRenderer;
         [SerializeField] private GameObject _lineRendererPivot;
+        
+        [SerializeField] private Image _hpGauge;
+
         private Entity _targetEntity;
 
         private float _attackDelay = 0f;
@@ -23,8 +27,8 @@ namespace WakHead
             {
                 if (_hp != value)
                 {
-                    _hpDownAction.Invoke();
                     _hp = value;
+                    _hpDownAction.Invoke();
                 }
             }
         }
@@ -48,8 +52,8 @@ namespace WakHead
 
         private void Awake()
         {
-            _maxHp = 20;
-            _hp = 20;
+            _maxHp = 5;
+            _hp = 5;
 
             switch (_team)
             {
@@ -70,6 +74,11 @@ namespace WakHead
 
         private void Update()
         {
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+            
             if (_attackDelay > 0f)
             {
                 _attackDelay -= Time.deltaTime;
@@ -145,6 +154,8 @@ namespace WakHead
 
         public void SpawnHitEffect()
         {
+            _hpGauge.fillAmount = (float)HP / (float)_maxHp;
+            
             switch (_team)
             {
                 case Team.BLUE:
