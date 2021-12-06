@@ -39,9 +39,9 @@ namespace WakHead
 
         private void Update()
         {
-            foreach (var occupiedCollider in _collidedOccupiedColliderList)
+            for (int i = 0; i < _collidedOccupiedColliderList.Count; i++)
             {
-                UpdateGauge(occupiedCollider.MyTeam);
+                UpdateGauge(_collidedOccupiedColliderList[i].MyTeam);
             }
         }
 
@@ -81,7 +81,38 @@ namespace WakHead
                 }
             }
             
+            if (_gauge >= 100)
+            {
+                SpawnSuperPanzee(team);
+                PhotonNetwork.Destroy(this.gameObject);
+            }
+            
             _gaugeText.text = $"{Mathf.Round(_gauge)} / 100";
+        }
+
+        private void SpawnSuperPanzee(Team team)
+        {
+            switch (team)
+            {
+                case Team.BLUE:
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        Global.instance.BlueTower.GetComponent<ChimpanzeeSpawner>().Spawn(true);
+                    }
+
+                    break;
+                }
+                case Team.RED:
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        Global.instance.RedTower.GetComponent<ChimpanzeeSpawner>().Spawn(true);
+                    }
+
+                    break;  
+                }
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D other)
