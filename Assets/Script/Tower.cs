@@ -13,6 +13,9 @@ namespace WakHead
         [SerializeField] private GameObject _lineRendererPivot;
         private Entity _targetEntity;
 
+        private float _attackDelay = 0f;
+        private readonly float attackDelay = 0.1f;
+
         public int HP
         {
             get { return _hp; }
@@ -67,15 +70,24 @@ namespace WakHead
 
         private void Update()
         {
-            _targetEntity = GetAttackTarget();
+            if (_attackDelay > 0f)
+            {
+                _attackDelay -= Time.deltaTime;
+            }
             
+            _targetEntity = GetAttackTarget();
+
             if (_targetEntity != null)
             {                
                 _lineRenderer.SetPosition(0, _lineRendererPivot.transform.position);
                 _lineRenderer.SetPosition(1, _targetEntity.transform.position);
                 _lineRenderer.enabled = true;
-                
-                _targetEntity.OnDamage(_targetEntity.transform.position, 1, _team);
+
+                if (_attackDelay <= 0f)
+                {
+                    _targetEntity.OnDamage(_targetEntity.transform.position, 1, _team);
+                    _attackDelay = attackDelay;
+                }
             }
             else
             {
