@@ -9,6 +9,9 @@ namespace WakHead
     public class Tower : MonoBehaviourPunCallbacks, IPunObservable
     {
         [SerializeField] private Team _team;
+        [SerializeField] private LineRenderer _lineRenderer;
+        [SerializeField] private GameObject _lineRendererPivot;
+        private Entity _targetEntity;
 
         public int HP
         {
@@ -62,9 +65,52 @@ namespace WakHead
             _hpDownAction += SpawnHitEffect;
         }
 
+        private void Update()
+        {
+            _targetEntity = GetAttackTarget();
+            
+            if (_targetEntity != null)
+            {                
+                _lineRenderer.SetPosition(0, _lineRendererPivot.transform.position);
+                _lineRenderer.SetPosition(1, _targetEntity.transform.position);
+                _lineRenderer.enabled = true;
+                
+                _targetEntity.OnDamage(_targetEntity.transform.position, 1, _team);
+            }
+            else
+            {
+                _lineRenderer.enabled = false;
+            }
+        }
+
         public void OnDamage()
         {
             HP -= 1;
+        }
+
+        private Entity GetAttackTarget()
+        {
+            int layerMask = (1 << LayerMask.NameToLayer("Minion"));
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(this.transform.position, 5f, Vector2.zero, 0f, layerMask);
+
+            Entity targetEntitiy = null;
+            
+            foreach (var hit in hits)
+            {
+                var hitChimpanzee = hit.transform.GetComponent<Chimpanzee>();
+
+                if (_targetEntity == hitChimpanzee)
+                {
+                    return hitChimpanzee;
+                }
+
+                if (hitChimpanzee.MyTeam != _team && targetEntitiy == null) 
+                {
+                    targetEntitiy = hitChimpanzee;
+                }
+            }
+
+            return targetEntitiy;
         }
 
         public void SpawnHitEffect()
