@@ -132,7 +132,13 @@ namespace WakHead
 
             var towerDistance =
                 Vector3.Distance(_targetTower.transform.position + TowerOffset, this.transform.position);
-            IsTowerInAttackRange = towerDistance <= 0.5f;
+            IsTowerInAttackRange = towerDistance <= 0.2f;
+
+            if (IsTowerInAttackRange)
+            {
+                _targetTower.OnDamage();
+                Dead();
+            }
 
             switch (_state)
             {
