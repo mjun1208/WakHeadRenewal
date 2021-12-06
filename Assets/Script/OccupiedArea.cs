@@ -29,19 +29,7 @@ namespace WakHead
             {
                 MyTeam = (Team) stream.ReceiveNext();
                 
-                switch (MyTeam)
-                {
-                    case Team.BLUE:
-                    {
-                        _renderer.color = Color.blue;
-                        break;
-                    }
-                    case Team.RED:
-                    {
-                        _renderer.color = Color.red;
-                        break;  
-                    }
-                }
+                UpdateColor(MyTeam);
                 
                 _gauge = (float) stream.ReceiveNext();
 
@@ -57,6 +45,23 @@ namespace WakHead
             }
         }
 
+        private void UpdateColor(Team team)
+        {
+            switch (team)
+            {
+                case Team.BLUE:
+                {
+                    _renderer.color = new Color(0,0,1, _renderer.color.a);
+                    break;
+                }
+                case Team.RED:
+                {
+                    _renderer.color = new Color(1,0,0, _renderer.color.a);
+                    break;  
+                }
+            }
+        }
+        
         private void UpdateGauge(Team team)
         {
             if (MyTeam == team)
@@ -72,19 +77,7 @@ namespace WakHead
                     _gauge = 0f;
                     MyTeam = team;
 
-                    switch (team)
-                    {
-                        case Team.BLUE:
-                        {
-                            _renderer.color = Color.blue;
-                            break;
-                        }
-                        case Team.RED:
-                        {
-                            _renderer.color = Color.red;
-                            break;  
-                        }
-                    }
+                    UpdateColor(team);
                 }
             }
             
