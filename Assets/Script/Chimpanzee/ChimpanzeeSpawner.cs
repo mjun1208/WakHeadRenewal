@@ -31,7 +31,7 @@ namespace WakHead
             }
         }
 
-        public void Spawn()
+        public void Spawn(bool isSuper = false)
         {
             string spawnName = "";
 
@@ -39,12 +39,14 @@ namespace WakHead
             {
                 case Team.BLUE:
                 {
-                    spawnName = Constant.PANZEE_BLUE;
+                    spawnName = isSuper ? Constant.PANZEE_BLUE_TSHIRT : Constant.PANZEE_BLUE;
+
                     break;
                 }
                 case Team.RED:
                 {
-                    spawnName = Constant.PANZEE_RED;
+                    spawnName = isSuper ? Constant.PANZEE_RED_TSHIRT : Constant.PANZEE_RED;
+
                     break;
                 }
             }
