@@ -256,8 +256,23 @@ namespace WakHead
                 this.transform.localScale = new Vector3(rotationScale, _originalScale.y, _originalScale.z);
             }
 
-            transform.Translate(moveDir * _moveSpeed * Time.fixedDeltaTime);
-            _jumpPosition += moveDir * _moveSpeed * Time.fixedDeltaTime;
+            Vector3 movedPosition = moveDir * _moveSpeed * Time.fixedDeltaTime;
+            
+            if (Mathf.Abs(_jumpPosition.x + movedPosition.x) > 20)
+            {
+                movedPosition.x = 0f;
+            }
+            if (_jumpPosition.y + movedPosition.y > 0.5f)
+            {
+                movedPosition.y = 0f;
+            }
+            else if (_jumpPosition.y + movedPosition.y < -5.1f)
+            {
+                movedPosition.y = 0f;
+            }
+            
+            transform.Translate(movedPosition);
+            _jumpPosition += movedPosition;
             
             _dropPoint.transform.position = _jumpPosition;
         }
