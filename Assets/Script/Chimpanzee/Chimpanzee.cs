@@ -114,7 +114,7 @@ namespace WakHead
 
         private void Update()
         {
-            if (!photonView.IsMine || IsDead || IsStun)
+            if (!photonView.IsMine || IsDead || IsStun || MyTeam == Team.None)
             {
                 return;
             }
