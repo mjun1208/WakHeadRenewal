@@ -298,18 +298,11 @@ namespace WakHead
 
         private void Attack()
         {
-            if (IsTowerInAttackRange)
+            _attackRange.AttackEntity(targetEntity =>
             {
-                _targetTower.OnDamage();
-            }
-            else
-            {
-                _attackRange.AttackEntity(targetEntity =>
-                {
-                    targetEntity.Damaged(targetEntity.transform.position, 1, MyTeam, "ChimpanzeeAttackEffect");
-                    //targetEntity.KnockBack(GetAttackDir(), 0.5f, 0);
-                }, MyTeam);
-            }
+                targetEntity.Damaged(targetEntity.transform.position, 1, MyTeam, "ChimpanzeeAttackEffect");
+                //targetEntity.KnockBack(GetAttackDir(), 0.5f, 0);
+            }, MyTeam);
 
             _attackDelay = 0.2f;
         }
