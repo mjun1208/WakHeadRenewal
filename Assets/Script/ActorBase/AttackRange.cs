@@ -17,14 +17,12 @@ namespace WakHead
         {
             CollidedObjectList.Clear();
             CollidedSummonedObjectList.Clear();
-            MyTeam = Team.None;
         }
 
         private void OnDisable()
         {
             CollidedObjectList.Clear();
             CollidedSummonedObjectList.Clear();
-            MyTeam = Team.None;
         }
 
         public void SetOwner(GameObject owner)
