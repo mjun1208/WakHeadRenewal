@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3354703967
+CRC: 3055122743
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ef9be056bfafa3101319e7973f8b112c
+    Hash: 71cfa0fd8dbefe0ae0f46df0624ff0cc
   TypeTreeHash:
     serializedVersion: 2
-    Hash: b7c81b0f26f09fe5d4627d29a5708a81
+    Hash: 757c3f8c0656b11459a0386055d7dc1a
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -49,6 +49,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: c71e1b904d327ac49afe87a621a585c3, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: b057bea05aff6fd4389c3b8e69355ff3, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1b7d1dc0841ab5b4b9a0632a206bda6b, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: c39af3d05d213294092681fdf3bed02f, type: 3}
 - Class: 114
@@ -275,6 +277,7 @@ Assets:
 - Assets/Prefab/Effect/Blood/Blood_8.prefab
 - Assets/Prefab/Effect/GhostEffect.prefab
 - Assets/Prefab/Effect/Blood/Blood_6.prefab
+- Assets/Prefab/OccupiedArea.prefab
 - Assets/Prefab/Effect/NormalSkill_1Effect.prefab
 - Assets/Prefab/Effect/Blood/Blood_4.prefab
 - Assets/Prefab/Actor_Sub/Jett_Shuriken.prefab
