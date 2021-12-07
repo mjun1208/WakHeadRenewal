@@ -70,15 +70,11 @@ namespace WakHead
             }
 
             _hpDownAction += SpawnHitEffect;
+            _hpDownAction += CheckWinTeam;
         }
 
         private void Update()
         {
-            if (!photonView.IsMine)
-            {
-                return;
-            }
-            
             if (_attackDelay > 0f)
             {
                 _attackDelay -= Time.deltaTime;
@@ -152,6 +148,14 @@ namespace WakHead
             return targetEntity;
         }
 
+        public void CheckWinTeam()
+        {
+            if (HP <= 0)
+            {
+                Global.instance.WinTeam(_team == Team.BLUE ? Team.RED : Team.BLUE);   
+            }
+        }
+        
         public void SpawnHitEffect()
         {
             _hpGauge.fillAmount = (float)HP / (float)_maxHp;
