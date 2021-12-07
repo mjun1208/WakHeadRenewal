@@ -107,7 +107,10 @@ namespace WakHead
             if (!_isLeaving)
             {
                 _isLeaving = true;
-                PhotonNetwork.LeaveRoom();
+                if (PhotonNetwork.InRoom)
+                {
+                    PhotonNetwork.LeaveRoom();
+                }
             }
         }
 
