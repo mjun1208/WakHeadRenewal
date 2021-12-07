@@ -51,6 +51,8 @@ namespace WakHead
         {
             base.Awake();
 
+            this.gameObject.SetActive(false);
+            
             _originalScale = this.transform.localScale;
 
             CrownControlAction += () =>
@@ -78,14 +80,8 @@ namespace WakHead
         private void SetTeamRPC(Team team)
         {
             SetTeam(team);
-            _attackRange.SetTeam(team);
-        }
-        
-        public void Init(Team team)
-        {
-            photonView.RPC("SetTeamRPC", RpcTarget.All, team);
-            
-            switch (MyTeam)
+                        
+            switch (team)
             {
                 case Team.BLUE:
                 {
@@ -100,6 +96,15 @@ namespace WakHead
                     break;
                 }
             }
+            
+            _attackRange.SetTeam(team);
+            
+            this.gameObject.SetActive(true);
+        }
+        
+        public void Init(Team team)
+        {
+            photonView.RPC("SetTeamRPC", RpcTarget.All, team);
         }
 
         public void SetTarget(Entity entity)
