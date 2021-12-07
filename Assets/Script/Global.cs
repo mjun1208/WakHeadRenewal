@@ -60,8 +60,12 @@ namespace WakHead
 
         public Transform GlobalCanvas;
         [SerializeField] private Image _fadeUI;
+        [SerializeField] private GameObject _blueWinImage;
+        [SerializeField] private GameObject _redWinImage;
 
+        
         private bool _isLeaving = false;
+        private bool _isEndGame = false;
         
         private void Awake()
         {
@@ -111,6 +115,9 @@ namespace WakHead
         {
             SceneManager.sceneLoaded -= Leaving;
             
+            _blueWinImage.SetActive(false);
+            _redWinImage.SetActive(false);
+            
             _isLeaving = false;
         }
 
@@ -135,6 +142,33 @@ namespace WakHead
 
             BlueActorSetAction = null;
             RedActorSetAction = null;
+
+            _isEndGame = false;
+        }
+
+        public void WinTeam(Team team)
+        {
+            if (_isEndGame)
+            {
+                return;
+            }
+            
+            _isEndGame = true;
+            Invoke("LeaveRoom", 2f);
+
+            switch (team)
+            {
+                case Team.BLUE:
+                {
+                    _blueWinImage.SetActive(true);
+                    break;
+                }
+                case Team.RED:
+                {
+                    _redWinImage.SetActive(true);
+                    break;
+                }
+            }
         }
 
         public void FadeIn(TweenCallback callback = null)
