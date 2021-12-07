@@ -462,6 +462,22 @@ namespace WakHead
             IsDead = false;
             ResetHp();
 
+            switch (MyTeam)
+            {
+                case Team.BLUE:
+                {
+                    transform.position = Global.instance.BlueTower.transform.position + new Vector3(-3f, 0, 0);
+                    break;
+                }
+                case Team.RED:
+                {
+                    transform.position = Global.instance.RedTower.transform.position + new Vector3(3f, 0, 0);;
+                    break;
+                }
+            }
+            
+            _smoothSync.teleport();
+
             photonView.RPC("RespawnRPC", RpcTarget.All);
         }
 
