@@ -236,8 +236,23 @@ namespace WakHead
 
                 float dirY = GetYDir();
                 dir.y = dirY == 0 ? dir.y : dirY;
+
+                Vector2 movedPosition = transform.position + dir * moveSpeed * Time.deltaTime;
                 
-                _rigid.MovePosition(transform.position + dir * moveSpeed * Time.deltaTime);
+                if (Mathf.Abs(movedPosition.x) > 20)
+                {
+                    movedPosition.x = movedPosition.x > 0f ? 20f : -20f;
+                }
+                if (movedPosition.y > 0.4f)
+                {
+                    movedPosition.y = 0.4f;
+                }
+                else if (movedPosition.y < -5.4f)
+                {
+                    movedPosition.y = -5.4f;
+                }
+                
+                _rigid.MovePosition(movedPosition);
             }
         }
 

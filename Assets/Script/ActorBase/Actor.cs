@@ -295,8 +295,22 @@ namespace WakHead
                 moveSpeed = _isAttack ? _attackMoveSpeed : _moveSpeed;
             }
 
-            Vector2 vow = transform.position + _movedir * moveSpeed * Time.deltaTime;
-            _rigid.MovePosition(vow);
+            Vector2 movedPosition = transform.position + _movedir * moveSpeed * Time.deltaTime;
+            
+            if (Mathf.Abs(movedPosition.x) > 20)
+            {
+                movedPosition.x = movedPosition.x > 0f ? 20f : -20f;
+            }
+            if (movedPosition.y > 0.5f)
+            {
+                movedPosition.y = 0.5f;
+            }
+            else if (movedPosition.y < -5.1f)
+            {
+                movedPosition.y = -5.1f;
+            }
+
+            _rigid.MovePosition(movedPosition);
             _animator.SetBool("IsWalk", _isMove);
         }
 
