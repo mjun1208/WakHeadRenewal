@@ -120,6 +120,22 @@ namespace WakHead
             {
                 Global.instance.SetEnemyActor(this);
             }
+            
+            switch (MyTeam)
+            {
+                case Team.BLUE:
+                {
+                    this.transform.position = Global.instance.BlueTower.transform.position + new Vector3(-3f, 0, 0);
+                    break;
+                }
+                case Team.RED:
+                {
+                    this.transform.position = Global.instance.RedTower.transform.position + new Vector3(3f, 0, 0);;
+                    break;
+                }
+            }
+            
+            _smoothSync.teleport();
         }
 
         protected virtual void Update()
