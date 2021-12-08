@@ -479,6 +479,10 @@ namespace WakHead
 
         protected virtual void Dead()
         {
+            _isStun = false;
+            _isHeart = false;
+            _ccImmunity = false;
+
             var deathEffect = Global.PoolingManager.LocalSpawn("DeathEffect", this.transform.position,
                 this.transform.rotation, true);
             _renderer.enabled = false;
