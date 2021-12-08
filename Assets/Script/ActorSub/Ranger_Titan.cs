@@ -36,8 +36,11 @@ namespace WakHead
         {
             if (_ownerPhotonView.IsMine)
             {
-                entity?.Damaged(this.transform.position, damage, MyTeam, 
-                    "TreeSkill_2Effect");
+                var dir = entity.transform.position - this.transform.position;
+                dir.Normalize();
+
+                entity?.KnockBack(damage, dir,0.5f, 1f, MyTeam, 
+                    "RangerSkill_1Effect", dir.x * 0.1f, dir.x > 0f);
             }
         }
     }
