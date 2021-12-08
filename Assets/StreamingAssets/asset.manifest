@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3055122743
+CRC: 3458110024
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 71cfa0fd8dbefe0ae0f46df0624ff0cc
+    Hash: 44ca59cefe7640251adc0852c2f26467
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 757c3f8c0656b11459a0386055d7dc1a
+    Hash: e5484df036062de8a3fc968f031d0fc2
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -163,6 +163,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: cd9552df169cf1e49af46351fcbe7433, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: b58ecaff1ebb31a4d963f9c5c45e6588, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 19796172da2f12d409927b67222ce632, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 128
@@ -201,6 +203,7 @@ Assets:
 - Assets/Prefab/Actor_Sub/BattleGround_Throw_FLASH_BANG.prefab
 - Assets/Prefab/Actor_Sub/Ahri_Orb.prefab
 - Assets/Prefab/Effect/DeathEffect.prefab
+- Assets/Prefab/Effect/RangerSkill_1Effect.prefab
 - Assets/Prefab/Effect/HeartParticle.prefab
 - Assets/Prefab/Effect/VengenproAttackEffect.prefab
 - Assets/Prefab/Actor/Jett.prefab
@@ -229,6 +232,7 @@ Assets:
 - Assets/Prefab/Effect/Minecraft_LavaBasket.prefab
 - Assets/Prefab/Actor/Normal.prefab
 - Assets/Prefab/Effect/ChimpanzeeAttackEffect.prefab
+- Assets/Prefab/Effect/RangerAttackEffect.prefab
 - Assets/Prefab/Actor_Sub/Martine_Vent.prefab
 - Assets/Prefab/Actor_Sub/Sans_Charge_Blast.prefab
 - Assets/Prefab/Effect/JettAttackEffect.prefab
@@ -247,6 +251,7 @@ Assets:
 - Assets/Prefab/Actor/Ahri.prefab
 - Assets/Prefab/Effect/OperatorEffect.prefab
 - Assets/Prefab/Actor_Sub/BattleGround_Throw_MOLOTOV_Bomb.prefab
+- Assets/Prefab/Effect/RangerSkill_2Effect.prefab
 - Assets/Prefab/Effect/VengenproSkill_2Effect.prefab
 - Assets/Prefab/NotifyText.prefab
 - Assets/Prefab/Actor_Sub/Sans_Bone.prefab
