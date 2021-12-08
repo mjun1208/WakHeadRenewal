@@ -244,6 +244,19 @@ namespace WakHead
 
             var targetPosition = this.transform.position + dir * power;
 
+            if (Mathf.Abs(targetPosition.x) > 20)
+            {
+                targetPosition.x = targetPosition.x > 0f ? 20f : -20f;
+            }
+            if (targetPosition.y > 0.4f)
+            {
+                targetPosition.y = 0.4f;
+            }
+            else if (targetPosition.y < -5.4f)
+            {
+                targetPosition.y = -5.4f;
+            }
+            
             float distance = float.MaxValue;
 
             while (distance > 0.3f)
