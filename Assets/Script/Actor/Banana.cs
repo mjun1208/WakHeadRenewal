@@ -192,6 +192,7 @@ namespace WakHead
         public void ActiveJump()
         {
             _isJump = true;
+            _ccImmunity = true;
 
             _jumpPosition = this.transform.position;
 
@@ -211,7 +212,8 @@ namespace WakHead
         {
             _isJump = false;
             _isDown = false;
-
+            _ccImmunity = false;
+            
             this.transform.position = new Vector3(this.transform.position.x, _jumpPosition.y);
 
             _dropPoint.SetActive(false);
@@ -332,7 +334,7 @@ namespace WakHead
             
             _isJump = false;
             _isDown = false;
-            
+
             _dropPoint.SetActive(false);
 
 

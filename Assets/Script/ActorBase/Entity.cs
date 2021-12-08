@@ -14,6 +14,7 @@ namespace WakHead
 
         private ObscuredBool _knockBack = false;
         private ObscuredBool _grab = false;
+        protected ObscuredBool _ccImmunity = false;
 
         public Action StunAction;
         public Action CrownControlAction;
@@ -97,6 +98,7 @@ namespace WakHead
                 stream.SendNext(_currentHP.GetDecrypted());
                 stream.SendNext(_isDead.GetDecrypted());
                 stream.SendNext(_isHeart.GetDecrypted());
+                stream.SendNext(_ccImmunity.GetDecrypted());
             }
             else
             {
@@ -105,7 +107,8 @@ namespace WakHead
 
                 bool isDead = (bool) stream.ReceiveNext();
                 bool isHeart = (bool) stream.ReceiveNext();
-
+                _ccImmunity = (bool) stream.ReceiveNext();;
+                
                 if (IsDead != isDead)
                 {
                     IsDead = isDead;
@@ -155,6 +158,12 @@ namespace WakHead
                 return;
             }
 
+            if (_ccImmunity)
+            {
+                Damaged(this.transform.position, damage, team, effectName, effectXOffset, effectFlip);
+                return;
+            }
+
             CrownControlAction?.Invoke();
 
             currentCrownControl = OnKnockBack(damage, dir, power, stunTime, team, effectName, effectXOffset, effectFlip);
@@ -172,6 +181,12 @@ namespace WakHead
         {
             if (!photonView.IsMine || (MyTeam != Team.None && MyTeam == team))
             {
+                return;
+            }
+            
+            if (_ccImmunity)
+            {
+                Damaged(this.transform.position, damage, team, effectName, effectXOffset, effectFlip);
                 return;
             }
 
@@ -194,6 +209,12 @@ namespace WakHead
             {
                 return;
             }
+            
+            if (_ccImmunity)
+            {
+                return;
+            }
+            
 
             CrownControlAction?.Invoke();
 
@@ -211,6 +232,11 @@ namespace WakHead
         public void HeartRPC(Team team)
         {
             if (MyTeam != Team.None && MyTeam == team)
+            {
+                return;
+            }
+            
+            if (_ccImmunity)
             {
                 return;
             }
@@ -244,6 +270,19 @@ namespace WakHead
 
             var targetPosition = this.transform.position + dir * power;
 
+            if (Mathf.Abs(targetPosition.x) > 20)
+            {
+                targetPosition.x = targetPosition.x > 0f ? 20f : -20f;
+            }
+            if (targetPosition.y > 0.4f)
+            {
+                targetPosition.y = 0.4f;
+            }
+            else if (targetPosition.y < -5.4f)
+            {
+                targetPosition.y = -5.4f;
+            }
+            
             float distance = float.MaxValue;
 
             while (distance > 0.3f)

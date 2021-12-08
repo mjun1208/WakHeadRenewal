@@ -120,6 +120,22 @@ namespace WakHead
             {
                 Global.instance.SetEnemyActor(this);
             }
+            
+            switch (MyTeam)
+            {
+                case Team.BLUE:
+                {
+                    this.transform.position = Global.instance.BlueTower.transform.position + new Vector3(-3f, 0, 0);
+                    break;
+                }
+                case Team.RED:
+                {
+                    this.transform.position = Global.instance.RedTower.transform.position + new Vector3(3f, 0, 0);;
+                    break;
+                }
+            }
+            
+            _smoothSync.teleport();
         }
 
         protected virtual void Update()
@@ -301,13 +317,13 @@ namespace WakHead
             {
                 movedPosition.x = movedPosition.x > 0f ? 20f : -20f;
             }
-            if (movedPosition.y > 0.5f)
+            if (movedPosition.y > 0.4f)
             {
-                movedPosition.y = 0.5f;
+                movedPosition.y = 0.4f;
             }
-            else if (movedPosition.y < -5.1f)
+            else if (movedPosition.y < -5.4f)
             {
-                movedPosition.y = -5.1f;
+                movedPosition.y = -5.4f;
             }
 
             _rigid.MovePosition(movedPosition);
@@ -463,6 +479,10 @@ namespace WakHead
 
         protected virtual void Dead()
         {
+            _isStun = false;
+            _isHeart = false;
+            _ccImmunity = false;
+
             var deathEffect = Global.PoolingManager.LocalSpawn("DeathEffect", this.transform.position,
                 this.transform.rotation, true);
             _renderer.enabled = false;
