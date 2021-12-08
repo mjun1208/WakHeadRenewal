@@ -147,6 +147,12 @@ namespace WakHead
 
         public void KnockBack(int damage, Vector3 dir, float power, float stunTime, Team team, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
         {
+            if (_ccImmunity)
+            {
+                Damaged(this.transform.position, damage, team, effectName, effectXOffset, effectFlip);
+                return;
+            }
+        
             photonView.RPC("KnockBackRPC", RpcTarget.All, damage, dir, power, stunTime, team, effectName, effectXOffset, effectFlip);
         }
 
@@ -173,6 +179,12 @@ namespace WakHead
 
         public void Grab(int damage, Vector3 targetPostion, float grabSpeed, Team team, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
         {
+            if (_ccImmunity)
+            {
+                Damaged(this.transform.position, damage, team, effectName, effectXOffset, effectFlip);
+                return;
+            }
+
             photonView.RPC("GrabRPC", RpcTarget.All, damage, targetPostion, grabSpeed, team, effectName, effectXOffset, effectFlip);
         }
 
@@ -199,6 +211,11 @@ namespace WakHead
 
         public void Stun(float stunTime)
         {
+            if (_ccImmunity)
+            {
+                return;
+            }
+        
             photonView.RPC("StunRPC", RpcTarget.All, stunTime);
         }
 
@@ -225,6 +242,11 @@ namespace WakHead
 
         public void Heart(Team team)
         {
+            if (_ccImmunity)
+            {
+                return;
+            }
+        
             photonView.RPC("HeartRPC", RpcTarget.All, team);
         }
 
