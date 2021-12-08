@@ -15,7 +15,7 @@ namespace WakHead
         {
             while (true)
             {
-                yield return new WaitForSeconds(15f + Random.Range(0f, 5f));
+                yield return new WaitForSeconds(30f + Random.Range(0f, 15f));
                 
                 if (PhotonNetwork.IsConnected && PhotonNetwork.IsMasterClient /*&&
                     !string.IsNullOrWhiteSpace(Global.instance.MyActorName) &&
