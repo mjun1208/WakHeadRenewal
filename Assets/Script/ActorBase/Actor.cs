@@ -301,13 +301,13 @@ namespace WakHead
             {
                 movedPosition.x = movedPosition.x > 0f ? 20f : -20f;
             }
-            if (movedPosition.y > 0.5f)
+            if (movedPosition.y > 0.4f)
             {
-                movedPosition.y = 0.5f;
+                movedPosition.y = 0.4f;
             }
-            else if (movedPosition.y < -5.1f)
+            else if (movedPosition.y < -5.4f)
             {
-                movedPosition.y = -5.1f;
+                movedPosition.y = -5.4f;
             }
 
             _rigid.MovePosition(movedPosition);
