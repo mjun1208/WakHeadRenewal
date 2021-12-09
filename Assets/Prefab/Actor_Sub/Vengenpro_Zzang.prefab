@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 768661795185579733}
   - component: {fileID: 6290173404489604046}
   - component: {fileID: 3278743630797315881}
+  - component: {fileID: 7468441709886882583}
   m_Layer: 12
   m_Name: Vengenpro_Zzang
   m_TagString: Untagged
@@ -53,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: cdbfc4a4f6a3a3e40bf056e6854058a3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -149,3 +150,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigid: {fileID: 6290173404489604046}
   _attackRange: {fileID: 516445533490580215}
+--- !u!114 &7468441709886882583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8122539821149293536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 0
+  normalStrenght: 5
+  normalSmoothing: 1
+  computingNormal: 0

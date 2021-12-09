@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3247428197113281255}
   - component: {fileID: 3159463620707218967}
   - component: {fileID: 6269868718600382640}
+  - component: {fileID: 3264672843255044982}
   m_Layer: 12
   m_Name: BattleGround_Throw_GRENADE_Bomb
   m_TagString: Untagged
@@ -69,7 +70,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 403fbcfc39c17b947b6ffb798058b8d9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -184,3 +185,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ownerObject: {fileID: 0}
+--- !u!114 &3264672843255044982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7498167482541038916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 0
+  normalStrenght: 5
+  normalSmoothing: 1
+  computingNormal: 0
