@@ -11,7 +11,7 @@ namespace WakHead
         public const int Local_SPAWN_EVENT_ID = 2;
         public const int Local_DESPAWN_EVENT_ID = 3;
 
-        public const float FLASH_OFFSET = 3f;
+        public const float FLASH_OFFSET = 2f;
         
         public const float ACTOR_SUB_DEFAULT_LIFETIME = 1f;
         public const float ACTOR_SUB_DEFAULT_MOVE_SPEED = 10f;
