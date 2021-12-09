@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3458110024
+CRC: 2262943056
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 44ca59cefe7640251adc0852c2f26467
+    Hash: 208f7bfa1307504d24c87c98b5100a2a
   TypeTreeHash:
     serializedVersion: 2
-    Hash: e5484df036062de8a3fc968f031d0fc2
+    Hash: 5e6170af20b37a47b54911588462b194
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -65,6 +65,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 8635c5c1e0b64714faae8f04285c813d, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 19796172da2f12d409927b67222ce632, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 20d9d003fb929a040a078a9fe83d5f73, type: 3}
 - Class: 114
@@ -163,8 +165,6 @@ ClassTypes:
   Script: {fileID: 11500000, guid: cd9552df169cf1e49af46351fcbe7433, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: b58ecaff1ebb31a4d963f9c5c45e6588, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 19796172da2f12d409927b67222ce632, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 128
@@ -207,6 +207,7 @@ Assets:
 - Assets/Prefab/Effect/HeartParticle.prefab
 - Assets/Prefab/Effect/VengenproAttackEffect.prefab
 - Assets/Prefab/Actor/Jett.prefab
+- Assets/Prefab/Effect/NarutoChargingEffect.prefab
 - Assets/Prefab/Effect/Blood/Blood_7.prefab
 - Assets/Prefab/Effect/VengenproSkill_1Effect.prefab
 - Assets/Prefab/Effect/NormalSkill_2Effect.prefab
@@ -234,6 +235,7 @@ Assets:
 - Assets/Prefab/Effect/ChimpanzeeAttackEffect.prefab
 - Assets/Prefab/Effect/RangerAttackEffect.prefab
 - Assets/Prefab/Actor_Sub/Martine_Vent.prefab
+- Assets/Prefab/Effect/HeartHitEffect.prefab
 - Assets/Prefab/Actor_Sub/Sans_Charge_Blast.prefab
 - Assets/Prefab/Effect/JettAttackEffect.prefab
 - Assets/Prefab/Effect/RedTowerHit.prefab
@@ -260,6 +262,7 @@ Assets:
 - Assets/Prefab/Effect/VRSkill_1Effect_1.prefab
 - Assets/Prefab/Actor_Sub/Minecraft_Slave.prefab
 - Assets/Prefab/Effect/NormalAttackEffect.prefab
+- Assets/Prefab/Effect/FlashEffect.prefab
 - Assets/Prefab/Effect/Blood/Blood_3.prefab
 - Assets/Prefab/Actor_Sub/Kakashi_Bomb.prefab
 - Assets/Prefab/Effect/TreeAttackEffect.prefab
