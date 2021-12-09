@@ -32,9 +32,14 @@ namespace WakHead
             get { return _isStun; }
             protected set
             {
-                if (value && _isStun != value)
+                if (_isStun != value)
                 {
-                    StunAction?.Invoke();
+                    if (value)
+                    {
+                        StunAction?.Invoke();
+                    }
+                    
+                    EnableStunEffect(value);
                 }
 
                 _isStun = value;
@@ -115,6 +120,11 @@ namespace WakHead
                 if (IsDead != isDead)
                 {
                     IsDead = isDead;
+                }
+                
+                if (IsStun != isStun)
+                {
+                    IsStun = isStun;
                 }
 
                 if (_isHeart != isHeart)
@@ -234,13 +244,17 @@ namespace WakHead
             {
                 return;
             }
-            
 
             CrownControlAction?.Invoke();
 
             currentCrownControl = OnStun(stunTime);
 
             StartCoroutine(currentCrownControl);
+        }
+        
+        public void EnableStunEffect(bool enable)
+        {
+            _stunEffect.SetActive(enable);
         }
 
         public void Heart(Team team)
