@@ -24,7 +24,7 @@ public class RandomColorShader : MonoBehaviour
 
         _renderer.color = changeColor;
         mat.SetColor(mainColorPropertyShaderID, changeColor);
-        mat.SetColor(glowColorPropertyShaderID, changeColor);
+        // mat.SetColor(glowColorPropertyShaderID, changeColor);
     }
 
     private Color GenerateColor()
