@@ -98,6 +98,7 @@ namespace WakHead
                 stream.SendNext(_maxHP.GetDecrypted());
                 stream.SendNext(_currentHP.GetDecrypted());
                 stream.SendNext(_isDead.GetDecrypted());
+                stream.SendNext(_isStun.GetDecrypted());
                 stream.SendNext(_isHeart.GetDecrypted());
                 stream.SendNext(_ccImmunity.GetDecrypted());
             }
@@ -107,6 +108,7 @@ namespace WakHead
                 _currentHP = (int) stream.ReceiveNext();
 
                 bool isDead = (bool) stream.ReceiveNext();
+                bool isStun = (bool) stream.ReceiveNext();
                 bool isHeart = (bool) stream.ReceiveNext();
                 _ccImmunity = (bool) stream.ReceiveNext();;
                 
