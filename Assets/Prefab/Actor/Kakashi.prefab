@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 2231056166769122082}
   - component: {fileID: 4804301689556421808}
   - component: {fileID: 693140671910505272}
+  - component: {fileID: 8533831426814105355}
   m_Layer: 0
   m_Name: Kakashi
   m_TagString: Untagged
@@ -161,7 +162,7 @@ MonoBehaviour:
   _skill_1Range: {fileID: 4268346816177131933}
   _skill_2Range: {fileID: 7703535948715084146}
   _occupiedCollider: {fileID: 5380966351662455310}
-  _copyMaterial: {fileID: 2100000, guid: f04ac5abe4545b74693cac16337dd610, type: 2}
+  _copyMaterial: {fileID: 2100000, guid: 862b961110e1cf14d9350c0bddcabed1, type: 2}
 --- !u!212 &2231056166769122080
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -365,6 +366,22 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
+--- !u!114 &8533831426814105355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2231056166769122086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 0
+  normalStrenght: 5
+  normalSmoothing: 1
+  computingNormal: 0
 --- !u!1 &2945554686757192732
 GameObject:
   m_ObjectHideFlags: 0
