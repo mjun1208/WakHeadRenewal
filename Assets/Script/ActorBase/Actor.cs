@@ -242,11 +242,22 @@ namespace WakHead
 
         protected virtual void Flash()
         {
+            photonView.RPC("SpawnFlashEffect", RpcTarget.All, this.transform.position.x, this.transform.position.y);
+            
             var flashDir = _movedir == Vector3.zero ? GetAttackDir() : _movedir;
 
             transform.Translate(flashDir * Constant.FLASH_OFFSET);
             _smoothSync.teleport();
-        } 
+        }
+
+        [PunRPC]
+        public void SpawnFlashEffect(float position_x, float position_y)
+        {
+            var flashEffect =
+                Global.PoolingManager.LocalSpawn("FlashEffect", new Vector3(position_x, position_y), Quaternion.identity, true);
+            flashEffect.GetComponent<SpriteRenderer>().sprite = _renderer.sprite;
+            flashEffect.transform.localScale = this.transform.localScale;
+        }
         
         private void MoveInput()
         {
