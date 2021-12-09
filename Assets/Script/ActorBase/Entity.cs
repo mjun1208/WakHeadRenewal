@@ -11,6 +11,7 @@ namespace WakHead
     {
         [SerializeField] protected Rigidbody2D _rigid;
         [SerializeField] protected SpriteRenderer _renderer;
+        [SerializeField] private GameObject _stunEffect;
 
         private ObscuredBool _knockBack = false;
         private ObscuredBool _grab = false;
