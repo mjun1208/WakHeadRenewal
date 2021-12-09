@@ -86,6 +86,13 @@ namespace WakHead
 
         public void Charging()
         {
+            SpawnChargingEffect();
+        }
+        
+        public void SpawnChargingEffect()
+        {
+            var chargingEffect = Global.PoolingManager.LocalSpawn("NarutoChargingEffect", this.transform.position,
+                Quaternion.identity, true);
         }
 
         public void Rasengan()
