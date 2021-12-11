@@ -8,6 +8,8 @@ namespace WakHead
 {
     public class Banana_Trampoline : Summoned
     {
+        [SerializeField] private Animator _animator;
+
         public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 pos, Vector3 dir, Team team = Team.None)
         {
             base.SetInfo(ownerPhotonView, owner, dir, team);
@@ -16,6 +18,17 @@ namespace WakHead
             
             MaxHP = 5;
             HP = MaxHP;
+        }
+        
+        public void Use()
+        {
+            photonView.RPC("UseRPC", RpcTarget.All);
+        }
+
+        [PunRPC]
+        public void UseRPC()
+        {
+            _animator.Play("Use");
         }
 
         private void OnTriggerEnter2D(Collider2D other)

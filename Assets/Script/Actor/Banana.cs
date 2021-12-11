@@ -23,6 +23,8 @@ namespace WakHead
         
         private List<Banana_Ball> _collidedBallList = new List<Banana_Ball>();
 
+        private Banana_Trampoline _currentTrampoline;
+        
         private void FixedUpdate()
         {
             if (!photonView.IsMine)
@@ -121,7 +123,7 @@ namespace WakHead
             SpawnTrampoline();
         }
 
-        private void Active_Trampoline()
+        private void Active_Trampoline(Banana_Trampoline trampoline)
         {
             if (IsSkill_1 || _isJump || _isDown)
             {
@@ -133,6 +135,8 @@ namespace WakHead
             _isJump = false;
             _isDown = false;
             _dropPoint.SetActive(false);
+
+            _currentTrampoline = trampoline;
             
             if (!photonView.IsMine)
             {
@@ -198,6 +202,9 @@ namespace WakHead
 
             if (photonView.IsMine)
             {
+                _currentTrampoline.Use();
+                _currentTrampoline = null;
+                
                 _dropPoint.SetActive(true);
             }
         }
@@ -289,9 +296,11 @@ namespace WakHead
         {
             if (collision.CompareTag("Trampoline"))
             {
-                if (collision.GetComponent<Banana_Trampoline>().photonView.IsMine)
+                var trampoline = collision.GetComponent<Banana_Trampoline>();
+                
+                if (trampoline.photonView.IsMine)
                 {
-                    Active_Trampoline();
+                    Active_Trampoline(trampoline);
                 }
             }
         }
