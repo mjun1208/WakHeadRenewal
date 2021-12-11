@@ -496,6 +496,7 @@ namespace WakHead
                 this.transform.rotation, true);
             _renderer.enabled = false;
             _collider2D.enabled = false;
+            _occupiedCollider.enabled = false;
 
             ForceStop();
         }
@@ -530,6 +531,7 @@ namespace WakHead
             _animator.Rebind();
             _renderer.enabled = true;
             _collider2D.enabled = true;
+            _occupiedCollider.enabled = true;
         }
     }
 }
