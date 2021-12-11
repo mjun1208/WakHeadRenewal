@@ -12,7 +12,7 @@ namespace WakHead
         public Team MyTeam { get; private set; } = Team.None;
 
         [SerializeField] private SpriteRenderer _renderer;
-        [SerializeField] private Text _gaugeText;
+        [SerializeField] private GameObject _gaugeObject;
         
         private List<OccupiedCollider> _collidedOccupiedColliderList = new List<OccupiedCollider>();
         private float _gauge = 0f;
@@ -33,7 +33,9 @@ namespace WakHead
                 
                 _gauge = (float) stream.ReceiveNext();
 
-                _gaugeText.text = $"{Mathf.Round(_gauge)} / 100";
+                var gaugeScale = _gauge == 0f ? 0f : _gauge / 100;
+            
+                _gaugeObject.transform.localScale = new Vector3(gaugeScale, gaugeScale, gaugeScale);
             }
         }
 
@@ -86,8 +88,10 @@ namespace WakHead
                 SpawnSuperPanzee(team);
                 PhotonNetwork.Destroy(this.gameObject);
             }
+
+            var gaugeScale = _gauge == 0f ? 0f : _gauge / 100;
             
-            _gaugeText.text = $"{Mathf.Round(_gauge)} / 100";
+            _gaugeObject.transform.localScale = new Vector3(gaugeScale, gaugeScale, gaugeScale);
         }
 
         private void SpawnSuperPanzee(Team team)
