@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 4097462412641919006}
   - component: {fileID: 89035897192552888}
   - component: {fileID: 1190184104954751421}
+  - component: {fileID: 4687954804637231961}
+  - component: {fileID: 7171014325492616516}
   m_Layer: 14
   m_Name: Banana_Trampoline
   m_TagString: Trampoline
@@ -72,6 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigid: {fileID: 4097462412641919006}
   _attackRange: {fileID: 1190184104954751421}
+  _animator: {fileID: 4687954804637231961}
 --- !u!212 &1607418969543786220
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -90,7 +93,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b6a6daa7bd7d7eb4a901176c18177569, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -172,3 +175,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ownerObject: {fileID: 0}
+--- !u!95 &4687954804637231961
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6629102830764008772}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f5fb037cc84a14645a209abf257ca27a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7171014325492616516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6629102830764008772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 0
+  normalStrenght: 5
+  normalSmoothing: 1
+  computingNormal: 0
