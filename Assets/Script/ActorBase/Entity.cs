@@ -21,6 +21,7 @@ namespace WakHead
         public Action CrownControlAction;
         public Action<Action, Entity> DeadCameraAction;
         public Action DeadAction;
+        public Action OnDamageAction;
 
         public Team MyTeam { get; protected set; } = Team.None;
 
@@ -431,6 +432,8 @@ namespace WakHead
                 effect.transform.parent = this.transform;
             }
 
+            OnDamageAction?.Invoke();
+            
             if (photonView.IsMine)
             {
                 HP -= damage;
