@@ -11,6 +11,9 @@ namespace WakHead
         private Vector3 _originalScale;
         private bool _isAttack = false;
 
+        private readonly float attackDelay = 0.1f;
+        private float _attackTimer = 0f;
+
         private void Awake()
         {
             _originalScale = this.transform.localScale;
@@ -36,7 +39,13 @@ namespace WakHead
         {
             if (_isAttack)
             {
-                _attackRange.Attack(targetEntity => { OnDamage(targetEntity, 1); }, MyTeam);
+                _attackTimer += Time.deltaTime;
+                
+                if (_attackTimer > attackDelay)
+                {
+                    _attackTimer = 0f;
+                    _attackRange.Attack(targetEntity => { OnDamage(targetEntity, 1); }, MyTeam);
+                }
             }
         }
 
