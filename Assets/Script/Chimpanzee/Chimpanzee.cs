@@ -16,7 +16,8 @@ namespace WakHead
 
         [SerializeField] protected Animator _animator;
         [SerializeField] protected AttackRange _attackRange;
-
+        [SerializeField] private bool _isSuper;
+        
         private const float moveSpeed = 1.5f;
 
         private ChimpanzeeState _state = ChimpanzeeState.Move;
@@ -70,7 +71,7 @@ namespace WakHead
                 IsAttack = false;
             };
 
-            MaxHP = 50;
+            MaxHP =  _isSuper ? 50 : 25;
             ResetHp();
 
             DeadAction += Dead;
@@ -320,8 +321,14 @@ namespace WakHead
         {
             _attackRange.AttackEntity(targetEntity =>
             {
-                targetEntity.Damaged(targetEntity.transform.position, 1, MyTeam, "ChimpanzeeAttackEffect");
-                //targetEntity.KnockBack(GetAttackDir(), 0.5f, 0);
+                if (_isSuper)
+                {
+                    targetEntity.KnockBack(1, GetAttackDir(), 0.1f, 0, MyTeam, "ChimpanzeeAttackEffect");
+                }
+                else
+                {
+                    targetEntity.Damaged(targetEntity.transform.position, 1, MyTeam, "ChimpanzeeAttackEffect");
+                }
             }, MyTeam);
 
             _attackDelay = 0.2f;
@@ -329,10 +336,12 @@ namespace WakHead
 
         private void Dead()
         {
+            photonView.RPC("SpawnDeadEffect", RpcTarget.All);
             PhotonNetwork.Destroy(this.gameObject);
         }
 
-        private void OnDestroy()
+        [PunRPC]
+        public void SpawnDeadEffect()
         {
             var deathEffect = Global.PoolingManager.LocalSpawn("DeathEffect", this.transform.position,
                 this.transform.rotation, true);
