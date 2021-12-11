@@ -8,6 +8,7 @@ namespace WakHead
     public class Ranger : Actor
     {
         [SerializeField] private GameObject _attackBeam;
+        private float _rollingGauge = 0f;
         
         protected override void Active_Attack()
         {
@@ -36,8 +37,8 @@ namespace WakHead
             {
                 return;
             }
-            
-            photonView.RPC("SpawnRolling", RpcTarget.All);
+
+            photonView.RPC("SpawnRolling", RpcTarget.All, _rollingGauge);
         }
 
         protected override void Attack()
@@ -88,11 +89,11 @@ namespace WakHead
         }
         
         [PunRPC]
-        public void SpawnRolling()
+        public void SpawnRolling(float gauge)
         {
             var newTitan = Global.PoolingManager.LocalSpawn("Ranger_Rolling", this.transform.position, Quaternion.identity, true);
 
-            newTitan.GetComponent<Ranger_Rolling>().SetInfo(this.photonView, this.gameObject, GetAttackDir(), MyTeam);
+            newTitan.GetComponent<Ranger_Rolling>().SetInfo(this.photonView, this.gameObject, GetAttackDir(), gauge, MyTeam);
         }
 
         protected override void Dead()

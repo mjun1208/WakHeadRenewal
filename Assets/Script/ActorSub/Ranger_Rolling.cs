@@ -16,7 +16,7 @@ namespace WakHead
             _originalScale = this.transform.localScale;
         }
         
-        public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, Team team = Team.None)
+        public  void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, float gauge, Team team = Team.None)
         {
             base.SetInfo(ownerPhotonView, owner, dir, team);
             
