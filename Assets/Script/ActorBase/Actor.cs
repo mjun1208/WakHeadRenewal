@@ -498,7 +498,7 @@ namespace WakHead
 
         protected virtual void Dead()
         {
-            _isStun = false;
+            IsStun = false;
             _isHeart = false;
             _ccImmunity = false;
 
