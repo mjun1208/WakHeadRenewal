@@ -294,8 +294,8 @@ namespace WakHead
         public void DummyRasenganRPC(Vector3 pos)
         {
             var newDummyRasengan = Global.PoolingManager.LocalSpawn("Naruto_Rasengan", pos, Quaternion.identity, true);
-            newDummyRasengan.GetComponent<Naruto_Rasengan>()
-                .SetInfo(this.photonView, this.gameObject, pos, GetAttackDir(), _chargingGauge, MyTeam);
+            newDummyRasengan.GetComponent<Naruto_Rasengan>().SetInfo(this.photonView, this.gameObject,
+                pos, GetAttackDir(), _chargingGauge, MyTeam);
         }
 
         [PunRPC]
