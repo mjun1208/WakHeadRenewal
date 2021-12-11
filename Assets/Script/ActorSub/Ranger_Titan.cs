@@ -29,6 +29,8 @@ namespace WakHead
 
         public void ActiveDamage()
         {
+            CameraManager.instance.Shake(0.5f, 0.1f);
+            
             _attackRange.Attack(targetEntity => { OnDamage(targetEntity, 30); }, MyTeam);
         }
         
