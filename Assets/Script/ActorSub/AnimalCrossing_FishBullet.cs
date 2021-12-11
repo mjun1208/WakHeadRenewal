@@ -12,7 +12,7 @@ namespace WakHead
         
         private Vector3 _originalScale;
 
-        private readonly float _attackDelay = 0.1f;
+        private readonly float attackDelay = 0.1f;
         private float _attackTimer = 0f;
 
         private void Awake()
@@ -56,7 +56,7 @@ namespace WakHead
 
             _attackTimer += Time.deltaTime;
             
-            if (_attackTimer > _attackDelay)
+            if (_attackTimer > attackDelay)
             {
                 _attackTimer = 0f;
                 _attackRange.Attack(targetEntity => { OnDamage(targetEntity, 2 * _fishIndex); }, MyTeam);   
