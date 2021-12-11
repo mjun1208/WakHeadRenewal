@@ -8,8 +8,12 @@ namespace WakHead
     public class AnimalCrossing_FishBullet : ActorSub
     {
         [SerializeField] private List<GameObject> _fishs;
+        private int _fishIndex;
         
         private Vector3 _originalScale;
+
+        private readonly float _attackDelay = 0.1f;
+        private float _attackTimer = 0f;
 
         private void Awake()
         {
@@ -27,6 +31,8 @@ namespace WakHead
                 fish.SetActive(false);
             }
 
+            _fishIndex = fishIndex;
+            
             _fishs[fishIndex].SetActive(true);
 
             _attackRange = _fishs[fishIndex].GetComponent<AttackRange>();
@@ -48,7 +54,13 @@ namespace WakHead
                 return;
             }
 
-            _attackRange.Attack(targetEntity => { OnDamage(targetEntity, 2); }, MyTeam);
+            _attackTimer += Time.deltaTime;
+            
+            if (_attackTimer > _attackDelay)
+            {
+                _attackTimer = 0f;
+                _attackRange.Attack(targetEntity => { OnDamage(targetEntity, 2 * _fishIndex); }, MyTeam);   
+            }
         }
 
         protected override void OnDamage(Entity entity, int damage)
