@@ -15,7 +15,10 @@ namespace WakHead
         [SerializeField] private Camera _myCamera;
         private bool _isDeadAction = false;
         private Entity _deadEntity = null;
-        
+
+        private bool _isShake = false;
+        private Sequence _shakeSequence = DOTween.Sequence();
+
         void Awake()
         {
             instance = this;
@@ -62,6 +65,22 @@ namespace WakHead
 
                 this.transform.position = targetPos; // Vector3.Lerp(this.transform.position, targetPos, 25f * Time.deltaTime);
             }
+        }
+
+        public void Shake(float duration, float power)
+        {
+            if (_isShake)
+            {
+                _shakeSequence.Kill();
+            }
+            
+            _isShake = true;
+
+            _shakeSequence.Append(_myCamera.DOShakePosition(duration, power, 30, 90f, true).OnComplete(() =>
+            {
+                this.transform.position = new Vector3(this.transform.position.x, 0, this.transform.position.z);
+                _isShake = false;
+            }));
         }
 
         public void Dead(Action deadAction, Entity targetEntity)
