@@ -74,6 +74,8 @@ namespace WakHead
             DeadCameraAction += CameraManager.instance.Dead; 
             DeadAction += Dead;
 
+            OnDamageAction += OnDamage;
+
             MaxHP = 100;
             ResetHp();
 
@@ -483,6 +485,14 @@ namespace WakHead
             if (!photonView.IsMine)
             {
                 return;
+            }
+        }
+
+        private void OnDamage()
+        {
+            if (photonView.IsMine)
+            {
+                Global.PoolingManager.SpawnScreenHit();
             }
         }
 
