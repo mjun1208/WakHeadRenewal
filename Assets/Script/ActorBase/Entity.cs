@@ -151,6 +151,7 @@ namespace WakHead
             {
                 StopCoroutine(currentCrownControl);
                 _isHeart = false;
+                IsStun = false;
 
                 photonView.RPC("ChangeColor", RpcTarget.All,
                     Color.white.r, Color.white.g, Color.white.b, Color.white.a);
