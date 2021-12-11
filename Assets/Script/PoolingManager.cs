@@ -199,6 +199,34 @@ namespace WakHead
             }
         }
 
+        public void SpawnScreenHit()
+        {     
+            if (!_localPool.ContainsKey("ScreenHit"))
+            {
+                _localPool.Add("ScreenHit", new Queue<GameObject>());
+            }
+
+            var pool = _localPool["ScreenHit"];
+
+            GameObject spawnObject = null;
+
+            if (pool.Count > 0)
+            {
+                spawnObject = pool.Dequeue();
+            }
+            else
+            {
+                spawnObject = GameObject.Instantiate(Global.ResourceManager.FindPrefab("ScreenHit"),
+                    Global.instance.GlobalCanvas);
+                spawnObject.name = "ScreenHit";
+            }
+            
+            spawnObject.transform.parent = Global.instance.GlobalCanvas;
+            spawnObject.transform.localPosition = Vector3.zero;
+
+            spawnObject.SetActive(true);
+        }
+        
         public void SpawnNotifyText(string text, float startY = 60f)
         {
             SpawnNotifyText(text, Color.red, startY);
