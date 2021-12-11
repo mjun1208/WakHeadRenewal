@@ -87,6 +87,7 @@ namespace WakHead
         {
             _isDeadAction = true;
             Vector3 originalPos = this.transform.position;
+            originalPos.y = 0;
             
             Vector3 targetPos = targetEntity.transform.position;
             targetPos.z = this.transform.position.z;
