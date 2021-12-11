@@ -115,6 +115,8 @@ namespace WakHead
                 return;
             }
 
+            Skill_1_Delay = Skill_1_CoolTime;
+            
             var newDummy = Global.PoolingManager.Spawn("Naruto_Dummy", this.transform.position, Quaternion.identity);
             newDummy.GetComponent<Naruto_Dummy>().SetInfo(this.photonView, this.gameObject, GetAttackDir(), MyTeam);
             _dummyList.Add(newDummy.GetComponent<Naruto_Dummy>());
@@ -130,7 +132,10 @@ namespace WakHead
                 {
                     _rasenganState = RasenganState.Charging;
 
+                    Skill_2_Delay = Skill_2_CoolTime;
+                    
                     OnSkill_2();
+                    
                     SetDummyAnimation("IsSkill_2", true);
 
                     break;

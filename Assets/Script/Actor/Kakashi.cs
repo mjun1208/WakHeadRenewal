@@ -77,6 +77,8 @@ namespace WakHead
             {
                 return;
             }
+            
+            Skill_2_Delay = Skill_2_CoolTime;
 
             photonView.RPC("Sharingan", RpcTarget.All);
 

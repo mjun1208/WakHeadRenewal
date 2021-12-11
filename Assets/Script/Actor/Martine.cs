@@ -129,6 +129,8 @@ namespace WakHead
                 var newVentScript = newVent.GetComponent<Martine_Vent>();
                 newVentScript.SetInfo(this.photonView, this.gameObject, GetAttackDir(), MyTeam);
                 _myVentList.Add(newVentScript);
+                
+                Skill_2_Delay = Skill_2_CoolTime;
             }
             else
             {

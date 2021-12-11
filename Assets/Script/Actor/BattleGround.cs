@@ -79,6 +79,8 @@ namespace WakHead
 
         public override void OnSkill_1()
         {
+            Skill_1_Delay = Skill_1_CoolTime;
+            
             var throwValues = Enum.GetValues(typeof(ThrowType));
             _throwType = (ThrowType) throwValues.GetValue(new Random().Next(0, throwValues.Length));
 
@@ -116,6 +118,8 @@ namespace WakHead
         {
             aim.DestoryAction -= EndSnipe;
 
+            Skill_2_Delay = Skill_2_CoolTime;
+            
             IsDoingSkill = false;
             IsSkill_2 = false;
             _animator.SetBool("IsSkill_2", false);

@@ -61,6 +61,8 @@ namespace WakHead
         {
             base.OnSkill_1();
 
+            Skill_1_Delay = Skill_1_CoolTime;
+            
             photonView.RPC("DisInvisibilityRPC", RpcTarget.All);
         }
 
@@ -68,6 +70,8 @@ namespace WakHead
         {
             IsSkill_2 = true;
             IsDoingSkill = true;
+            
+            Skill_2_Delay = Skill_2_CoolTime;
 
             photonView.RPC("InvisibilityRPC", RpcTarget.All);
         }
