@@ -1,0 +1,32 @@
+ManifestFileVersion: 0
+CRC: 952844365
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c24654820541fc3a5de1cc3133581b88
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c90fc19e2679e5295d10bd00f33cb4c3
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Image/UI/Pick/Ready/Body/Sans.png
+- Assets/Image/UI/Pick/Ready/Body/Kakashi.png
+- Assets/Image/UI/Pick/Ready/Body/Jett.png
+- Assets/Image/UI/Pick/Ready/Body/Ahri.png
+- Assets/Image/UI/Pick/Ready/Body/BattleGround.png
+- Assets/Image/UI/Pick/Ready/Body/Naruto.png
+- Assets/Image/UI/Pick/Ready/Body/VR.png
+- Assets/Image/UI/Pick/Ready/Body/Martine.png
+- Assets/Image/UI/Pick/Ready/Body/Tree.png
+- Assets/Image/UI/Pick/Ready/Body/Ranger.png
+- Assets/Image/UI/Pick/Ready/Body/AnimalCrossing.png
+- Assets/Image/UI/Pick/Ready/Body/Normal.png
+- Assets/Image/UI/Pick/Ready/Body/Minecraft.png
+- Assets/Image/UI/Pick/Ready/Body/Vengenpro.png
+- Assets/Image/UI/Pick/Ready/Body/Banana.png
+Dependencies: []

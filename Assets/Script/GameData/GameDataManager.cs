@@ -12,12 +12,14 @@ namespace WakHead
 
         private Object[] _loadedSkillIcon;
         private Object[] _loadedProfilelIcon;
+        private Object[] _loadedBodyImage;
 
         public void Load()
         {
             GameDataLoad();
             SkillIconLoad();
             ProfileIconLoad();
+            BodyImageLoad();
         }
 
         public void GameDataLoad()
@@ -66,6 +68,21 @@ namespace WakHead
 
             _loadedProfilelIcon = bundle.LoadAllAssets();
         }
+        
+        public void BodyImageLoad()
+        {
+            string assetBundlePath;
+
+#if UNITY_EDITOR
+            assetBundlePath = "Assets/StreamingAssets/bodyimage";
+#else
+        assetBundlePath = Application.dataPath + "/StreamingAssets/bodyimage";
+#endif
+            AssetBundleCreateRequest request = AssetBundle.LoadFromMemoryAsync(File.ReadAllBytes(assetBundlePath));
+            AssetBundle bundle = request.assetBundle;
+
+            _loadedBodyImage = bundle.LoadAllAssets();
+        }
 
         public Sprite FindSkillIcon(string name)
         {
@@ -98,6 +115,25 @@ namespace WakHead
                         100.0f);
 
                     return profileIconSprite as Sprite;
+                }
+            }
+
+            return null;
+        }
+        
+        public Sprite FindBodyImage(string name)
+        {
+            foreach (var bodyImage in _loadedBodyImage)
+            {
+                if (bodyImage.name == name)
+                {
+                    var bodyImageTex = bodyImage as Texture2D;
+
+                    Sprite bodyImageSprite = Sprite.Create(bodyImageTex,
+                        new Rect(0.0f, 0.0f, bodyImageTex.width, bodyImageTex.height), new Vector2(0.5f, 0.5f),
+                        100.0f);
+
+                    return bodyImageSprite as Sprite;
                 }
             }
 
