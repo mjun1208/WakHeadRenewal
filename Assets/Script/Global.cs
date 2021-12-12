@@ -154,6 +154,7 @@ namespace WakHead
             MyTeam = Team.None;
             EnemyTeam = Team.None;
 
+            MyActorSetAction = null;
             BlueActorSetAction = null;
             RedActorSetAction = null;
 
@@ -293,6 +294,8 @@ namespace WakHead
             MyTeam = PhotonNetwork.IsMasterClient ? Team.BLUE : Team.RED;
             MyActor.SetTeam(MyTeam);
 
+            MyActorSetAction?.Invoke(MyActor);
+            
             Action<Actor> actorSetAction = PhotonNetwork.IsMasterClient ? BlueActorSetAction : RedActorSetAction;
             actorSetAction?.Invoke(MyActor);
 
