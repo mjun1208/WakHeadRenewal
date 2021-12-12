@@ -1,4 +1,5 @@
-﻿using Photon.Pun;
+﻿using System;
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using CodeStage.AntiCheat.ObscuredTypes;
@@ -8,10 +9,18 @@ namespace WakHead
 {
     public class Ahri : Actor
     {
-        private GameObject MyOrb;
+        private Ahri_Orb _myOrb;
 
         private ObscuredFloat _rushSpeed = 15f;
-        
+
+        protected override void Awake()
+        {
+            base.Awake();
+            
+            _myOrb = Global.PoolingManager.LocalSpawn("Ahri_Orb", this.transform.position, Quaternion.identity, true).GetComponent<Ahri_Orb>();
+            _myOrb.gameObject.SetActive(false);
+        }
+
         protected override void Update()
         {
             base.Update();
@@ -35,26 +44,19 @@ namespace WakHead
         protected override void Attack()
         {
             if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("Idle") &&
-                !_animator.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
+                !_animator.GetCurrentAnimatorStateInfo(0).IsName("Walk") &&
+                !_animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
             {
                 return;
             }
 
-            _animator.SetBool("IsAttack", false);
-
+            _animator.SetBool("IsAttack", _isAttackInput && !_myOrb.gameObject.activeSelf);
+            
             if (_isAttackInput)
             {
-                if (MyOrb != null)
+                if (_myOrb != null && !_myOrb.gameObject.activeSelf)
                 {
-                    if (!MyOrb.activeSelf)
-                    {
-                        MyOrb = null;
-                    }
-                }
-
-                if (MyOrb == null)
-                {
-                    photonView.RPC("ShootOrb", RpcTarget.All);
+                    photonView.RPC("ShootOrb", RpcTarget.All, GetAttackDir().x);
                 }
             }
         }
@@ -65,13 +67,11 @@ namespace WakHead
         }
 
         [PunRPC]
-        public void ShootOrb()
+        public void ShootOrb(float dir_x)
         {
-            MyOrb = Global.PoolingManager.LocalSpawn("Ahri_Orb", this.transform.position, Quaternion.identity, true);
-
             base.Attack();
-            MyOrb.SetActive(true);
-            MyOrb.GetComponent<Ahri_Orb>().SetInfo(this.photonView, this.gameObject, GetAttackDir(), MyTeam);
+            _myOrb.gameObject.SetActive(true);
+            _myOrb.GetComponent<Ahri_Orb>().SetInfo(this.photonView, this.gameObject, new Vector3(dir_x, 0, 0), MyTeam);
         }
 
         [PunRPC]
@@ -81,6 +81,11 @@ namespace WakHead
                 Global.PoolingManager.LocalSpawn("Ahri_Heart", this.transform.position, Quaternion.identity, true);
 
             newHeart.GetComponent<Ahri_Heart>().SetInfo(this.photonView, this.gameObject, GetAttackDir(), MyTeam);
+        }
+
+        private void OnDestroy()
+        {
+            Global.PoolingManager.LocalDespawn(_myOrb.gameObject);
         }
     }
 }
