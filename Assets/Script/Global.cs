@@ -63,10 +63,21 @@ namespace WakHead
         [SerializeField] private GameObject _blueWinImage;
         [SerializeField] private GameObject _redWinImage;
 
+        [SerializeField] private GameObject _readyObject;
         
+        [SerializeField] private GameObject _blueReadyObject;
+        [SerializeField] private GameObject _redReadyObject;
+        
+        [SerializeField] private Image _blueReadyActorImage;
+        [SerializeField] private Image _redReadyActorImage;
+        
+        [SerializeField] private Text _blueReadyNameText;
+        [SerializeField] private Text _redReadyNameText;
+        
+        private bool _isGameStarted = false;
         private bool _isLeaving = false;
         private bool _isEndGame = false;
-        
+
         private void Awake()
         {
             if (_instance == null)
@@ -187,6 +198,48 @@ namespace WakHead
             _fadeUI.DOKill();
             _fadeUI.DOFade(0f, 0.5f).SetEase(Ease.Linear).OnComplete(callback);
         }
+        
+        public void GameReady()
+        {
+            _readyObject.SetActive(true);
+
+            switch (MyTeam)
+            {
+                case Team.BLUE:
+                {
+                    _blueReadyActorImage.sprite = GameDataManager.FindBodyImage(GameDataManager.ActorGameData.ActorGameDataList[MyActorID].Name);
+                    _redReadyActorImage.sprite = GameDataManager.FindBodyImage(GameDataManager.ActorGameData.ActorGameDataList[EnemyActorID].Name);
+
+                    _blueReadyNameText.text = PlayerName;
+                    _redReadyNameText.text = EnemyName;
+                    
+                    break;
+                } 
+                case Team.RED:
+                {
+                    _blueReadyActorImage.sprite = GameDataManager.FindBodyImage(GameDataManager.ActorGameData.ActorGameDataList[EnemyActorID].Name);
+                    _redReadyActorImage.sprite = GameDataManager.FindBodyImage(GameDataManager.ActorGameData.ActorGameDataList[MyActorID].Name);
+
+                    _blueReadyNameText.text = EnemyName;
+                    _redReadyNameText.text = PlayerName;
+                    break;
+                } 
+            }
+
+            _blueReadyObject.GetComponent<RectTransform>().DOAnchorPosX(553, 0.5f).From(new Vector2(-800, 0));
+            _redReadyObject.GetComponent<RectTransform>().DOAnchorPosX(-553, 0.5f).From(new Vector2(800, 0));
+
+            _isGameStarted = false;
+        }
+
+        public void GameStart()
+        {
+            _isGameStarted = true;
+            
+            _blueReadyObject.GetComponent<RectTransform>().DOAnchorPosX(-800, 0.5f).From(new Vector2(553, 0));
+            _redReadyObject.GetComponent<RectTransform>().DOAnchorPosX(800, 0.5f).From(new Vector2(-553, 0)).OnComplete(() => _readyObject.SetActive(false));
+        }
+        
 
         public void SetPlayerName(string name)
         {
@@ -242,6 +295,11 @@ namespace WakHead
 
             Action<Actor> actorSetAction = PhotonNetwork.IsMasterClient ? BlueActorSetAction : RedActorSetAction;
             actorSetAction?.Invoke(MyActor);
+
+            if (MyActor && EnemyActor && !_isGameStarted)
+            {
+                GameStart();
+            }
         }
 
         public void SetEnemyActor(Actor actor)
@@ -257,6 +315,11 @@ namespace WakHead
 
             Action<Actor> actorSetAction = PhotonNetwork.IsMasterClient ? RedActorSetAction : BlueActorSetAction;
             actorSetAction?.Invoke(EnemyActor);
+            
+            if (MyActor && EnemyActor && !_isGameStarted)
+            {
+                GameStart();
+            }
         }
     }
 }
