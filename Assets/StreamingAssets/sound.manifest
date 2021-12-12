@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 3654728300
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 485b05dcf12decf15907aa2750a44983
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+Assets:
+- Assets/Sound/Actor/Sans/Wa_!!.mp3
+- Assets/Sound/Actor/Sans/Sans_Attack_Sound.mp3
+- Assets/Sound/Actor/Sans/Sans_WaveAttack.mp3
+- Assets/Sound/Actor/Sans/Sans_Attack_Move.mp3
+Dependencies: []
