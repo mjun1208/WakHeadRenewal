@@ -16,6 +16,7 @@ namespace WakHead
         [SerializeField] private Image _hpGauge;
 
         private Entity _targetEntity;
+        private Actor _targetActor;
 
         private float _attackDelay = 0f;
         private readonly float attackDelay = 0.1f;
@@ -90,7 +91,9 @@ namespace WakHead
 
                 if (_attackDelay <= 0f)
                 {
-                    _targetEntity.OnDamage(_targetEntity.transform.position, 1, _team);
+                    var isActor = _targetEntity is Actor;
+                    
+                    _targetEntity.OnDamage(_targetEntity.transform.position, isActor ? 5 : 1, _team);
                     _attackDelay = attackDelay;
                 }
             }
@@ -105,6 +108,34 @@ namespace WakHead
             HP -= 1;
         }
 
+        public void MyActorDamaged()
+        {
+            if (GetEnemyActor() != null)
+            {
+                _targetEntity = _targetActor;
+            }
+        }
+        
+        private Actor GetEnemyActor()
+        {
+            int layerMask = (1 << LayerMask.NameToLayer("Enemy")) + (1 << LayerMask.NameToLayer("Player"));
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(this.transform.position, 5f, Vector2.zero, 0f, layerMask);
+
+            _targetActor = null;
+            
+            foreach (var hit in hits)
+            {
+                var hitActor = hit.transform.GetComponent<Actor>();
+                
+                if (hitActor != null && hitActor.MyTeam != _team) 
+                {
+                    _targetActor = hitActor;
+                }
+            }
+
+            return _targetActor;
+        }
+        
         private Entity GetAttackTarget()
         {
             int layerMask = (1 << LayerMask.NameToLayer("Enemy")) + (1 << LayerMask.NameToLayer("Player")) +

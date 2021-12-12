@@ -29,11 +29,13 @@ namespace WakHead
         public static GameDataManager GameDataManager => _gameDataManager;
         public static ResourceManager ResourceManager => _resourceManager;
         public static PoolingManager PoolingManager => _poolingManager;
+        public static SoundManager SoundManager => _soundManager;
 
         private static Global _instance;
         private static GameDataManager _gameDataManager;
         private static ResourceManager _resourceManager;
         private static PoolingManager _poolingManager;
+        private static SoundManager _soundManager;
 
         public ObscuredString PlayerName { get; private set; }
         public ObscuredString EnemyName { get; private set; }
@@ -53,6 +55,8 @@ namespace WakHead
         public Team MyTeam { get; private set; }
         public Team EnemyTeam { get; private set; }
 
+        public Action<Actor> MyActorSetAction;
+        
         public Action<Actor> BlueActorSetAction;
         public Action<Actor> RedActorSetAction;
 
@@ -88,9 +92,11 @@ namespace WakHead
                 _gameDataManager = new GameDataManager();
                 _resourceManager = new ResourceManager();
                 _poolingManager = new PoolingManager();
+                _soundManager = new SoundManager();
 
                 _gameDataManager.Load();
                 _resourceManager.Load();
+                _soundManager.Load();
 
                 IsLoaded = true;
             }
@@ -102,7 +108,10 @@ namespace WakHead
 
         public override void OnPlayerLeftRoom(Player otherPlayer)
         {
-            LeaveRoom();
+            if (!_isEndGame)
+            {
+                LeaveRoom();
+            }
         }
 
         public override void OnLeftRoom()
@@ -110,7 +119,19 @@ namespace WakHead
             SceneManager.LoadScene("RealTitle");
             SceneManager.sceneLoaded += Leaving;
         }
-        
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Q) && !_isGameStarted)
+            {
+                GameStart();
+            }
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                LeaveRoom();
+            }
+        }
+
         public void LeaveRoom()
         {
             ResetInfo();
@@ -252,7 +273,16 @@ namespace WakHead
             EnemyName = name;
         }
 
+        public void SetMyTeam(Team team)
+        {
+            MyTeam = team;
+        }
 
+        public void SetEnemyTeam(Team team)
+        {
+            EnemyTeam = team;
+        }
+        
         public void SetMyActorName(string name)
         {
             MyActorName = name;
@@ -291,8 +321,9 @@ namespace WakHead
             }
 
             MyActor = actor;
-            MyTeam = PhotonNetwork.IsMasterClient ? Team.BLUE : Team.RED;
             MyActor.SetTeam(MyTeam);
+            
+            actor.Spawn();
 
             MyActorSetAction?.Invoke(MyActor);
             

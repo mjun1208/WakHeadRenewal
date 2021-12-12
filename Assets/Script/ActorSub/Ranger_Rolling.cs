@@ -8,6 +8,7 @@ namespace WakHead
 {
     public class Ranger_Rolling : ActorSub
     {
+        [SerializeField] private GameObject _rollingBeam;
         private Vector3 _originalScale;
         private bool _isAttack = false;
 
@@ -28,6 +29,8 @@ namespace WakHead
             this.transform.localScale = new Vector3(rotationScale, _originalScale.y, _originalScale.z);
             
             _isAttack = false;
+
+            _rollingBeam.transform.localScale = new Vector3(gauge, 1, 1);
         }
 
         public void ActiveAttack()
@@ -44,7 +47,7 @@ namespace WakHead
                 if (_attackTimer > attackDelay)
                 {
                     _attackTimer = 0f;
-                    _attackRange.Attack(targetEntity => { OnDamage(targetEntity, 1); }, MyTeam);
+                    _attackRange.Attack(targetEntity => { OnDamage(targetEntity, 8); }, MyTeam);
                 }
             }
         }

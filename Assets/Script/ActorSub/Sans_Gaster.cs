@@ -35,7 +35,7 @@ namespace WakHead
 
             photonView.RPC("SetInfo", RpcTarget.All, _ownerID, dir, team);
 
-            MaxHP = 5;
+            MaxHP = 3;
             HP = MaxHP;
         }
 

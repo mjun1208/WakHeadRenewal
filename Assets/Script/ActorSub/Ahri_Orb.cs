@@ -16,7 +16,9 @@ namespace WakHead
         public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, Team team = Team.None)
         {
             base.SetInfo(ownerPhotonView, owner, dir, team);
-
+            
+            StopAllCoroutines();
+            
             _trail.Clear();
 
             _collidedObjectList.Clear();
@@ -32,7 +34,7 @@ namespace WakHead
             {
                 if (!_collidedObjectList.Contains(targetEntity.gameObject))
                 {
-                    OnDamage(targetEntity, 3);
+                    OnDamage(targetEntity, 6);
                     _collidedObjectList.Add(targetEntity.gameObject);
                 }
             } ,MyTeam);
@@ -91,6 +93,12 @@ namespace WakHead
             _trail.Clear();
 
             Destroy();
+        }
+        
+        public virtual void Destroy()
+        {
+            DestoryAction?.Invoke(this);
+            this.gameObject.SetActive(false);
         }
     }
 }

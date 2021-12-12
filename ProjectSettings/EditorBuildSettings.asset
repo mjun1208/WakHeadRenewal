@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Title.unity
     guid: d452c60538362c5439f9aae2d160ac9c
+  - enabled: 0
+    path: Assets/Scenes/Movie/Kiss.unity
+    guid: bc2cefe622072f64193e783ce514f01c
   m_configObjects: {}

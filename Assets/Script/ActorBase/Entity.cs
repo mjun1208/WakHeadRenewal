@@ -21,7 +21,7 @@ namespace WakHead
         public Action CrownControlAction;
         public Action<Action, Entity> DeadCameraAction;
         public Action DeadAction;
-        public Action OnDamageAction;
+        public Action<bool> OnDamageAction;
 
         public Team MyTeam { get; protected set; } = Team.None;
 
@@ -347,9 +347,13 @@ namespace WakHead
             float distance = float.MaxValue;
 
             Damaged(this.transform.position, damage, team, effectName, effectXOffset, effectFlip);
+
+            float duration = distance / grabSpeed;
             
-            while (distance > 0.1f)
+            while (distance > 0.1f && duration > 0)
             {
+                duration -= Time.deltaTime;
+                
                 distance = Vector3.Distance(this.transform.position, targetPostion);
 
                 this.transform.position =
@@ -433,7 +437,7 @@ namespace WakHead
                 effect.transform.parent = this.transform;
             }
 
-            OnDamageAction?.Invoke();
+            OnDamageAction?.Invoke(effectName == "ChimpanzeeAttackEffect");
             
             if (photonView.IsMine)
             {

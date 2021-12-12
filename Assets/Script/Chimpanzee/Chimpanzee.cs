@@ -71,7 +71,7 @@ namespace WakHead
                 IsAttack = false;
             };
 
-            MaxHP =  _isSuper ? 50 : 25;
+            MaxHP =  _isSuper ? 75 : 25;
             ResetHp();
 
             DeadAction += Dead;
@@ -323,7 +323,7 @@ namespace WakHead
             {
                 if (_isSuper)
                 {
-                    targetEntity.KnockBack(1, GetAttackDir(), 0.1f, 0, MyTeam, "ChimpanzeeAttackEffect");
+                    targetEntity.KnockBack(2, GetAttackDir(), 0.3f, 0, MyTeam, "ChimpanzeeAttackEffect");
                 }
                 else
                 {

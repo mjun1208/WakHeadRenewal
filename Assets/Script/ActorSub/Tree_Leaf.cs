@@ -9,6 +9,7 @@ namespace WakHead
     public class Tree_Leaf : ActorSub
     {
         private Vector3 _originalScale;
+        private float _damage;
 
         private void Awake()
         {
@@ -25,6 +26,8 @@ namespace WakHead
             _moveSpeed = Constant.TREE_LEFT_MOVE_SPEED * scale;
             
             StartCoroutine(Go());
+
+            _damage = scale;
             
             _dir = Vector3.down;
         }
@@ -39,7 +42,7 @@ namespace WakHead
                     targetSummoned.Damaged(targetSummoned.transform.position, MyTeam);
                 }
 
-                OnDamage(null, 3);
+                OnDamage(null, (int)Math.Round(4f * _damage));
             }, MyTeam, true);
         }
 

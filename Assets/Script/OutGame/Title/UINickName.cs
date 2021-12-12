@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +22,7 @@ namespace WakHead
 
         public void SetPlayerName(string name)
         {
+            PhotonNetwork.NickName = name;
             Global.instance.SetPlayerName(name);
         }
 

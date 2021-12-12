@@ -33,7 +33,7 @@ namespace WakHead
 
         private void Update()
         {
-            _attackRange.AttackEntity(targetEntity => { OnDamage(targetEntity, 10); }, MyTeam, true);
+            _attackRange.AttackEntity(targetEntity => { OnDamage(targetEntity, 4); }, MyTeam, true);
 
             _attackRange.AttackSummoned(targetSummoned =>
             {
@@ -43,7 +43,7 @@ namespace WakHead
                         "JettAttackEffect", 0,_dir.x > 0);
                 }
 
-                OnDamage(null, 10);
+                OnDamage(null, 4);
             }, MyTeam, true);
         }
 

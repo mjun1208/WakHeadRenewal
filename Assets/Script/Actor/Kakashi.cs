@@ -109,7 +109,7 @@ namespace WakHead
         {
             float lifetime = 0f;
 
-            while (lifetime < 5f && !_isAttackInput)
+            while (lifetime < 10f && !_isAttackInput)
             {
                 lifetime += Time.deltaTime;
                 yield return null;

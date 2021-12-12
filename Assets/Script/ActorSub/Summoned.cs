@@ -69,16 +69,16 @@ namespace WakHead
 
         public void OnDamage(Vector3 pos, Team team, string effectName, float effectXOffset, bool effectFlip)
         {
-            var randomPos = (Vector3) UnityEngine.Random.insideUnitCircle * 0.5f;
-
-            Global.PoolingManager.LocalSpawn("HitEffect", this.transform.position + randomPos,
-                Quaternion.Euler(new Vector3(0, effectFlip ? 0 : -180, 0)), true);
-
             if (MyTeam != Team.None && MyTeam == team)
             {
                 return;
             }
             
+            var randomPos = (Vector3) UnityEngine.Random.insideUnitCircle * 0.5f;
+
+            Global.PoolingManager.LocalSpawn("HitEffect", this.transform.position + randomPos,
+                Quaternion.Euler(new Vector3(0, effectFlip ? 0 : -180, 0)), true);
+
             if (photonView.IsMine)
             {
                 _currentHP--;

@@ -47,6 +47,13 @@ namespace WakHead
             {
                 var dir = entity.transform.position - this.transform.position;
                 entity.KnockBack(damage, dir.normalized, 2f, 0, MyTeam);
+                
+                HP--;
+
+                if (HP <= 0)
+                {
+                    IsDead = true;
+                }
             }
         }
     }

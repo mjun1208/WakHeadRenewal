@@ -19,7 +19,7 @@ namespace WakHead
         private string _actorName;
         private bool _isOn = true;
         
-        private void Start()
+        private void Awake()
         {
             switch (_team)
             {

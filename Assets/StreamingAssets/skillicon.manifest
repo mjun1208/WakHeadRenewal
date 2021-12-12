@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1536651216
+CRC: 2450873632
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: aa76a1be6ebd525840a438feff4e7375
+    Hash: 0f6716b094afd0f279fab2ea153e6599
   TypeTreeHash:
     serializedVersion: 2
     Hash: c90fc19e2679e5295d10bd00f33cb4c3
@@ -21,7 +21,7 @@ Assets:
 - Assets/Image/SkillIcon/Tree_Skill_2_Icon.png
 - Assets/Image/SkillIcon/Ranger_Skill_1_Icon.png
 - Assets/Image/SkillIcon/Kakashi_Skill_2_Icon.png
-- Assets/Image/SkillIcon/Jett_Skill_2_Icon.png
+- Assets/Image/SkillIcon/Jett_Skill_1_Icon.png
 - Assets/Image/SkillIcon/Banana_Skill_1_Icon.png
 - Assets/Image/SkillIcon/Minecraft_Skill_1_Icon.png
 - Assets/Image/SkillIcon/Ahri_Skill_2_Icon.png
@@ -38,7 +38,7 @@ Assets:
 - Assets/Image/SkillIcon/Martine_Skill_1_Icon.png
 - Assets/Image/SkillIcon/Normal_Skill_2_Icon.png
 - Assets/Image/SkillIcon/VR_Skill_1_Icon.png
-- Assets/Image/SkillIcon/Jett_Skill_1_Icon.png
+- Assets/Image/SkillIcon/Jett_Skill_2_Icon.png
 - Assets/Image/SkillIcon/Sans_Skill_2_Icon.png
 - Assets/Image/SkillIcon/Ahri_Skill_1_Icon.png
 - Assets/Image/SkillIcon/Martine_Skill_2_Icon.png

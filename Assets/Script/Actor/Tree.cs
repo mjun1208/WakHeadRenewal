@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Random = UnityEngine.Random;
 
 namespace WakHead
 {
@@ -22,8 +24,10 @@ namespace WakHead
             {
                 return;
             }
-
-            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(4, GetAttackDir(), 0.5f, 0, MyTeam,
+            
+            var scale = _originalScale.y / _realOriginalScale.y;
+            
+            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(5 + (int)Math.Round(3f * scale), GetAttackDir(), 0.5f, 0, MyTeam,
                 "TreeAttackEffect",GetAttackDir().x * 0.1f ,GetAttackDir().x > 0); }, MyTeam);
         }
 
@@ -54,7 +58,7 @@ namespace WakHead
                 return;
             }
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 10; i++)
             {
                 var randomPos = (Vector3) Random.insideUnitCircle * 0.5f * this.transform.localScale.y;
 

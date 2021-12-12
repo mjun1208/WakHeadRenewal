@@ -31,7 +31,7 @@ namespace WakHead
         {
             CameraManager.instance.Shake(0.5f, 0.1f);
             
-            _attackRange.Attack(targetEntity => { OnDamage(targetEntity, 30); }, MyTeam);
+            _attackRange.Attack(targetEntity => { OnDamage(targetEntity, 15); }, MyTeam);
         }
         
         protected override void OnDamage(Entity entity, int damage)

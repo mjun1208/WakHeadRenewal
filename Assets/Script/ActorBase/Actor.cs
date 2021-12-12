@@ -36,9 +36,14 @@ namespace WakHead
 
         public ObscuredFloat Skill_1_Delay { get; protected set; } = 0f;
         public ObscuredFloat Skill_2_Delay { get; protected set; } = 0f;
+        
+        public ObscuredFloat Flash_CoolTime { get; protected set; } = 45f;
+        public ObscuredFloat Flash_Delay { get; protected set; } = 0f;
 
         public ObscuredBool IsSkill_1 { get; protected set; } = false;
         public ObscuredBool IsSkill_2 { get; protected set; } = false;
+        
+        public ObscuredInt DeadTime { get; set; } = 0;
 
         protected Vector3 _originalScale = Vector3.zero;
 
@@ -120,7 +125,10 @@ namespace WakHead
             {
                 Global.instance.SetEnemyActor(this);
             }
-            
+        }
+
+        public void Spawn()
+        {
             switch (MyTeam)
             {
                 case Team.BLUE:
@@ -156,6 +164,15 @@ namespace WakHead
             else
             {
                 Skill_2_Delay = 0;
+            }
+
+            if (Flash_Delay > 0)
+            {
+                Flash_Delay -= Time.deltaTime;
+            }
+            else
+            {
+                Flash_Delay = 0;
             }
             
             if (!photonView.IsMine || IsDead || IsStun)
@@ -244,12 +261,19 @@ namespace WakHead
 
         protected virtual void Flash()
         {
+            if (Flash_Delay > 0f)
+            {
+                return;
+            }
+            
             photonView.RPC("SpawnFlashEffect", RpcTarget.All, this.transform.position.x, this.transform.position.y);
             
             var flashDir = _movedir == Vector3.zero ? GetAttackDir() : _movedir;
 
             transform.Translate(flashDir * Constant.FLASH_OFFSET);
             _smoothSync.teleport();
+            
+            Flash_Delay = Flash_CoolTime;
         }
 
         [PunRPC]
@@ -488,11 +512,17 @@ namespace WakHead
             }
         }
 
-        private void OnDamage()
+        protected virtual void OnDamage(bool isChimpanzee)
         {
             if (photonView.IsMine)
             {
                 Global.PoolingManager.SpawnScreenHit();
+            }
+
+            if (!isChimpanzee)
+            {
+                var myTower = MyTeam == Team.BLUE ? Global.instance.BlueTower : Global.instance.RedTower;
+                myTower.MyActorDamaged();
             }
         }
 
@@ -506,7 +536,7 @@ namespace WakHead
                 this.transform.rotation, true);
             _renderer.enabled = false;
             _collider2D.enabled = false;
-            _occupiedCollider.enabled = false;
+            _occupiedCollider.IsWork = false;
 
             ForceStop();
         }
@@ -516,21 +546,7 @@ namespace WakHead
             IsDead = false;
             ResetHp();
 
-            switch (MyTeam)
-            {
-                case Team.BLUE:
-                {
-                    transform.position = Global.instance.BlueTower.transform.position + new Vector3(-3f, 0, 0);
-                    break;
-                }
-                case Team.RED:
-                {
-                    transform.position = Global.instance.RedTower.transform.position + new Vector3(3f, 0, 0);;
-                    break;
-                }
-            }
-            
-            _smoothSync.teleport();
+            Spawn();
 
             photonView.RPC("RespawnRPC", RpcTarget.All);
         }
@@ -541,7 +557,7 @@ namespace WakHead
             _animator.Rebind();
             _renderer.enabled = true;
             _collider2D.enabled = true;
-            _occupiedCollider.enabled = true;
+            _occupiedCollider.IsWork = true;
         }
     }
 }

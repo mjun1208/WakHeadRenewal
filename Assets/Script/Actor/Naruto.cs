@@ -132,8 +132,6 @@ namespace WakHead
                 {
                     _rasenganState = RasenganState.Charging;
 
-                    Skill_2_Delay = Skill_2_CoolTime;
-                    
                     OnSkill_2();
                     
                     SetDummyAnimation("IsSkill_2", true);
@@ -167,6 +165,8 @@ namespace WakHead
                 {
                     IsSkill_2 = true;
 
+                    Skill_2_Delay = Skill_2_CoolTime;
+                    
                     if (OnSkillCoroutine == null)
                     {
                         IsDoingSkill = true;

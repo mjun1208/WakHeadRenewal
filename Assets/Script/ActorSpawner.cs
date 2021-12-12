@@ -10,7 +10,7 @@ namespace WakHead
         [SerializeField] List<GameObject> Actors;
 
         private Actor _currentActor = null;
-        private int deathTime = 0;
+        private int deadTime = 0;
 
         private void Start()
         {
@@ -63,11 +63,13 @@ namespace WakHead
 
         private IEnumerator RespawnTimer()
         {
-            yield return new WaitForSeconds(5f + (deathTime * 2f));
+            _currentActor.DeadTime = deadTime;
+            
+            yield return new WaitForSeconds(5f + (deadTime * 2f));
 
             _currentActor.Respawn();
 
-            deathTime++;
+            deadTime++;
         }
     }
 }

@@ -154,6 +154,7 @@ MonoBehaviour:
   _stunEffect: {fileID: 72456951849028860}
   _animator: {fileID: 7455623265249978266}
   _attackRange: {fileID: 2006480668188023102}
+  _isSuper: 1
 --- !u!212 &5355879083403094324
 SpriteRenderer:
   m_ObjectHideFlags: 0

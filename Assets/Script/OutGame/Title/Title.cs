@@ -33,6 +33,8 @@ namespace WakHead
 
             PhotonNetwork.ConnectUsingSettings();
             PhotonNetwork.GameVersion = this.Version + "." + SceneManagerHelper.ActiveSceneBuildIndex;
+
+            Time.timeScale = 1f;
         }
 
         public void CreateRoom()
@@ -162,14 +164,6 @@ namespace WakHead
                 }
 
                 yield return null;
-            }
-
-            foreach (var player in PhotonNetwork.CurrentRoom.Players)
-            {
-                if (player.Value.NickName != Global.instance.PlayerName)
-                {
-                    Global.instance.SetEnemyName(player.Value.NickName);
-                }
             }
 
             yield return null;

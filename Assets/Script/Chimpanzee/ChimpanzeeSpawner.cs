@@ -20,14 +20,17 @@ namespace WakHead
         {
             while (true)
             {
-                if (PhotonNetwork.IsConnected && PhotonNetwork.IsMasterClient &&
+                if (PhotonNetwork.IsConnected && PhotonNetwork.IsMasterClient/* &&
                     !string.IsNullOrWhiteSpace(Global.instance.MyActorName) &&
-                    !string.IsNullOrWhiteSpace(Global.instance.EnemyActorName))
+                    !string.IsNullOrWhiteSpace(Global.instance.EnemyActorName)*/)
                 {
-                    Spawn();
+                    for (int i = 0; i < 10; i++)
+                    {
+                        Spawn();
+                    }
                 }
 
-                yield return new WaitForSeconds(5f);
+                yield return new WaitForSeconds(20f);
             }
         }
 
@@ -51,7 +54,7 @@ namespace WakHead
                 }
             }
 
-            var randomPos = (Vector3) Random.insideUnitCircle * 3f;
+            var randomPos = (Vector3) Random.insideUnitCircle * 2.5f;
 
             var newPanzee =
                 PhotonNetwork.Instantiate(spawnName, this.transform.position + randomPos, Quaternion.identity);

@@ -43,8 +43,8 @@ namespace WakHead
                 return;
             }
 
-            RaycastHit2D[] hits = Physics2D.RaycastAll(_ghostPivot.transform.position, GetAttackDir(), 3f);
-            Debug.DrawRay(_ghostPivot.transform.position, GetAttackDir() * 3f, Color.red, 3f);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(_ghostPivot.transform.position, GetAttackDir(), 2f);
+            Debug.DrawRay(_ghostPivot.transform.position, GetAttackDir() * 2f, Color.red, 3f);
 
             foreach (var hit in hits)
             {
@@ -56,6 +56,11 @@ namespace WakHead
                 var entity = hit.transform.GetComponent<Entity>();
                 if (entity != null)
                 {
+                    if (entity.MyTeam == MyTeam)
+                    {
+                        continue;
+                    }
+                    
                     entity.KnockBack(3, GetAttackDir(), 0.5f, 0, MyTeam, 
                         "JettAttackEffect", 0, GetAttackDir().x > 0);
                     break;
@@ -64,6 +69,11 @@ namespace WakHead
                 var summoned = hit.transform.GetComponent<Summoned>();
                 if (summoned != null)
                 {
+                    if (summoned.MyTeam == MyTeam)
+                    {
+                        continue;
+                    }
+                    
                     summoned.Damaged(summoned.transform.position, MyTeam, 
                         "JettAttackEffect", 0, GetAttackDir().x > 0);
                     break;

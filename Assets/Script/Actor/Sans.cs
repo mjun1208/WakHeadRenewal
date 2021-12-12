@@ -73,6 +73,7 @@ namespace WakHead
         [PunRPC]
         public void BoneAttack()
         {
+            Global.SoundManager.Play("Sans_Attack_Sound", this.transform.position);
             var newbone =
                 Global.PoolingManager.LocalSpawn("Sans_Bone", this.transform.position, Quaternion.identity, true);
 

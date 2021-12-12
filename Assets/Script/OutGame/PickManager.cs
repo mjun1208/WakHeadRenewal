@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -43,6 +44,9 @@ namespace WakHead
         private void Start()
         {
             Global.instance.FadeOut();
+            
+            Global.instance.SetMyTeam(PhotonNetwork.IsMasterClient ? Team.BLUE : Team.RED);
+            Global.instance.SetEnemyTeam(PhotonNetwork.IsMasterClient ? Team.RED : Team.BLUE);
 
             var pickSync = PhotonNetwork.Instantiate("PickSync", Vector3.zero, Quaternion.identity);
             MyPickSync = pickSync.GetComponent<PickSync>();
@@ -102,6 +106,16 @@ namespace WakHead
             _redActorArtist.text = ARTIST + Global.GameDataManager.ActorGameData.ActorGameDataList[index].Artist;
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                IsMyReady = true;
+                IsEnemyReady = true;
+                StartGame();
+            }
+        }
+
         public void Ready()
         {
             switch (MyTeam)
@@ -151,6 +165,8 @@ namespace WakHead
 
             _pickUI.transform.DOLocalMoveY(-750, 1f).SetEase(Ease.InOutBack).OnComplete(() =>
             {
+                Global.instance.GameReady();
+                
                 Global.instance.FadeIn(() =>
                 {
                     if (PhotonNetwork.IsMasterClient)
@@ -163,6 +179,8 @@ namespace WakHead
 
         public void StartGameClient()
         {
+            Global.instance.GameReady();
+            
             _pickUI.transform.DOLocalMoveY(-750, 1f).SetEase(Ease.InOutBack).OnComplete(() =>
             {
                 Global.instance.FadeIn();

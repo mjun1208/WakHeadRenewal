@@ -47,10 +47,33 @@ namespace WakHead
 
             if (_aim != null)
             {
+                if (Skill_1Input() || _isAttackInput)
+                {
+                    _aim.Destroy();
+
+                    _isSkill_1Input = false;
+                    _isAttackInput = false;
+
+                    _aim = null;
+                    
+                    return;
+                }
+                
                 if (Skill_2Input())
                 {
-                    photonView.RPC("SnipeShootRPC", RpcTarget.All, _aim.AimPosition);
+                    if (_aim != null && _aim.gameObject.activeSelf && _aim.ShootCount > 0) 
+                    {
+                        _aim.Shoot(_aim.AimPosition);
+                    }
                 }
+            }
+            else if (_onSniping)
+            {
+                _onSniping = false;
+                IsDoingSkill = false;
+                IsSkill_2 = false;
+
+                _animator.SetBool("IsSkill_2", false);
             }
 
             base.Update();
@@ -63,7 +86,7 @@ namespace WakHead
                 return;
             }
 
-            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(8, GetAttackDir(), 1f, 0, MyTeam,
+            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(30, GetAttackDir(), 1f, 0, MyTeam,
                 "NarutoAttackEffect", GetAttackDir().x * 0.1f, GetAttackDir().x > 0); }, MyTeam);
         }
 
@@ -109,9 +132,11 @@ namespace WakHead
 
             var centerPosition = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0f));
             centerPosition.z = 0f;
-
+            
             var newAim = Global.PoolingManager.Spawn("BattleGround_Aim", centerPosition, Quaternion.identity);
-            photonView.RPC("SetAimInfoRPC", RpcTarget.All, centerPosition, newAim.GetPhotonView().ViewID);
+            _aim = newAim.GetComponent<BattleGround_Aim>();
+            _aim.GetComponent<BattleGround_Aim>().SetInfo(this.photonView, this.gameObject, centerPosition, GetAttackDir(), MyTeam);
+            _aim.DestoryAction += EndSnipe;
         }
 
         public void EndSnipe(ActorSub aim)
@@ -137,28 +162,6 @@ namespace WakHead
 
             newThrowScript.DestoryAction += DespawnThrow;
             _throwList.Add(newThrowScript);
-        }
-
-        [PunRPC]
-        public void SetAimInfoRPC(Vector3 aimPosition, int photonViewID)
-        {
-            var newAim = PhotonView.Find(photonViewID).gameObject.GetComponent<BattleGround_Aim>();
-
-            newAim.GetComponent<BattleGround_Aim>().SetInfo(this.photonView, this.gameObject, GetAttackDir(), MyTeam);
-
-            newAim.transform.position = aimPosition;
-
-            _aim = newAim.GetComponent<BattleGround_Aim>();
-            _aim.DestoryAction += EndSnipe;
-        }
-
-        [PunRPC]
-        public void SnipeShootRPC(Vector3 aimPosition)
-        {
-            if (_aim != null)
-            {
-                _aim.Shoot(aimPosition);
-            }
         }
 
         public void DespawnThrow(ActorSub throws)

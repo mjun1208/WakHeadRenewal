@@ -12,15 +12,24 @@ namespace WakHead
 
         private void Awake()
         {
+            if (!photonView.IsMine)
+            {
+                Global.instance.SetEnemyName(photonView.Owner.NickName);
+            }
+
             string playerName = photonView.IsMine ? Global.instance.PlayerName : Global.instance.EnemyName;
 
             if (Instance.ContainsKey(playerName))
             {
                 var instance = Instance[playerName];
                 Instance.Remove(playerName);
-                PhotonNetwork.Destroy(instance.gameObject);
+                
+                if (instance != null)
+                {
+                    PhotonNetwork.Destroy(instance.gameObject);
+                }
             }
-            
+
             Instance.Add(playerName, this);
             PickManager.Instance.MyPickSync = this;
         }
@@ -39,6 +48,7 @@ namespace WakHead
                 if (enemyActorID != -1)
                 {
                     PickManager.Instance.EnemyActorSelect(enemyActorID);
+                    Global.instance.SetEnemyActorID(enemyActorID);
                 }
 
                 bool isReady = (bool) stream.ReceiveNext();

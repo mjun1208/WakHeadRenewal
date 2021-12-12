@@ -22,7 +22,7 @@ namespace WakHead
         private bool _isShooting = false;
         private IEnumerator _onShootingCoroutine = null;
 
-        public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, Team team = Team.None)
+        public void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 position, Vector3 dir, Team team = Team.None)
         {
             base.SetInfo(ownerPhotonView, owner, dir, team);
 
@@ -40,11 +40,19 @@ namespace WakHead
             {
                 _backGround.color = new Color(1, 1, 1, 130f / 255f);
             }
+            
+            photonView.RPC("SetInfoRPC" , RpcTarget.All, position);
+        }
+
+        [PunRPC]
+        public void SetInfoRPC(Vector3 position)
+        {
+            transform.position = position;
         }
 
         private void Update()
         {
-            if (!_ownerPhotonView.IsMine || _isShooting)
+            if (_ownerPhotonView == null || !_ownerPhotonView.IsMine || _isShooting)
             {
                 return;
             }
@@ -81,7 +89,7 @@ namespace WakHead
 
             yield return null;
 
-            while (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.9f)
+            while (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.95f)
             {
                 yield return null;
             }
@@ -100,7 +108,7 @@ namespace WakHead
 
         public void Shoot(Vector3 shootPosition)
         {
-            if (!this.gameObject.activeSelf)
+            if (!this.gameObject.activeSelf && _isShooting)
             {
                 return;
             }
@@ -110,6 +118,12 @@ namespace WakHead
             _onShootingCoroutine = OnShooting();
             StartCoroutine(_onShootingCoroutine);
 
+            photonView.RPC("ShootRPC", RpcTarget.All);
+        }
+
+        [PunRPC]
+        public void ShootRPC()
+        {
             _animator.Play("Aim_Shoot");
         }
 
@@ -117,10 +131,10 @@ namespace WakHead
         {
             ShootCount--;
 
-            _attackRange.AttackEntity(targetEntity => { OnDamage(targetEntity, 10); }, MyTeam, true);
+            _attackRange.AttackEntity(targetEntity => { OnDamage(targetEntity, 15); }, MyTeam, true);
             _attackRange.AttackSummoned(targetSummoned =>
             {
-                if (_ownerPhotonView.IsMine)
+                if (_ownerPhotonView != null && _ownerPhotonView.IsMine)
                 {
                     targetSummoned.Damaged(targetSummoned.transform.position, MyTeam);
                 }
@@ -134,7 +148,7 @@ namespace WakHead
 
         protected override void OnDamage(Entity entity, int damage)
         {
-            if (_ownerPhotonView.IsMine)
+            if (_ownerPhotonView != null && _ownerPhotonView.IsMine)
             {
                 entity?.Damaged(this.transform.position, damage, MyTeam,
                     "BattleGroundSkill_2Effect" , _dir.x * 0.01f);

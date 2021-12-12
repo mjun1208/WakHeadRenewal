@@ -43,7 +43,10 @@ namespace WakHead
         {
             for (int i = 0; i < _collidedOccupiedColliderList.Count; i++)
             {
-                UpdateGauge(_collidedOccupiedColliderList[i].MyTeam);
+                if (_collidedOccupiedColliderList[i].IsWork)
+                {
+                    UpdateGauge(_collidedOccupiedColliderList[i].MyTeam);
+                }
             }
         }
 

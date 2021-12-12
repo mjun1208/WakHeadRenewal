@@ -29,23 +29,24 @@ MonoBehaviour:
     referenceMode: 2
     serializationDepthLimit: 64
     assemblyNames:
+    - Assembly-CSharp-firstpass
     - PhotonUnityNetworking.Demos
     - Assembly-CSharp
     - PhotonUnityNetworking.Utilities
+    - Cinemachine
+    - ACTk.Runtime
     - PhotonChat
+    - ACTk.Examples.Runtime
     - PhotonUnityNetworking
     - PhotonRealtime
-    - Assembly-CSharp-firstpass
-    - ACTk.Runtime
-    - ACTk.Examples.Runtime
     - ACTk.Examples.Genuine.Runtime
+    - ACTk.Editor
+    - ACTk.Examples.Genuine.Editor
     - PhotonUnityNetworking.Editor
     - PunDemos.DemoHubEditor
     - PhotonUnityNetworking.Utilities.PhotonPlayer.Editor
     - PhotonUnityNetworking.Utilities.Culling.Editor
     - PunDemos.DemoSlotcarEditor
-    - ACTk.Editor
-    - ACTk.Examples.Genuine.Editor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

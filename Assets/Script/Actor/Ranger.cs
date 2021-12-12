@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace WakHead
 {
     public class Ranger : Actor
     {
         [SerializeField] private GameObject _attackBeam;
+        [SerializeField] private GameObject _chargingGaugeObject;
+        [SerializeField] private Image _chargingGaugeImage;
+        [SerializeField] private Image _chargingOverGaugeImage;
         private float _rollingGauge = 0f;
         
         protected override void Active_Attack()
@@ -17,10 +21,35 @@ namespace WakHead
                 return;
             }
 
-            _attackRange.Attack(targetEntity => { targetEntity.Damaged( targetEntity.transform.position, 3, MyTeam, 
-                "RangerAttackEffect", 0 , GetAttackDir().x > 0); }, MyTeam);
+            _attackRange.Attack(targetEntity => { 
+                targetEntity.Damaged( targetEntity.transform.position, 3, MyTeam, 
+                "RangerAttackEffect", 0 , GetAttackDir().x > 0);
+
+                _chargingGaugeObject.SetActive(true);
+
+                if (_rollingGauge <= 2f)
+                {
+                    _rollingGauge += 0.05f;
+                }
+
+                GaugeUpdate();
+            }, MyTeam);
         }
-        
+
+        public void GaugeUpdate()
+        {
+            if (_rollingGauge < 1f)
+            {
+                _chargingGaugeImage.fillAmount = _rollingGauge;
+                _chargingOverGaugeImage.fillAmount = 0f;
+            }
+            else
+            {
+                _chargingGaugeImage.fillAmount = 1f;
+                _chargingOverGaugeImage.fillAmount = _rollingGauge - 1f;
+            }
+        }
+
         protected override void Active_Skill_1()
         {
             if (!photonView.IsMine)
@@ -37,7 +66,7 @@ namespace WakHead
             {
                 return;
             }
-
+            
             photonView.RPC("SpawnRolling", RpcTarget.All, _rollingGauge);
         }
 
@@ -47,9 +76,12 @@ namespace WakHead
 
             if (!_isAttackInput)
             {
+                _chargingGaugeObject.SetActive(false);
                 _animator.SetBool("IsAttackLoop", _isAttackInput);
             }
 
+            _chargingGaugeObject.transform.localScale = new Vector3(GetAttackDir().x, 1, 1);
+            
             if (_attackBeam.activeSelf != _isAttackInput)
             {
                 photonView.RPC("SetEnableBeam", RpcTarget.All, _isAttackInput.GetDecrypted());
@@ -94,6 +126,8 @@ namespace WakHead
             var newTitan = Global.PoolingManager.LocalSpawn("Ranger_Rolling", this.transform.position, Quaternion.identity, true);
 
             newTitan.GetComponent<Ranger_Rolling>().SetInfo(this.photonView, this.gameObject, GetAttackDir(), gauge, MyTeam);
+            
+            _rollingGauge = 0f;
         }
 
         protected override void Dead()

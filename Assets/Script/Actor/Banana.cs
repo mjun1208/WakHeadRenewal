@@ -202,9 +202,12 @@ namespace WakHead
 
             if (photonView.IsMine)
             {
-                _currentTrampoline.Use();
-                _currentTrampoline = null;
-                
+                if (_currentTrampoline != null)
+                {
+                    _currentTrampoline.Use();
+                    _currentTrampoline = null;
+                }
+
                 _dropPoint.SetActive(true);
             }
         }
