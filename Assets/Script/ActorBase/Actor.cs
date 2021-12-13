@@ -511,6 +511,21 @@ namespace WakHead
                 return;
             }
         }
+        
+        public virtual void PlayAttackSound()
+        {
+            
+        }
+        
+        public virtual void PlaySkill_1Sound()
+        {
+            
+        }
+        
+        public virtual void PlaySkill_2Sound()
+        {
+            
+        }
 
         protected virtual void OnDamage(bool isChimpanzee)
         {

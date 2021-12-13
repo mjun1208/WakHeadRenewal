@@ -71,12 +71,21 @@ namespace WakHead
             }
         }
 
+        public override void OnSkill_1()
+        {
+            Global.SoundManager.Play("Kakashi_Skill_1_Sound", this.transform.position);
+            
+            base.OnSkill_1();
+        }
+
         public override void OnSkill_2()
         {
             if (OnSkillCoroutine != null)
             {
                 return;
             }
+            
+            Global.SoundManager.Play("Kakashi_Skill_2_Sound", this.transform.position);
             
             Skill_2_Delay = Skill_2_CoolTime;
 

@@ -38,7 +38,32 @@ namespace WakHead
 
             photonView.RPC("ShootBullet", RpcTarget.All);
         }
-
+        
+        public override void PlayAttackSound()
+        {
+            Global.SoundManager.Play("Normal_Attack_Sound", this.transform.position);
+        }
+        
+        public void PlaySkill_1StartSound()
+        {
+            Global.SoundManager.Play("Normal_Skill_1_Start_Sound", this.transform.position);
+        }
+        
+        public override void PlaySkill_1Sound()
+        {
+            Global.SoundManager.Play("Normal_Skill_1_Sound", this.transform.position);
+        }
+        
+        public void PlaySkill_2StartSound()
+        {
+            Global.SoundManager.Play("Normal_Skill_2_Start_Sound", this.transform.position);
+        }
+        
+        public override void PlaySkill_2Sound()
+        {
+            Global.SoundManager.Play("Normal_Skill_2_Sound", this.transform.position);
+        }
+        
         [PunRPC]
         public void ShootBullet()
         {

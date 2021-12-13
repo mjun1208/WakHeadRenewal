@@ -71,6 +71,7 @@ namespace WakHead
         [PunRPC]
         private void ActiveBlast()
         {
+            Global.SoundManager.Play("Sans_Skill_2_Sound", this.transform.position);
             _animator.Rebind();
             _animator.Play("Fire");
         }

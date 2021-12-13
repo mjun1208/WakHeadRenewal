@@ -73,13 +73,22 @@ namespace WakHead
         [PunRPC]
         public void BoneAttack()
         {
-            Global.SoundManager.Play("Sans_Attack_Sound", this.transform.position);
             var newbone =
                 Global.PoolingManager.LocalSpawn("Sans_Bone", this.transform.position, Quaternion.identity, true);
 
             newbone.GetComponent<Sans_Bone>().SetInfo(this.photonView, this.gameObject, GetAttackDir(), MyTeam);
         }
-
+        
+        public override void PlayAttackSound()
+        {
+            Global.SoundManager.Play("Sans_Attack_Sound", this.transform.position);
+        }
+        
+        public override void PlaySkill_1Sound()
+        {
+            Global.SoundManager.Play("Sans_Skill_1_Sound", this.transform.position);
+        }
+        
         protected override void Dead()
         {
             base.Dead();

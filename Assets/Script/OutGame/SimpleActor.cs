@@ -28,5 +28,30 @@ namespace WakHead
         {
             
         }
+
+        public void PlayAttackSound()
+        {
+            
+        }
+        
+        public void PlaySkill_1StartSound()
+        {
+            
+        }
+        
+        public void PlaySkill_1Sound()
+        {
+            
+        }
+
+        public void PlaySkill_2StartSound()
+        {
+            
+        }
+        
+        public void PlaySkill_2Sound()
+        {
+            
+        }
     }
 }
