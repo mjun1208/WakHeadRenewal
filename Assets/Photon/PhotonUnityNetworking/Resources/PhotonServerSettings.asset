@@ -107,6 +107,9 @@ MonoBehaviour:
   - SpawnAim
   - SetInfoRPC
   - ShootRPC
+  - PlayAttackSound
+  - PlaySkill_1Sound
+  - PlaySkill_2Sound
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
