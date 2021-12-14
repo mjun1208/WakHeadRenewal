@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.SceneManagement;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 namespace WakHead
@@ -208,6 +209,11 @@ namespace WakHead
                 _nickName.SetActive(false);
                 _roomList.SetActive(false);
             }
+        }
+
+        public void SceneChangeActorIndex()
+        {
+            SceneManager.LoadScene("ActorIndex");
         }
     }
 }
