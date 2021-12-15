@@ -25,6 +25,7 @@ namespace WakHead
         [SerializeField] private GameObject _lobbyButton;
         [SerializeField] private GameObject _roomList;
         [SerializeField] private GameObject _waitImage;
+        [SerializeField] private GameObject _controlWindow;
 
         private void Start()
         {
@@ -214,6 +215,11 @@ namespace WakHead
         public void SceneChangeActorIndex()
         {
             SceneManager.LoadScene("ActorIndex");
+        }
+        
+        public void HowToControl()
+        {
+            _controlWindow.SetActive(!_controlWindow.activeSelf);
         }
     }
 }
