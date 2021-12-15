@@ -332,7 +332,7 @@ namespace WakHead
 
             if (MyActor && EnemyActor && !_isGameStarted)
             {
-                GameStart();
+                Invoke("GameStart", 1.5f);
             }
         }
 
@@ -352,7 +352,7 @@ namespace WakHead
             
             if (MyActor && EnemyActor && !_isGameStarted)
             {
-                GameStart();
+                Invoke("GameStart", 1.5f);
             }
         }
     }
