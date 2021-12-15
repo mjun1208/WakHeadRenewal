@@ -23,6 +23,11 @@ namespace WakHead
 
         [SerializeField] private Text _blueActorArtist;
         [SerializeField] private Text _redActorArtist;
+        
+        [SerializeField] private GameObject _blueReady;
+        [SerializeField] private GameObject _redReady;
+        
+        [SerializeField] private GameObject _readyButton;
 
         private const string ARTIST = "Artist. ";
 
@@ -31,8 +36,49 @@ namespace WakHead
         public int CurrentMyActorID { get; set; } = -1;
         public int CurrentEnemyActorID { get; set; } = -1;
 
-        public bool IsMyReady { get; set; } = false;
-        public bool IsEnemyReady { get; set; } = false;
+        public bool IsMyReady
+        {
+            get
+            {
+                return _isMyReady;
+            }
+            set 
+            {
+                if (_isMyReady != value)
+                {
+                    _isMyReady = value;
+                    
+                    if (value && IsEnemyReady && PhotonNetwork.IsMasterClient)
+                    {
+                        StartGame();
+                    }
+                }
+            }
+        }
+
+        private bool _isMyReady = false;
+
+        public bool IsEnemyReady
+        {
+            get
+            {
+                return _isEnemyReady;
+            }
+            set
+            {
+                if (_isEnemyReady != value)
+                {
+                    _isEnemyReady = value;
+                    
+                    if (value && IsMyReady && PhotonNetwork.IsMasterClient)
+                    {
+                        StartGame();
+                    }
+                }
+            }
+        }
+        
+        private bool _isEnemyReady = false;
 
         public PickSync MyPickSync { get; set; }
 
@@ -92,6 +138,18 @@ namespace WakHead
 
         public void Blue_Select(int index)
         {
+            switch (MyTeam)
+            {
+                case Team.BLUE:
+                {
+                    if (IsMyReady)
+                    {
+                        return;
+                    }
+                    break;
+                }
+            }
+
             _blueActor.Select(index);
 
             _blueActorName.text = Global.GameDataManager.ActorGameData.ActorGameDataList[index].KorName;
@@ -100,6 +158,18 @@ namespace WakHead
 
         public void Red_Select(int index)
         {
+            switch (MyTeam)
+            {
+                case Team.RED:
+                {
+                    if (IsMyReady)
+                    {
+                        return;
+                    }
+                    break;
+                }
+            }
+            
             _redActor.Select(index);
 
             _redActorName.text = Global.GameDataManager.ActorGameData.ActorGameDataList[index].KorName;
@@ -123,11 +193,13 @@ namespace WakHead
                 case Team.BLUE:
                 {
                     _blueActor.Confirmed();
+                    _blueReady.SetActive(true);
                     break;
                 }
                 case Team.RED:
                 {
                     _redActor.Confirmed();
+                    _redReady.SetActive(true);
                     break;
                 }
             }
@@ -143,12 +215,14 @@ namespace WakHead
             {
                 case Team.BLUE:
                 {
-                    _redActor.Confirmed();
+                    _redReady.SetActive(true);
+                    // _redActor.Confirmed();
                     break;
                 }
                 case Team.RED:
                 {
-                    _blueActor.Confirmed();
+                    _blueReady.SetActive(true);
+                    // _blueActor.Confirmed();
                     break;
                 }
             }
@@ -179,10 +253,10 @@ namespace WakHead
 
         public void StartGameClient()
         {
-            Global.instance.GameReady();
-            
             _pickUI.transform.DOLocalMoveY(-750, 1f).SetEase(Ease.InOutBack).OnComplete(() =>
             {
+                Global.instance.GameReady();
+                
                 Global.instance.FadeIn();
             });
         }
