@@ -78,6 +78,8 @@ namespace WakHead
         [SerializeField] private Text _blueReadyNameText;
         [SerializeField] private Text _redReadyNameText;
         
+        [SerializeField] private GameObject _vsObject;
+        
         private bool _isGameStarted = false;
         private bool _isLeaving = false;
         private bool _isEndGame = false;
@@ -250,6 +252,7 @@ namespace WakHead
 
             _blueReadyObject.GetComponent<RectTransform>().DOAnchorPosX(553, 0.5f).From(new Vector2(-800, 0));
             _redReadyObject.GetComponent<RectTransform>().DOAnchorPosX(-553, 0.5f).From(new Vector2(800, 0));
+            _vsObject.transform.localPosition = Vector3.zero;
 
             _isGameStarted = false;
         }
@@ -260,6 +263,7 @@ namespace WakHead
             
             _blueReadyObject.GetComponent<RectTransform>().DOAnchorPosX(-800, 0.5f).From(new Vector2(553, 0));
             _redReadyObject.GetComponent<RectTransform>().DOAnchorPosX(800, 0.5f).From(new Vector2(-553, 0)).OnComplete(() => _readyObject.SetActive(false));
+            _vsObject.transform.DOMoveY(-800, 0.5f);
         }
         
 
