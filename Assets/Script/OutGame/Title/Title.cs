@@ -30,13 +30,21 @@ namespace WakHead
         private void Start()
         {
             _isJoinLobby = false;
-            
+
             StartCoroutine(WaitConnectLobby());
 
-            PhotonNetwork.ConnectUsingSettings();
-            PhotonNetwork.GameVersion = this.Version + "." + SceneManagerHelper.ActiveSceneBuildIndex;
-
             Time.timeScale = 1f;
+
+            if (PhotonNetwork.IsConnected)
+            {
+                _isConnected = true;
+                _isJoinLobby = true;
+            }
+            else
+            {
+                PhotonNetwork.ConnectUsingSettings();
+                PhotonNetwork.GameVersion = this.Version + "." + SceneManagerHelper.ActiveSceneBuildIndex;
+            }
         }
 
         public void CreateRoom()
