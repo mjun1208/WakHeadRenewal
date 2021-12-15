@@ -66,6 +66,9 @@ namespace WakHead
         [SerializeField] private Image _fadeUI;
         [SerializeField] private GameObject _blueWinImage;
         [SerializeField] private GameObject _redWinImage;
+        
+        [SerializeField] private Text _blueWinText;
+        [SerializeField] private Text _redWinText;
 
         [SerializeField] private GameObject _readyObject;
         
@@ -193,16 +196,20 @@ namespace WakHead
             
             _isEndGame = true;
             Invoke("LeaveRoom", 2f);
-
+            
             switch (team)
             {
                 case Team.BLUE:
                 {
+                    _blueWinText.text = MyTeam == team ? $"-{PlayerName}-" : $"-{EnemyName}-";
+                    
                     _blueWinImage.SetActive(true);
                     break;
                 }
                 case Team.RED:
                 {
+                    _redWinText.text = MyTeam == team ? $"-{PlayerName}-" : $"-{EnemyName}-";
+                    
                     _redWinImage.SetActive(true);
                     break;
                 }
