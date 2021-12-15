@@ -20,6 +20,9 @@ public class AudioSound : MonoBehaviour
 
         yield return new WaitUntil(() => !_audioSource.isPlaying);
 
+        _audioSource.Stop();
+        _audioSource.clip = null;
+        
         Global.PoolingManager.LocalDespawn(this.gameObject);
     }
 }

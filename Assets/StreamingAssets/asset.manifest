@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3362153340
+CRC: 2814851265
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 1d8e7847f9ec03d42a6a23b3ae7b529b
+    Hash: 23bdee15de5c01132138dd7b33dcb82d
   TypeTreeHash:
     serializedVersion: 2
     Hash: c4d182df34d8865716ed3c5c6dc6b93f
@@ -201,7 +201,7 @@ Assets:
 - Assets/Prefab/Effect/VRSkill_1Effect_2.prefab
 - Assets/Prefab/Chimpanzee/Panzee_Blue.prefab
 - Assets/Prefab/Actor/Actor.prefab
-- Assets/Prefab/Effect/AnimalCrossinglAttackEffect.prefab
+- Assets/Prefab/Effect/AnimalCrossingAttackEffect.prefab
 - Assets/Prefab/Chimpanzee/Panzee_Red.prefab
 - Assets/Prefab/Chimpanzee/Panzee_Blue_TShirt.prefab
 - Assets/Prefab/Actor_Sub/Naruto_Rasengan.prefab
