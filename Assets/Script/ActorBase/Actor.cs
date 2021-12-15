@@ -253,7 +253,7 @@ namespace WakHead
                 Skill_2Input();
             }
             
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (Input.GetKeyDown(KeyCode.D))
             {
                 Flash();
             }
@@ -279,6 +279,8 @@ namespace WakHead
         [PunRPC]
         public void SpawnFlashEffect(float position_x, float position_y)
         {
+            Global.SoundManager.Play("Flash_Sound", this.transform.position);
+            
             var flashEffect =
                 Global.PoolingManager.LocalSpawn("FlashEffect", new Vector3(position_x, position_y), Quaternion.identity, true);
             flashEffect.GetComponent<SpriteRenderer>().sprite = _renderer.sprite;
