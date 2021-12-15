@@ -47,7 +47,6 @@ namespace WakHead
 
                 if (enemyActorID != -1)
                 {
-                    PickManager.Instance.EnemyActorSelect(enemyActorID);
                     Global.instance.SetEnemyActorID(enemyActorID);
                 }
 
