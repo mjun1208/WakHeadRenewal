@@ -18,11 +18,13 @@ namespace WakHead
 
         private IEnumerator StartSpawn()
         {
+            yield return new WaitForSeconds(5f);
+            
             while (true)
             {
-                if (PhotonNetwork.IsConnected && PhotonNetwork.IsMasterClient/* &&
+                if (PhotonNetwork.IsConnected && PhotonNetwork.IsMasterClient &&
                     !string.IsNullOrWhiteSpace(Global.instance.MyActorName) &&
-                    !string.IsNullOrWhiteSpace(Global.instance.EnemyActorName)*/)
+                    !string.IsNullOrWhiteSpace(Global.instance.EnemyActorName))
                 {
                     for (int i = 0; i < 10; i++)
                     {
