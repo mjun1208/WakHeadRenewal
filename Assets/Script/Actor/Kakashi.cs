@@ -29,13 +29,15 @@ namespace WakHead
                 return;
             }
 
-            base.Update();
-
             if (_copyActorScript != null)
             {
                 var damage = _copyActorScript.MaxHP - _copyActorScript.HP;
                 _copyActorScript.ResetHp();
                 HP -= damage;
+            }
+            else
+            {
+                base.Update();   
             }
         }
 
