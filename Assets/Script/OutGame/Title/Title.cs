@@ -222,6 +222,7 @@ namespace WakHead
 
         public void SceneChangeActorIndex()
         {
+            PhotonNetwork.Disconnect();
             SceneManager.LoadScene("ActorIndex");
         }
         
