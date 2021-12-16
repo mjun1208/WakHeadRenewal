@@ -88,7 +88,6 @@ GameObject:
   - component: {fileID: 2231056166769122082}
   - component: {fileID: 4804301689556421808}
   - component: {fileID: 693140671910505272}
-  - component: {fileID: 8533831426814105355}
   m_Layer: 0
   m_Name: Kakashi
   m_TagString: Untagged
@@ -366,22 +365,6 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
---- !u!114 &8533831426814105355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2231056166769122086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shaderTypes: 0
-  normalStrenght: 5
-  normalSmoothing: 1
-  computingNormal: 0
 --- !u!1 &2945554686757192732
 GameObject:
   m_ObjectHideFlags: 0

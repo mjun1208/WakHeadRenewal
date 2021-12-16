@@ -73,11 +73,25 @@ namespace WakHead
             }
         }
 
-        public override void OnSkill_1()
+        public override void PlayAttackSound()
+        {
+            base.PlayAttackSound();
+        }
+
+        public override void PlaySkill_1Sound()
         {
             Global.SoundManager.Play("Kakashi_Skill_1_Sound", this.transform.position);
-            
-            base.OnSkill_1();
+        }
+        
+        public override void PlaySkill_2Sound()
+        {
+            Global.SoundManager.Play("Kakashi_Skill_2_Sound", this.transform.position);
+        }
+
+        [PunRPC]
+        public void PlaySkill_2SoundRPC()
+        {
+            PlaySkill_2Sound();
         }
 
         public override void OnSkill_2()
@@ -86,11 +100,10 @@ namespace WakHead
             {
                 return;
             }
-            
-            Global.SoundManager.Play("Kakashi_Skill_2_Sound", this.transform.position);
-            
+
             Skill_2_Delay = Skill_2_CoolTime;
 
+            photonView.RPC("PlaySkill_2SoundRPC", RpcTarget.All);
             photonView.RPC("Sharingan", RpcTarget.All);
 
             if (string.IsNullOrEmpty(Global.instance.EnemyActorName) ||
