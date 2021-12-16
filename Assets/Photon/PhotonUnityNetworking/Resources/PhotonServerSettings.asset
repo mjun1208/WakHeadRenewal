@@ -110,6 +110,8 @@ MonoBehaviour:
   - PlayAttackSound
   - PlaySkill_1Sound
   - PlaySkill_2Sound
+  - KakashiCopied
+  - PlaySkill_2SoundRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
