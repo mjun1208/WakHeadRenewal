@@ -103,7 +103,7 @@ namespace WakHead
                 Quaternion.identity);
             _copyActorScript = _copyActor.GetComponent<Actor>();
 
-            _copyActorScript.SetTeam(MyTeam);
+            _copyActorScript.KakashiCopied(MyTeam);
 
             _copyActor.transform.position = this.transform.position;
             _copyActor.transform.localScale = this.transform.localScale;

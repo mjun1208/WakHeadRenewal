@@ -114,6 +114,17 @@ namespace WakHead
             _skill_2Range.SetTeam(team);
             _occupiedCollider.SetTeam(team);
         }
+        
+        public void KakashiCopied(Team team)
+        {
+            photonView.RPC("SetTeamRPC", RpcTarget.All, team);
+        }
+
+        [PunRPC]
+        public void SetTeamRPC(Team team)
+        {
+            SetTeam(team);
+        }
 
         public void SetActor()
         {
