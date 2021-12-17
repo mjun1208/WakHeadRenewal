@@ -31,13 +31,44 @@ namespace WakHead
 
             if (_copyActorScript != null)
             {
+                if (Skill_1_Delay > 0)
+                {
+                    Skill_1_Delay -= Time.deltaTime;
+                }
+                else
+                {
+                    Skill_1_Delay = 0;
+                }
+            
+                if (Skill_2_Delay > 0)
+                {
+                    Skill_2_Delay -= Time.deltaTime;
+                }
+                else
+                {
+                    Skill_2_Delay = 0;
+                }
+
+                if (Flash_Delay > 0)
+                {
+                    Flash_Delay -= Time.deltaTime;
+                }
+                else
+                {
+                    Flash_Delay = 0;
+                }
+
+                KeyInput();
+                
+                this.transform.position = _copyActor.transform.position;
+                
                 var damage = _copyActorScript.MaxHP - _copyActorScript.HP;
                 _copyActorScript.ResetHp();
                 HP -= damage;
             }
             else
             {
-                base.Update();   
+                base.Update();
             }
         }
 

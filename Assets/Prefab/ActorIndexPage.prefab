@@ -4380,7 +4380,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCFE8\uD0C0\uC784 : 6\uCD08\n\uB370\uBBF8\uC9C0 : \uD2F1 \uB2F9 10"
+  m_Text: "\uCFE8\uD0C0\uC784 : 7\uCD08\n\uB370\uBBF8\uC9C0 : \uD2F1 \uB2F9 7"
 --- !u!1 &1717404235119952005
 GameObject:
   m_ObjectHideFlags: 0
@@ -5100,7 +5100,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCFE8\uD0C0\uC784 : 0\uCD08\n\uB370\uBBF8\uC9C0 : 20"
+  m_Text: "\uCFE8\uD0C0\uC784 : 0\uCD08\n\uB370\uBBF8\uC9C0 : 25"
 --- !u!1 &1881608494135479999
 GameObject:
   m_ObjectHideFlags: 0
@@ -9508,7 +9508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2503680907692506719
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11043,7 +11043,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uBCA4\uD2B8\uB294 5\uB300 \uB9DE\uC73C\uBA74 \uD130\uC9D1\uB2C8\uB2E4."
+  m_Text: "\uBCA4\uD2B8\uB294 2\uB300 \uB9DE\uC73C\uBA74 \uD130\uC9D1\uB2C8\uB2E4."
 --- !u!1 &2503680908485771266
 GameObject:
   m_ObjectHideFlags: 0
@@ -11059,7 +11059,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2503680908485771277
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12251,7 +12251,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCFE8\uD0C0\uC784 : 3\uCD08\n\uB370\uBBF8\uC9C0 : 15"
+  m_Text: "\uCFE8\uD0C0\uC784 : 3\uCD08\n\uB370\uBBF8\uC9C0 : 20"
 --- !u!1 &2740113124862769441
 GameObject:
   m_ObjectHideFlags: 0
@@ -12837,8 +12837,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 143, y: -174}
-  m_SizeDelta: {x: 108.65454, y: 36.407288}
+  m_AnchoredPosition: {x: 148.57, y: -174}
+  m_SizeDelta: {x: 119.79797, y: 36.407288}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2703236683405485268
 CanvasRenderer:
@@ -12880,8 +12880,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCFE8\uD0C0\uC784 : 15\uCD08\n\uB370\uBBF8\uC9C0 : 0.1\uCD08 \uB9C8\uB2E4
-    1"
+  m_Text: "\uCFE8\uD0C0\uC784 : 18\uCD08\n\uB370\uBBF8\uC9C0 : 0.1\uCD08 \uB9C8\uB2E4
+    10"
 --- !u!1 &3024589638177331078
 GameObject:
   m_ObjectHideFlags: 0
@@ -14826,7 +14826,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCFE8\uD0C0\uC784 : 3\uCD08\n\uB370\uBBF8\uC9C0 : 10"
+  m_Text: "\uCFE8\uD0C0\uC784 : 3\uCD08\n\uB370\uBBF8\uC9C0 : 20"
 --- !u!1 &3652338624890939041
 GameObject:
   m_ObjectHideFlags: 0
@@ -18859,7 +18859,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCFE8\uD0C0\uC784 : 7\uCD08\n\uB370\uBBF8\uC9C0 : 0.1\uCD08 \uB9C8\uB2E4
+  m_Text: "\uCFE8\uD0C0\uC784 : 9\uCD08\n\uB370\uBBF8\uC9C0 : 0.1\uCD08 \uB9C8\uB2E4
     3"
 --- !u!1 &4919299137224113204
 GameObject:
@@ -21012,7 +21012,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b9aa164ce5f0d38478113ae46807612b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 740ba7f3d4d59c84e92d4bbe123a88fa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22348,7 +22348,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 740ba7f3d4d59c84e92d4bbe123a88fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b9aa164ce5f0d38478113ae46807612b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -27929,7 +27929,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCFE8\uD0C0\uC784 : 0\uCD08\n\uB370\uBBF8\uC9C0 : 30"
+  m_Text: "\uCFE8\uD0C0\uC784 : 0\uCD08\n\uB370\uBBF8\uC9C0 : 20"
 --- !u!1 &7905157857260856155
 GameObject:
   m_ObjectHideFlags: 0

@@ -237,7 +237,7 @@ namespace WakHead
                     var dir = targetEntity.transform.position - this.transform.position;
                     dir.Normalize();
 
-                    targetEntity.KnockBack(10, dir, 1f, 0, MyTeam,
+                    targetEntity.KnockBack(20, dir, 1f, 0, MyTeam,
                         "NormalAttackEffect", dir.x * 0.1f, dir.x > 0);
                 }, MyTeam);
             }

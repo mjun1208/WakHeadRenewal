@@ -38,7 +38,7 @@
       "Artist": "은콩",
       "KorName": "왁즈",
       "Skill_1_CoolTime" : 2,
-      "Skill_2_CoolTime" : 15
+      "Skill_2_CoolTime" : 18
     },
     {
       "ID": 5,
@@ -69,8 +69,8 @@
       "Name": "Minecraft",
       "Artist": "코디잉",
       "KorName": "마크두",
-      "Skill_1_CoolTime" : 6,
-      "Skill_2_CoolTime" : 7
+      "Skill_1_CoolTime" : 7,
+      "Skill_2_CoolTime" : 9
     },
     {
       "ID": 9,

@@ -81,7 +81,7 @@ namespace WakHead
                 return;
             }
 
-            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(12, GetAttackDir(), 0.5f, 0, MyTeam, 
+            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(15, GetAttackDir(), 0.5f, 0, MyTeam, 
                 "Blood_2", GetAttackDir().x  * 0.3f, GetAttackDir().x > 0); }, MyTeam);
         }
 
@@ -178,6 +178,7 @@ namespace WakHead
         {
             _renderer.enabled = !isTrue;
             _collider2D.enabled = !isTrue;
+            _occupiedCollider.enabled = !isTrue;
         }
 
         private IEnumerator Venting()
@@ -430,6 +431,8 @@ namespace WakHead
                 _currentVent.Select(false);
                 _currentVent = null;
             }
+            
+            _isVenting = false;
 
             for (int i = 0; i < _myVentList.Count; i++)
             {

@@ -10,6 +10,9 @@ namespace WakHead
         private Vector3 _originalScale;
         private GameObject _gaster;
 
+        private readonly float attackDelay = 0.1f;
+        private float _attackTimer = 0f;
+
         public void Awake()
         {
             _originalScale = this.transform.localScale;
@@ -25,11 +28,19 @@ namespace WakHead
 
             float rotationScale = _originalScale.x * dir.x;
             this.transform.localScale = new Vector3(rotationScale, _originalScale.y, _originalScale.z);
+
+            _attackTimer = 0f;
         }
 
         private void Update()
         {
-            _attackRange.Attack(targetEntity => { OnDamage(targetEntity, 1); }, MyTeam);
+            _attackTimer += Time.deltaTime;
+        
+            if (_attackTimer > attackDelay)
+            {
+                _attackRange.Attack(targetEntity => { OnDamage(targetEntity, 10); }, MyTeam);
+                _attackTimer = 0f;
+            }
         }
 
         public override void Destroy()

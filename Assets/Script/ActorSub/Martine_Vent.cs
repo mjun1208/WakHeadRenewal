@@ -14,7 +14,7 @@ namespace WakHead
         {
             MyTeam = team;
             
-            MaxHP = 5;
+            MaxHP = 2;
             HP = MaxHP;
 
             Select(false);

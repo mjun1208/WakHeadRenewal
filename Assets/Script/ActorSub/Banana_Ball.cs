@@ -66,7 +66,7 @@ namespace WakHead
                 {
                     if (!_collidedObjectList.Contains(targetEntity.gameObject))
                     {
-                        OnDamage(targetEntity, 15);
+                        OnDamage(targetEntity, 20);
                         _collidedObjectList.Add(targetEntity.gameObject);
                     }
                 }, MyTeam);
