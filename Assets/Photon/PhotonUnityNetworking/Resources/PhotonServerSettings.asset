@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PhotonServerSettings
   m_EditorClassIdentifier: 
   AppSettings:
-    AppIdRealtime: 6264832d-7588-44ca-bf6d-e14355e91e27
+    AppIdRealtime: 965f126a-6599-4c01-8392-1a8952546536
     AppIdChat: 
     AppIdVoice: 
     AppVersion: 
@@ -112,6 +112,7 @@ MonoBehaviour:
   - PlaySkill_2Sound
   - KakashiCopied
   - PlaySkill_2SoundRPC
+  - SpawnChainLightningEffect
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

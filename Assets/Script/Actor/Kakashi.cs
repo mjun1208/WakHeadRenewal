@@ -92,8 +92,86 @@ namespace WakHead
                 return;
             }
 
-            _skill_1Range.Attack(targetEntity => { targetEntity.KnockBack(10, GetAttackDir(), 1f, 0, MyTeam, 
-                "KakashiSkill_1Effect",0, Random.Range(0, 2) == 0); }, MyTeam);
+            Entity vowEntitiy = null;
+            
+            _skill_1Range.Attack(targetEntity => 
+            {
+                if (vowEntitiy == null)
+                {
+                    vowEntitiy = targetEntity;
+                }
+                
+                targetEntity.KnockBack(10, GetAttackDir(), 1f, 0, MyTeam, "KakashiSkill_1Effect",0, Random.Range(0, 2) == 0);
+            }, MyTeam);
+
+            if (vowEntitiy != null)
+            {
+                StartCoroutine(ChainLightning(vowEntitiy.transform.position));   
+            }
+        }
+
+        private IEnumerator ChainLightning(Vector3 targetPos)
+        {
+            List<Entity> chainedTargetEntityList = new List<Entity>();
+
+            var carrierEntityPos = targetPos;
+            var chainTargetEntity = GetChainTarget(carrierEntityPos, chainedTargetEntityList);
+
+            while (chainTargetEntity != null)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    chainedTargetEntityList.Add(chainTargetEntity);
+
+                    if (chainTargetEntity != null)
+                    {
+                        photonView.RPC("SpawnChainLightningEffect", RpcTarget.All,
+                            carrierEntityPos.x, carrierEntityPos.y,
+                            chainTargetEntity.transform.position.x, chainTargetEntity.transform.position.y);
+
+                        carrierEntityPos = chainTargetEntity.transform.position;
+
+                        chainTargetEntity.KnockBack(3, GetAttackDir(), 0.5f, 0, MyTeam, "KakashiSkill_1Effect", 0,
+                            Random.Range(0, 2) == 0);
+
+                        chainTargetEntity = GetChainTarget(carrierEntityPos, chainedTargetEntityList);
+                    }
+                    else
+                    {
+                        chainTargetEntity = null;
+                    }
+                }
+
+                yield return new WaitForSeconds(0.3f);
+            }
+
+            yield return null;
+        }
+
+        [PunRPC]
+        public void SpawnChainLightningEffect(float carrier_x, float carrier_y, float target_x, float target_y)
+        {
+            var newChainLightning = Global.PoolingManager.LocalSpawn("Kakashi_ChainLightning", new Vector3(carrier_x, carrier_y), Quaternion.identity, true);
+            newChainLightning.GetComponent<Kakashi_ChainLightning>().SetInfo(new Vector3(carrier_x, carrier_y), new Vector3(target_x, target_y)); 
+        }
+
+        public Entity GetChainTarget(Vector3 carrierEntityPos, List<Entity> chainedTargetEntityList)
+        {
+            int layerMask = (1 << LayerMask.NameToLayer("Enemy")) + (1 << LayerMask.NameToLayer("Minion"));
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(carrierEntityPos, 2f, Vector2.zero, 0f, layerMask);
+
+            foreach (var hit in hits)
+            {
+                var hitEntity = hit.transform.GetComponent<Entity>();
+                if (chainedTargetEntityList.Contains(hitEntity) || hitEntity.MyTeam == MyTeam)
+                {
+                    continue;
+                }
+
+                return hitEntity;
+            }
+
+            return null;
         }
 
         protected override void Active_Skill_2()
