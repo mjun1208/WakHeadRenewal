@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 912159801
+CRC: 583851092
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f8198c8d9b369098dd8eb69ab10059a3
+    Hash: 75028365f425e1055795f10a3ce254a7
   TypeTreeHash:
     serializedVersion: 2
-    Hash: c4d182df34d8865716ed3c5c6dc6b93f
+    Hash: 3faa52ede5a00d5d97b28bca098c0e4a
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -171,7 +171,11 @@ ClassTypes:
   Script: {fileID: 11500000, guid: cd9552df169cf1e49af46351fcbe7433, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: b58ecaff1ebb31a4d963f9c5c45e6588, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 794cbbc67b042af4f931f4201c5a46ef, type: 3}
 - Class: 115
+  Script: {instanceID: 0}
+- Class: 120
   Script: {instanceID: 0}
 - Class: 128
   Script: {instanceID: 0}
@@ -247,6 +251,7 @@ Assets:
 - Assets/Prefab/Effect/JettAttackEffect.prefab
 - Assets/Prefab/Effect/RedTowerHit.prefab
 - Assets/Prefab/Effect/JettSkill_1Effect.prefab
+- Assets/Prefab/Effect/Kakashi_ChainLightning.prefab
 - Assets/Prefab/Effect/NarutoSkill_2Effect.prefab
 - Assets/Prefab/Actor_Sub/Normal_Bullet.prefab
 - Assets/Prefab/Actor_Sub/Banana_Ball.prefab
