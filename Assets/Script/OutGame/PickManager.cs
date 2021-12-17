@@ -96,10 +96,13 @@ namespace WakHead
 
             var pickSync = PhotonNetwork.Instantiate("PickSync", Vector3.zero, Quaternion.identity);
             MyPickSync = pickSync.GetComponent<PickSync>();
+            _readyButton.SetActive(false);
         }
 
         public void ActorSelect(int index)
         {
+            _readyButton.SetActive(true);
+            
             if (IsMyReady)
             {
                 return;
