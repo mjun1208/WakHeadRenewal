@@ -21,7 +21,7 @@ namespace WakHead
                 return;
             }
 
-            _attackRange.Attack(targetEntity => { targetEntity.Damaged(this.transform.position, 5, MyTeam,
+            _attackRange.Attack(targetEntity => { targetEntity.Damaged(this.transform.position, 8, MyTeam,
                 "BattleGroundSkill_1_BoomEffect", _dir.x * 0.01f); }, MyTeam);
         }
     }

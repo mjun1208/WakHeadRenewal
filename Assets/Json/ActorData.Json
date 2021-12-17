@@ -101,7 +101,7 @@
       "Name": "Tree",
       "Artist": "코디잉",
       "KorName": "뱅갈고무나무두",
-      "Skill_1_CoolTime" : 5,
+      "Skill_1_CoolTime" : 8,
       "Skill_2_CoolTime" : 4
     },
     {
@@ -109,7 +109,7 @@
       "Name": "Ranger",
       "Artist": "은콩",
       "KorName": "느그레인저 - 페리도트 그린",
-      "Skill_1_CoolTime" : 7,
+      "Skill_1_CoolTime" : 9,
       "Skill_2_CoolTime" : 5
     },
     {

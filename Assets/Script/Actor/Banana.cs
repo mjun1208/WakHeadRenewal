@@ -102,7 +102,7 @@ namespace WakHead
             Vector2 dash = transform.position + GetAttackDir() * 10f * Time.deltaTime;
             _rigid.MovePosition(dash);
             
-            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(4, GetAttackDir(), 0.5f, 0, MyTeam,
+            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(5, GetAttackDir(), 0.5f, 0, MyTeam,
                 "NormalAttackEffect",GetAttackDir().x * 0.1f ,GetAttackDir().x > 0); }, MyTeam);
 
             foreach (var ball in _collidedBallList)
@@ -237,7 +237,7 @@ namespace WakHead
                     var dir = targetEntity.transform.position - this.transform.position;
                     dir.Normalize();
 
-                    targetEntity.KnockBack(20, dir, 1f, 0, MyTeam,
+                    targetEntity.KnockBack(30, dir, 1f, 0, MyTeam,
                         "NormalAttackEffect", dir.x * 0.1f, dir.x > 0);
                 }, MyTeam);
             }
