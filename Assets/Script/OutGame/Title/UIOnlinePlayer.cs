@@ -23,7 +23,7 @@ namespace WakHead
 
         private void UpdatePlayerCount()
         {
-            _lobbyPlayerCountText.text = $"현재 접속자 수 : {PhotonNetwork.CountOfPlayers} 명";
+            _lobbyPlayerCountText.text = $"로비 : {PhotonNetwork.CountOfPlayersOnMaster} 명";
         }
     }
 }
