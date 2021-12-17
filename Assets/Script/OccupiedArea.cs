@@ -71,11 +71,11 @@ namespace WakHead
         {
             if (MyTeam == team)
             {
-                _gauge += 10f * Time.deltaTime;
+                _gauge += 15f * Time.deltaTime;
             }
             else
             {
-                _gauge -= 10f * Time.deltaTime;
+                _gauge -= 15f * Time.deltaTime;
 
                 if (_gauge <= 0f)
                 {
