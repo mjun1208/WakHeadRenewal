@@ -100,6 +100,11 @@ namespace WakHead
 
         public void ActorSelect(int index)
         {
+            if (IsMyReady)
+            {
+                return;
+            }
+
             switch (MyTeam)
             {
                 case Team.BLUE:
@@ -138,18 +143,6 @@ namespace WakHead
 
         public void Blue_Select(int index)
         {
-            switch (MyTeam)
-            {
-                case Team.BLUE:
-                {
-                    if (IsMyReady)
-                    {
-                        return;
-                    }
-                    break;
-                }
-            }
-
             _blueActor.Select(index);
 
             _blueActorName.text = Global.GameDataManager.ActorGameData.ActorGameDataList[index].KorName;
