@@ -7,40 +7,49 @@ namespace WakHead
 {
     public class Ahri_Heart : ActorSub
     {
+        private List<GameObject> _collidedObjectList = new List<GameObject>();
+        
         public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, Team team = Team.None)
         {
             base.SetInfo(ownerPhotonView, owner, dir, team);
 
             _moveSpeed = Constant.AHRI_HEART_MOVE_SPEED;
+            _collidedObjectList.Clear();
 
             StartCoroutine(Go());
         }
 
         private void Update()
         {
-            _attackRange.AttackEntity(targetEntity => { OnDamage(targetEntity, 10); }, MyTeam,true);
+            _attackRange.AttackEntity(targetEntity => 
+            {
+                if (!_collidedObjectList.Contains(targetEntity.gameObject))
+                {
+                    OnDamage(targetEntity, 10);
+                    _collidedObjectList.Add(targetEntity.gameObject);
+                }
+            }, MyTeam);
             _attackRange.AttackSummoned(targetSummoned =>
             {
-                if (_ownerPhotonView.IsMine)
+                if (!_collidedObjectList.Contains(targetSummoned.gameObject))
                 {
-                    targetSummoned.Damaged(targetSummoned.transform.position, MyTeam);
+                    if (_ownerPhotonView.IsMine)
+                    {
+                        targetSummoned.Damaged(targetSummoned.transform.position, MyTeam);
+                        _collidedObjectList.Add(targetSummoned.gameObject);
+                    }
+                    OnDamage(null, 10);
                 }
-
-                OnDamage(null, 10);
-            },MyTeam, true);
+            },MyTeam);
         }
 
         protected override void OnDamage(Entity entity, int damage)
         {
-            StopAllCoroutines();
-
             if (_ownerPhotonView.IsMine)
             {
                 entity?.Damaged(this.transform.position, damage, MyTeam, "HeartHitEffect");
                 entity?.Heart(MyTeam);
             }
-
-            Destroy();
         }
     }
 }
