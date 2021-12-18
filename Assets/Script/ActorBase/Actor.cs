@@ -566,8 +566,11 @@ namespace WakHead
             _collider2D.enabled = false;
             _occupiedCollider.IsWork = false;
 
-            CameraManager.instance.SetTarget(null);
-            
+            if (photonView.IsMine)
+            {
+                CameraManager.instance.SetTarget(null);
+            }
+
             ForceStop();
         }
 
