@@ -59,7 +59,7 @@ namespace WakHead
             if (_attackTimer > attackDelay)
             {
                 _attackTimer = 0f;
-                _attackRange.Attack(targetEntity => { OnDamage(targetEntity, 2 * _fishIndex == 5 ? 1 : _fishIndex + 1); }, MyTeam);   
+                _attackRange.Attack(targetEntity => { OnDamage(targetEntity,  _fishIndex == 5 ? 1 : 2 * (_fishIndex + 1)); }, MyTeam);   
             }
         }
 
