@@ -29,6 +29,17 @@ namespace WakHead
 
             base.Update();
 
+            if (!IsDoingSkill)
+            {
+                if (!_isAttackInput)
+                {
+                    if (_isSkill_2Input && Skill_2_Delay > 0f && _currentVent != null)
+                    {
+                        OnSkill_2();
+                    }
+                }
+            }
+            
             if (!_isVenting)
             {
                 SelectVent();
@@ -129,26 +140,33 @@ namespace WakHead
                 var newVentScript = newVent.GetComponent<Martine_Vent>();
                 newVentScript.SetInfo(this.photonView, this.gameObject, GetAttackDir(), MyTeam);
                 _myVentList.Add(newVentScript);
+
+                Vector3 frontVentPos = this.transform.position + GetAttackDir() * 5f;
+                
+                if (Mathf.Abs(frontVentPos.x) > 20)
+                {
+                    frontVentPos.x = frontVentPos.x > 0f ? 20f : -20f;
+                }
+                
+                var newVent_front =
+                    Global.PoolingManager.Spawn("Martine_Vent", frontVentPos, this.transform.rotation);
+                var newVent_frontScript = newVent_front.GetComponent<Martine_Vent>();
+                newVent_frontScript.SetInfo(this.photonView, this.gameObject, GetAttackDir(), MyTeam);
+                _myVentList.Add(newVent_frontScript);
                 
                 Skill_2_Delay = Skill_2_CoolTime;
             }
             else
             {
                 this.transform.position = _currentVent.transform.position + new Vector3(0, 0.2f, 0);
-                base.OnSkill_2();
-
+                IsSkill_2 = true;
+                
                 _currentVent.OnVent();
 
                 _collidedVent.Clear();
 
                 _animator.SetBool("IsSkill_2", true);
-
-                if (OnSkillCoroutine != null)
-                {
-                    StopCoroutine(OnSkillCoroutine);
-                    OnSkillCoroutine = null;
-                }
-
+                
                 IsDoingSkill = true;
 
                 StartCoroutine(Venting());
@@ -229,7 +247,16 @@ namespace WakHead
 
             int currentIndex = GetCurrentVentIndex();
 
-            Vector3 lastVentPos = _ventingVent.transform.position + new Vector3(0, 0.2f, 0);
+            Vector3 lastVentPos = Vector3.zero;
+            
+            if (_ventingVent == null)
+            {
+                isInputUp = false;
+            }
+            else
+            {
+                lastVentPos = _ventingVent.transform.position + new Vector3(0, 0.2f, 0);
+            }
 
             while (isInputUp)
             {
