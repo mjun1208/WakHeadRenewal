@@ -247,7 +247,7 @@ namespace WakHead
 
             int currentIndex = GetCurrentVentIndex();
 
-            Vector3 lastVentPos = Vector3.zero;
+            Vector3 lastVentPos = this.transform.position;
             
             if (_ventingVent == null)
             {
