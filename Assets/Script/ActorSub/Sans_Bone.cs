@@ -9,7 +9,6 @@ namespace WakHead
     {
         [SerializeField] private Animator _animator;
 
-
         public const float X_OFFSET = 2f;
 
         public override void SetInfo(PhotonView ownerPhotonView, GameObject owner, Vector3 dir, Team team = Team.None)
@@ -36,7 +35,7 @@ namespace WakHead
         {
             if (_ownerPhotonView.IsMine)
             {
-                _attackRange.Attack(targetEntity => { targetEntity.Damaged(this.transform.position, 10, MyTeam, "SansAttackEffect"); }, MyTeam);
+                _attackRange.Attack(targetEntity => { targetEntity.Damaged(this.transform.position, 8, MyTeam, "SansAttackEffect"); }, MyTeam);
             }
         }
     }
