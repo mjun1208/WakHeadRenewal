@@ -36,6 +36,40 @@ namespace WakHead
             }
         }
 
+        protected override void ForceStop()
+        {
+            base.ForceStop();
+
+            _isSkill_2KeyDown = false;
+            
+            if (_rasenganState != RasenganState.Ready)
+            {
+                _animator.SetBool("IsCharging", false);
+                _animator.SetBool("IsCharged", false);
+
+                SetDummyAnimation("IsCharging", false);
+                SetDummyAnimation("IsCharged", false);
+                
+                _animator.SetBool("IsSkill_2", false);
+                SetDummyAnimation("IsSkill_2", false);
+                
+                if (_chargingGauge == 0)
+                {
+                    _rasenganState = RasenganState.Ready;
+                }
+                else
+                {
+                    _animator.SetBool("IsCharging", false);
+                    _animator.SetBool("IsCharged", true);
+
+                    SetDummyAnimation("IsCharging", false);
+                    SetDummyAnimation("IsCharged", true);
+
+                    _rasenganState = RasenganState.Shoot;
+                }
+            }
+        }
+
         protected override void Update()
         {
             if (!photonView.IsMine)
