@@ -55,6 +55,16 @@ namespace WakHead
                 return;
             }
 
+            if (Random.Range(0, 10) < 1 && !_isHaveFish)
+            {
+                myFish.SelectFish(5);
+                photonView.RPC("SetFish", RpcTarget.All, myFish.GetMyFishIndex());
+
+                _isHaveFish = true;
+                
+                Global.PoolingManager.SpawnNotifyText("배추흰나비를 찾았다!!", Color.white);
+            }
+
             _attackRange.Attack(targetEntity => { targetEntity.KnockBack(5, GetAttackDir(), 0.5f, 0, MyTeam,
                 "AnimalCrossingAttackEffect",GetAttackDir().x * 0.1f ,GetAttackDir().x > 0); }, MyTeam);
         }
@@ -207,8 +217,6 @@ namespace WakHead
             }
             else
             {
-                base.OnSkill_2();
-                
                 Global.PoolingManager.SpawnNotifyText("낚은 물고기가 없습니다.!!");
             }
         }

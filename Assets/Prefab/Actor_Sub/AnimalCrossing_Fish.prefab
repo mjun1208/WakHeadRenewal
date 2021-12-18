@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1940124076433243507}
   - component: {fileID: 415179716279832536}
   m_Layer: 12
-  m_Name: AniamlCrossing_Fish
+  m_Name: AnimalCrossing_Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigid: {fileID: 1940124076433243507}
+  _attackRange: {fileID: 0}
   _renderer: {fileID: 5856506858243896919}
   _fishSprites:
   - {fileID: 21300000, guid: 42795e8ba3399044f906661762a093bc, type: 3}
@@ -54,6 +55,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 38611c1736a918842a5c20b2527ce719, type: 3}
   - {fileID: 21300000, guid: 73e8a42ae23c017428eae5b9fc625e77, type: 3}
   - {fileID: 21300000, guid: 7990f16f0f5d650439409dd44d88126d, type: 3}
+  - {fileID: 21300000, guid: de72d129847cd4f4e8881d69839346c9, type: 3}
 --- !u!212 &5856506858243896919
 SpriteRenderer:
   m_ObjectHideFlags: 0

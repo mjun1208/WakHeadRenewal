@@ -35,7 +35,7 @@ namespace WakHead
 
         public void SelectRandomFish()
         {
-            var randomIndex = Random.Range(0, _fishSprites.Count);
+            var randomIndex = Random.Range(0, _fishSprites.Count - 1);
 
             _currentFishIndex = randomIndex;
 
