@@ -166,7 +166,7 @@ namespace WakHead
 
         public void DespawnThrow(ActorSub throws)
         {
-            if (!photonView.IsMine)
+            if (this == null || !photonView.IsMine)
             {
                 return;
             }
