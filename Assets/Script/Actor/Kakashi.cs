@@ -131,7 +131,7 @@ namespace WakHead
 
                         carrierEntityPos = chainTargetEntity.transform.position;
 
-                        chainTargetEntity.KnockBack(3, GetAttackDir(), 0.5f, 0, MyTeam, "KakashiSkill_1Effect", 0,
+                        chainTargetEntity.KnockBack(5, GetAttackDir(), 0.5f, 0, MyTeam, "KakashiSkill_1Effect", 0,
                             Random.Range(0, 2) == 0);
 
                         chainTargetEntity = GetChainTarget(carrierEntityPos, chainedTargetEntityList);

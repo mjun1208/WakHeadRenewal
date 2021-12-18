@@ -326,8 +326,12 @@ namespace WakHead
             
             float distance = float.MaxValue;
 
-            while (distance > 0.3f)
+            float duration = distance / power;
+            
+            while (distance > 0.3f && duration > 0)
             {
+                duration -= Time.deltaTime;
+            
                 distance = Vector3.Distance(this.transform.position, targetPosition);
 
                 this.transform.position = Vector3.Lerp(this.transform.position, targetPosition, Time.deltaTime * 15f);

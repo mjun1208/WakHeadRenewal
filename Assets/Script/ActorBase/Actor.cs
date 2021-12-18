@@ -201,7 +201,7 @@ namespace WakHead
 
                     _movedir = dir;
 
-                    Move(_moveSpeed * 0.5f);
+                    Move(_moveSpeed * 0.2f);
                 }
 
                 return;

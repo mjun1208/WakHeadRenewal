@@ -115,7 +115,7 @@ namespace WakHead
         
         public void Rolling()
         {
-            _rigid.AddForce(_dir * 10f, ForceMode2D.Impulse);
+            _rigid.AddForce(_dir * 15f, ForceMode2D.Impulse);
         }
 
         private void OnTriggerEnter2D(Collider2D other)

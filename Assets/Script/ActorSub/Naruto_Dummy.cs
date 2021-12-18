@@ -50,7 +50,7 @@ namespace WakHead
         {
             _lifeTime += Time.deltaTime;
 
-            if (_lifeTime > 20f)
+            if (_lifeTime > 15f)
             {
                 IsDead = true;
             }

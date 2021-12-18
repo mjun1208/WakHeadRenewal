@@ -207,6 +207,8 @@ namespace WakHead
             }
             else
             {
+                base.OnSkill_2();
+                
                 Global.PoolingManager.SpawnNotifyText("낚은 물고기가 없습니다.!!");
             }
         }
