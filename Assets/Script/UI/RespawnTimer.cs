@@ -17,6 +17,11 @@ namespace WakHead
         {
             Global.instance.MyActorSetAction += SetActor;
         }
+        
+        private void OnDestroy()
+        {
+            Global.instance.MyActorSetAction -= SetActor;
+        }
 
         private void SetActor(Actor actor)
         {

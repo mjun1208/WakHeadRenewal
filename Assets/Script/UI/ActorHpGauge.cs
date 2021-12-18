@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,6 +25,23 @@ namespace WakHead
                 case Team.RED:
                 {
                     Global.instance.RedActorSetAction += SetActor;
+                    break;
+                }
+            }
+        }
+
+        private void OnDestroy()
+        {
+            switch (_team)
+            {
+                case Team.BLUE:
+                {
+                    Global.instance.BlueActorSetAction -= SetActor;
+                    break;
+                }
+                case Team.RED:
+                {
+                    Global.instance.RedActorSetAction -= SetActor;
                     break;
                 }
             }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -19,7 +20,7 @@ namespace WakHead
         private string _actorName;
         private bool _isOn = true;
         
-        private void Awake()
+        private void Start()
         {
             switch (_team)
             {
@@ -31,6 +32,23 @@ namespace WakHead
                 case Team.RED:
                 {
                     Global.instance.RedActorSetAction += SetActor;
+                    break;
+                }
+            }
+        }
+
+        private void OnDestroy()
+        {
+            switch (_team)
+            {
+                case Team.BLUE:
+                {
+                    Global.instance.BlueActorSetAction -= SetActor;
+                    break;
+                }
+                case Team.RED:
+                {
+                    Global.instance.RedActorSetAction -= SetActor;
                     break;
                 }
             }
