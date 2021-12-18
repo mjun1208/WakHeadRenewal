@@ -566,11 +566,15 @@ namespace WakHead
             _collider2D.enabled = false;
             _occupiedCollider.IsWork = false;
 
+            CameraManager.instance.SetTarget(null);
+            
             ForceStop();
         }
 
         public void Respawn()
         {
+            CameraManager.instance.SetTarget(this.transform);
+            
             IsDead = false;
             ResetHp();
 

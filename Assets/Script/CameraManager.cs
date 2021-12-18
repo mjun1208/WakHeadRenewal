@@ -35,6 +35,10 @@ namespace WakHead
             {
                 MoveToDeadTarget();
             }
+            else if (TargetTransform == null)
+            {
+                MoveFree();
+            }
         }
 
         public void SetTarget(Transform target)
@@ -65,6 +69,27 @@ namespace WakHead
 
                 this.transform.position = targetPos; // Vector3.Lerp(this.transform.position, targetPos, 25f * Time.deltaTime);
             }
+        }
+
+        private void MoveFree()
+        {
+            Vector3 targetPos = this.transform.position;
+            
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                targetPos += Vector3.right * 50f * Time.deltaTime;
+            }
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                targetPos += Vector3.left * 50f * Time.deltaTime;
+            }
+            
+            if (Mathf.Abs(targetPos.x) > 10)
+            {
+                targetPos.x = targetPos.x > 0f ? 10f : -10f;
+            }
+
+            this.transform.position = Vector3.Lerp(this.transform.position, targetPos, 10f * Time.deltaTime);
         }
 
         public void Shake(float duration, float power)
