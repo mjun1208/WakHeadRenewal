@@ -26,12 +26,14 @@ namespace WakHead
             }
         }
 
+        public static OptionManager OptionManager => _optionManager;
         public static GameDataManager GameDataManager => _gameDataManager;
         public static ResourceManager ResourceManager => _resourceManager;
         public static PoolingManager PoolingManager => _poolingManager;
         public static SoundManager SoundManager => _soundManager;
 
         private static Global _instance;
+        private static OptionManager _optionManager;
         private static GameDataManager _gameDataManager;
         private static ResourceManager _resourceManager;
         private static PoolingManager _poolingManager;
@@ -94,6 +96,7 @@ namespace WakHead
                 _instance = this;
                 DontDestroyOnLoad(this.gameObject);
 
+                _optionManager = new OptionManager();
                 _gameDataManager = new GameDataManager();
                 _resourceManager = new ResourceManager();
                 _poolingManager = new PoolingManager();
