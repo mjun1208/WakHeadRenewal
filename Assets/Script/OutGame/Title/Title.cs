@@ -19,6 +19,7 @@ namespace WakHead
 
         private bool _isJoinLobby = false;
         private bool _isConnected = false;
+        private bool _leaveRoom = false;
 
         [SerializeField] private GameObject _lobbyConnect;
         [SerializeField] private GameObject _nickName;
@@ -133,10 +134,18 @@ namespace WakHead
 
         public override void OnJoinedRoom()
         {
-            Debug.Log("OnJoinedRoom() called by PUN. Now this client is in a room in region [" +
+            Debug.Log("OnJoinedRoom(p[[] called by PUN. Now this client is in a room in region [" +
                       PhotonNetwork.CloudRegion + "]. Game is now running.");
         }
 
+        public void LeaveRoom()
+        {
+            if (PhotonNetwork.CurrentRoom != null)
+            {
+                _leaveRoom = true;
+            }
+        }
+        
         private IEnumerator WaitPlayer()
         {
             while (!PhotonNetwork.IsConnected)
@@ -166,8 +175,14 @@ namespace WakHead
 
             yield return null;
 
-            while (PhotonNetwork.CurrentRoom.PlayerCount < MaxPlayers)
+            while (PhotonNetwork.CurrentRoom != null && PhotonNetwork.CurrentRoom.PlayerCount < MaxPlayers)
             {
+                if (_leaveRoom)
+                {
+                    _leaveRoom = false;
+                    PhotonNetwork.LeaveRoom();
+                }
+                
                 if (Input.GetKeyDown(KeyCode.Q))
                 {
                     break;
