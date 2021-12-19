@@ -64,5 +64,16 @@ namespace WakHead
 
             _chimpanzeeList.Add(newPanzee);
         }
+
+        public void DespawnChimpanzeeAll()
+        {
+            foreach (var chimpanzee in _chimpanzeeList)
+            {
+                if (chimpanzee != null)
+                {
+                    chimpanzee.GetComponent<Chimpanzee>().Dead();
+                }
+            }
+        }
     }
 }
