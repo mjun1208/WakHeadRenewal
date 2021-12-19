@@ -80,6 +80,8 @@ namespace WakHead
             
             _blueLife.SetActive(true);
             _redLife.SetActive(true);
+            
+            Global.PoolingManager.SpawnNotifyText("----데스매치 모드로 진입합니다----");
         }
     }
 }
