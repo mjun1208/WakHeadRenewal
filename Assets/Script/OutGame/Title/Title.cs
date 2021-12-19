@@ -35,6 +35,7 @@ namespace WakHead
             StartCoroutine(WaitConnectLobby());
 
             Time.timeScale = 1f;
+            Global.instance.ResetInfo();
 
             if (PhotonNetwork.IsConnected)
             {
