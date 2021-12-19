@@ -250,9 +250,9 @@ namespace WakHead
 
             photonView.RPC("ActorCopy", RpcTarget.All, _copyActor.GetPhotonView().ViewID, false);
 
-            ReturnKakashi();
-
             DestroyCopiedActor();
+            
+            ReturnKakashi();
 
             OnSkillCoroutine = null;
         }
@@ -260,6 +260,11 @@ namespace WakHead
         private void ReturnKakashi()
         {
             base.Start();
+
+            if (photonView.IsMine)
+            {
+                CameraManager.instance.SetTarget(this.transform);
+            }
 
             if (_copyActor != null)
             {
