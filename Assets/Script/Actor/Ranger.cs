@@ -13,7 +13,15 @@ namespace WakHead
         [SerializeField] private Image _chargingGaugeImage;
         [SerializeField] private Image _chargingOverGaugeImage;
         private float _rollingGauge = 0f;
-        
+
+        protected override void ForceStop()
+        {
+            base.ForceStop();
+            
+            _chargingGaugeObject.SetActive(false);
+            SetEnableBeam(false);
+        }
+
         protected override void Active_Attack()
         {
             if (!photonView.IsMine)
