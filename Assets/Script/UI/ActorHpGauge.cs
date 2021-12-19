@@ -12,7 +12,7 @@ namespace WakHead
 
         private Actor _targetActor;
 
-        private void Start()
+        private void Awake()
         {
             switch (_team)
             {
