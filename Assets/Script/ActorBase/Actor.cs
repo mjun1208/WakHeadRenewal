@@ -625,7 +625,7 @@ namespace WakHead
                 CameraManager.instance.SetTarget(null);
                 if (IsLifeOn && Life > 0)
                 {
-                    _respawnPos = new Vector3(Random.Range(-20f, 20f), Random.Range(-5.4f, 0.4f), 0);
+                    _respawnPos = new Vector3(Random.Range(-7.5f, 7.5f), Random.Range(-5.4f, 0.4f), 0);
                     Global.PoolingManager.LocalSpawn("RespawnPos", _respawnPos, Quaternion.identity, true);
                     
                     Life--;
