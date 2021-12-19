@@ -48,6 +48,39 @@ namespace WakHead
             _isCastingComplete = false;
         }
 
+        public override void PlayAttackSound()
+        {
+            Global.SoundManager.Play("AnimalCrossing_Attack_Sound", this.transform.position);
+        }
+
+        public override void PlaySkill_1Sound()
+        {
+            Global.SoundManager.Play("AnimalCrossing_Skill_1_Sound", this.transform.position);
+        }
+        
+        public void PlaySkill_1_2Sound()
+        {
+            Global.SoundManager.Play("AnimalCrossing_Skill_1_2_Sound", this.transform.position);
+        }
+
+        public override void PlaySkill_2Sound()
+        {
+            Global.SoundManager.Play("AnimalCrossing_Skill_2_Sound", this.transform.position);
+        }
+        
+        public void PlayGetButterFlySound()
+        {
+            Global.SoundManager.Play("배추흰나비", this.transform.position);
+        }
+
+        public void PlayGetFishSound()
+        {
+            if (myFish.GetMyFishIndex() != 5)
+            {
+                Global.SoundManager.Play($"Fish_{myFish.GetMyFishIndex()}_Sound", this.transform.position);
+            }
+        }
+
         protected override void Active_Attack()
         {
             if (!photonView.IsMine)
@@ -62,7 +95,8 @@ namespace WakHead
                 photonView.RPC("SetFish", RpcTarget.All, myFish.GetMyFishIndex());
 
                 _isHaveFish = true;
-                
+
+                PlayGetButterFlySound();
                 Global.PoolingManager.SpawnNotifyText("배추흰나비를 찾았다!!", Color.white);
             }
 
