@@ -25,6 +25,9 @@ namespace WakHead
         
         [SerializeField] private GameObject _blueLife;
         [SerializeField] private GameObject _redLife;
+        
+        [SerializeField] private GameObject _rightStorm;
+        [SerializeField] private GameObject _leftStorm;
 
         private bool isTimerColorChanged = false;
 
@@ -82,6 +85,9 @@ namespace WakHead
             _redLife.SetActive(true);
             
             Global.PoolingManager.SpawnNotifyText("----데스매치 모드로 진입합니다----");
+            
+            _rightStorm.SetActive(true);
+            _leftStorm.SetActive(true);
         }
     }
 }
