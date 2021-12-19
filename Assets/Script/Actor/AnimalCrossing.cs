@@ -55,7 +55,8 @@ namespace WakHead
                 return;
             }
 
-            if (Random.Range(0, 10) < 1 && !_isHaveFish)
+            // 30퍼
+            if (Random.Range(0, 10) < 3 && !_isHaveFish)
             {
                 myFish.SelectFish(5);
                 photonView.RPC("SetFish", RpcTarget.All, myFish.GetMyFishIndex());
