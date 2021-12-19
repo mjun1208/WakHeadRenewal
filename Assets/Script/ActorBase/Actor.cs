@@ -44,12 +44,34 @@ namespace WakHead
         public ObscuredBool IsSkill_2 { get; protected set; } = false;
         
         public ObscuredInt DeadTime { get; set; } = 0;
+        
+        public ObscuredInt Life {
+            get
+            {
+                return _life;
+            }
+            set 
+            {
+                if (value <= 0 && value != _life)
+                {
+                    Global.instance.WinTeam(MyTeam == Team.BLUE ? Team.RED : Team.BLUE);   
+                }
+
+                _life = value;
+            }
+        }
+
+        private ObscuredInt _life = 5;
+        
+        public ObscuredBool IsLifeOn { get; set; } = false;
 
         protected Vector3 _originalScale = Vector3.zero;
 
         public ObscuredBool IsDoingSkill { get; protected set; } = false;
 
         public IEnumerator OnSkillCoroutine { get; protected set; } = null;
+
+        private Vector3 _respawnPos;
 
         public override void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
         {
@@ -59,6 +81,8 @@ namespace WakHead
             {
                 stream.SendNext(this.transform.localScale.x);
                 stream.SendNext(this.transform.localScale.y);
+                stream.SendNext(IsLifeOn.GetDecrypted());
+                stream.SendNext(Life.GetDecrypted());
             }
             else
             {
@@ -66,9 +90,31 @@ namespace WakHead
                 var scale_y = (float) stream.ReceiveNext();
                 this.transform.localScale =
                     new Vector3(scale_x, scale_y, this.transform.localScale.z);
+
+                IsLifeOn = (bool) stream.ReceiveNext();
+                Life = (int) stream.ReceiveNext();
             }
         }
 
+        public void LifeOn()
+        {
+            IsLifeOn = true;
+            
+            switch (MyTeam)
+            {
+                case Team.BLUE:
+                {
+                    Life = Global.instance.BlueTower.HP;
+                    break;
+                }
+                case Team.RED:
+                {
+                    Life = Global.instance.RedTower.HP;
+                    break;
+                }
+            }
+        }
+        
         protected override void Awake()
         {
             base.Awake();
@@ -140,20 +186,28 @@ namespace WakHead
 
         public void Spawn()
         {
-            switch (MyTeam)
+            if (IsLifeOn)
             {
-                case Team.BLUE:
+                this.transform.position = _respawnPos;
+            }
+            else
+            {
+                switch (MyTeam)
                 {
-                    this.transform.position = Global.instance.BlueTower.transform.position + new Vector3(-3f, 0, 0);
-                    break;
-                }
-                case Team.RED:
-                {
-                    this.transform.position = Global.instance.RedTower.transform.position + new Vector3(3f, 0, 0);;
-                    break;
+                    case Team.BLUE:
+                    {
+                        this.transform.position = Global.instance.BlueTower.transform.position + new Vector3(-3f, 0, 0);
+                        break;
+                    }
+                    case Team.RED:
+                    {
+                        this.transform.position = Global.instance.RedTower.transform.position + new Vector3(3f, 0, 0);
+                        ;
+                        break;
+                    }
                 }
             }
-            
+
             _smoothSync.teleport();
         }
 
@@ -569,6 +623,13 @@ namespace WakHead
             if (photonView.IsMine)
             {
                 CameraManager.instance.SetTarget(null);
+                if (IsLifeOn && Life > 0)
+                {
+                    _respawnPos = new Vector3(Random.Range(-20f, 20f), Random.Range(-5.4f, 0.4f), 0);
+                    Global.PoolingManager.LocalSpawn("RespawnPos", _respawnPos, Quaternion.identity, true);
+                    
+                    Life--;
+                }
             }
 
             ForceStop();

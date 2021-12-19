@@ -334,7 +334,7 @@ namespace WakHead
             _attackDelay = 0.2f;
         }
 
-        private void Dead()
+        public void Dead()
         {
             photonView.RPC("SpawnDeadEffect", RpcTarget.All);
             PhotonNetwork.Destroy(this.gameObject);

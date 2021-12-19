@@ -61,6 +61,8 @@ namespace WakHead
         
         public Action<Actor> BlueActorSetAction;
         public Action<Actor> RedActorSetAction;
+        
+        public Action GameStartAction;
 
         public bool IsLoaded { get; private set; } = false;
 
@@ -88,6 +90,7 @@ namespace WakHead
         private bool _isGameStarted = false;
         private bool _isLeaving = false;
         private bool _isEndGame = false;
+        private float _gameTimer = 300f;
 
         private void Awake()
         {
@@ -116,10 +119,7 @@ namespace WakHead
 
         public override void OnPlayerLeftRoom(Player otherPlayer)
         {
-            if (!_isEndGame)
-            {
-                LeaveRoom();
-            }
+            LeaveRoom();
         }
 
         public override void OnLeftRoom()
@@ -143,14 +143,11 @@ namespace WakHead
         public void LeaveRoom()
         {
             ResetInfo();
-
-            if (!_isLeaving)
+            
+            if (PhotonNetwork.InRoom)
             {
-                _isLeaving = true;
-                if (PhotonNetwork.InRoom)
-                {
-                    PhotonNetwork.LeaveRoom();
-                }
+                Time.timeScale = 1f;
+                PhotonNetwork.LeaveRoom();
             }
         }
 
@@ -186,6 +183,8 @@ namespace WakHead
             MyActorSetAction = null;
             BlueActorSetAction = null;
             RedActorSetAction = null;
+
+            GameStartAction = null;
 
             _isEndGame = false;
         }
@@ -270,6 +269,8 @@ namespace WakHead
         public void GameStart()
         {
             _isGameStarted = true;
+            
+            GameStartAction?.Invoke();
             
             _blueReadyObject.GetComponent<RectTransform>().DOAnchorPosX(-800, 0.5f).From(new Vector2(553, 0));
             _redReadyObject.GetComponent<RectTransform>().DOAnchorPosX(800, 0.5f).From(new Vector2(-553, 0)).OnComplete(() => _readyObject.SetActive(false));

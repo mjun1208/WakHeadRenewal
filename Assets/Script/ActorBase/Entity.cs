@@ -233,6 +233,11 @@ namespace WakHead
         
             photonView.RPC("StunRPC", RpcTarget.All, stunTime);
         }
+        
+        public void ForceStun(float stunTime)
+        {
+            photonView.RPC("ForceStunRPC", RpcTarget.All, stunTime);
+        }
 
         [PunRPC]
         public void StunRPC(float stunTime)
@@ -254,6 +259,21 @@ namespace WakHead
             StartCoroutine(currentCrownControl);
         }
         
+        [PunRPC]
+        public void ForceStunRPC(float stunTime)
+        {
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+
+            CrownControlAction?.Invoke();
+
+            currentCrownControl = OnStun(stunTime);
+
+            StartCoroutine(currentCrownControl);
+        }
+
         public void EnableStunEffect(bool enable)
         {
             _stunEffect.SetActive(enable);

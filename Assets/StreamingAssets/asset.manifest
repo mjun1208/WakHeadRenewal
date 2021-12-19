@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3934685860
+CRC: 2793437167
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: bbfcfb8842a0f4e5143e7d13a7c2d6aa
+    Hash: cdb064bb74e02166102a8b5abdf6ea73
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0a5af80203180145a3371cc2b2c34bf6
@@ -313,4 +313,5 @@ Assets:
 - Assets/Prefab/Actor_Sub/Ahri_Heart.prefab
 - Assets/Prefab/Actor/AnimalCrossing.prefab
 - Assets/Prefab/Actor_Sub/Ranger_Titan.prefab
+- Assets/Prefab/Effect/RespawnPos.prefab
 Dependencies: []

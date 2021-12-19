@@ -37,7 +37,7 @@ namespace WakHead
         {
             _respawnTimerText.text = ((int)timer).ToString();
 
-            while (timer > 0)
+            while (timer > 0 && _targetActor.IsDead)
             {
                 _respawnTimerText.text = ((int)timer).ToString();
                 yield return new WaitForSeconds(1f);

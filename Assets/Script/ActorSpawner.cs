@@ -63,11 +63,16 @@ namespace WakHead
 
         private IEnumerator RespawnTimer()
         {
-            _currentActor.DeadTime = deadTime;
-            
-            yield return new WaitForSeconds(5f + (deadTime * 2f));
+            _currentActor.DeadTime =  _currentActor.IsLifeOn ? 0  : deadTime;
 
-            _currentActor.Respawn();
+            float respawnTime = _currentActor.IsLifeOn ? 5f : 5f + (deadTime * 2f);
+            
+            yield return new WaitForSeconds(respawnTime);
+
+            if (_currentActor.IsDead)
+            {
+                _currentActor.Respawn();
+            }
 
             deadTime++;
         }
