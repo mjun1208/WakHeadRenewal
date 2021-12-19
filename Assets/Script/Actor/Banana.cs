@@ -241,14 +241,62 @@ namespace WakHead
 
             if (photonView.IsMine)
             {
-                _skill_1Range.Attack(targetEntity =>
-                {
-                    var dir = targetEntity.transform.position - this.transform.position;
-                    dir.Normalize();
+                DownAttack();
+                // _skill_1Range.Attack(targetEntity =>
+                // {
+                //     var dir = targetEntity.transform.position - this.transform.position;
+                //     dir.Normalize();
+                // 
+                //     targetEntity.KnockBack(30, dir, 1f, 0, MyTeam,
+                //         "NormalAttackEffect", dir.x * 0.1f, dir.x > 0);
+                // }, MyTeam);
+            }
+        }
+        
+        private void DownAttack()
+        {
+            if (photonView.IsMine)
+            {
+                int layerMask = (1 << LayerMask.NameToLayer("Enemy")) + (1 << LayerMask.NameToLayer("Minion"));
+                RaycastHit2D[] hits = Physics2D.CircleCastAll(_skill_1Range.transform.position, 1.5f, Vector2.zero, 0f, layerMask);
 
-                    targetEntity.KnockBack(30, dir, 1f, 0, MyTeam,
-                        "NormalAttackEffect", dir.x * 0.1f, dir.x > 0);
-                }, MyTeam);
+                foreach (var hit in hits)
+                {
+                    if (hit.transform.gameObject == this.gameObject)
+                    {
+                        continue;
+                    }
+
+                    var entity = hit.transform.GetComponent<Entity>();
+                    if (entity != null)
+                    {
+                        if (entity.MyTeam == MyTeam)
+                        {
+                            continue;
+                        }
+                    
+                        var dir = entity.transform.position - this.transform.position;
+                        dir.Normalize();
+                        
+                        entity.KnockBack(30, dir, 1f, 0, MyTeam, "NormalAttackEffect", dir.x * 0.1f, dir.x > 0);
+                    }
+
+                    var summoned = hit.transform.GetComponent<Summoned>();
+                    if (summoned != null)
+                    {
+                        if (summoned.MyTeam == MyTeam)
+                        {
+                            continue;
+                        }
+                    
+                        var dir = summoned.transform.position - this.transform.position;
+                        dir.Normalize();
+
+                        summoned.Damaged(summoned.transform.position, MyTeam, "NormalAttackEffect", dir.x * 0.1f,dir.x > 0);
+                    }
+                }
+                
+                return;
             }
         }
 
