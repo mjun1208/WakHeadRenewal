@@ -24,7 +24,16 @@ namespace WakHead
         private List<Banana_Ball> _collidedBallList = new List<Banana_Ball>();
 
         private Banana_Trampoline _currentTrampoline;
-        
+
+        protected override void ForceStop()
+        {
+            base.ForceStop(); 
+            
+            _isJump = false; 
+            _isDown = false;
+            _dropPoint.SetActive(false);
+        }
+
         private void FixedUpdate()
         {
             if (!photonView.IsMine)
