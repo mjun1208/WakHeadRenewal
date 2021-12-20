@@ -443,6 +443,20 @@ namespace WakHead
             }
         }
 
+        public override void PlayAttackSound()
+        {
+            base.PlayAttackSound();
+            
+            Global.SoundManager.Play("Martine_Attack_Sound" , this.transform.position);
+        }
+
+        public override void PlaySkill_1Sound()
+        {
+            base.PlaySkill_1Sound();
+            
+            Global.SoundManager.Play("Martine_Skill_1_Sound" , this.transform.position);
+        }
+
         [PunRPC]
         public void SpawnDeadEffect(Vector3 pos)
         {

@@ -31,6 +31,11 @@ namespace WakHead
         {
             photonView.RPC("ActiveVent", RpcTarget.All);
         }
+        
+        public void PlayVent_Sound()
+        {
+            Global.SoundManager.Play("Vent_0" , this.transform.position);
+        }
 
         private void Update()
         {
