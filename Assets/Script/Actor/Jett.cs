@@ -157,6 +157,37 @@ namespace WakHead
             }
         }
 
+        public override void PlayAttackSound()
+        {
+            base.PlayAttackSound();
+            
+            Global.SoundManager.Play("Jett_Attack_Sound" , this.transform.position);
+        }
+
+        public override void PlaySkill_1Sound()
+        {
+            base.PlaySkill_1Sound();
+            
+            Global.SoundManager.Play("Jett_Skill_1_Sound" , this.transform.position);
+        }
+        
+        public override void PlaySkill_2Sound()
+        {
+            base.PlaySkill_2Sound();
+            
+            Global.SoundManager.Play("Jett_Skill_2_Sound" , this.transform.position);
+        }
+        
+        public void PlaySkill_2_StartSound()
+        {
+            Global.SoundManager.Play("Jett_Skill_2_Start_Sound" , this.transform.position);
+        }
+        
+        public void PlayShurikenSound()
+        {
+            Global.SoundManager.Play("Jett_Shuriken_Sound" , this.transform.position);
+        }
+        
         [PunRPC]
         public void ThrowShurikenRPC(bool isPivot0)
         {

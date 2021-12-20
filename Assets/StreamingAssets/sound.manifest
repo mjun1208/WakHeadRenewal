@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3761667623
+CRC: 2850167897
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ea59d8cf3541144e513805fabb0df244
+    Hash: a8cd6d7de174ad5ca40c7c9f5673c410
   TypeTreeHash:
     serializedVersion: 2
     Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
@@ -14,6 +14,7 @@ ClassTypes:
 Assets:
 - Assets/Sound/Actor/AnimalCrossing/Fish_1_Sound.mp3
 - Assets/Sound/Actor/Sans/Sans_Skill_1_Sound.wav
+- Assets/Sound/Actor/Jett/Jett_Skill_1_Sound.mp3
 - Assets/Sound/Actor/AnimalCrossing/AnimalCrossing_Skill_1_Sound.mp3
 - Assets/Sound/Actor/AnimalCrossing/AnimalCrossing_Attack_Sound.mp3
 - Assets/Sound/Actor/Sans/Wa_!!.mp3
@@ -32,16 +33,20 @@ Assets:
 - Assets/Sound/Actor/Normal/Normal_Attack_Sound.mp3
 - Assets/Sound/Actor/Sans/Sans_Skill_1_Soundasdasd.mp3
 - Assets/Sound/Actor/AnimalCrossing/Fish_0_Sound.mp3
+- Assets/Sound/Actor/Jett/Jett_Attack_Sound.mp3
 - Assets/Sound/Actor/Normal/Normal_Skill_1_Start_Sound.mp3
 - Assets/Sound/Actor/Normal/Normal_Skill_2_Sound.mp3
 - Assets/Sound/Actor/Normal/y2meta (mp3cut.net).mp3
 - Assets/Sound/Actor/Kakashi/Kakashi_Skill_1_Sound.wav
+- Assets/Sound/Actor/Jett/Jett_Skill_2_Start_Sound.mp3
 - Assets/Sound/Actor/Ahri/Ahri_Skill_1_Sound.mp3
 - Assets/Sound/Actor/AnimalCrossing/Fish_3_Sound.mp3
 - Assets/Sound/Actor/Martine/Martine_Attack_Sound.mp3
+- Assets/Sound/Actor/Jett/Jett_Skill_2_Sound.mp3
 - Assets/Sound/Actor/Kakashi/Kakashi_Skill_2_Sound.mp3
 - "Assets/Sound/Actor/AnimalCrossing/\uBC30\uCD94\uD770\uB098\uBE44.mp3"
 - Assets/Sound/Actor/Sans/Sans_Skill_2_Sound.mp3
+- Assets/Sound/Actor/Jett/Jett_Shuriken_Sound.mp3
 - Assets/Sound/Actor/Normal/y2meta (mp3cut.net) (1).mp3
 - Assets/Sound/Actor/Normal/Normal_Skill_1_Sound.mp3
 - Assets/Sound/Actor/Ahri/Ahri_Skill_2_Sound.mp3
