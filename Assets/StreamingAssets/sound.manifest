@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3338312701
+CRC: 3761667623
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a34a37f7c2bb76e4d5480cc34e55b1d2
+    Hash: ea59d8cf3541144e513805fabb0df244
   TypeTreeHash:
     serializedVersion: 2
     Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
@@ -25,6 +25,7 @@ Assets:
 - Assets/Sound/Actor/Martine/Vent_0.mp3
 - Assets/Sound/Actor/Normal/Normal_Skill_2_Start_Sound.wav
 - Assets/Sound/Actor/AnimalCrossing/AnimalCrossing_Skill_2_Sound.mp3
+- Assets/Sound/Actor/Ahri/Ahri_Attack_Sound.mp3
 - Assets/Sound/Actor/AnimalCrossing/Fish_2_Sound.mp3
 - Assets/Sound/Actor/AnimalCrossing/AnimalCrossing_Skill_1_2_Sound.mp3
 - Assets/Sound/Actor/Martine/Martine_Skill_1_Sound.mp3
@@ -35,6 +36,7 @@ Assets:
 - Assets/Sound/Actor/Normal/Normal_Skill_2_Sound.mp3
 - Assets/Sound/Actor/Normal/y2meta (mp3cut.net).mp3
 - Assets/Sound/Actor/Kakashi/Kakashi_Skill_1_Sound.wav
+- Assets/Sound/Actor/Ahri/Ahri_Skill_1_Sound.mp3
 - Assets/Sound/Actor/AnimalCrossing/Fish_3_Sound.mp3
 - Assets/Sound/Actor/Martine/Martine_Attack_Sound.mp3
 - Assets/Sound/Actor/Kakashi/Kakashi_Skill_2_Sound.mp3
@@ -42,4 +44,5 @@ Assets:
 - Assets/Sound/Actor/Sans/Sans_Skill_2_Sound.mp3
 - Assets/Sound/Actor/Normal/y2meta (mp3cut.net) (1).mp3
 - Assets/Sound/Actor/Normal/Normal_Skill_1_Sound.mp3
+- Assets/Sound/Actor/Ahri/Ahri_Skill_2_Sound.mp3
 Dependencies: []
