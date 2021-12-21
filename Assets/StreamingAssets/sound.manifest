@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2850167897
+CRC: 196537979
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a8cd6d7de174ad5ca40c7c9f5673c410
+    Hash: 3c03544043936e6c97705cddda53f7ce
   TypeTreeHash:
     serializedVersion: 2
     Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
@@ -12,7 +12,9 @@ ClassTypes:
 - Class: 83
   Script: {instanceID: 0}
 Assets:
+- Assets/Sound/Actor/Naruto/Naruto_Attack_Sound.mp3
 - Assets/Sound/Actor/AnimalCrossing/Fish_1_Sound.mp3
+- Assets/Sound/Actor/Kakashi/Kakashi_Attack_Sound.wav
 - Assets/Sound/Actor/Sans/Sans_Skill_1_Sound.wav
 - Assets/Sound/Actor/Jett/Jett_Skill_1_Sound.mp3
 - Assets/Sound/Actor/AnimalCrossing/AnimalCrossing_Skill_1_Sound.mp3
@@ -27,19 +29,26 @@ Assets:
 - Assets/Sound/Actor/Normal/Normal_Skill_2_Start_Sound.wav
 - Assets/Sound/Actor/AnimalCrossing/AnimalCrossing_Skill_2_Sound.mp3
 - Assets/Sound/Actor/Ahri/Ahri_Attack_Sound.mp3
+- Assets/Sound/Actor/Kakashi/Kakashi_Skill_2_Middle_Sound.mp3
 - Assets/Sound/Actor/AnimalCrossing/Fish_2_Sound.mp3
 - Assets/Sound/Actor/AnimalCrossing/AnimalCrossing_Skill_1_2_Sound.mp3
+- Assets/Sound/Actor/Kakashi/Kakashi_Skill_2_Start_Sound.mp3
+- Assets/Sound/Actor/Kakashi/Kakashi_Skill_1_Start_Sound.mp3
 - Assets/Sound/Actor/Martine/Martine_Skill_1_Sound.mp3
+- Assets/Sound/Actor/Naruto/Naruto_Skill_2_Start_Sound.mp3
 - Assets/Sound/Actor/Normal/Normal_Attack_Sound.mp3
 - Assets/Sound/Actor/Sans/Sans_Skill_1_Soundasdasd.mp3
 - Assets/Sound/Actor/AnimalCrossing/Fish_0_Sound.mp3
+- Assets/Sound/Actor/Naruto/Naruto_Skill_1_Sound.mp3
 - Assets/Sound/Actor/Jett/Jett_Attack_Sound.mp3
 - Assets/Sound/Actor/Normal/Normal_Skill_1_Start_Sound.mp3
+- Assets/Sound/Actor/Naruto/Naruto_Skill_2_Sound.mp3
 - Assets/Sound/Actor/Normal/Normal_Skill_2_Sound.mp3
 - Assets/Sound/Actor/Normal/y2meta (mp3cut.net).mp3
 - Assets/Sound/Actor/Kakashi/Kakashi_Skill_1_Sound.wav
 - Assets/Sound/Actor/Jett/Jett_Skill_2_Start_Sound.mp3
 - Assets/Sound/Actor/Ahri/Ahri_Skill_1_Sound.mp3
+- Assets/Sound/Actor/Naruto/Naruto_Rasengan_Charging.mp3
 - Assets/Sound/Actor/AnimalCrossing/Fish_3_Sound.mp3
 - Assets/Sound/Actor/Martine/Martine_Attack_Sound.mp3
 - Assets/Sound/Actor/Jett/Jett_Skill_2_Sound.mp3

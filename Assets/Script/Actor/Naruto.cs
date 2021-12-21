@@ -348,6 +348,28 @@ namespace WakHead
             // photonView.RPC("SetDummyAnimationRPC", RpcTarget.All, name, isTrue);
         }
 
+        public override void PlayAttackSound()
+        {
+            base.PlayAttackSound();
+            Global.SoundManager.Play("Naruto_Attack_Sound", this.transform.position);
+        }
+
+        public override void PlaySkill_2Sound()
+        {
+            base.PlaySkill_2Sound();
+            Global.SoundManager.Play("Naruto_Skill_2_Sound", this.transform.position);
+        }
+        
+        public void PlaySkill_2_StartSound()
+        {
+            Global.SoundManager.Play("Naruto_Skill_2_Start_Sound", this.transform.position);
+        }
+        
+        public void PlayChargingRasenganSound()
+        {
+            Global.SoundManager.Play("Naruto_Rasengan_Charging", this.transform.position);
+        }
+
         protected override void Dead()
         {
             base.Dead();
