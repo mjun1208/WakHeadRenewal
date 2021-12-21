@@ -185,6 +185,7 @@ namespace WakHead
         public override void PlayAttackSound()
         {
             base.PlayAttackSound();
+            Global.SoundManager.Play("Kakashi_Attack_Sound", this.transform.position);
         }
 
         public override void PlaySkill_1Sound()
@@ -192,15 +193,26 @@ namespace WakHead
             Global.SoundManager.Play("Kakashi_Skill_1_Sound", this.transform.position);
         }
         
+        public void PlaySkill_1_StartSound()
+        {
+            Global.SoundManager.Play("Kakashi_Skill_1_Start_Sound", this.transform.position);
+        }
+        
         public override void PlaySkill_2Sound()
         {
             Global.SoundManager.Play("Kakashi_Skill_2_Sound", this.transform.position);
+        }
+        
+        public void PlaySkill_2_StartSound()
+        {
+            Global.SoundManager.Play("Kakashi_Skill_2_Start_Sound", this.transform.position);
         }
 
         [PunRPC]
         public void PlaySkill_2SoundRPC()
         {
             PlaySkill_2Sound();
+            PlaySkill_2_StartSound();
         }
 
         public override void OnSkill_2()
