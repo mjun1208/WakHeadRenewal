@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 196537979
+CRC: 3054192729
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 3c03544043936e6c97705cddda53f7ce
+    Hash: f810075e16fcaf8e49dc67895fcd1f6c
   TypeTreeHash:
     serializedVersion: 2
     Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
@@ -12,7 +12,6 @@ ClassTypes:
 - Class: 83
   Script: {instanceID: 0}
 Assets:
-- Assets/Sound/Actor/Naruto/Naruto_Attack_Sound.mp3
 - Assets/Sound/Actor/AnimalCrossing/Fish_1_Sound.mp3
 - Assets/Sound/Actor/Kakashi/Kakashi_Attack_Sound.wav
 - Assets/Sound/Actor/Sans/Sans_Skill_1_Sound.wav
@@ -28,6 +27,8 @@ Assets:
 - Assets/Sound/Actor/Martine/Vent_0.mp3
 - Assets/Sound/Actor/Normal/Normal_Skill_2_Start_Sound.wav
 - Assets/Sound/Actor/AnimalCrossing/AnimalCrossing_Skill_2_Sound.mp3
+- Assets/Sound/Actor/Naruto/Naruto_Dummy_Dead_Sound.mp3
+- Assets/Sound/Actor/Naruto/Naruto_Dummy_Spawn_Sound.mp3
 - Assets/Sound/Actor/Ahri/Ahri_Attack_Sound.mp3
 - Assets/Sound/Actor/Kakashi/Kakashi_Skill_2_Middle_Sound.mp3
 - Assets/Sound/Actor/AnimalCrossing/Fish_2_Sound.mp3
@@ -51,6 +52,7 @@ Assets:
 - Assets/Sound/Actor/Naruto/Naruto_Rasengan_Charging.mp3
 - Assets/Sound/Actor/AnimalCrossing/Fish_3_Sound.mp3
 - Assets/Sound/Actor/Martine/Martine_Attack_Sound.mp3
+- Assets/Sound/Actor/Naruto/Naruto_Attack_Sound.mp3
 - Assets/Sound/Actor/Jett/Jett_Skill_2_Sound.mp3
 - Assets/Sound/Actor/Kakashi/Kakashi_Skill_2_Sound.mp3
 - "Assets/Sound/Actor/AnimalCrossing/\uBC30\uCD94\uD770\uB098\uBE44.mp3"

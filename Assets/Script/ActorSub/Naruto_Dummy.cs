@@ -44,6 +44,7 @@ namespace WakHead
             base.Awake();
             _originalScale = this.transform.localScale;
 
+            Play_Spawn_Sound();
             PlaySkill_1Sound();
         }
 
@@ -98,27 +99,32 @@ namespace WakHead
 
         public void PlayAttackSound()
         {
-            Global.SoundManager.Play("Naruto_Attack_Sound", this.transform.position);
+            // Global.SoundManager.Play("Naruto_Attack_Sound", this.transform.position);
         }
         
         public void PlaySkill_1Sound()
         {
             Global.SoundManager.Play("Naruto_Skill_1_Sound", this.transform.position);
         }
+        
+        public void Play_Spawn_Sound()
+        {
+            Global.SoundManager.Play("Naruto_Dummy_Spawn_Sound", this.transform.position);
+        }
 
         public void PlaySkill_2Sound()
         {
-            Global.SoundManager.Play("Naruto_Skill_2_Sound", this.transform.position);
+            // Global.SoundManager.Play("Naruto_Skill_2_Sound", this.transform.position);
         }
         
         public void PlaySkill_2_StartSound()
         {
-            Global.SoundManager.Play("Naruto_Skill_2_Start_Sound", this.transform.position);
+            // Global.SoundManager.Play("Naruto_Skill_2_Start_Sound", this.transform.position);
         }
         
         public void PlayChargingRasenganSound()
         {
-            Global.SoundManager.Play("Naruto_Rasengan_Charging", this.transform.position);
+            // Global.SoundManager.Play("Naruto_Rasengan_Charging", this.transform.position);
         }
         
         public void Rasengan()

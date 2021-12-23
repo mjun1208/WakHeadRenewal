@@ -90,6 +90,8 @@ namespace WakHead
                     _dummyList.Remove(dummy);
 
                     PhotonNetwork.Destroy(dummy.gameObject);
+                    
+                    Play_Dummy_Dead_Sound();
                 }
             }
 
@@ -369,6 +371,11 @@ namespace WakHead
         {
             Global.SoundManager.Play("Naruto_Rasengan_Charging", this.transform.position);
         }
+        
+        public void Play_Dummy_Dead_Sound()
+        {
+            Global.SoundManager.Play("Naruto_Dummy_Dead_Sound", this.transform.position);
+        }
 
         protected override void Dead()
         {
@@ -377,6 +384,11 @@ namespace WakHead
             _rasenganState = RasenganState.Ready;
             _isSkill_2KeyDown = false;
             _chargingGauge = 0;
+
+            if (_dummyList.Count > 0)
+            {
+                Play_Dummy_Dead_Sound();
+            }
 
             for (int i = 0; i < _dummyList.Count; i++)
             {
