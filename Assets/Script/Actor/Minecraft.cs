@@ -59,5 +59,28 @@ namespace WakHead
             newLava.GetComponent<Minecraft_Lava>()
                 .SetInfo(this.photonView, null, _lavaPivot.transform.position, GetAttackDir(), MyTeam);
         }
+
+        public override void PlayAttackSound()
+        {
+            base.PlayAttackSound();
+            Global.SoundManager.Play("Minecraft_Attack_Sound", this.transform.position);
+        }
+
+        public override void PlaySkill_1Sound()
+        {
+            base.PlaySkill_1Sound();
+            Global.SoundManager.Play("Minecraft_Skill_1_Sound", this.transform.position);
+        }
+
+        public override void PlaySkill_2Sound()
+        {
+            base.PlaySkill_2Sound();
+            Global.SoundManager.Play("Minecraft_Skill_2_Sound", this.transform.position);
+        }
+        
+        public void PlaySkill_2_StartSound()
+        {
+            Global.SoundManager.Play("Minecraft_Skill_2_Start_Sound", this.transform.position);
+        }
     }
 }

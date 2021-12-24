@@ -22,8 +22,15 @@ namespace WakHead
 
             StartCoroutine(Fire());
             StartCoroutine(Diffuse());
+
+            PlaySound();
         }
 
+        public void PlaySound()
+        {
+            Global.SoundManager.Play("Minecraft_Lava_Sound" , this.transform.position);
+        }
+        
         public void ActiveDamage()
         {
             _attackRange.Attack(targetEntity => { OnDamage(targetEntity, 2); }, MyTeam);
