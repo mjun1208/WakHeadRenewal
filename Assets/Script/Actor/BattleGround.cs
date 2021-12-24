@@ -209,6 +209,18 @@ namespace WakHead
             }
         }
 
+        public override void PlayAttackSound()
+        {
+            base.PlayAttackSound();
+            Global.SoundManager.Play("BattleGround_Attack_Sound", this.transform.position);
+        }
+
+        public override void PlaySkill_1Sound()
+        {
+            base.PlaySkill_1Sound();
+            Global.SoundManager.Play("BattleGround_Skill_1_Sound", this.transform.position);
+        }
+
         protected override void Dead()
         {
             base.Dead();

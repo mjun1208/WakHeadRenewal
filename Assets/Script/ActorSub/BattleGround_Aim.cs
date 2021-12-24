@@ -155,6 +155,16 @@ namespace WakHead
             }
         }
 
+        public void PlaySkill_2Sound()
+        {
+            Global.SoundManager.Play("BattleGround_Skill_2_Sound", this.transform.position);
+        }
+        
+        public void PlaySkill_2_Start_Sound()
+        {
+            Global.SoundManager.Play("BattleGround_Skill_2_Start_Sound", this.transform.position);
+        }
+        
         public override void Destroy()
         {
             StopAllCoroutines();
