@@ -1,6 +1,7 @@
 ﻿using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using CodeStage.AntiCheat.ObscuredTypes;
 using UnityEngine;
 
@@ -8,14 +9,39 @@ namespace WakHead
 {
     public class Vengenpro : Actor
     {
+        [SerializeField] private AudioSource _attackSound;
+        
+        private float _soundSpeed = 1f; 
+        
         private ObscuredFloat _attackPressTime = 0f;
         private ObscuredFloat _attackPressFullChargingTime = 0f;
         private ObscuredFloat _attackPressDelay = 0f;
 
+        public override void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+        {
+            base.OnPhotonSerializeView(stream, info);
+
+            if (stream.IsWriting)
+            {
+                stream.SendNext(_soundSpeed);
+            }
+            else
+            {
+                _soundSpeed = (float) stream.ReceiveNext();
+            }
+        }
+
         protected override void Update()
         {
             base.Update();
-
+            
+            _attackSound.pitch = _soundSpeed;
+            
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+            
             if (_isAttack && _attackPressDelay <= 0f)
             {
                 _attackPressDelay = 0f;
@@ -24,6 +50,7 @@ namespace WakHead
                 {
                     _attackPressTime += Time.deltaTime;
                     _animator.SetFloat("AttackSpeed", 1 + _attackPressTime * 0.5f);
+                    _soundSpeed = 1 + _attackPressTime * 0.1f;
                 }
                 else
                 {
@@ -42,6 +69,27 @@ namespace WakHead
 
                 _attackPressTime = 0;
                 _animator.SetFloat("AttackSpeed", 1);
+                _soundSpeed = 1f;
+            }
+        }
+        
+        protected override void CheckAttack()
+        {
+            if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+            {
+                if (!_isAttack)
+                {
+                    photonView.RPC("PlayAttackSound", RpcTarget.All , true);
+                }
+                _isAttack = true;
+            }
+            else
+            {
+                if (_isAttack)
+                {
+                    photonView.RPC("PlayAttackSound", RpcTarget.All , false);
+                }
+                _isAttack = false;
             }
         }
 
@@ -110,6 +158,31 @@ namespace WakHead
         {
             var newSonic = Global.PoolingManager.LocalSpawn("Vengenpro_SonicBoom", this.transform.position,
                 Quaternion.identity, true);
+        }
+
+        [PunRPC]
+        public void PlayAttackSound(bool isAttack)
+        {
+            if (isAttack)
+            {
+                _attackSound.Play();
+            }
+            else
+            {
+                _attackSound.Stop();
+            }
+        }
+
+        public override void PlaySkill_1Sound()
+        {
+            base.PlaySkill_1Sound();
+            Global.SoundManager.Play("Vengenpro_Skill_1_Sound", this.transform.position);
+        }
+
+        public override void PlaySkill_2Sound()
+        {
+            base.PlaySkill_2Sound();
+            Global.SoundManager.Play("Vengenpro_Skill_2_Sound", this.transform.position);
         }
     }
 }
