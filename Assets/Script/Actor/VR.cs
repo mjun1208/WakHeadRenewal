@@ -51,6 +51,8 @@ namespace WakHead
 
         protected override void Active_Skill_1()
         {
+            PlaySkill_1Sound();
+            
             if (!photonView.IsMine)
             {
                 return;
@@ -111,6 +113,8 @@ namespace WakHead
         [PunRPC]
         public void InvisibilityRPC()
         {
+            PlaySkill_2Sound();
+            
             _isInvisibility = true;
 
             _animator.Rebind();
@@ -127,9 +131,37 @@ namespace WakHead
         [PunRPC]
         public void DisInvisibilityRPC()
         {
-            _isInvisibility = false;
+            if (_isInvisibility)
+            {
+                PlaySkill_2_ShowSound();
 
-            _renderer.color = new Color(1, 1, 1, 1);
+                _isInvisibility = false;
+
+                _renderer.color = new Color(1, 1, 1, 1);
+            }
+        }
+
+        public override void PlayAttackSound()
+        {
+            base.PlayAttackSound();
+            Global.SoundManager.Play("VR_Attack_Sound" , this.transform.position);
+        }
+
+        public override void PlaySkill_1Sound()
+        {
+            base.PlaySkill_1Sound();
+            Global.SoundManager.Play("VR_Skill_1_Sound", this.transform.position);
+        }
+
+        public override void PlaySkill_2Sound()
+        {
+            base.PlaySkill_2Sound();
+            Global.SoundManager.Play("VR_Skill_2_Sound" , this.transform.position);
+        }
+        
+        public void PlaySkill_2_ShowSound()
+        {
+            Global.SoundManager.Play("VR_Skill_2_Show_Sound" , this.transform.position);
         }
     }
 }
