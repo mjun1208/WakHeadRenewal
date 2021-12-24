@@ -10,6 +10,8 @@ namespace WakHead
     public class Tree : Actor
     {
         private Vector3 _realOriginalScale;
+
+        private int _attackSoundIndex = 0;
         
         protected override void Awake()
         {
@@ -66,6 +68,37 @@ namespace WakHead
 
                 photonView.RPC("ShakeLeaf", RpcTarget.All, randomPos.x, randomPos.y, leafScale);
             }
+        }
+
+        public override void PlayAttackSound()
+        {
+            base.PlayAttackSound();
+
+            Global.SoundManager.Play($"Tree_Attack_Sound_{_attackSoundIndex}", this.transform.position);
+            
+            if (++_attackSoundIndex >= 6)
+            {
+                _attackSoundIndex = 0;
+            }
+        }
+
+        public override void PlaySkill_1Sound()
+        {
+            base.PlaySkill_1Sound();
+            
+            Global.SoundManager.Play("Tree_Skill_1_Sound", this.transform.position);
+        }
+        
+        public void PlaySkill_1_StartSound()
+        {
+            Global.SoundManager.Play("Tree_Skill_1_Start_Sound", this.transform.position);
+        }
+
+        public override void PlaySkill_2Sound()
+        {
+            base.PlaySkill_2Sound();
+            
+            Global.SoundManager.Play("Tree_Skill_2_Sound", this.transform.position);
         }
 
         [PunRPC]
