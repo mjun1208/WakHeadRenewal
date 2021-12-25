@@ -128,18 +128,6 @@ namespace WakHead
             SceneManager.sceneLoaded += Leaving;
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Q) && !_isGameStarted)
-            {
-                GameStart();
-            }
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                LeaveRoom();
-            }
-        }
-
         public void LeaveRoom()
         {
             ResetInfo();

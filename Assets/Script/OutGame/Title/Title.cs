@@ -183,11 +183,6 @@ namespace WakHead
                     _leaveRoom = false;
                     PhotonNetwork.LeaveRoom();
                 }
-                
-                if (Input.GetKeyDown(KeyCode.Q))
-                {
-                    break;
-                }
 
                 yield return null;
             }

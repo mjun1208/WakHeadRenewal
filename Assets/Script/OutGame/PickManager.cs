@@ -172,16 +172,6 @@ namespace WakHead
             _redActorArtist.text = ARTIST + Global.GameDataManager.ActorGameData.ActorGameDataList[index].Artist;
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                IsMyReady = true;
-                IsEnemyReady = true;
-                StartGame();
-            }
-        }
-
         public void Ready()
         {
             switch (MyTeam)
