@@ -43,7 +43,7 @@ namespace WakHead
                         "JettAttackEffect", 0,_dir.x > 0);
                 }
 
-                OnDamage(null, 4);
+                OnDamage(null, 5);
             }, MyTeam, true);
         }
 
