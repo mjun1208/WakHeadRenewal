@@ -242,6 +242,12 @@ namespace WakHead
             SceneManager.LoadScene("ActorIndex");
         }
         
+        public void SceneChangePlayGuide()
+        {
+            PhotonNetwork.Disconnect();
+            SceneManager.LoadScene("PlayGuide");
+        }
+        
         public void HowToControl()
         {
             _controlWindow.SetActive(!_controlWindow.activeSelf);
