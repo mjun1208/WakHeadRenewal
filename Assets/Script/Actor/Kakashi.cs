@@ -101,7 +101,7 @@ namespace WakHead
                     vowEntitiy = targetEntity;
                 }
                 
-                targetEntity.KnockBack(10, GetAttackDir(), 1f, 0, MyTeam, "KakashiSkill_1Effect",0, Random.Range(0, 2) == 0);
+                targetEntity.KnockBack(10, GetAttackDir(), 1f, 0, AttackType.Actor, MyTeam, "KakashiSkill_1Effect",0, Random.Range(0, 2) == 0);
             }, MyTeam);
 
             if (vowEntitiy != null)
@@ -131,7 +131,7 @@ namespace WakHead
 
                         carrierEntityPos = chainTargetEntity.transform.position;
 
-                        chainTargetEntity.KnockBack(5, GetAttackDir(), 0.5f, 0, MyTeam, "KakashiSkill_1Effect", 0,
+                        chainTargetEntity.KnockBack(5, GetAttackDir(), 0.5f, 0, AttackType.Actor, MyTeam, "KakashiSkill_1Effect", 0,
                             Random.Range(0, 2) == 0);
 
                         chainTargetEntity = GetChainTarget(carrierEntityPos, chainedTargetEntityList);

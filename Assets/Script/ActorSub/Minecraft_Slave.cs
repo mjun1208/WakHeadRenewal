@@ -49,7 +49,7 @@ namespace WakHead
 
             if (_ownerPhotonView.IsMine)
             {
-                entity?.KnockBack(damage, randomDir, 1f, 0f, MyTeam);
+                entity?.KnockBack(damage, randomDir, 1f, 0f, AttackType.Actor, MyTeam);
             }
         }
     }

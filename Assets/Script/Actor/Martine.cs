@@ -92,7 +92,7 @@ namespace WakHead
                 return;
             }
 
-            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(15, GetAttackDir(), 0.5f, 0, MyTeam, 
+            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(15, GetAttackDir(), 0.5f, 0, AttackType.Actor, MyTeam, 
                 "Blood_2", GetAttackDir().x  * 0.3f, GetAttackDir().x > 0); }, MyTeam);
         }
 
@@ -103,7 +103,7 @@ namespace WakHead
                 return;
             }
 
-            _skill_1Range.Attack(targetEntity => { targetEntity.KnockBack(20, GetAttackDir(), 1f, 0, MyTeam, 
+            _skill_1Range.Attack(targetEntity => { targetEntity.KnockBack(20, GetAttackDir(), 1f, 0, AttackType.Actor, MyTeam, 
                 "Blood_4", -GetAttackDir().x  * 0.3f, GetAttackDir().x < 0); }, MyTeam);
         }
 
@@ -114,7 +114,7 @@ namespace WakHead
                 return;
             }
 
-            _skill_1Range.Attack(targetEntity => { targetEntity.KnockBack(20, -GetAttackDir(), 1f, 0, MyTeam, 
+            _skill_1Range.Attack(targetEntity => { targetEntity.KnockBack(20, -GetAttackDir(), 1f, 0, AttackType.Actor, MyTeam, 
                 "Blood_4", GetAttackDir().x  * 0.3f, GetAttackDir().x > 0); }, MyTeam);
         }
 

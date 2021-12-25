@@ -10,4 +10,11 @@ namespace WakHead
         BLUE,
         RED
     }
+    
+    public enum AttackType
+    {
+        Actor,
+        Chimpanzee,
+        Tower
+    }
 }

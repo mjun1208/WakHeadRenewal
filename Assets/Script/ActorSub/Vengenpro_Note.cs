@@ -41,7 +41,7 @@ namespace WakHead
 
             if (_ownerPhotonView.IsMine)
             {
-                entity?.Damaged(this.transform.position, damage, MyTeam, "VengenproAttackEffect");
+                entity?.Damaged(this.transform.position, damage, AttackType.Actor, MyTeam, "VengenproAttackEffect");
             }
 
             Destroy();

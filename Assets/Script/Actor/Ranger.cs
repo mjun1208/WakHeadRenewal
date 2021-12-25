@@ -30,7 +30,7 @@ namespace WakHead
             }
 
             _attackRange.Attack(targetEntity => { 
-                targetEntity.Damaged( targetEntity.transform.position, 3, MyTeam, 
+                targetEntity.Damaged( targetEntity.transform.position, 3, AttackType.Actor, MyTeam, 
                 "RangerAttackEffect", 0 , GetAttackDir().x > 0);
 
                 _chargingGaugeObject.SetActive(true);

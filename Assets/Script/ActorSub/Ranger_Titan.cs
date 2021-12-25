@@ -41,7 +41,7 @@ namespace WakHead
                 var dir = entity.transform.position - this.transform.position;
                 dir.Normalize();
 
-                entity?.KnockBack(damage, dir,0.5f, 1f, MyTeam, 
+                entity?.KnockBack(damage, dir,0.5f, 1f, AttackType.Actor, MyTeam, 
                     "RangerSkill_1Effect", dir.x * 0.1f, dir.x > 0f);
             }
         }

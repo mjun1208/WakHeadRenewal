@@ -59,7 +59,7 @@ namespace WakHead
         {
             if (_ownerPhotonView.IsMine)
             {
-                entity?.Damaged(this.transform.position, damage, MyTeam, "SansSkill_2Effect", 0 , _dir.x > 0);
+                entity?.Damaged(this.transform.position, damage, AttackType.Actor, MyTeam, "SansSkill_2Effect", 0 , _dir.x > 0);
             }
         }
     }

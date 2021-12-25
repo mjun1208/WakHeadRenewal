@@ -60,7 +60,7 @@ namespace WakHead
             if (photonView.IsMine)
             {
                 var dir = entity.transform.position - this.transform.position;
-                entity.KnockBack(damage, dir.normalized, 2f, 0, MyTeam);
+                entity.KnockBack(damage, dir.normalized, 2f, 0, AttackType.Actor, MyTeam);
                 
                 if (HP <= 0)
                 {

@@ -22,7 +22,7 @@ public class Storm : MonoBehaviourPun
                 _attackDelay = 0f;
                 _attackRange.Attack(targetEntity =>
                     {
-                        targetEntity?.Damaged(this.transform.position, 1, Team.None, "SansSkill_2Effect", 0);
+                        targetEntity?.Damaged(this.transform.position, 1, AttackType.Tower, Team.None, "SansSkill_2Effect", 0);
                     }, Team.None);
             }
         }

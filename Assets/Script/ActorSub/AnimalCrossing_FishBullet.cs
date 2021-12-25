@@ -67,7 +67,7 @@ namespace WakHead
         {
             if (_ownerPhotonView.IsMine)
             {
-                entity?.Damaged(this.transform.position, damage, MyTeam, "AnimalCrossingSkill_2Effect", 0, false);
+                entity?.Damaged(this.transform.position, damage, AttackType.Actor, MyTeam, "AnimalCrossingSkill_2Effect", 0, false);
             }
         }
 

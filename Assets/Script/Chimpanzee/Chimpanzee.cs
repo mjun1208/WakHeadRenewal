@@ -323,11 +323,11 @@ namespace WakHead
             {
                 if (_isSuper)
                 {
-                    targetEntity.KnockBack(2, GetAttackDir(), 0.3f, 0, MyTeam, "ChimpanzeeAttackEffect");
+                    targetEntity.KnockBack(2, GetAttackDir(), 0.3f, 0, AttackType.Chimpanzee, MyTeam, "ChimpanzeeAttackEffect");
                 }
                 else
                 {
-                    targetEntity.Damaged(targetEntity.transform.position, 1, MyTeam, "ChimpanzeeAttackEffect");
+                    targetEntity.Damaged(targetEntity.transform.position, 1, AttackType.Chimpanzee, MyTeam, "ChimpanzeeAttackEffect");
                 }
             }, MyTeam);
 

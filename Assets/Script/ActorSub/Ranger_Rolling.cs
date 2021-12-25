@@ -56,7 +56,7 @@ namespace WakHead
         {
             if (_ownerPhotonView.IsMine)
             {
-                entity?.Damaged(this.transform.position, damage, MyTeam, "RangerSkill_2Effect", 0 , _dir.x > 0);
+                entity?.Damaged(this.transform.position, damage, AttackType.Actor, MyTeam, "RangerSkill_2Effect", 0 , _dir.x > 0);
             }
         }
         

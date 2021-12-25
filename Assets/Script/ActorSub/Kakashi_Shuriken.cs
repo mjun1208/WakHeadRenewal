@@ -47,7 +47,7 @@ namespace WakHead
 
             if (_ownerPhotonView.IsMine)
             {
-                entity?.Damaged(this.transform.position, damage, MyTeam,
+                entity?.Damaged(this.transform.position, damage, AttackType.Actor, MyTeam,
                     "NarutoAttackEffect", -_dir.x * 0.1f, _dir.x < 0);
             }
 

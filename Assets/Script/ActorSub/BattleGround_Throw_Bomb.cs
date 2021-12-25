@@ -40,13 +40,13 @@ namespace WakHead
                         var dir = targetEntity.transform.position - this.transform.position;
                         dir.Normalize();
 
-                        targetEntity.KnockBack(20, dir, 1f, 0, MyTeam,
+                        targetEntity.KnockBack(20, dir, 1f, 0, AttackType.Actor, MyTeam,
                             "BattleGroundSkill_1_BoomEffect", _dir.x * 0.01f); }, MyTeam);
                     break;
                 }
                 case BattleGround.ThrowType.MOLOTOV:
                 {
-                    _attackRange.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, 10, MyTeam,
+                    _attackRange.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, 10, AttackType.Actor, MyTeam,
                         "BattleGroundSkill_1_FireEffect", _dir.x * 0.01f); }, MyTeam);
                     break;
                 }
@@ -55,7 +55,7 @@ namespace WakHead
                     _attackRange.Attack(targetEntity =>
                     {
                         targetEntity.Stun(2.5f);
-                        targetEntity.Damaged(targetEntity.transform.position, 10, MyTeam);
+                        targetEntity.Damaged(targetEntity.transform.position, 10, AttackType.Actor, MyTeam);
                     }, MyTeam);
                     break;
                 }

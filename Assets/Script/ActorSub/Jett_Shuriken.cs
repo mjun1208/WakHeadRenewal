@@ -53,7 +53,7 @@ namespace WakHead
 
             if (_ownerPhotonView.IsMine)
             {
-                entity?.KnockBack(damage, _dir, 0.5f, 0f, MyTeam, 
+                entity?.KnockBack(damage, _dir, 0.5f, 0f, AttackType.Actor, MyTeam, 
                     "JettAttackEffect", 0, _dir.x > 0);
             }
 

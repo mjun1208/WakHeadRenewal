@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CodeStage.AntiCheat.ObscuredTypes;
+using Random = UnityEngine.Random;
 
 namespace WakHead
 {
@@ -160,19 +161,19 @@ namespace WakHead
             currentCrownControl = null;
         }
 
-        public void KnockBack(int damage, Vector3 dir, float power, float stunTime, Team team, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
+        public void KnockBack(int damage, Vector3 dir, float power, float stunTime, AttackType type, Team team, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
         {
             if (_ccImmunity)
             {
-                Damaged(this.transform.position, damage, team, effectName, effectXOffset, effectFlip);
+                Damaged(this.transform.position, damage, type, team, effectName, effectXOffset, effectFlip);
                 return;
             }
         
-            photonView.RPC("KnockBackRPC", RpcTarget.All, damage, dir, power, stunTime, team, effectName, effectXOffset, effectFlip);
+            photonView.RPC("KnockBackRPC", RpcTarget.All, damage, dir, power, stunTime, type, team, effectName, effectXOffset, effectFlip);
         }
 
         [PunRPC]
-        public void KnockBackRPC(int damage, Vector3 dir, float power, float stunTime, Team team, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
+        public void KnockBackRPC(int damage, Vector3 dir, float power, float stunTime, AttackType type, Team team, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
         {
             if (!photonView.IsMine || (MyTeam != Team.None && MyTeam == team))
             {
@@ -181,30 +182,30 @@ namespace WakHead
 
             if (_ccImmunity)
             {
-                Damaged(this.transform.position, damage, team, effectName, effectXOffset, effectFlip);
+                Damaged(this.transform.position, damage, type, team, effectName, effectXOffset, effectFlip);
                 return;
             }
 
             CrownControlAction?.Invoke();
 
-            currentCrownControl = OnKnockBack(damage, dir, power, stunTime, team, effectName, effectXOffset, effectFlip);
+            currentCrownControl = OnKnockBack(damage, dir, power, stunTime, type, team, effectName, effectXOffset, effectFlip);
 
             StartCoroutine(currentCrownControl);
         }
 
-        public void Grab(int damage, Vector3 targetPostion, float grabSpeed, Team team, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
+        public void Grab(int damage, Vector3 targetPostion, float grabSpeed, AttackType type, Team team, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
         {
             if (_ccImmunity)
             {
-                Damaged(this.transform.position, damage, team, effectName, effectXOffset, effectFlip);
+                Damaged(this.transform.position, damage, type, team, effectName, effectXOffset, effectFlip);
                 return;
             }
 
-            photonView.RPC("GrabRPC", RpcTarget.All, damage, targetPostion, grabSpeed, team, effectName, effectXOffset, effectFlip);
+            photonView.RPC("GrabRPC", RpcTarget.All, damage, targetPostion, grabSpeed, type, team, effectName, effectXOffset, effectFlip);
         }
 
         [PunRPC]
-        public void GrabRPC(int damage, Vector3 targetPostion, float grabSpeed, Team team, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
+        public void GrabRPC(int damage, Vector3 targetPostion, float grabSpeed, AttackType type, Team team, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
         {
             if (!photonView.IsMine || (MyTeam != Team.None && MyTeam == team))
             {
@@ -213,13 +214,13 @@ namespace WakHead
             
             if (_ccImmunity)
             {
-                Damaged(this.transform.position, damage, team, effectName, effectXOffset, effectFlip);
+                Damaged(this.transform.position, damage, type, team, effectName, effectXOffset, effectFlip);
                 return;
             }
 
             CrownControlAction?.Invoke();
 
-            currentCrownControl = OnGrab(damage, targetPostion, grabSpeed, team, effectName, effectXOffset, effectFlip);
+            currentCrownControl = OnGrab(damage, targetPostion, grabSpeed, type, team, effectName, effectXOffset, effectFlip);
 
             StartCoroutine(currentCrownControl);
         }
@@ -320,14 +321,14 @@ namespace WakHead
             StartCoroutine(currentCrownControl);
         }
 
-        private IEnumerator OnKnockBack(int damage, Vector3 dir, float power, float stunTime, Team team, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
+        private IEnumerator OnKnockBack(int damage, Vector3 dir, float power, float stunTime, AttackType type, Team team, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
         {
             if (stunTime > 0)
             {
                 IsStun = true;
             }
 
-            Damaged(this.transform.position, damage, team, effectName, effectXOffset, effectFlip);
+            Damaged(this.transform.position, damage, type, team, effectName, effectXOffset, effectFlip);
 
             var targetPosition = this.transform.position + dir * power;
 
@@ -364,13 +365,13 @@ namespace WakHead
             IsStun = false;
         }
 
-        private IEnumerator OnGrab(int damage, Vector3 targetPostion, float grabSpeed, Team team, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
+        private IEnumerator OnGrab(int damage, Vector3 targetPostion, float grabSpeed, AttackType type, Team team, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
         {
             IsStun = true;
 
             float distance = float.MaxValue;
 
-            Damaged(this.transform.position, damage, team, effectName, effectXOffset, effectFlip);
+            Damaged(this.transform.position, damage, type, team, effectName, effectXOffset, effectFlip);
 
             float duration = distance / grabSpeed;
             
@@ -423,31 +424,32 @@ namespace WakHead
             _renderer.color = new Color(r, g, b, a);
         }
 
-        public void Damaged(Vector3 pos, int damage, Team team, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
+        public void Damaged(Vector3 pos, int damage, AttackType type, Team team, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
         { 
             if (MyTeam != Team.None && MyTeam == team)
             {
                 return;
             }
 
-            photonView.RPC("OnDamageRPC", RpcTarget.All, pos, damage, team, effectName, effectXOffset, effectFlip);
+            photonView.RPC("OnDamageRPC", RpcTarget.All, pos, damage, type, team, effectName, effectXOffset, effectFlip);
         }
 
         [PunRPC]
-        public void OnDamageRPC(Vector3 pos, int damage, Team team, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
+        public void OnDamageRPC(Vector3 pos, int damage, AttackType type, Team team, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
         {
-            OnDamage(pos, damage, team, effectName, effectXOffset, effectFlip);
+            OnDamage(pos, damage, type, team, effectName, effectXOffset, effectFlip);
         }
 
-        public void OnDamage(Vector3 pos, int damage, Team team, string effectName = "HitEffect", float effectXOffset = 0f, bool effectFlip = false)
+        public void OnDamage(Vector3 pos, int damage, AttackType type, Team team, string effectName = "HitEffect",
+            float effectXOffset = 0f, bool effectFlip = false)
         {
             if (MyTeam != Team.None && MyTeam == team)
             {
                 return;
             }
-            
+
             var randomPos = (Vector3) UnityEngine.Random.insideUnitCircle * 0.5f;
-            
+
             if (effectXOffset != 0f)
             {
                 randomPos = new Vector3(effectXOffset, 0f);
@@ -459,6 +461,11 @@ namespace WakHead
             if (effect != null && this.gameObject.activeSelf)
             {
                 effect.transform.parent = this.transform;
+            }
+
+            if (type == AttackType.Actor)
+            {
+                Global.SoundManager.Play($"HitSound_{Random.Range(0, 3)}", this.transform.position);
             }
 
             OnDamageAction?.Invoke(effectName == "ChimpanzeeAttackEffect");

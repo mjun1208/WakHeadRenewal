@@ -55,7 +55,7 @@ namespace WakHead
         {
             if (_ownerPhotonView.IsMine)
             {
-                entity?.Damaged(this.transform.position, damage, MyTeam, "AhriAttackEffect", -_dir.normalized.x * 0.3f ,_dir.x > 0);
+                entity?.Damaged(this.transform.position, damage, AttackType.Actor, MyTeam, "AhriAttackEffect", -_dir.normalized.x * 0.3f ,_dir.x > 0);
             }
         }
 

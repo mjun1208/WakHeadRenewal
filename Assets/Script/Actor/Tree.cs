@@ -29,7 +29,7 @@ namespace WakHead
             
             var scale = _originalScale.y / _realOriginalScale.y;
             
-            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(5 + (int)Math.Round(3f * scale), GetAttackDir(), 0.5f, 0, MyTeam,
+            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(5 + (int)Math.Round(3f * scale), GetAttackDir(), 0.5f, 0, AttackType.Actor, MyTeam,
                 "TreeAttackEffect",GetAttackDir().x * 0.1f ,GetAttackDir().x > 0); }, MyTeam);
         }
 

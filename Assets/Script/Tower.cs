@@ -93,7 +93,7 @@ namespace WakHead
                 {
                     var isActor = _targetEntity is Actor;
                     
-                    _targetEntity.OnDamage(_targetEntity.transform.position, isActor ? 5 : 1, _team);
+                    _targetEntity.OnDamage(_targetEntity.transform.position, isActor ? 5 : 1, AttackType.Tower, _team);
                     _attackDelay = attackDelay;
                 }
             }

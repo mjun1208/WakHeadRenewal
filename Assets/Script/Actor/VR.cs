@@ -43,7 +43,7 @@ namespace WakHead
                 return;
             }
             
-            _attackRange.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, _isAssassin ? 8 : 5, MyTeam,
+            _attackRange.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, _isAssassin ? 8 : 5, AttackType.Actor, MyTeam,
                 "VRAttackEffect" , -GetAttackDir().x * 0.25f , GetAttackDir().x < 0); }, MyTeam);
 
             _isAssassin = false;
@@ -58,9 +58,9 @@ namespace WakHead
                 return;
             }
 
-            _skill_1Range.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, _isAssassin ? 6 : 3, MyTeam,
+            _skill_1Range.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, _isAssassin ? 6 : 3, AttackType.Actor, MyTeam,
                 Random.Range(0, 2) == 0 ? "VRSkill_1Effect_1" : "VRSkill_1Effect_2", 0, Random.Range(0, 2) == 0); }, MyTeam);
-            _skill_1Range.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, _isAssassin ? 6 : 3, MyTeam,
+            _skill_1Range.Attack(targetEntity => { targetEntity.Damaged(targetEntity.transform.position, _isAssassin ? 6 : 3, AttackType.Actor, MyTeam,
                 Random.Range(0, 2) == 0 ? "VRSkill_1Effect_1" : "VRSkill_1Effect_2", 0, Random.Range(0, 2) == 0); }, MyTeam);
         }
 

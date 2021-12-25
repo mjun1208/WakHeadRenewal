@@ -14,7 +14,7 @@ namespace WakHead
                 return;
             }
 
-            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(4, GetAttackDir(), 0.8f, 0, MyTeam,
+            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(4, GetAttackDir(), 0.8f, 0, AttackType.Actor, MyTeam,
                 "NormalAttackEffect",GetAttackDir().x * 0.1f ,GetAttackDir().x > 0); }, MyTeam);
         }
 
@@ -25,7 +25,7 @@ namespace WakHead
                 return;
             }
 
-            _skill_1Range.Attack(targetEntity => { targetEntity.Grab(15, this.transform.position, 10f, MyTeam,
+            _skill_1Range.Attack(targetEntity => { targetEntity.Grab(15, this.transform.position, 10f, AttackType.Actor, MyTeam,
                 "NormalSkill_1Effect",GetAttackDir().x * 0.1f ,GetAttackDir().x > 0); }, MyTeam);
         }
 

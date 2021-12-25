@@ -48,7 +48,7 @@ namespace WakHead
         {
             if (_ownerPhotonView.IsMine)
             {
-                entity?.Damaged(this.transform.position, damage, MyTeam, "NarutoSkill_2Effect", 0, Random.Range(0, 2) == 0);
+                entity?.Damaged(this.transform.position, damage, AttackType.Actor, MyTeam, "NarutoSkill_2Effect", 0, Random.Range(0, 2) == 0);
             }
         }
     }

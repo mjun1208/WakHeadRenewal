@@ -65,7 +65,7 @@ namespace WakHead
                 return;
             }
 
-            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(8, _dir, 1.5f, 0, MyTeam, 
+            _attackRange.Attack(targetEntity => { targetEntity.KnockBack(8, _dir, 1.5f, 0, AttackType.Actor, MyTeam, 
                 "NarutoAttackEffect", _dir.x * 0.1f, _dir.x > 0); }, MyTeam);
         }
 

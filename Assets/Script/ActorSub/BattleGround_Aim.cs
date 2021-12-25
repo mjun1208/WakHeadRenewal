@@ -150,7 +150,7 @@ namespace WakHead
         {
             if (_ownerPhotonView != null && _ownerPhotonView.IsMine)
             {
-                entity?.Damaged(this.transform.position, damage, MyTeam,
+                entity?.Damaged(this.transform.position, damage, AttackType.Actor, MyTeam,
                     "BattleGroundSkill_2Effect" , _dir.x * 0.01f);
             }
         }
