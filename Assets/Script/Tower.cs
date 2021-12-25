@@ -206,6 +206,11 @@ namespace WakHead
                     break;
                 }
             }
+
+            if (Global.instance.MyTeam == _team)
+            {
+                Global.SoundManager.Play("포탑이 공격받았습니다", Vector3.zero);
+            }
         }
     }
 }

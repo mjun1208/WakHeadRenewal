@@ -99,6 +99,11 @@ namespace WakHead
 
         private void SpawnSuperPanzee(Team team)
         {
+            if (Global.instance.MyTeam == team)
+            {
+                Global.SoundManager.Play("점령 성공", Vector3.zero);
+            }
+            
             switch (team)
             {
                 case Team.BLUE:

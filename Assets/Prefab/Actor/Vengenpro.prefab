@@ -379,6 +379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5007191033569521001}
   - component: {fileID: 8361866638762687107}
+  - component: {fileID: 7964530487393698093}
   m_Layer: 0
   m_Name: AttackSound
   m_TagString: Untagged
@@ -409,7 +410,8 @@ AudioSource:
   m_GameObject: {fileID: 2541419648904757614}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7285824510176355495, guid: 2bf3b8a5d3448df43975d21ad40c98a0,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: bb10030c308f25d4b9f47a0789cf3579, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -496,6 +498,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7964530487393698093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2541419648904757614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb2e410b9ba62b459389f18ec8971d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2945554686757192732
 GameObject:
   m_ObjectHideFlags: 0

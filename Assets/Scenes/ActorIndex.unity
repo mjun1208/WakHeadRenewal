@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -497,6 +497,7 @@ GameObject:
   m_Component:
   - component: {fileID: 609272638}
   - component: {fileID: 609272637}
+  - component: {fileID: 609272639}
   m_Layer: 0
   m_Name: Bgm
   m_TagString: Untagged
@@ -513,7 +514,8 @@ AudioSource:
   m_GameObject: {fileID: 609272636}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6046508411492773484, guid: 2bf3b8a5d3448df43975d21ad40c98a0,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: efd07e35091e11846aa2c1e4dd5f2da4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -614,6 +616,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &609272639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609272636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab9fd09deba06c429bd2cff1c3db9c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 609272637}
 --- !u!1 &718672588
 GameObject:
   m_ObjectHideFlags: 0

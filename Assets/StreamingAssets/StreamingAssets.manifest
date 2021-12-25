@@ -1,11 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3398322588
+CRC: 1405867196
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: asset
       Dependencies:
         Dependency_0: sound
+        Dependency_1: audiomixer
     Info_1:
       Name: skillicon
       Dependencies: {}
@@ -20,4 +21,13 @@ AssetBundleManifest:
       Dependencies: {}
     Info_5:
       Name: bodyimage
+      Dependencies: {}
+    Info_6:
+      Name: audiomixer
+      Dependencies: {}
+    Info_7:
+      Name: ingamesound
+      Dependencies: {}
+    Info_8:
+      Name: deathmatchsound
       Dependencies: {}

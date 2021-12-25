@@ -237,8 +237,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "5\uB300 \uB9DE\uC73C\uBA74 \uC0AC\uB77C\uC9D1\uB2C8\uB2E4.\n\uC18C\uD658\uB418\uACE0
-    20\uCD08 \uD6C4 \uC0AC\uB77C\uC9D1\uB2C8\uB2E4."
+  m_Text: "5\uB300 \uB9DE\uC73C\uBA74 \uC0AC\uB77C\uC9D1\uB2C8\uB2E4.\n\uC9C0\uC18D\uC2DC\uAC04
+    15\uCD08"
 --- !u!1 &151062499700613209
 GameObject:
   m_ObjectHideFlags: 0
@@ -3065,8 +3065,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 153, y: -383}
-  m_SizeDelta: {x: 212.93896, y: 60.47869}
+  m_AnchoredPosition: {x: 153, y: -386.4}
+  m_SizeDelta: {x: 212.93896, y: 67.272484}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7115708804409214187
 CanvasRenderer:
@@ -3108,7 +3108,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "5\uB300 \uB9DE\uC73C\uBA74 \uC0AC\uB77C\uC9D1\uB2C8\uB2E4."
+  m_Text: "5\uB300 \uB9DE\uC73C\uBA74 \uC0AC\uB77C\uC9D1\uB2C8\uB2E4.\n\uC9C0\uC18D\uC2DC\uAC04
+    10\uCD08"
 --- !u!1 &1392659796072981901
 GameObject:
   m_ObjectHideFlags: 0
@@ -6583,8 +6584,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 79.4, y: 151.39996}
-  m_SizeDelta: {x: 263.23538, y: 60.47869}
+  m_AnchoredPosition: {x: 162.20001, y: 156.45}
+  m_SizeDelta: {x: 510.45493, y: 107.33612}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2503680906747914123
 CanvasRenderer:
@@ -6615,10 +6616,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 5fa991a2deb6a8d4c914a562f64fb847, type: 3}
-    m_FontSize: 27
+    m_FontSize: 15
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 1
     m_MaxSize: 73
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -6626,7 +6627,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC57D\uD558\uAC8C \uBC00\uCE5C\uB2E4."
+  m_Text: "\uB09A\uC2DC\uB85C \uB09A\uC740 \uBB3C\uACE0\uAE30\uAC00 \uC5C6\uC744
+    \uC2DC\n30\uD37C \uD655\uB960\uB85C \uBC30\uCD94\uD770\uB098\uBE44\uB97C \uC5BB\uC2B5\uB2C8\uB2E4."
 --- !u!1 &2503680906753209095
 GameObject:
   m_ObjectHideFlags: 0
@@ -6853,8 +6855,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 114.19998, y: -253}
-  m_SizeDelta: {x: 284.93808, y: 60.47869}
+  m_AnchoredPosition: {x: 122.76, y: -253}
+  m_SizeDelta: {x: 302.05362, y: 60.476036}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2503680906848574504
 CanvasRenderer:
@@ -6885,7 +6887,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 5fa991a2deb6a8d4c914a562f64fb847, type: 3}
-    m_FontSize: 18
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
@@ -6897,7 +6899,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\"\uB09A\uC2DC\"\uB85C \uC5BB\uC740 \uBB3C\uACE0\uAE30\uB97C \uC790\uB791\uD55C\uB2E4.\n\uBB3C\uACE0\uAE30\uC5D0
-    \uB530\uB77C \uC704\uB825\uC774 \uB2EC\uB77C\uC9D1\uB2C8\uB2E4."
+    \uB530\uB77C \uC704\uB825\uC774 \uB2EC\uB77C\uC9D1\uB2C8\uB2E4.\n\uBC30\uCD94\uD770\uB098\uBE44\uC758
+    \uC704\uB825\uC740 1\uC785\uB2C8\uB2E4."
 --- !u!1 &2503680906913101020
 GameObject:
   m_ObjectHideFlags: 0
@@ -7049,7 +7052,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB9E4\uD639 \uBB54\uC9C0 \uC54C\uC796\uC544\uC694 \uADF8\uAC70 \uB9DE\uC2B5\uB2C8\uB2E4."
+  m_Text: "\uB9E4\uD639 \uAC78\uB9AC\uAC8C \uD569\uB2C8\uB2E4. \uC801\uC744 \uAD00\uD1B5\uD569\uB2C8\uB2E4."
 --- !u!1 &2503680906998328747
 GameObject:
   m_ObjectHideFlags: 0
@@ -9136,6 +9139,7 @@ RectTransform:
   - {fileID: 2503680906747914121}
   - {fileID: 6341258633412190017}
   - {fileID: 3851694668210144992}
+  - {fileID: 7795659349934824448}
   m_Father: {fileID: 2503680908542721569}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9508,7 +9512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2503680907692506719
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9569,7 +9573,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -61.89998, y: 151.39996}
+  m_AnchoredPosition: {x: -81.69997, y: 151.39996}
   m_SizeDelta: {x: 188.70764, y: 60.47869}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2503680907727173578
@@ -11000,8 +11004,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 116.1, y: -384.2}
-  m_SizeDelta: {x: 306.12573, y: 37.24318}
+  m_AnchoredPosition: {x: 116.1, y: -390.01}
+  m_SizeDelta: {x: 306.12573, y: 48.860954}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2503680908423385167
 CanvasRenderer:
@@ -11043,7 +11047,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uBCA4\uD2B8\uB294 2\uB300 \uB9DE\uC73C\uBA74 \uD130\uC9D1\uB2C8\uB2E4."
+  m_Text: "\uBCA4\uD2B8\uB294 7\uB300 \uB9DE\uC73C\uBA74 \uD130\uC9D1\uB2C8\uB2E4.\n\uC9C0\uC18D\uC2DC\uAC04
+    5\uCD08"
 --- !u!1 &2503680908485771266
 GameObject:
   m_ObjectHideFlags: 0
@@ -12287,7 +12292,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: 66.900024}
+  m_AnchoredPosition: {x: 6.200012, y: 66.900024}
   m_SizeDelta: {x: 234.00427, y: 234.00427}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2435615154272904125
@@ -12698,7 +12703,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCFE8\uD0C0\uC784 : 0.5\uCD08\n\uB370\uBBF8\uC9C0 : 0"
+  m_Text: "\uCFE8\uD0C0\uC784 : 2\uCD08\n\uB370\uBBF8\uC9C0 : 0"
 --- !u!1 &2980346709272769837
 GameObject:
   m_ObjectHideFlags: 0
@@ -13911,8 +13916,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6, y: 84.4}
-  m_SizeDelta: {x: 318.3338, y: 183.04718}
+  m_AnchoredPosition: {x: 5, y: 84.4}
+  m_SizeDelta: {x: 379.97406, y: 183.04718}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1448021695207330377
 CanvasRenderer:
@@ -14705,7 +14710,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -303.7}
+  m_AnchoredPosition: {x: -84.056, y: -301.44}
   m_SizeDelta: {x: 103.10864, y: 36.407288}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3578307291955784390
@@ -14748,7 +14753,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCFE8\uD0C0\uC784 : 0\uCD08\n\uD2F1 \uB2F9 \uB370\uBBF8\uC9C0 : 1 ~ 5"
+  m_Text: "\uCFE8\uD0C0\uC784 : 5\uCD08\n\uD2F1 \uB2F9 \uB370\uBBF8\uC9C0 : 1 ~ 5"
 --- !u!1 &3621894019918066617
 GameObject:
   m_ObjectHideFlags: 0
@@ -14826,7 +14831,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCFE8\uD0C0\uC784 : 3\uCD08\n\uB370\uBBF8\uC9C0 : 20"
+  m_Text: "\uCFE8\uD0C0\uC784 : 3\uCD08\n\uB370\uBBF8\uC9C0 : 30"
 --- !u!1 &3652338624890939041
 GameObject:
   m_ObjectHideFlags: 0
@@ -18860,7 +18865,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\uCFE8\uD0C0\uC784 : 9\uCD08\n\uB370\uBBF8\uC9C0 : 0.1\uCD08 \uB9C8\uB2E4
-    3"
+    2"
 --- !u!1 &4919299137224113204
 GameObject:
   m_ObjectHideFlags: 0
@@ -19199,6 +19204,80 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 1add2b2205d74c34082ad71a42fb32b9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &5042834679958004628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7795659349934824448}
+  - component: {fileID: 4524296186621277543}
+  - component: {fileID: 2845806568449190988}
+  m_Layer: 5
+  m_Name: Image (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7795659349934824448
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042834679958004628}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 2503680907524412068}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 163, y: 71}
+  m_SizeDelta: {x: 23, y: 17}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &4524296186621277543
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042834679958004628}
+  m_CullTransparentMesh: 0
+--- !u!114 &2845806568449190988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042834679958004628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: de72d129847cd4f4e8881d69839346c9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21504,7 +21583,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCFE8\uD0C0\uC784 : 0\uCD08\n\uB370\uBBF8\uC9C0 : 12"
+  m_Text: "\uCFE8\uD0C0\uC784 : 0\uCD08\n\uB370\uBBF8\uC9C0 : 15"
 --- !u!1 &5651215437956621058
 GameObject:
   m_ObjectHideFlags: 0
@@ -22999,8 +23078,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 104.1, y: 75.7}
-  m_SizeDelta: {x: 89.9751, y: 36.407288}
+  m_AnchoredPosition: {x: 233.3, y: 22.5}
+  m_SizeDelta: {x: 89.9751, y: 54.004333}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1507081915484235178
 CanvasRenderer:
@@ -23042,7 +23121,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCFE8\uD0C0\uC784 : 3\uCD08\n\uB370\uBBF8\uC9C0 : \uD0C0 \uB2F9 10"
+  m_Text: "\uCFE8\uD0C0\uC784 : 3\uCD08\n\uB370\uBBF8\uC9C0 : \uD0C0 \uB2F9 10\n\uC804\uC774
+    \uB370\uBBF8\uC9C0 : 5"
 --- !u!1 &6274016427259734185
 GameObject:
   m_ObjectHideFlags: 0
@@ -24646,8 +24726,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uD2B8\uB7A8\uD384\uB9B0\uC740 \uC801\uC744 \uD295\uACA8\uB0C5\uB2C8\uB2E4.\n\uD295\uAE38
-    \uB54C\uB9C8\uB2E4 \uD2B8\uB7A8\uD384\uB9B0 HP\uAC00 \uC904\uC5B4\uB4ED\uB2C8\uB2E4."
+  m_Text: "\uD2B8\uB7A8\uD384\uB9B0\uC740 \uC801\uC744 \uD295\uACA8\uB0C5\uB2C8\uB2E4."
 --- !u!1 &6832541690958321958
 GameObject:
   m_ObjectHideFlags: 0
@@ -24773,7 +24852,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCFE8\uD0C0\uC784 : 0\uCD08\n\uB370\uBBF8\uC9C0 : 4"
+  m_Text: "\uCFE8\uD0C0\uC784 : 0\uCD08\n\uB370\uBBF8\uC9C0 : 5"
 --- !u!1 &6904401161903896595
 GameObject:
   m_ObjectHideFlags: 0
@@ -27699,7 +27778,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCFE8\uD0C0\uC784 : 5\uCD08\n\uB370\uBBF8\uC9C0 : 10"
+  m_Text: "\uCFE8\uD0C0\uC784 : 5\uCD08\n\uB370\uBBF8\uC9C0 : 15"
 --- !u!1 &7812203716733967545
 GameObject:
   m_ObjectHideFlags: 0
@@ -29527,7 +29606,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCFE8\uD0C0\uC784 : 0\uCD08\n\uB370\uBBF8\uC9C0 : 6"
+  m_Text: "\uCFE8\uD0C0\uC784 : 0\uCD08\n\uB370\uBBF8\uC9C0 : 5"
 --- !u!1 &8260578574573155713
 GameObject:
   m_ObjectHideFlags: 0
@@ -30032,7 +30111,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 113.9}
+  m_AnchoredPosition: {x: 17, y: 100}
   m_SizeDelta: {x: 75.28088, y: 36.407288}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &265630226864801587
@@ -30814,7 +30893,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\uCFE8\uD0C0\uC784 : 0\uCD08\n\uB370\uBBF8\uC9C0 : 3\n\uD3ED\uBC1C \uB370\uBBF8\uC9C0
-    : 5"
+    : 8"
 --- !u!1 &8542038326163432898
 GameObject:
   m_ObjectHideFlags: 0
@@ -31314,7 +31393,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCFE8\uD0C0\uC784 : 0\uCD08\n\uB370\uBBF8\uC9C0 : 10"
+  m_Text: "\uCFE8\uD0C0\uC784 : 0\uCD08\n\uB370\uBBF8\uC9C0 : 8"
 --- !u!1 &8795028512964862169
 GameObject:
   m_ObjectHideFlags: 0
@@ -31506,8 +31585,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 217.4, y: 114.3}
-  m_SizeDelta: {x: 331.3717, y: 60.47869}
+  m_AnchoredPosition: {x: 153.8, y: 106.6}
+  m_SizeDelta: {x: 218.23267, y: 60.47869}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &839143601209391377
 CanvasRenderer:
@@ -31549,7 +31628,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\"\uB1CC\uC808\" (\uCD1D 3\uD0C0)"
+  m_Text: "\"\uB1CC\uC808\" (\uCD1D 3\uD0C0) \uC77C\uC815 \uAC70\uB9AC\uC758 \uB2E4\uB978
+    \uC801\uC5D0\uAC8C \uC804\uC774 \uB429\uB2C8\uB2E4."
 --- !u!1 &8834460104619436415
 GameObject:
   m_ObjectHideFlags: 0

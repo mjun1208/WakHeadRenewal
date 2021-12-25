@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 1494869280
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6da3bc6b3e46439719d7883919b9be32
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+Assets:
+- Assets/Sound/Ingame/DeathMatch/We Wish You a Merry Christmas (Instrumental Jazz)
+  - E's Jammy Jams.mp3
+- Assets/Sound/Ingame/DeathMatch/Christmas Chores - RKVC.mp3
+- Assets/Sound/Ingame/DeathMatch/Hark the Herald Angels Sing (Instrumental) - Jingle
+  Punks.mp3
+- Assets/Sound/Ingame/DeathMatch/O Chanukah (Instrumental) - Jingle Punks.mp3
+- Assets/Sound/Ingame/DeathMatch/O Christmas Tree (Instrumental) - Jingle Punks.mp3
+- Assets/Sound/Ingame/DeathMatch/Auld Lang Syne (Instrumental) - Jingle Punks.mp3
+Dependencies: []

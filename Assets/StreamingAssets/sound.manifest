@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3891565528
+CRC: 601376342
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d3e7dc6094dd1a19988a8f2516dd14f3
+    Hash: 165932af7035beb7ca904fda7f874f3c
   TypeTreeHash:
     serializedVersion: 2
     Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
@@ -14,6 +14,7 @@ ClassTypes:
 Assets:
 - Assets/Sound/Actor/AnimalCrossing/Fish_1_Sound.mp3
 - Assets/Sound/Actor/Tree/Tree_Skill_1_Sound.wav
+- Assets/Sound/Actor/HitSound_2.wav
 - Assets/Sound/Actor/Kakashi/Kakashi_Attack_Sound.wav
 - Assets/Sound/Actor/Sans/Sans_Skill_1_Sound.wav
 - Assets/Sound/Actor/Tree/Tree_Attack_Sound_2.mp3
@@ -21,9 +22,11 @@ Assets:
 - Assets/Sound/Actor/Tree/Tree_Attack_Sound_4.mp3
 - Assets/Sound/Actor/AnimalCrossing/AnimalCrossing_Skill_1_Sound.mp3
 - Assets/Sound/Actor/AnimalCrossing/AnimalCrossing_Attack_Sound.mp3
+- Assets/Sound/Ready.mp3
 - Assets/Sound/Actor/Sans/Wa_!!.mp3
 - "Assets/Sound/Actor/AnimalCrossing/\uD610\uAC31\uC774.mp3"
 - Assets/Sound/Actor/AnimalCrossing/Fish_4_Sound.mp3
+- Assets/Sound/Actor/HitSound_0.wav
 - Assets/Sound/Actor/Flash_Sound.mp3
 - Assets/Sound/Actor/Martine/Vent_1.mp3
 - Assets/Sound/Actor/Sans/Sans_Attack_Sound.mp3
@@ -33,9 +36,11 @@ Assets:
 - Assets/Sound/Actor/Naruto/Naruto_Dummy_Dead_Sound.mp3
 - Assets/Sound/Actor/Naruto/Naruto_Dummy_Spawn_Sound.mp3
 - Assets/Sound/Actor/Ahri/Ahri_Attack_Sound.mp3
+- Assets/Sound/Actor/Banana/Banana_Ball_Sound.mp3
 - Assets/Sound/Actor/Vengenpro/Vengenpro_Skill_2_Sound.mp3
 - Assets/Sound/Actor/Kakashi/Kakashi_Skill_2_Middle_Sound.mp3
 - Assets/Sound/Actor/Minecraft/Minecraft_Skill_1_Sound.mp3
+- "Assets/Sound/Notify/\uC810\uB839 \uC131\uACF5.mp3"
 - Assets/Sound/Actor/Tree/Tree_Attack_Sound_5.mp3
 - Assets/Sound/Actor/VR/VR_Skill_2_Sound.mp3
 - Assets/Sound/Actor/Minecraft/Minecraft_Skill_2_Sound.mp3
@@ -44,6 +49,7 @@ Assets:
 - Assets/Sound/Actor/Kakashi/Kakashi_Skill_2_Start_Sound.mp3
 - Assets/Sound/Actor/Kakashi/Kakashi_Skill_1_Start_Sound.mp3
 - Assets/Sound/Actor/Martine/Martine_Skill_1_Sound.mp3
+- Assets/Sound/Actor/Ranger/Ranger_Skill_1_Sound.mp3
 - Assets/Sound/Actor/Tree/Tree_Skill_2_Sound.mp3
 - Assets/Sound/Actor/Minecraft/Minecraft_Lava_Sound.mp3
 - Assets/Sound/Actor/Minecraft/Minecraft_Attack_Sound.mp3
@@ -63,25 +69,33 @@ Assets:
 - Assets/Sound/Actor/Normal/y2meta (mp3cut.net).mp3
 - Assets/Sound/Actor/Kakashi/Kakashi_Skill_1_Sound.wav
 - Assets/Sound/Actor/Jett/Jett_Skill_2_Start_Sound.mp3
+- "Assets/Sound/Notify/\uB370\uC2A4\uB9E4\uCE58 \uBAA8\uB4DC\uB85C \uC9C4\uC785\uD569\uB2C8\uB2E4.mp3"
+- Assets/Sound/Actor/Banana/Banana_Jump_Sound.mp3
 - Assets/Sound/Actor/Ahri/Ahri_Skill_1_Sound.mp3
 - Assets/Sound/Actor/Naruto/Naruto_Rasengan_Charging.mp3
+- "Assets/Sound/Notify/\uD3EC\uD0D1\uC774 \uACF5\uACA9\uBC1B\uC558\uC2B5\uB2C8\uB2E4.mp3"
 - Assets/Sound/Actor/Vengenpro/Vengenpro_Attack_Sound.mp3
+- Assets/Sound/Actor/Ranger/Ranger_Attack_Sound.mp3
 - Assets/Sound/Actor/Minecraft/Minecraft_Skill_2_Start_Sound.mp3
 - Assets/Sound/Actor/AnimalCrossing/Fish_3_Sound.mp3
 - Assets/Sound/Actor/Martine/Martine_Attack_Sound.mp3
 - Assets/Sound/Actor/Naruto/Naruto_Attack_Sound.mp3
+- Assets/Sound/Actor/Banana/Banana_Skill_Sound.mp3
 - Assets/Sound/Actor/Jett/Jett_Skill_2_Sound.mp3
 - Assets/Sound/Actor/Kakashi/Kakashi_Skill_2_Sound.mp3
+- Assets/Sound/Actor/HitSound_1.wav
 - "Assets/Sound/Actor/AnimalCrossing/\uBC30\uCD94\uD770\uB098\uBE44.mp3"
 - Assets/Sound/Actor/Tree/Tree_Attack_Sound_1.mp3
 - Assets/Sound/Actor/Sans/Sans_Skill_2_Sound.mp3
 - Assets/Sound/Actor/Tree/Tree_Skill_1_Start_Sound.mp3
 - Assets/Sound/Actor/VR/VR_Attack_Sound.mp3
+- Assets/Sound/Actor/Banana/Banana_Attack_Sound.mp3
 - Assets/Sound/Actor/Jett/Jett_Shuriken_Sound.mp3
 - Assets/Sound/Actor/Tree/Tree_Attack_Sound_3.mp3
 - Assets/Sound/Actor/Tree/Tree_Attack_Sound_0.mp3
 - Assets/Sound/Actor/Normal/y2meta (mp3cut.net) (1).mp3
 - Assets/Sound/Actor/BattleGround/BattleGround_Attack_Sound.mp3
+- Assets/Sound/Actor/Ranger/Ranger_Skill_2_Sound.mp3
 - Assets/Sound/Actor/Vengenpro/Vengenpro_Skill_1_Sound.mp3
 - Assets/Sound/Actor/Normal/Normal_Skill_1_Sound.mp3
 - Assets/Sound/Actor/Ahri/Ahri_Skill_2_Sound.mp3

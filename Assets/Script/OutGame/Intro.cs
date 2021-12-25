@@ -9,7 +9,7 @@ namespace WakHead
     {
         public void GoTitle()
         {
-            SceneManager.LoadScene("RealTitle");
+            SceneManager.LoadScene("Loading");
         }
     }
 }

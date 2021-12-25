@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1088166751
+CRC: 497764911
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0b2cda689fa260073704a51c46405c2a
+    Hash: 81442d5cf20da9541dc866fc87def8c6
   TypeTreeHash:
     serializedVersion: 2
-    Hash: d428c2a310b6067d1207699ac7718ca4
+    Hash: 2b70b0432b61c0894a49ad68d65f93a2
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -197,6 +197,8 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 233
   Script: {instanceID: 0}
+- Class: 243
+  Script: {instanceID: 0}
 - Class: 331
   Script: {instanceID: 0}
 Assets:
@@ -317,4 +319,5 @@ Assets:
 - Assets/Prefab/Actor_Sub/Ranger_Titan.prefab
 - Assets/Prefab/Effect/RespawnPos.prefab
 Dependencies:
+- D:/WakHeadRenewal/Assets/StreamingAssets/audiomixer
 - D:/WakHeadRenewal/Assets/StreamingAssets/sound

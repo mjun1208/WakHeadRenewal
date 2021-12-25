@@ -272,6 +272,8 @@ namespace WakHead
             
             GameStartAction?.Invoke();
             
+            SoundManager.Play("Ready", Vector3.zero);
+            
             _blueReadyObject.GetComponent<RectTransform>().DOAnchorPosX(-800, 0.5f).From(new Vector2(553, 0));
             _redReadyObject.GetComponent<RectTransform>().DOAnchorPosX(800, 0.5f).From(new Vector2(-553, 0)).OnComplete(() => _readyObject.SetActive(false));
             _vsObject.transform.DOMoveY(-800, 0.5f);
