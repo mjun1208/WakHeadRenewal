@@ -138,6 +138,27 @@ namespace WakHead
             _rollingGauge = 0f;
         }
 
+        public override void PlayAttackSound()
+        {
+            base.PlayAttackSound();
+
+            Global.SoundManager.Play("Ranger_Attack_Sound", this.transform.position);
+        }
+
+        public override void PlaySkill_1Sound()
+        {
+            base.PlaySkill_1Sound();
+            
+            Global.SoundManager.Play("Ranger_Skill_1_Sound", this.transform.position);
+        }
+
+        public override void PlaySkill_2Sound()
+        {
+            base.PlaySkill_2Sound();
+            
+            Global.SoundManager.Play("Ranger_Skill_2_Sound" , this.transform.position);
+        }
+
         protected override void Dead()
         {
             base.Dead();
