@@ -397,6 +397,27 @@ namespace WakHead
             Global.PoolingManager.LocalSpawn("DeathEffect", pos, Quaternion.identity, true);
         }
 
+        public override void PlayAttackSound()
+        {
+            base.PlayAttackSound();
+            Global.SoundManager.Play("Banana_Attack_Sound", this.transform.position);
+        }
+
+        public void PlaySkill_Sound()
+        {
+            Global.SoundManager.Play("Banana_Skill_Sound", this.transform.position);
+        }
+        
+        public void PlayJump_Sound()
+        {
+            Global.SoundManager.Play("Banana_Jump_Sound", this.transform.position);
+        }
+        
+        public void PlayBall_Sound()
+        {
+            Global.SoundManager.Play("Banana_Ball_Sound", this.transform.position);
+        }
+
         protected override void Dead()
         {
             base.Dead();
