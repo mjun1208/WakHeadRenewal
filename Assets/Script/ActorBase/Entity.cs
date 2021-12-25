@@ -79,6 +79,15 @@ namespace WakHead
                 {
                     if (DeadCameraAction != null)
                     {
+                        if (photonView.IsMine)
+                        {
+                            Global.SoundManager.Play("Dead", this.transform.position);
+                        }
+                        else
+                        {
+                            Global.SoundManager.Play("Win", this.transform.position);
+                        }
+                        
                         DeadCameraAction?.Invoke(DeadAction, this);
                     }
                     else
