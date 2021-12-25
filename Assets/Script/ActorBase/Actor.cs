@@ -202,7 +202,6 @@ namespace WakHead
                     case Team.RED:
                     {
                         this.transform.position = Global.instance.RedTower.transform.position + new Vector3(3f, 0, 0);
-                        ;
                         break;
                     }
                 }
