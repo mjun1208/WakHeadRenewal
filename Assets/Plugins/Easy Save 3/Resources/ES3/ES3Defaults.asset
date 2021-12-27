@@ -30,8 +30,8 @@ MonoBehaviour:
     serializationDepthLimit: 64
     assemblyNames:
     - Assembly-CSharp-firstpass
-    - PhotonUnityNetworking.Demos
     - Assembly-CSharp
+    - PhotonUnityNetworking.Demos
     - PhotonUnityNetworking.Utilities
     - Cinemachine
     - ACTk.Runtime

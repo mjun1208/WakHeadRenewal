@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 601376342
+CRC: 1471151480
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 165932af7035beb7ca904fda7f874f3c
+    Hash: 9ab97f598c46d82e50900ed16aeb31e9
   TypeTreeHash:
     serializedVersion: 2
     Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
@@ -40,6 +40,7 @@ Assets:
 - Assets/Sound/Actor/Vengenpro/Vengenpro_Skill_2_Sound.mp3
 - Assets/Sound/Actor/Kakashi/Kakashi_Skill_2_Middle_Sound.mp3
 - Assets/Sound/Actor/Minecraft/Minecraft_Skill_1_Sound.mp3
+- Assets/Sound/Actor/Dead.mp3
 - "Assets/Sound/Notify/\uC810\uB839 \uC131\uACF5.mp3"
 - Assets/Sound/Actor/Tree/Tree_Attack_Sound_5.mp3
 - Assets/Sound/Actor/VR/VR_Skill_2_Sound.mp3
@@ -62,6 +63,7 @@ Assets:
 - Assets/Sound/Actor/Naruto/Naruto_Skill_1_Sound.mp3
 - Assets/Sound/Actor/Jett/Jett_Attack_Sound.mp3
 - Assets/Sound/Actor/Normal/Normal_Skill_1_Start_Sound.mp3
+- Assets/Sound/Actor/Win.wav
 - Assets/Sound/Actor/VR/VR_Skill_1_Sound.mp3
 - Assets/Sound/Actor/Naruto/Naruto_Skill_2_Sound.mp3
 - Assets/Sound/Actor/Normal/Normal_Skill_2_Sound.mp3
