@@ -10,3 +10,6 @@
 ### 그래픽 : 코디잉, 은콩
 
 ## Unity를 사용하여 만들었습니다.
+
+#### 실행 파일 : 
+https://drive.google.com/file/d/1I3l9r3ME63o-apELXeLFDo98y46E6mRv/view
