@@ -15,5 +15,5 @@
 [![image](https://github.com/user-attachments/assets/ffabda81-9414-4fca-8e0c-243f31d9882e)](https://github.com/mjun1208/WakHeadRenewal/releases/tag/WakHead)
 
 ## 게임 설명:
-#### 멀티플레이 1대1 대전 액션 게임입니다.
-#### Photon을 사용하였고,
+멀티플레이 1대1 대전 액션 게임입니다.
+Photon을 사용하였고,
