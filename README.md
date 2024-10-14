@@ -12,4 +12,4 @@
 ## Unity를 사용하여 만들었습니다.
 
 #### 실행 파일 : 
-![image](https://github.com/user-attachments/assets/ffabda81-9414-4fca-8e0c-243f31d9882e, https://drive.google.com/file/d/1I3l9r3ME63o-apELXeLFDo98y46E6mRv/view)
+[![image](https://github.com/user-attachments/assets/ffabda81-9414-4fca-8e0c-243f31d9882e)](https://drive.google.com/file/d/1I3l9r3ME63o-apELXeLFDo98y46E6mRv/view)
